@@ -1,0 +1,10 @@
+//공통 레이아웃
+@import 'layout/common';//공통 색상 및 함수
+@import 'layout/reset';
+@import 'layout/layout';
+
+//공통 네비게이션
+@import 'layout/header';
+@import 'layout/sidebar';
+
+//공통 컴포넌트
