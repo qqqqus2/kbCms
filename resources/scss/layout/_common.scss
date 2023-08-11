@@ -7,7 +7,7 @@
 
   --gray_01_black: #202020;
   --gray_02-darkBlue :#42444E;
-  --gray_03-subText: #42444E;
+  --gray_03-subText: #666;
 
   --gray_999: #999999;
 
@@ -16,7 +16,9 @@
   --background-color: #F3F5F6;
 
   --error-color:#FF1C37;
- }
+  --yellow-color: #FFC700;
+}
+
 html {
   font-size: 62.5%;
   -webkit-text-size-adjust: none;
@@ -53,6 +55,7 @@ body {
   letter-spacing: -0.02em;
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--background-color);
 }
 
 a{

@@ -199,11 +199,11 @@
           if ($this.next('.kb-lnb-dep2').length) {
 
             $this.addClass('in-sub');
-            if($this.parent().hasClass('active')){
+
+            if($this.parent('li').hasClass('active')){
               $this.addClass('open');
             }
-            
-            $this.next().show();
+
             // $this.siblings('.kb-lnb-dep2').children('.kb-lnb-dep3 li').hide();
           }
 
@@ -232,7 +232,11 @@
             $this.show();
             $this.children('.kb-lnb-link').addClass('open')
           }
-        })
+          if($this.parents('li').hasClass('active')){
+            $this.parents('li').children(':first-child').addClass('open');
+          }
+        });
+        
         $lnbDepth3.each(function () {
           const $this = $(this);
           if($(this).children('li').hasClass('active')){

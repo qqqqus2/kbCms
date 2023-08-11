@@ -63,7 +63,7 @@
           <nav class="kb-lnb" aria-label="Main navigation">
             <ul class="kb-lnb-dep1">
               <li>
-                <a href="#" class="kb-lnb-link"><span>대시보드</span></a>
+                <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
               </li>
             
               <li>
@@ -289,7 +289,7 @@
         <div class="kb-page-title">
           <div>
             <div class="kb-title">
-              <h2 class="page-tit">대시보드</h2>
+              <h2 class="page-tit">가이드</h2>
               <nav aria-label="breadcrumb" class="ml-auto">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">홈</a></li>
@@ -304,36 +304,111 @@
         <!-- //컨텐츠헤더 -->
 
         <!-- 컨텐츠 박스 -->
-        <div class="kb-content-box" style="height: 1000px;">
-          <div>
-            <h3 class="contents-tit">Form</h3>
-            <div>
-              <h4>input</h4>
+        <div class="kb-content-box" >
+          <h3 class="content-tit">Form</h3>
+          <div class="mt-20">
+            <h4 class="tit">input</h4>
+
+            <div class="form-item">
+              <div class="input">
+                <input type="text" title="입력하세요" placeholder="입력하세요" aria-label="입력하세요" />
+              </div>
+              <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
             </div>
 
-            <div>
-              <h4>select</h4>
+            <div class="form-item mt-12">
+              <div class="input">
+                <input type="text" title="입력하세요" placeholder="입력하세요" aria-label="입력하세요" disabled />
+              </div>
+              <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+            </div>
+
+            <div class="form-item mt-12">
+              <div class="input is-error"><!-- 잘못 입력시 is-error -->
+                <input type="text" title="입력하세요" placeholder="입력하세요" aria-label="입력하세요" />
+              </div>
+              <div class="validate-txt is-error">입력정보를 입력하세요.</div>
             </div>
           </div>
 
-          <div>
-            <h3 class="contents-tit">Buttons</h3>
-            <div>
-              <h4>input</h4>
+          <div class="mt-20">
+            <h4 class="tit">select</h4>
+            <div class="form-item mt-12">
+              <div class="select"><!-- 잘못 입력시 is-error -->
+                <select class="">
+                  <option value="" disabled selected>선택해주세요</option>
+                  <option value="">선택 1</option>
+                  <option value="">선택 2</option>
+                  <option value="">선택 3</option>
+                  <option value="">선택 4</option>
+                </select>
+              </div>
+              <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
             </div>
-          
-            <div>
-              <h4>select</h4>
+
+            <div class="form-item mt-12">
+              <div class="select is-error"><!-- 잘못 입력시 is-error -->
+                <select class="" aria-placeholder="테스트">
+                  <option>선택 1</option>
+                  <option>선택 2</option>
+                  <option>선택 3</option>
+                  <option>선택 4</option>
+                </select>
+              </div>
+              <div class="validate-txt is-error">선택하세요</div>
             </div>
+          </div>
+
+          <h3 class="contents-tit">Buttons</h3>
+          <div class="mt-20">
+            <h4 class="tit">Mid</h4>
+            
+            <button type="button" class="btn btn-mid btn-yellow">저장</button>
+            <button type="button" class="btn btn-mid btn-yellow" disabled>저장</button>
+            <br />
+            <button type="button" class="btn btn-mid btn-line">목록</button>
+            <button type="button" class="btn btn-mid btn-line" disabled>목록</button>
+            <br />
+            <button type="button" class="btn btn-mid btn-line btn-down" >다운로드</button>
+            <button type="button" class="btn btn-mid btn-line btn-down" disabled>다운로드</button>
+          </div>
+        
+          <div class="mt-20">
+            <h4 class="tit">Small</h4>
+            <button type="button" class="btn btn-sml btn-gray">버튼</button>
+            <button type="button" class="btn btn-sml btn-gray" disabled>버튼</button>
+            <br />
+            <button type="button" class="btn btn-sml btn-line">버튼</button>
+            <button type="button" class="btn btn-sml btn-line" disabled>버튼</button>
+            <br />
+            <button type="button" class="btn btn-sml btn-line btn-down">다운로드</button>
+            <button type="button" class="btn btn-sml btn-line btn-down" disabled >다운로드</button>
+          </div>
+
+          <div class="mt-20">
+            <h4 class="tit">Mini</h4>
+            <button type="button" class="btn btn-tiny btn-gray">버튼</button>
+            <button type="button" class="btn btn-tiny btn-gray" disabled>버튼</button>
+            <br />
+            <button type="button" class="btn btn-tiny btn-line btn-down">다운로드</button>
+            <button type="button" class="btn btn-tiny btn-line btn-down" disabled>다운로드</button>
+          </div>
+
+          <div class="mt-20">
+            <h4 class="tit">Round</h4>
+            <button type="button" class="btn btn-sml btn-round btn-gray">버튼</button>
+            <button type="button" class="btn btn-sml btn-round btn-line">버튼</button>
+            <button type="button" class="btn btn-sml btn-round btn-gray" disabled>버튼</button>
           </div>
         </div>
+
       </main>
       <!-- //컨텐츠 -->
     </div>
     <!-- //container -->
 
     <!-- 푸터 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
-    <div data-include-html="../include/footer.html"></div>
+    <!-- <div data-include-html="/include/footer.html"></div> -->
     <!-- 푸터 -->
   </section>
   <!-- //wrap -->
