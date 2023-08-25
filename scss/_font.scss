@@ -1,0 +1,37 @@
+/* =============================
+  KBFGText
+============================= */
+/* KBFGTextL : 300 */
+@font-face {
+  font-family: 'KBFGText';
+  font-style: normal;
+  font-weight: 300;
+  font-display: fallback;
+  src: local('KBFGTextL'), local('KBFGTextL'),
+    url('../font/KBFGTextL.eot') format('eot'),
+    url('../font/KBFGTextL.woff') format('woff'),
+    url('../font/KBFGTextL.otf') format('opentype');
+}
+
+/* KBFGTextM : 500 */
+@font-face {
+  font-family: 'KBFGText';
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+  src: local('KBFGTextM'), local('KBFGTextM'),
+    url('../font/KBFGTextM.eot') format('eot'),
+    url('../font/KBFGTextM.woff') format('woff'),
+    url('../font/KBFGTextM.otf') format('opentype');
+}
+
+/* KBFGTextB : 700 */
+@font-face {
+  font-family: 'KBFGText';
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: local('KBFGTextB'), local('KBFGTextB'),
+    url('../font/KBFGTextB.ttf') format('truetype');
+}
+

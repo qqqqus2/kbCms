@@ -1,0 +1,268 @@
+/**
+ * @package PickMeUp
+ * @author  Nazar Mokrynskyi <nazar@mokrynskyi.com>
+ * @license 0BSD
+ */
+$border-radius : 0.8rem !default;
+$background : #fff !default;
+$color : #202020 !default;
+$background-hover : transparent !default;
+$color-hover : #88c5eb !default;
+$nav-color : $color !default;
+$nav-color-hover : $color-hover !default;
+$not-in-month : #999 !default;
+$not-in-month-hover : #999 !default;
+$disabled : #d7d7d7 !default;
+$selected : $color !default;
+$selected-background : #FFDC00 !default;
+$not-in-month-selected-background : #17384d !default;
+$day-of-week : $not-in-month-hover !default;
+$today-background : #fff !default;
+$today-color : #202020 !default;
+
+.pickmeup {
+  background: $background;
+  border-radius: $border-radius;
+  border: 1px var(--line-color-ccc) solid;
+  box-shadow: 4px 4px 8px 0px #00000014;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  display: inline-block;
+  position: absolute;
+  touch-action: manipulation;
+
+  * {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  &.pmu-flat {
+    position: relative;
+  }
+
+  &.pmu-hidden {
+    display: none;
+  }
+
+  .pmu-instance {
+    display: inline-block;
+    height: auto;
+    padding: 2rem;
+    padding-bottom: 4.5rem;
+    text-align: center;
+    width: 26.4rem;
+
+    .pmu-button {
+      color: $color;
+      cursor: pointer;
+      outline: none;
+      text-decoration: none;
+    }
+
+    .pmu-today {
+      background: #fff;
+      color: #202020;
+      border-radius: 50%;
+      border: 1px #2E74F2 solid;
+    }
+
+    .pmu-button:hover {
+      //	background : $background-hover;
+      //	color      : $color-hover;
+    }
+
+    .pmu-not-in-month {
+      color: $not-in-month;
+    }
+
+    .pmu-disabled,
+    .pmu-disabled:hover {
+      color: $disabled;
+      cursor: default;
+    }
+
+
+    .pmu-selected {
+      background: $selected-background;
+      color: $selected;
+      border-radius: 0;
+
+      &.pmu-today {
+        border-radius: 50%;
+      }
+      
+    }
+
+    .pmu-not-in-month.pmu-selected {
+      // background : $not-in-month-selected-background;
+    }
+
+    nav {
+      color: $nav-color;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      line-height: 32px;
+      align-items: center;
+      *:first-child :hover {
+        color: $nav-color-hover;
+      }
+
+      .pmu-prev,
+      .pmu-next {
+        display: none;
+        height: 2em;
+        width: 1em;
+      }
+
+      .pmu-month {
+        width: 100%;
+      }
+    }
+
+    .pmu-years,
+    .pmu-months {
+      * {
+        display: inline-block;
+        // line-height : 3.6em;
+        // width       : 3.5em;
+      }
+    }
+
+    .pmu-day-of-week {
+      color: $day-of-week;
+      cursor: default;
+    }
+
+    .pmu-day-of-week,
+    .pmu-days {
+      * {
+        display: inline-block;
+        line-height: 32px;
+        width: 32px;
+        margin: 1px 0;
+        
+          
+        
+      }
+      
+    }
+
+
+    .pmu-sunday {
+      color: #FF1C37 !important;
+      &.pmu-disabled{
+        opacity: .5;
+      }
+    }
+
+    .pmu-day-of-week * {
+      line-height: 32px;
+    }
+
+    .pmu-months,
+    .pmu-years {
+      margin-top: 20px;
+
+      * {
+        width: 54px;
+        line-height: 32px;
+        border-radius: 16px;
+        text-align: center;
+      }
+    }
+  }
+
+  .pmu-instance:first-child .pmu-prev,
+  .pmu-instance:last-child .pmu-next {
+    display: block;
+    font-size:0;
+    position: relative;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-size: 1rem auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12' fill='none'%3E%3Cpath d='M1 11L5.78787 6.21213C5.90502 6.09498 5.90502 5.90503 5.78787 5.78787L1 1' stroke='black' stroke-linecap='round'/%3E%3C/svg%3E"); 
+  }
+  .pmu-instance:first-child .pmu-prev{
+    transform: rotate(-180deg);
+  }
+  .pmu-instance .pmu-close,
+  .pmu-instance .pmu-todaySelect{
+    display: none;
+  }
+  .pmu-instance:last-child .pmu-close{
+    display: block;
+    position: absolute;
+    bottom: 1rem;
+    font-size:1.2rem;
+    line-height: 1.8rem;
+    border-radius: 1.6rem;
+    width: 5rem;
+    padding: 0.4rem 1rem 0.3rem;
+    font-weight: 300;
+    left:50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background-color: var(--gray_02-darkBlue);
+  }
+  .pmu-instance:last-child .pmu-todaySelect{
+    display: block;
+    position: absolute;
+    bottom: 1rem;
+    font-size:1.2rem;
+    line-height: 1.8rem;
+    border-radius: 1.6rem;
+    width: auto;
+    padding: 0.7rem 1.6rem 0.5rem;
+    font-weight: 300;
+    left:0;
+    color: var(--gray_02-darkBlue);
+    text-decoration: underline;
+  }
+
+  .pmu-instance:first-child,
+  .pmu-instance:last-child {
+    .pmu-month {
+      width: 100%;
+      font-size: 16px;
+      font-weight: 700;
+      color: #42444E;
+    }
+  }
+
+  .pmu-instance:first-child:last-child .pmu-month {
+    width: 100%;
+  }
+
+  &:not(.pmu-view-days) .pmu-days,
+  &:not(.pmu-view-days) .pmu-day-of-week,
+  &:not(.pmu-view-months) .pmu-months,
+  &:not(.pmu-view-years) .pmu-years {
+    display: none;
+  }
+}
+
+.calendar-btns{
+  .btn{
+    display: inline-block;
+    border: 0.1rem solid var(--line-color-ccc);
+    border-radius: 1.6rem;
+    line-height: 1.6rem;
+    padding: 0.6rem 1.6rem;
+    padding-top: 0.8rem;
+    font-weight: 300;
+    background-color: var(--background-color);
+    cursor: pointer;
+    & + .btn{
+      margin-left: 0.4rem;
+    }
+    &.active{
+      background-color: var(--gray_02-darkBlue);
+      border-color: var(--gray_02-darkBlue);
+      color:#fff;
+    }
+  }
+  
+}

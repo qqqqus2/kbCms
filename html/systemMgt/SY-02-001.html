@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>KB 증권 CMS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+  <!-- css -->
+  <link href="/css/main.css" rel="stylesheet" />
+
+  <!-- js -->
+  <script src="/js/js/lib/jquery-3.6.0.min.js"></script>
+  <script src="/js/js/lib/datepicker/datepickerCustom.js"></script>
+  <script src="/js/pubCustom.js"></script>
+
+</head>
+
+<body class="sysMgt-layout">
+  <!-- wrap -->
+  <section class="kb-wrap">
+    <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+    <header class="kb-navbar">
+  <div class="navbar-top">
+    <!-- 메뉴 열림 -->
+    <button id="btnExpand" type="button" class="btn-expand">
+      <span class="sr-only">사이드 바 펼치기</span>
+    </button>
+    <div class="navbar-brand-wrap">
+      <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+    </div>
+    <!-- <a href="#" class="kb-navbar-btn" aria-label="메뉴열기"><i></i><span class="sr-only">메뉴열기</span></a> -->
+
+    <ul class="navbar-nav kb-navbar-util">
+      <li class="nav-item">
+        <div class="btn-group" role="group">
+          <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>김국민국민국민</strong>(KB123456)님
+          </button>
+          <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+            <a class="dropdown-item" href="#">비밀번호 변경</a>
+          </div> -->
+        </div>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="nav-link log-out">로그아웃</button>
+      </li>
+    </ul>
+  </div>
+</header>
+    <!-- //헤더 -->
+
+    <!-- container -->
+    <div class="kb-container">
+
+      <!-- 컨텐츠 -->
+      <main class="kb-content" role="main">
+        <!-- 컨텐츠헤더 -->
+        <div class="kb-page-title">
+          <div>
+            <div class="kb-title">
+              <h2 class="page-tit">권한 관리</h2>
+              <nav aria-label="breadcrumb" class="ml-auto">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">홈</a></li>
+                  <li class="breadcrumb-item"><a href="#">시스템관리</a></li><!-- 1뎁스 -->
+                  <li class="breadcrumb-item active" aria-current="page">권한 관리</li><!-- 현재 페이지 -->
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <!-- //컨텐츠헤더 -->
+
+        <!-- 시스템 관리 사이드바 -->
+        <div class="sys-sidebar">
+          <h3 class="tit pt-12 pl-12 pr-12 pb-16">권한 그룹 목록</h3>
+          <div class="h-100p overflow-auto">
+            <nav class="nav-list">
+              <ul>
+                <li>
+                  <a href="#" class="active">최고 관리자</a>
+                </li>
+                <li>
+                  <a href="#">현업</a>
+                </li>
+                <li class="active">
+                  <a href="#">콘텐츠 생성자</a>
+                </li>
+                <li>
+                  <a href="#">개인화 분석자</a>
+                </li>
+
+              </ul>
+            </nav>
+          </div>
+          <div class="bottom-menu">
+            <a href="#grpDelPop" type="button" class="btn btn-grpDel pop-open">그룹 삭제</a>
+            <a href="#grpRegiPop" type="button" class="btn btn-grpAdd pop-open">그룹 추가</a>
+          </div>
+        </div>
+
+        <!-- 컨텐츠 박스 -->
+        <div class="kb-content-box">
+
+          <div class="ui_tab">
+            <div class="tab_inner">
+              <i class="tab_line" aria-hidden="true"></i>
+              <ul class="tab-list link-tab w-auto">
+                <li class="tab active"><a href="javascript:void(0)">사용자 관리</a></li>
+                <li class="tab"><a href="SY-02-003.html">권한 관리</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 사용자 관리 -->
+          <div class="tab_box active">
+            <div class="flex mt-28 mb-12 align-center">
+              <strong>그룹내 계정 사용자 <span class="fc-blue">12</span>명</strong>
+              <div class="ml-auto t-right">
+                <button type="button" class="btn btn-sml btn-line">삭제</button>
+                <button type="button" class="btn btn-sml btn-gray">등록</button>
+              </div>
+            </div>
+            <div class="table-wrap inner-scroll">
+              <table class="table">
+                <colgroup>
+                  <col style="width: 20px;" />
+                  <col style="width: 30px;" />
+                  <col style="width: 100px;" />
+                  <col style="width: 100px;" />
+                  <col style="width: 100px;" />
+                  <col style="width: auto;" />
+                  <col style="width: auto;" />
+                  <col style="width: 170px;" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </th>
+                    <th>NO</th>
+                    <th>
+                      <span class="list-align">
+                        이름
+                        <i role="button" class="btn-alignList"></i>
+                      </span>
+                    </th>
+                    <th>
+                      <span class="list-align">
+                        사번
+                        <i role="button" class="btn-alignList"></i>
+                      </span>
+                    </th>
+                    <th>부서코드</th>
+                    <th>
+                      <span class="list-align">
+                        부서명
+                        <i role="button" class="btn-alignList"></i>
+                      </span>
+                    </th>
+                    <th>담당업무</th>
+                    <th>권한부여 일시</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>1</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>2</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>3</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>4</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>5</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>6</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>7</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>8</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>9</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>10</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>11</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>12</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>13</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>14</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>15</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>16</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>17</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>18</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>19</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>20</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>21</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>22</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>23</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>24</td>
+                    <td>한서진</td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td class="t-left">콘텐츠 전략 스쿼드</td>
+                    <td class="t-left">콘텐츠 분류 생성</td>
+                    <td>2023.07.14 12:55</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+      </main>
+      <!-- //컨텐츠 -->
+
+      <!-- 그룹삭제 팝업 -->
+      <article class="modal" id="grpDelPop" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="alert-msg">
+                삭제하시겠습니까?
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#grpDelPop" class="btn pop-close">아니오</a>
+              <button type="button" class="btn">예</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 그룹 등록 팝업 -->
+      <article class="modal w-1000" id="grpRegiPop" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="alert-msg">
+                삭제하시겠습니까?
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#grpRegiPop" class="btn pop-close">아니오</a>
+              <button type="button" class="btn">예</button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <!-- //container -->
+
+
+  </section>
+  <!-- //wrap -->
+
+  <script>
+
+  </script>
+</body>
+
+</html>

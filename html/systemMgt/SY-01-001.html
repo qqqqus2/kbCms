@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>KB 증권 CMS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+  <!-- css -->
+  <link href="/css/main.css" rel="stylesheet" />
+
+  <!-- js -->
+  <script src="/js/lib/jquery-3.6.0.min.js"></script>
+  <script src="/js/lib/datepicker/datepickerCustom.js"></script>
+  <script src="/js/pubCustom.js"></script>
+
+</head>
+
+<body class="no-sidebar">
+  <!-- wrap -->
+  <section class="kb-wrap">
+    <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+    <header class="kb-navbar">
+      <div class="navbar-top">
+        <!-- 메뉴 열림 -->
+        <button id="btnExpand" type="button" class="btn-expand">
+          <span class="sr-only">사이드 바 펼치기</span>
+        </button>
+        <div class="navbar-brand-wrap">
+          <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+        </div>
+        <!-- <a href="#" class="kb-navbar-btn" aria-label="메뉴열기"><i></i><span class="sr-only">메뉴열기</span></a> -->
+
+        <ul class="navbar-nav kb-navbar-util">
+          <li class="nav-item">
+            <div class="btn-group" role="group">
+              <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <strong>김국민국민국민</strong>(KB123456)님
+              </button>
+              <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                <a class="dropdown-item" href="#">비밀번호 변경</a>
+              </div> -->
+            </div>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link log-out">로그아웃</button>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- //헤더 -->
+
+    <!-- container -->
+    <div class="kb-container">
+
+      <!-- 컨텐츠 -->
+      <main class="kb-content" role="main">
+        <!-- 컨텐츠헤더 -->
+        <div class="kb-page-title">
+          <div>
+            <div class="kb-title">
+              <h2 class="page-tit">사용자 관리</h2>
+              <nav aria-label="breadcrumb" class="ml-auto">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">홈</a></li>
+                  <li class="breadcrumb-item"><a href="#">시스템관리</a></li><!-- 1뎁스 -->
+                  <li class="breadcrumb-item"><a href="#">계정 관리</a></li><!-- 2뎁스 -->
+                  <li class="breadcrumb-item active" aria-current="page">사용자 관리</li><!-- 현재 페이지 -->
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <!-- //컨텐츠헤더 -->
+        <style>
+
+        </style>
+        <!-- 컨텐츠 박스 -->
+        <div class="kb-content-box">
+          <div class="common-search">
+            <dl>
+              <dt>기간검색</dt>
+              <dd>
+                <div class="form-item">
+                  <div class="select">
+                    <select class="">
+                      <option value="" selected>승인일자</option>
+                      <option value="">선택 1</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="daterange input input-date range">
+                    <input type="text" id="">               
+                  </div>
+                  <div class="inline-flex calendar-btns ml-6">
+                    <button type="button" class="btn btn-currentDay active">당일</button>
+                    <button type="button" class="btn btn-prevWeek">1주일</button>
+                    <button type="button" class="btn btn-prevMonth">1개월</button>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>상태</dt>
+              <dd>
+                <div class="form-item">
+                  <div class="select">
+                    <select class="">
+                      <option value="" selected>전체</option>
+                      <option value="">이름</option>
+                      <option value="">사번</option>
+                      <option value="">부서명</option>
+                    </select>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>키워드</dt>
+              <dd class="w-full">
+                <div class="form-item w-auto">
+                  <div class="select">
+                    <select class="">
+                      <option value="" selected>전체</option>
+                      <option value="">이름</option>
+                      <option value="">사번</option>
+                      <option value="">부서명</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-item">
+                  <div class="input w-full">
+                    <input type="text" title="키워드 입력" placeholder="여러 개의 키워드 동시 검색 시 ‘,’ 쉼표를 구분자로 사용하여 최대 3개까지 검색조건으로 설정 할 수 있습니다.
+" aria-label="키워드 입력" />
+                  </div>
+                  <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="common-search-btn mt-16">
+          <button type="button" class="btn btn-mid btn-line">초기화</button>
+          <button type="button" class="btn btn-mid btn-yellow">검색</button>
+        </div>
+
+        <div class="kb-content-box mt-32">
+          <div class="common-search-table">
+            <div class="title-wrap flex align-center mb-12">
+              <div class="left">검색결과 <strong class="fc-blue">999</strong> / 9999</div>
+              <div class="ml-auto inline-flex justify-end">
+                <div class="form-item">
+                  <div class="select">
+                    <select class="">
+                      <option value="" selected>20개씩 보기</option>
+                      <option value="">50개씩 보기</option>
+                      <option value="">100개씩 보기</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-sml btn-line ml-6">사용중지</button>
+                <button type="button" class="btn btn-sml btn-gray ml-6">사용</button>
+              </div>
+            </div>
+          
+            <!-- -->
+            <div class="table-wrap">
+              <table class="table">
+                <colgroup>
+                  <col style="width: 20px;" />
+                  <col style="width: 30px;" />
+                  <col style="width: 100px;" />
+                  <col style="width: 100px;" />
+                  <col style="width: 100px;" />
+                  <col style="width: auto;" />
+                  <col style="width: 170px;" />
+                  <col style="width: 170px;" />
+                  <col style="width: 100px;" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </th>
+                    <th>NO</th>
+                    <th>이름</th>
+                    <th>사번</th>
+                    <th>부서코드</th>
+                    <th>부서명</th>
+                    <th>
+                      <span class="list-align">
+                        승인일시
+                        <i role="button" class="btn-alignList"></i>
+                      </span>
+                    </th>
+                    <th>
+                      <span class="list-align">
+                        중지일시
+                        <i role="button" class="btn-alignList"></i>
+                      </span>
+                    </th>
+                    <th>상태</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>1</td>
+                    <td><a href="#" class="linked">한서진</a></td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td>콘텐츠 전략 스쿼드</td>
+                    <td>2023-07-14 12:23</td>
+                    <td>2023-07-14 12:23</td>
+                    <td>사용</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox sml only">
+                        <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                      </label>
+                    </td>
+                    <td>2</td>
+                    <td><a href="#" class="linked">한서진</a></td>
+                    <td>KB0083720</td>
+                    <td>01010101</td>
+                    <td>콘텐츠 전략 스쿼드</td>
+                    <td>2023-07-14 12:23</td>
+                    <td>-</td>
+                    <td>사용중지</td>
+                  </tr>
+                  <!-- 검색결과가 없습니다 -->
+                  <tr>
+                    <td colspan="9">
+                      <div class="search-notFound">
+                        검색결과가 없습니다.
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- 페이징 -->
+              <nav aria-label="Page navigation">
+                <ul class="pagination justify-center mt-16">
+                  <li class="page-item">
+                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                      <span aria-hidden="true">&#60;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                      <span aria-hidden="true">&#62;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- //컨텐츠 -->
+    </div>
+    <!-- //container -->
+
+
+  </section>
+  <!-- //wrap -->
+
+  <script>
+    
+  </script>
+</body>
+
+</html>

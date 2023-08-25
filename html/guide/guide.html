@@ -2,21 +2,19 @@
 <html lang="ko">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>KB 증권 CMS</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>KB 증권 CMS</title>
+<link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
 
-  <!-- css -->
-  <link href="../../resources/lib/fontawesome/css/all.min.css" rel="stylesheet" />
-  <link href="../../resources/css/main.min.css" rel="stylesheet" />
+<!-- css -->
+<link href="/css/main.css" rel="stylesheet" />
 
-  <!-- js -->
-  <script src="../../resources/lib/jquery-3.6.0.min.js"></script>
-  <script src="../../resources/lib/ckeditor/ckeditor.js"></script>
-  <script src="../../resources/js/custom.js"></script>
-
+<!-- js -->
+<script src="/js/lib/jquery-3.6.0.min.js"></script>
+<script src="/js/lib/datepicker/datepickerCustom.js"></script>
+<script src="/js/pubCustom.js"></script>
 </head>
 
 <body>
@@ -37,15 +35,7 @@
     
         <ul class="navbar-nav kb-navbar-util">
           <li class="nav-item">
-            <div class="btn-group" role="group">
-              <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <strong>김국민국민국민</strong>(KB123456)님
-              </button>
-              <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
-                <a class="dropdown-item" href="#">비밀번호 변경</a>
-              </div> -->
-            </div>
+            <strong>김국민국민국민</strong>(KB123456)님
           </li>
           <li class="nav-item">
             <button type="button" class="nav-link log-out">로그아웃</button>
@@ -305,10 +295,8 @@
 
         <!-- 컨텐츠 박스 -->
         <div class="kb-content-box" >
-          <h3 class="content-tit">Form</h3>
+          <h3 class="content-tit">input</h3>
           <div class="mt-20">
-            <h4 class="tit">input</h4>
-
             <div class="form-item">
               <div class="input">
                 <input type="text" title="입력하세요" placeholder="입력하세요" aria-label="입력하세요" />
@@ -330,9 +318,11 @@
               <div class="validate-txt is-error">입력정보를 입력하세요.</div>
             </div>
           </div>
+        </div>
 
+        <div class="kb-content-box">
+          <h3 class="content-tit">select</h3>
           <div class="mt-20">
-            <h4 class="tit">select</h4>
             <div class="form-item mt-12">
               <div class="select"><!-- 잘못 입력시 is-error -->
                 <select class="">
@@ -345,7 +335,7 @@
               </div>
               <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
             </div>
-
+          
             <div class="form-item mt-12">
               <div class="select is-error"><!-- 잘못 입력시 is-error -->
                 <select class="" aria-placeholder="테스트">
@@ -355,50 +345,359 @@
                   <option>선택 4</option>
                 </select>
               </div>
-              <div class="validate-txt is-error">선택하세요</div>
+              <div class="validate-txt is-error">잘못 선택하셨습니다.</div>
             </div>
           </div>
+        </div>
 
-          <h3 class="contents-tit">Buttons</h3>
+        <div class="kb-content-box">
+          <h3 class="content-tit">Tab</h3>
+          <div class="mt-20">
+            
+            <div class="ui_tab">
+              <div class="tab_inner">
+                <i class="tab_line" aria-hidden="true"></i>
+                <ul class="tab-list w-auto">
+                  <li class="tab active"><a href="#tab-1">탭메뉴 1</a></li>
+                  <li class="tab"><a href="#tab-2">탭메뉴 2</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="tab-1" class="tab_box active">
+              탭메뉴 1
+            </div>
+            <div id="tab-2" class="tab_box">
+              탭메뉴 2
+            </div>
+          </div>
+        </div>
+
+        <div class="kb-content-box">
+          <h3 class="content-tit">Table</h3>
+          <div class="mt-20">
+            <h4 class="tit">Default</h4>
+            <div class="table-wrap">
+              <table class="table">
+                <colgroup>
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>헤더 1</th>
+                    <th>헤더 2</th>
+                    <th>헤더 3</th>
+                    <th>헤더 4</th>
+                    <th>헤더 5</th>
+                    <th>헤더 6</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                  </tr>
+                  <tr>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                  </tr>
+                  <tr>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                    <td>텍스트</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+
+          <div class="mt-20">
+            <h4 class="tit">Left</h4>
+
+            <div class="table-wrap">
+              <table class="table left-table">
+                <colgroup>
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                </colgroup>
+              
+                <tbody>
+                  <tr>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                  </tr>
+                  <tr>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                  </tr>
+                  <tr>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                  </tr>
+                  <tr>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                  </tr>
+                  <tr>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                    <th>헤더</th>
+                    <td>텍스트</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        
+          </div>
+        </div>
+
+        <div class="kb-content-box">
+          <h3 class="content-tit">Buttons</h3>
           <div class="mt-20">
             <h4 class="tit">Mid</h4>
-            
+          
             <button type="button" class="btn btn-mid btn-yellow">저장</button>
             <button type="button" class="btn btn-mid btn-yellow" disabled>저장</button>
-            <br />
+            <hr class="hr-divide" />
             <button type="button" class="btn btn-mid btn-line">목록</button>
             <button type="button" class="btn btn-mid btn-line" disabled>목록</button>
-            <br />
-            <button type="button" class="btn btn-mid btn-line btn-down" >다운로드</button>
+            <hr class="hr-divide" />
+            <button type="button" class="btn btn-mid btn-line btn-down">다운로드</button>
             <button type="button" class="btn btn-mid btn-line btn-down" disabled>다운로드</button>
           </div>
-        
+          
           <div class="mt-20">
             <h4 class="tit">Small</h4>
             <button type="button" class="btn btn-sml btn-gray">버튼</button>
             <button type="button" class="btn btn-sml btn-gray" disabled>버튼</button>
-            <br />
+            <hr class="hr-divide" />
             <button type="button" class="btn btn-sml btn-line">버튼</button>
             <button type="button" class="btn btn-sml btn-line" disabled>버튼</button>
-            <br />
+            <hr class="hr-divide" />
             <button type="button" class="btn btn-sml btn-line btn-down">다운로드</button>
-            <button type="button" class="btn btn-sml btn-line btn-down" disabled >다운로드</button>
+            <button type="button" class="btn btn-sml btn-line btn-down" disabled>다운로드</button>
           </div>
-
+          
           <div class="mt-20">
             <h4 class="tit">Mini</h4>
             <button type="button" class="btn btn-tiny btn-gray">버튼</button>
             <button type="button" class="btn btn-tiny btn-gray" disabled>버튼</button>
-            <br />
+            <hr class="hr-divide" />
             <button type="button" class="btn btn-tiny btn-line btn-down">다운로드</button>
             <button type="button" class="btn btn-tiny btn-line btn-down" disabled>다운로드</button>
           </div>
-
+          
           <div class="mt-20">
             <h4 class="tit">Round</h4>
             <button type="button" class="btn btn-sml btn-round btn-gray">버튼</button>
             <button type="button" class="btn btn-sml btn-round btn-line">버튼</button>
             <button type="button" class="btn btn-sml btn-round btn-gray" disabled>버튼</button>
+          </div>
+
+        </div>
+
+        <div class="kb-content-box">
+          <h3 class="content-tit">달력</h3>
+          <div class="mt-20">
+            <div>
+              <h4 class="tit">달력 - 기간선택</h4>
+              
+              <div class="form-item">
+                <div class="daterange input input-date range">
+                  <input type="text" id="datepicker">
+                  
+                </div>
+                <div class="inline-flex">
+                  <button type="button" class="btn btn-currentDay btn-tiny btn-round btn-line">오늘</button>
+                  <button type="button" class="btn btn-prevWeek btn-tiny btn-round btn-line">1주일</button>
+                  <button type="button" class="btn btn-prevMonth btn-tiny btn-round btn-line">1개월</button>
+                </div>
+              </div>
+            </div>
+            
+            <hr class="hr-divide" />
+            
+            <div class="mt-20">
+              <h4 class="tit">달력 - 주선택</h4>
+              
+              <div class="form-item">
+                <div class="weekselect input input-date range">
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+            
+            <hr class="hr-divide" />
+            
+            <div class="mt-20">
+              <h4 class="tit">달력 - 일선택</h4>
+            
+              <div class="form-item">
+                <div class="dayselect input input-date">
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+
+            <hr class="hr-divide" />
+            
+            <div class="mt-20">
+              <h4 class="tit">달력 - 월선택</h4>
+            
+              <div class="form-item">
+                <div class="monthselect input input-date">
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="kb-content-box">
+          <h3 class="content-tit">팝업</h3>
+          <div class="mt-20">
+            <a href="#exampleModalConfirm" class="btn btn-sml btn-round btn-gray pop-open">컨펌 팝업 열기</a>
+          </div>
+          <div class="mt-20">
+            <a href="#exampleModal" class="btn btn-sml btn-round btn-gray pop-open">팝업 열기</a>
+          </div>
+
+          <!-- Modal -->
+          <article class="modal" id="exampleModalConfirm" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="alert-msg">
+                    삭제하시겠습니까?
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a href="#exampleModalConfirm" class="btn pop-close">아니오</a>
+                  <button type="button" class="btn">예</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="modal" id="exampleModal" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="alert-msg">
+                    선택한 정보가 없습니다
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a href="#exampleModal" class="btn pop-close">확인</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="kb-content-box">
+          <h3 class="content-tit">Checkbox &amp; Radio &amp; Pagination</h3>
+          <div class="mt-20">
+            <h4 class="tit">체크박스 MID</h4>
+            <label class="checkbox ">
+              <input type="checkbox" class="" /><i aria-hidden="true" class="lbl"></i>
+              <span>체크박스 1</span>
+            </label>
+            <label class="checkbox ml-10">
+              <input type="checkbox" class="" /><i aria-hidden="true" class="lbl"></i>
+              <span>체크박스 2</span>
+            </label>
+
+            <h4 class="tit mt-20">체크박스 SMALL</h4>
+            <label class="checkbox sml">
+              <input type="checkbox" class="" /><i aria-hidden="true" class="lbl"></i>
+              <span>체크박스 sml 1</span>
+            </label>
+            <label class="checkbox sml ml-10">
+              <input type="checkbox" class="" /><i aria-hidden="true" class="lbl"></i>
+              <span>체크박스 sml 2</span>
+            </label>
+          </div>
+
+          <div class="mt-40">
+            <h4 class="tit">라디오 버튼</h4>
+            <label class="radio ">
+              <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+              <span>라디오 버튼 1</span>
+            </label>
+            <label class="radio ml-10">
+              <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+              <span>라디오 버튼 2</span>
+            </label>
+
+            <h4 class="tit mt-20">라디오버튼 SMALL</h4>
+            <label class="radio sml">
+              <input type="radio" name="rdo2" class="" /><i aria-hidden="true" class="lbl"></i>
+              <span>라디오 버튼sml 1</span>
+            </label>
+            <label class="radio sml ml-10">
+              <input type="radio" name="rdo2" class="" /><i aria-hidden="true" class="lbl"></i>
+              <span>라디오 버튼sml 2</span>
+            </label>
+          </div>
+
+          <div class="mt-40">
+            <h4 class="tit">페이징</h4>
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link prev-page" href="#" aria-label="이전페이지로">
+                    <span aria-hidden="true">&#60;</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                    <span aria-hidden="true">&#62;</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link next-last" href="#" aria-label="마지막으로">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
 
