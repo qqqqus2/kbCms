@@ -2,451 +2,676 @@
 <html lang="ko">
 
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<title>KB 증권 CMS</title>
-<link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/common/favicon.png" />
 
-<!-- css -->
-<link href="/css/main.css" rel="stylesheet" />
+    <!-- css -->
+    <link href="../../css/main.css" rel="stylesheet" />
 
-<!-- js -->
-<script src="/js/js/lib/jquery-3.6.0.min.js"></script>
-<script src="/js/js/lib/datepicker/datepickerCustom.js"></script>
-<script src="/js/pubCustom.js"></script>
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/lib/datepicker/datepickerCustom.js"></script>
+    <script src="/js/pubCustom.js"></script>
 </head>
 
-<body class="no-sidebar">
+<body>
     <!-- wrap -->
     <section class="kb-wrap">
         <!-- 헤더 -->
         <header class="kb-navbar">
-        <div class="navbar-top">
-            <!-- 메뉴 열림 -->
-            <button id="btnExpand" type="button" class="btn-expand">
-            <span class="sr-only">사이드 바 펼치기</span>
-            </button>
-            <div class="navbar-brand-wrap">
-            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠
-                관리
-                시스템</strong></a>
-            </div>
-            <!-- <a href="#" class="kb-navbar-btn" aria-label="메뉴열기"><i></i><span class="sr-only">메뉴열기</span></a> -->
+            <div class="navbar-top">
+                <!-- 메뉴 열림 -->
+                <button id="btnExpand" type="button" class="btn-expand">
+                    <span class="sr-only">사이드 바 펼치기</span>
+                </button>
+                <div class="navbar-brand-wrap">
+                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong
+                            class="sr-only">KB 증권 콘텐츠
+                            관리
+                            시스템</strong></a>
+                </div>
 
-            <ul class="navbar-nav kb-navbar-util">
-            <li class="nav-item">
-                <strong>김국민국민국민</strong>(KB123456)님
-            </li>
-            <li class="nav-item">
-                <button type="button" class="nav-link log-out">로그아웃</button>
-            </li>
-            </ul>
-        </div>
+
+                <ul class="navbar-nav kb-navbar-util">
+                    <li class="nav-item">
+                        <strong>김국민국민국민</strong>(KB123456)님
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link log-out">로그아웃</button>
+                    </li>
+                </ul>
+            </div>
         </header>
         <!-- //헤더 -->
 
         <!-- container -->
         <div class="kb-container">
 
-        <!-- 컨텐츠 -->
-        <main class="kb-content" role="main">
-            <!-- 컨텐츠헤더 -->
-            <div class="kb-page-title">
-            <div>
-                <div class="kb-title">
-                <h2 class="page-tit">페이지 리스트</h2>
-                <nav aria-label="breadcrumb" class="ml-auto">
-                    <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">홈</a></li>
-                    <!-- <li class="breadcrumb-item"><a href="#">모니터링</a></li> --><!-- 1뎁스 -->
-                    <!-- <li class="breadcrumb-item"><a href="#">모니터링 대시보드</a></li> --><!-- 2뎁스 -->
-                    <li class="breadcrumb-item active" aria-current="page">페이지 리스트</li><!-- 현재 페이지 -->
-                    </ol>
-                </nav>
+            <!-- 컨텐츠 -->
+            <main class="kb-content" role="main" style="margin: 0;">
+                <!-- 컨텐츠헤더 -->
+                <div class="kb-page-title">
+                    <div style="left: 0;">
+                        <div class="kb-title">
+                            <h2 class="page-tit">페이지 리스트</h2>
+                            <nav aria-label="breadcrumb" class="ml-auto">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                                    <!-- <li class="breadcrumb-item"><a href="#">모니터링</a></li> --><!-- 1뎁스 -->
+                                    <!-- <li class="breadcrumb-item"><a href="#">모니터링 대시보드</a></li> --><!-- 2뎁스 -->
+                                    <li class="breadcrumb-item active" aria-current="page">페이지 리스트</li><!-- 현재 페이지 -->
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            </div>
-            <!-- //컨텐츠헤더 -->
+                <!-- //컨텐츠헤더 -->
 
-            <!-- 컨텐츠 박스 -->
-            <div class="kb-content-box">
-            <table class="table dark">
-                <colgroup>
-                    <col style="width: 16.666%;" />
-                    <col style="width: 16.666%;" />
-                    <col style="width: 16.666%;" />
-                    <col style="width: auto" />
-                    <col style="width: 16.666%;" />
-                    <col style="width: 5%;" />
-                </colgroup>
-                <thead>
-                <tr>
-                    <th>1 depth</th>
-                    <th>2 depth</th>
-                    <th>3 depth</th>
-                    <th>화면ID</th>
-                    <th>비고</th>
-                    <th>진행상황</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr style="border-top: 4px #72727248 solid;">
-                    <th class="t-center" style="background-color: rgba(236, 255, 240, 0.736);">홈</th>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td><a href="/_dev/publish/html/dashboard/dashboard.html" target="_blank" title="새창열림">dashboard</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr style="border-top: 4px #72727248 solid;">
-                    <th class="t-center" rowspan="7" style="background-color: rgba(255, 241, 202, 0.736);">로그인 및 계정관리</th>
-                    <td>로그인</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/loginAccount/MB-01-001.html" target="_blank" title="새창열림">MB-01-001</a></td>
-                    <td></td>
-                    <td class="fc-blue">완료</td>
-                </tr>
-                <tr>
-                    <td>CMS 사용신청</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/loginAccount/MB-01-002.html" target="_blank" title="새창열림">MB-01-002</a></td>
-                    <td></td>
-                    <td class="fc-blue">완료</td>
-                </tr>
-                <tr>
-                    <td>승인대기 안내</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/loginAccount/MB-01-003.html" target="_blank" title="새창열림">MB-01-003</a></td>
-                    <td></td>
-                    <td class="fc-blue">완료</td>
-                </tr>
-                <tr>
-                    <td>반려 안내</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/loginAccount/MB-01-004.html" target="_blank" title="새창열림">MB-01-004</a></td>
-                    <td></td>
-                    <td class="fc-blue">완료</td>
-                </tr>
-                <tr>
-                    <td>사용중지 안내</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/loginAccount/MB-01-005.html" target="_blank" title="새창열림">MB-01-005</a></td>
-                    <td></td>
-                    <td class="fc-blue">완료</td>
-                </tr>
-                <tr>
-                    <td>권한미부여 안내</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/loginAccount/MB-01-006.html" target="_blank" title="새창열림">MB-01-006</a></td>
-                    <td></td>
-                    <td class="fc-blue">완료</td>
-                </tr>
-                <tr>
-                    <td>사용정지(폐기) 안내</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/loginAccount/MB-01-007.html" target="_blank" title="새창열림">MB-01-007</a></td>
-                    <td></td>
-                    <td class="fc-blue">완료</td>
-                </tr>
+                <!-- 컨텐츠 박스 -->
+                <div class="kb-box-inner">
+                    <table class="table dark">
+                        <colgroup>
+                            <col style="width: 16.666%;" />
+                            <col style="width: 16.666%;" />
+                            <col style="width: 16.666%;" />
+                            <col style="width: auto" />
+                            <col style="width: 16.666%;" />
+                            <col style="width: 5%;" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>1 depth</th>
+                                <th>2 depth</th>
+                                <th>3 depth</th>
+                                <th>화면ID</th>
+                                <th>비고</th>
+                                <th>진행상황</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-top: 4px #72727248 solid;">
+                                <th class="t-center" style="background-color: rgba(236, 255, 240, 0.736);">홈</th>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td><a href="/_dev/publish/html/dashboard/dashboard.html" target="_blank"
+                                        title="새창열림">dashboard</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr style="border-top: 4px #72727248 solid;">
+                                <th class="t-center" rowspan="8" style="background-color: rgba(255, 241, 202, 0.736);">
+                                    로그인 및 계정관리</th>
+                                <td>로그인</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/loginAccount/MB-01-001.html" target="_blank"
+                                        title="새창열림">MB-01-001</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>CMS 사용신청</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/loginAccount/MB-01-002.html" target="_blank"
+                                        title="새창열림">MB-01-002</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>승인대기 안내</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/loginAccount/MB-01-003.html" target="_blank"
+                                        title="새창열림">MB-01-003</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>반려 안내</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/loginAccount/MB-01-004.html" target="_blank"
+                                        title="새창열림">MB-01-004</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>사용중지 안내</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/loginAccount/MB-01-005.html" target="_blank"
+                                        title="새창열림">MB-01-005</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>권한미부여 안내</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/loginAccount/MB-01-006.html" target="_blank"
+                                        title="새창열림">MB-01-006</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>사용정지(폐기) 안내</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/loginAccount/MB-01-007.html" target="_blank"
+                                        title="새창열림">MB-01-007</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>나의 계정정보</td>
+                                <td></td>
+                                <td><a href="/html/loginAccount/P-MB-001.html" target="_blank" title="새창열림">P-MB-001</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
 
-                <tr style="border-top: 4px #72727248 solid;">
-                    <th class="t-center" rowspan="6" style="background-color: rgba(187, 187, 255, 0.736);">시스템관리</th>
-                    <td>계정관리</td>
-                    <td>사용자관리</td>
-                    <td><a href="/_dev/publish/html/systemMgt/SY-01-001.html" target="_blank" title="새창열림">SY-01-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>계정관리</td>
-                    <td>사용자관리</td>
-                    <td><a href="/_dev/publish/html/systemMgt/SY-01-002.html" target="_blank" title="새창열림">SY-01-002</a></td>
-                    <td>상세 / 수정</td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                
-                <tr>
-                    <td>계정관리</td>
-                    <td>신청관리</td>
-                    <td><a href="/_dev/publish/html/systemMgt/SY-01-004.html" target="_blank" title="새창열림">SY-01-004</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>계정관리</td>
-                    <td>신청관리 상세수정</td>
-                    <td><a href="/_dev/publish/html/systemMgt/SY-01-005.html" target="_blank" title="새창열림">SY-01-005</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
+                            <tr style="border-top: 4px #72727248 solid;">
+                                <th class="t-center" rowspan="11" style="background-color: rgba(187, 187, 255, 0.736);">
+                                    시스템관리</th>
+                                <td>계정관리</td>
+                                <td>사용자관리</td>
+                                <td><a href="/_dev/publish/html/systemMgt/SY-01-001.html" target="_blank"
+                                        title="새창열림">SY-01-001</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
 
-                <tr>
-                    <td>권한관리</td>
-                    <td>권한별 사용자관리</td>
-                    <td><a href="/_dev/publish/html/systemMgt/SY-02-001.html" target="_blank" title="새창열림">SY-02-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>권한관리</td>
-                    <td>메뉴별 권한관리</td>
-                    <td><a href="/_dev/publish/html/systemMgt/SY-02-003.html" target="_blank" title="새창열림">SY-02-003</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <!-- <tr>
-                    <td>메뉴관리</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/systemMgt/SY-03-001.html" target="_blank" title="새창열림">SY-03-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr> -->
+                            <tr>
+                                <td>계정관리</td>
+                                <td>사용자관리 상세수정</td>
+                                <td><a href="/_dev/publish/html/systemMgt/SY-01-002.html" target="_blank"
+                                        title="새창열림">SY-01-002</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
 
-                <tr style="border-top: 4px #72727248 solid;">
-                    <th class="t-center" rowspan="7" style="background-color: rgba(251, 125, 140, 0.736);">모니터링</th>
-                    <td>콘텐츠별 현황</td>
-                    <td>콘텐츠 공개 현황</td>
-                    <td><a href="/_dev/publish/html/monitoring/MT-02-001.html" target="_blank" title="새창열림">MT-02-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>인사이트 분석</td>
-                    <td>내부 트렌드 분석</td>
-                    <td><a href="/_dev/publish/html/monitoring/MT-03-001.html" target="_blank" title="새창열림">MT-03-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>인사이트 분석</td>
-                    <td>외무 트렌드 분석(모니터링)</td>
-                    <td><a href="/_dev/publish/html/monitoring/MT-03-002.html" target="_blank" title="새창열림">MT-03-002</a></td>
-                    <td>탭</td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>인사이트 분석</td>
-                    <td>외무 트렌드 분석(예측)</td>
-                    <td><a href="/_dev/publish/html/monitoring/MT-03-003.html" target="_blank" title="새창열림">MT-03-003</a></td>
-                    <td>탭</td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>인사이트 분석</td>
-                    <td>경쟁사 동향 분석(블로그)</td>
-                    <td><a href="/_dev/publish/html/monitoring/MT-03-004.html" target="_blank" title="새창열림">MT-03-004</a></td>
-                    <td>탭</td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>인사이트 분석</td>
-                    <td>경쟁사 동향 분석(뉴스레터)</td>
-                    <td><a href="/_dev/publish/html/monitoring/MT-03-005.html" target="_blank" title="새창열림">MT-03-005</a></td>
-                    <td>탭</td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>인사이트 분석</td>
-                    <td>경쟁사 동향 분석(업권)</td>
-                    <td><a href="/_dev/publish/html/monitoring/MT-03-006.html" target="_blank" title="새창열림">MT-03-006</a></td>
-                    <td>탭</td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
+                            <tr>
+                                <td>계정관리</td>
+                                <td>신청관리</td>
+                                <td><a href="/_dev/publish/html/systemMgt/SY-01-004.html" target="_blank"
+                                        title="새창열림">SY-01-004</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>계정관리</td>
+                                <td>신청관리 상세수정</td>
+                                <td><a href="/_dev/publish/html/systemMgt/SY-01-005.html" target="_blank"
+                                        title="새창열림">SY-01-005</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>권한관리</td>
+                                <td>권한별 사용자관리</td>
+                                <td><a href="/_dev/publish/html/systemMgt/SY-02-001.html" target="_blank"
+                                        title="새창열림">SY-02-001</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+
+                            <tr>
+                                <td>권한관리</td>
+                                <td>메뉴별 권한관리</td>
+                                <td><a href="/_dev/publish/html/systemMgt/SY-02-003.html" target="_blank"
+                                        title="새창열림">SY-02-003</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>계정관리</td>
+                                <td>사용자관리 - 사용중지 팝업</td>
+                                <td><a href="/_dev/publish/html/systemMgt/P-SY-001.html" target="_blank"
+                                        title="새창열림">P-SY-001</a>
+                                </td>
+                                <td>팝업</td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>계정관리</td>
+                                <td>신청관리 - 계정신청반려 팝업</td>
+                                <td><a href="/_dev/publish/html/systemMgt/P-SY-002.html" target="_blank"
+                                        title="새창열림">P-SY-002</a>
+                                </td>
+                                <td>팝업</td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>권한관리</td>
+                                <td>권한별 사용자관리 - 권한그룹 계정추가 팝업</td>
+                                <td><a href="/_dev/publish/html/systemMgt/P-SY-003.html" target="_blank"
+                                        title="새창열림">P-SY-003</a>
+                                </td>
+                                <td>팝업</td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>권한관리</td>
+                                <td>권한별 사용자관리 - 권한그룹 등록 팝업</td>
+                                <td><a href="/_dev/publish/html/systemMgt/P-SY-004.html" target="_blank"
+                                        title="새창열림">P-SY-004</a>
+                                </td>
+                                <td>팝업</td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>메뉴관리</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/systemMgt/SY-03-001.html" target="_blank" title="새창열림">SY-03-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+
+                            <tr style="border-top: 4px #72727248 solid;">
+                                <th class="t-center" rowspan="9" style="background-color: rgba(251, 125, 140, 0.736);">
+                                    모니터링</th>
+                                <td>콘텐츠별 현황</td>
+                                <td>콘텐츠 공개 현황</td>
+                                <td><a href="/_dev/publish/html/monitoring/MT-02-001.html" target="_blank"
+                                        title="새창열림">MT-02-001</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>인사이트 분석</td>
+                                <td>내부 트렌드 분석</td>
+                                <td><a href="/_dev/publish/html/monitoring/MT-03-001.html" target="_blank"
+                                        title="새창열림">MT-03-001</a>
+                                </td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>인사이트 분석</td>
+                                <td>외무 트렌드 분석(모니터링)</td>
+                                <td><a href="/_dev/publish/html/monitoring/MT-03-002.html" target="_blank"
+                                        title="새창열림">MT-03-002</a>
+                                </td>
+                                <td>탭</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>인사이트 분석</td>
+                                <td>외무 트렌드 분석(예측)</td>
+                                <td><a href="/_dev/publish/html/monitoring/MT-03-003.html" target="_blank"
+                                        title="새창열림">MT-03-003</a>
+                                </td>
+                                <td>탭</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>인사이트 분석</td>
+                                <td>경쟁사 동향 분석(블로그)</td>
+                                <td><a href="/_dev/publish/html/monitoring/MT-03-004.html" target="_blank"
+                                        title="새창열림">MT-03-004</a>
+                                </td>
+                                <td>탭</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>인사이트 분석</td>
+                                <td>경쟁사 동향 분석(뉴스레터)</td>
+                                <td><a href="/_dev/publish/html/monitoring/MT-03-005.html" target="_blank"
+                                        title="새창열림">MT-03-005</a>
+                                </td>
+                                <td>탭</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>인사이트 분석</td>
+                                <td>경쟁사 동향 분석(업권)</td>
+                                <td><a href="/_dev/publish/html/monitoring/MT-03-006.html" target="_blank"
+                                        title="새창열림">MT-03-006</a>
+                                </td>
+                                <td>탭</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/monitoring/P-MT-001.html" target="_blank"
+                                        title="새창열림">P-MT-001</a>
+                                </td>
+                                <td>팝업</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/monitoring/P-MT-002.html" target="_blank"
+                                        title="새창열림">P-MT-002</a>
+                                </td>
+                                <td>팝업</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
 
 
-                <tr style="border-top: 4px #72727248 solid;">
-                    <th class="t-center" rowspan="11" style="background-color: rgba(197, 255, 214, 0.736);">콘텐츠 생성/배포</th>
-                    <td>콘텐츠(AEM) 작성하기</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-01-001.html" target="_blank" title="새창열림">CC-01-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 관리</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-02-001.html" target="_blank" title="새창열림">CC-02-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 관리</td>
-                    <td>콘텐츠 부가정보 상세</td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-02-002.html" target="_blank" title="새창열림">CC-02-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 부가정보 등록</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-03-001.html" target="_blank" title="새창열림">CC-03-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 사용 신청 목록</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-04-001.html" target="_blank" title="새창열림">CC-04-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 사용 신청 목록</td>
-                    <td>사용신청 등록</td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-04-002.html" target="_blank" title="새창열림">CC-04-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 사용 신청 목록</td>
-                    <td>사용신청 상세</td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-04-002.html" target="_blank" title="새창열림">CC-04-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 제작 요청 목록</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-05-001.html" target="_blank" title="새창열림">CC-05-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 제작 요청 목록</td>
-                    <td>제작 요청 등록</td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-05-002.html" target="_blank" title="새창열림">CC-05-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 제작 요청 목록</td>
-                    <td>제작 요청 상세</td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-05-003.html" target="_blank" title="새창열림">CC-05-003</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>콘텐츠 제작 요청 목록</td>
-                    <td>제작 요청 미리보기</td>
-                    <td><a href="/_dev/publish/html/contentsRegi/CC-05-004.html" target="_blank" title="새창열림">CC-05-004</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
+                            <tr style="border-top: 4px #72727248 solid;">
+                                <th class="t-center" rowspan="15" style="background-color: rgba(197, 255, 214, 0.736);">
+                                    콘텐츠 생성/배포</th>
+                                <td>콘텐츠(AEM) 작성하기</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-01-001.html" target="_blank"
+                                        title="새창열림">CC-01-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 관리</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-02-001.html" target="_blank"
+                                        title="새창열림">CC-02-001</a></td>
+                                <td></td>
+                            <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 관리</td>
+                                <td>콘텐츠 부가정보 상세</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-02-002.html" target="_blank"
+                                        title="새창열림">CC-02-002</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 부가정보 등록</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-03-001.html" target="_blank"
+                                        title="새창열림">CC-03-001</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 사용 신청 목록</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-04-001.html" target="_blank"
+                                        title="새창열림">CC-04-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 사용 신청 목록</td>
+                                <td>사용신청 등록</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-04-002.html" target="_blank"
+                                        title="새창열림">CC-04-002</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 사용 신청 목록</td>
+                                <td>사용신청 상세</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-04-002.html" target="_blank"
+                                        title="새창열림">CC-04-002</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 제작 요청 목록</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-05-001.html" target="_blank"
+                                        title="새창열림">CC-05-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 제작 요청 목록</td>
+                                <td>제작 요청 등록</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-05-002.html" target="_blank"
+                                        title="새창열림">CC-05-002</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 제작 요청 목록</td>
+                                <td>제작 요청 상세</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-05-003.html" target="_blank"
+                                        title="새창열림">CC-05-003</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 제작 요청 목록</td>
+                                <td>제작 요청 미리보기</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/CC-05-004.html" target="_blank"
+                                        title="새창열림">CC-05-004</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <!-- 팝업 -->
+                            <tr>
+                                <td>콘텐츠 관리</td>
+                                <td>연관섹터/테마 조회</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/P-CC-001.html" target="_blank"
+                                        title="새창열림">P-CC-001</a></td>
+                                <td>팝업</td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 관리</td>
+                                <td>(마블)연관메뉴 조회</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/P-CC-002.html" target="_blank"
+                                        title="새창열림">P-CC-002</a></td>
+                                <td>팝업</td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 관리</td>
+                                <td>(연관)콘텐츠 조회</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/P-CC-003.html" target="_blank"
+                                        title="새창열림">P-CC-003</a></td>
+                                <td>팝업</td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td>콘텐츠 관리</td>
+                                <td>부서 조회</td>
+                                <td><a href="/_dev/publish/html/contentsRegi/P-CC-004.html" target="_blank"
+                                        title="새창열림">P-CC-004</a></td>
+                                <td>팝업</td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
 
-                <tr style="border-top: 4px #72727248 solid;">
-                    <th class="t-center" rowspan="14" style="background-color: rgba(255, 151, 104, 0.2);">콘텐츠속성 관리</th>
-                    <td>타켓분류 관리</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-01-001.html" target="_blank" title="새창열림">CA-01-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>타켓분류 관리</td>
-                    <td>타켓분류 등록</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-01-002.html" target="_blank" title="새창열림">CA-01-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>타켓분류 관리</td>
-                    <td>타겟분류 상세/수정</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-01-003.html" target="_blank" title="새창열림">CA-01-003</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>특성분류 관리</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-02-001.html" target="_blank" title="새창열림">CA-02-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>특성분류 관리</td>
-                    <td>특성분류 등록</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-02-002.html" target="_blank" title="새창열림">CA-02-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>특성분류 관리</td>
-                    <td>특성분류 상세/수정</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-02-003.html" target="_blank" title="새창열림">CA-02-003</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>내용분류 관리</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-03-001.html" target="_blank" title="새창열림">CA-03-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>내용분류 관리</td>
-                    <td>내용분류 등록</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-03-002.html" target="_blank" title="새창열림">CA-03-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>내용분류 관리</td>
-                    <td>내용분류 상세/수정</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-03-003.html" target="_blank" title="새창열림">CA-03-003</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>연관키워드 관리</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-04-001.html" target="_blank" title="새창열림">CA-04-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>연관키워드 관리</td>
-                    <td>연관키워드 등록</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-04-002.html" target="_blank" title="새창열림">CA-04-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>언어가이드 게시판</td>
-                    <td></td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-05-001.html" target="_blank" title="새창열림">CA-05-001</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>언어가이드 게시판</td>
-                    <td>언어가이드 등록</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-05-002.html" target="_blank" title="새창열림">CA-05-002</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                <tr>
-                    <td>언어가이드 게시판</td>
-                    <td>언어가이드 상세</td>
-                    <td><a href="/_dev/publish/html/contentsMgt/CA-05-003.html" target="_blank" title="새창열림">CA-05-003</a></td>
-                    <td></td>
-                    <td class="fc-gray-666">진행중</td>
-                </tr>
-                </tbody>
-            </table>
-            </div>
-        </main>
-      <!-- //컨텐츠 -->
-    </div>
-    <!-- //container -->
+                            <tr style="border-top: 4px #72727248 solid;">
+                                <th class="t-center" rowspan="16" style="background-color: rgba(255, 151, 104, 0.2);">
+                                    콘텐츠속성 관리</th>
+                                <td>타켓분류 관리</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-01-001.html" target="_blank"
+                                        title="새창열림">CA-01-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>타켓분류 관리</td>
+                                <td>타켓분류 등록</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-01-002.html" target="_blank"
+                                        title="새창열림">CA-01-002</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>타켓분류 관리</td>
+                                <td>타겟분류 상세/수정</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-01-003.html" target="_blank"
+                                        title="새창열림">CA-01-003</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>특성분류 관리</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-02-001.html" target="_blank"
+                                        title="새창열림">CA-02-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>특성분류 관리</td>
+                                <td>특성분류 등록</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-02-002.html" target="_blank"
+                                        title="새창열림">CA-02-002</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>특성분류 관리</td>
+                                <td>특성분류 상세/수정</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-02-003.html" target="_blank"
+                                        title="새창열림">CA-02-003</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>내용분류 관리</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-03-001.html" target="_blank"
+                                        title="새창열림">CA-03-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>내용분류 관리</td>
+                                <td>내용분류 등록</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-03-002.html" target="_blank"
+                                        title="새창열림">CA-03-002</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>내용분류 관리</td>
+                                <td>내용분류 상세/수정</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-03-003.html" target="_blank"
+                                        title="새창열림">CA-03-003</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>연관키워드 관리</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-04-001.html" target="_blank"
+                                        title="새창열림">CA-04-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>연관키워드 관리</td>
+                                <td>연관키워드 등록</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-04-002.html" target="_blank"
+                                        title="새창열림">CA-04-002</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>언어가이드 게시판</td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-05-001.html" target="_blank"
+                                        title="새창열림">CA-05-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>언어가이드 게시판</td>
+                                <td>언어가이드 등록</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-05-002.html" target="_blank"
+                                        title="새창열림">CA-05-002</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td>언어가이드 게시판</td>
+                                <td>언어가이드 상세</td>
+                                <td><a href="/_dev/publish/html/contentsMgt/CA-05-003.html" target="_blank"
+                                        title="새창열림">CA-05-003</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <!-- 팝업 -->
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsMgt/P-CA-001.html" target="_blank"
+                                        title="새창열림">P-CA-001</a></td>
+                                <td>팝업</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/contentsMgt/P-CA-002.html" target="_blank"
+                                        title="새창열림">P-CA-002</a></td>
+                                <td>팝업</td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
 
-  </section>
-  <!-- //wrap -->
+                            <!-- 공통 팝업  -->
+                            <tr style="border-top: 4px #72727248 solid;">
+                                <th class="t-center" rowspan="5" style="background-color: rgba(55, 55, 55, 0.2);">
+                                    공통 팝업</th>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/commonPop/P-CO-001.html" target="_blank"
+                                        title="새창열림">P-CO-001</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/commonPop/P-CO-002.html" target="_blank"
+                                        title="새창열림">P-CO-002</a></td>
+                                <td></td>  
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/commonPop/P-CO-003.html" target="_blank"
+                                        title="새창열림">P-CO-003</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/commonPop/P-CO-005.html" target="_blank"
+                                        title="새창열림">P-CO-005</a></td>
+                                <td></td>
+                                <td class="fc-gray-666">진행중</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/_dev/publish/html/commonPop/P-CO-006.html" target="_blank"
+                                        title="새창열림">P-CO-006</a></td>
+                                <td></td>
+                                <td class="fc-blue">완료</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+            <!-- //컨텐츠 -->
+        </div>
+        <!-- //container -->
 
-  <script>
+    </section>
+    <!-- //wrap -->
 
-  </script>
+    <script>
+
+    </script>
 </body>
 
 </html>

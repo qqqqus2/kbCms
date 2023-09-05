@@ -12,53 +12,33 @@
 <link href="/css/main.css" rel="stylesheet" />
 
 <!-- js -->
-<script src="/js/js/lib/jquery-3.6.0.min.js"></script>
+<script src="/js/lib/jquery-3.6.0.min.js"></script>
 <script src="/js/pubCustom.js"></script>
 
 </head>
 
-<body class="no-sidebar">
+<body class="cms-request">
     <!-- wrap -->
     <section class="kb-wrap">
         <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
         <header class="kb-navbar">
             <div class="navbar-top">
-                <!-- 메뉴 열림 -->
-                <button id="btnExpand" type="button" class="btn-expand">
-                <span class="sr-only">사이드 바 펼치기</span>
-                </button>
                 <div class="navbar-brand-wrap">
-                <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠
+                            관리 시스템</strong></a>
                 </div>
-                <!-- <a href="#" class="kb-navbar-btn" aria-label="메뉴열기"><i></i><span class="sr-only">메뉴열기</span></a> -->
-
-                <ul class="navbar-nav kb-navbar-util">
-                <li class="nav-item">
-                    <div class="btn-group" role="group">
-                    <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <strong>김국민국민국민</strong>(KB123456)님
-                    </button>
-                    <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
-                        <a class="dropdown-item" href="#">비밀번호 변경</a>
-                    </div> -->
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="nav-link log-out">로그아웃</button>
-                </li>
-                </ul>
             </div>
-            </header>
+        </header>
         <!-- //헤더 -->
 
         <!-- container -->
         <div class="kb-container">
         
         <!-- 컨텐츠 -->
-        <main class="kb-content" role="main">
+        <main class="kb-content" role="main" style="margin-left: 0;">
             <!-- 컨텐츠헤더 -->
             <div class="kb-page-title">
-                <div>
+                <div style="left: 0;">
                     <div class="kb-title">
                         <h2 class="page-tit">CMS 사용신청</h2>
                     </div>
@@ -67,7 +47,7 @@
             <!-- //컨텐츠헤더 -->
 
             <!-- 컨텐츠 박스 -->
-            <div class="kb-content-box">
+            <div class="kb-box-inner">
                 <h3 class="content-tit">기본 정보</h3>
                 <table class="table left-table">
                     <colgroup>
@@ -79,63 +59,81 @@
 
                     <tbody>
                         <tr>
-                            <th scope="row" class="t-left">이름</th>
+                            <th scope="col" class="t-left">이름</th>
                             <td>
                                 <div class="form-item">
                                     <div class="input w-200">
-                                        <input type="text" title="이름" value="한서진" readonly />
+                                        <input type="text" title="이름" value="한서진" readonly="readonly" />
                                     </div>
                                 </div>
                             </td>
-                            <th scope="row" class="t-left">사번</th>
+                            <th scope="col" class="t-left">사번</th>
                             <td>
                                 <div class="form-item">
                                     <div class="input w-200">
-                                        <input type="text" title="이름" value="KB0008219" readonly />
+                                        <input type="text" title="이름" value="KB0008219" readonly="readonly" />
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         
                         <tr>
-                            <th scope="row" class="t-left">부서코드</th>
+                            <th scope="col" class="t-left">부서코드</th>
                             <td>
                                 <div class="form-item">
                                     <div class="input w-200">
-                                        <input type="text" title="부서코드" value="01010101" readonly />
+                                        <input type="text" title="부서코드" value="01010101" readonly="readonly" />
                                     </div>
                                 </div>
                             </td>
-                            <th scope="row" class="t-left">부서명</th>
+                            <th scope="col" class="t-left">부서명</th>
                             <td>
                                 <div class="form-item">
                                     <div class="input w-200">
-                                        <input type="text" title="부서명" value="콘텐츠 전략 스쿼드" readonly />
+                                        <input type="text" title="부서명" value="콘텐츠 전략 스쿼드" readonly="readonly" />
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row" class="t-left ">CMS 신청사유<i class="fc-red mr-1">*</i></th>
-                            <td rowspan="3">
-                                <div class="form-item">
-                                    <div class="select w-200"><!-- 잘못 입력시 is-error -->
-                                        <select class="">
-                                        <option value="" disabled selected>CMS 신청사유 선택</option>
-                                        <option value="">선택 1</option>
-                                        <option value="">선택 2</option>
-                                        <option value="">선택 3</option>
-                                        <option value="">선택 4</option>
-                                        </select>
-                                    </div>
-                                    <!-- <div class="validate-txt is-error">잘못 선택 하셨습니다.</div> -->
-                                </div>
+                            <th scope="col" class="t-left ">CMS 신청사유 <i class="fc-red mr-1">*</i></th>
+                            <td colspan="3">
+                                <label class="checkbox">
+                                    <input type="checkbox" class="" />
+                                    <i aria-hidden="true" class="lbl"></i>
+                                    <span>콘텐츠 생성/배포</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" class="" />
+                                    <i aria-hidden="true" class="lbl"></i>
+                                    <span>콘텐츠 속성 관리</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" class="" />
+                                    <i aria-hidden="true" class="lbl"></i>
+                                    <span>콘텐츠 모니터링</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" class="" />
+                                    <i aria-hidden="true" class="lbl"></i>
+                                    <span>콘텐츠 사용 신청</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" class="" />
+                                    <i aria-hidden="true" class="lbl"></i>
+                                    <span>콘텐츠 제작 요청</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" class="" />
+                                    <i aria-hidden="true" class="lbl"></i>
+                                    <span>기타</span>
+                                </label>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <!-- 버튼영역 -->
-                <div class="mt-20 t-right">
+                <div class="mt-16 common-btn-wrap justify-end">
                     <button type="button" class="btn btn-mid btn-line">취소</button>
                     <button type="button" class="btn btn-mid btn-yellow">신청</button>
                 </div>

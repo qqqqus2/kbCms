@@ -10,6 +10,14 @@
 
     // 팝업 
     popupUI() 
+
+    $('.pmu-todaySelect').on('click', function() {
+      var currentDate = new Date();
+      pickmeup('.daterange input').set_date([
+        currentDate
+      ]);
+    })
+    
   });
 
   
@@ -17,7 +25,6 @@
     device.check();
     common.init();
     table.init();
-    
     $(window).scroll();
   };
 
@@ -135,13 +142,22 @@
       common.sidebar();
       common.menuActive();
       common.btnTop();
-      uiTab();
       
       if($('.input-date').length > 0){
         common.calendar();
       }
       common.pageTitle();
       common.pagiNation();
+
+      //탭
+      uiTab();
+
+      //커스텀 셀렉트
+      customSelect();
+
+       //툴팁
+      tooltips();
+      
     },
     
     sidebar: function () {
@@ -150,11 +166,12 @@
         $('.kb-wrap').toggleClass('sidebar-off');
       });
       
-      if(!$('.kb-lnb-dep1').children(":first-child").hasClass('active')){
-        $('.kb-lnb-link').removeClass('open');
+
+      if(!$('.kb-lnb .kb-lnb-dep1').children(":first-child").hasClass('active') ){
+        $('.kb-lnb .kb-lnb-link').removeClass('open');
       }
 
-      $(document).on('click', '.kb-lnb-dep1 .kb-lnb-link', function (e) {
+      $(document).on('click', '.kb-lnb .kb-lnb-dep1 .kb-lnb-link', function (e) {
         if($(this).hasClass('in-sub')){
           e.preventDefault();
           const $this = $(this);
@@ -173,7 +190,7 @@
           }
         }
       });
-      $(document).on('click', '.kb-lnb-dep2 .kb-lnb-link', function (e) {
+      $(document).on('click', '.kb-lnb .kb-lnb-dep2 .kb-lnb-link', function (e) {
         if($(this).hasClass('in-subDepth2')){
           e.preventDefault();
           const $this = $(this);
@@ -207,7 +224,7 @@
         const $path = location.pathname;
         const $title = $('.breadcrumb-item.active').length ? $('.breadcrumb-item.active').text() : $('.kb-title h1').text();
         
-        $('.kb-lnb-dep2').hide();
+        $('.kb-lnb .kb-lnb-dep2').hide();
 
         $linkDepth1.each(function () {
           const $this = $(this);
@@ -237,7 +254,7 @@
           }
           if($this.parents('li').hasClass('active')){
             
-            $this.parents('li').children(':first-child').addClass('open test');
+            $this.parents('li.active').children('a:first-child').addClass('open');
           }
         });
 
@@ -267,6 +284,147 @@
       }
     },
     calendar: function(){
+      
+      $('.date-single input').daterangepicker({
+          startDate: start,
+          endDate: end,
+          "singleDatePicker": true,
+          "timePicker": false,
+          "locale": {
+            "format": 'YYYY-MM-DD',
+            "direction": "rtl",
+            "separator": " ~ ",
+            "applyLabel": "확인",
+            "cancelLabel": "다시 선택",
+            "fromLabel": "부터",
+            "toLabel": "까지",
+            "customRangeLabel": "Custom",
+            "daysOfWeek": ["일","월", "화","수","목","금","토"],
+            "monthNames": [ "1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+            "firstDay": 0,
+            "ranges": {
+              "Today": [
+                  "2023-09-05T12:03:21.226Z",
+                  "2023-09-05T12:03:21.226Z"
+              ],
+              "Yesterday": [
+                  "2023-09-04T12:03:21.226Z",
+                  "2023-09-04T12:03:21.226Z"
+              ],
+              "Last 7 Days": [
+                  "2023-08-30T12:03:21.226Z",
+                  "2023-09-05T12:03:21.226Z"
+              ],
+              "Last 30 Days": [
+                  "2023-08-07T12:03:21.226Z",
+                  "2023-09-05T12:03:21.226Z"
+              ],
+              "This Month": [
+                  "2023-08-31T15:00:00.000Z",
+                  "2023-09-30T14:59:59.999Z"
+              ],
+              "Last Month": [
+                  "2023-07-31T15:00:00.000Z",
+                  "2023-08-31T14:59:59.999Z"
+              ]
+          },
+          },
+        
+      }, function (start, end, label) {
+          // console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+      });
+
+      $('.range input').on('input', function() {
+        // 입력 필드의 값을 가져옵니다.
+        var inputValue = $(this).val();
+        
+        if (inputValue.length == 8) {
+          $(this).val(inputValue + ' '); 
+        }
+
+        if (inputValue.length === 16) {
+          var startDate = inputValue.substring(0, 8); // 앞부분 8자리
+          var endDate = inputValue.substring(8, 16); // 뒷부분 8자리
+          var formattedDate = startDate + ' ~ ' + endDate;
+          $(this).val(formattedDate);
+        } 
+        inputValue = inputValue.replace(/[^0-9]/g, '');
+        
+      });
+
+      $('.range input').on('keydown', function(e) {
+        // Backspace 키 (keyCode 8) 를 눌렀고 input 요소가 focus 상태인 경우
+        if (e.keyCode === 8 && $(this).is(':focus')) {
+            // 입력 값(value) 삭제
+            $(this).val('');
+            // Backspace 키의 기본 동작(이전 페이지로 이동) 막기
+            e.preventDefault();
+        }
+      });
+      
+
+      var start = moment();
+      var end = moment();
+
+      function dateRange(){
+        $('.range input').daterangepicker({
+            "timePicker": false,
+            "locale": {
+              "format": 'YYYY-MM-DD',
+              "direction": "rtl",
+              "separator": " ~ ",
+              "applyLabel": "확인",
+              "cancelLabel": "다시 선택",
+              "fromLabel": "부터",
+              "toLabel": "까지",
+              "customRangeLabel": "Custom",
+              "daysOfWeek": ["일","월", "화","수","목","금","토"],
+              "monthNames": [ "1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+              "firstDay": 0
+            },
+
+        });
+      }
+      dateRange()
+
+      $('.range input').on('cancel.daterangepicker', function (ev, picker) {  
+        $('.btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset').removeClass('active');
+        $('.btn-Reset').addClass('active');
+        $('.range input').val('');
+      });
+
+      $('.btn-Reset').on('click', function(){
+        $('.btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset').removeClass('active');
+        $('.btn-Reset').addClass('active');
+        $('.range input').val('');
+      });
+
+      
+      $('.btn-currentDay').on('click', function(){
+      
+        $('.btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset').removeClass('active');
+        $(this).addClass('active');
+        $('.range input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+        dateRange()
+      });
+
+      $('.btn-prevWeek').on('click', function(){
+        var start = moment().subtract(7, 'days');
+
+        $('.btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset').removeClass('active');
+        $(this).addClass('active');
+        $('.range input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+        dateRange()
+      });
+
+      $('.btn-prevMonth').on('click', function(){
+        var start = moment().subtract(30, 'days');
+
+        $('.btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset').removeClass('active');
+        $(this).addClass('active');
+        $('.range input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+        dateRange()
+      });
       
       //var specificDate = new Date();
       pickmeup('.weekselect input', {
@@ -330,10 +488,6 @@
         }
       });
 
-      document.querySelector('.btn-currentDay').addEventListener('click', selectCurrentDay);
-      document.querySelector('.btn-prevWeek').addEventListener('click', selectPreviousWeek);
-      document.querySelector('.btn-prevMonth').addEventListener('click', selectPreviousMonth);
-         
       pickmeup('.monthselect input', {
         select_year: false,
         select_day: false,
@@ -356,7 +510,7 @@
           firstDayOfLastMonth,
           lastDayOfLastMonth
         ]);
-        $('.btn-currentDay, .btn-prevWeek, .btn-prevMonth').removeClass('active');
+        $('.btn-currentDay , .btn-prevWeek, .btn-prevMonth').removeClass('active');
         $('.btn-prevMonth').addClass('active');
         pickmeup('.daterange input').hide();
         pickmeup('.daterange input').show();
@@ -371,7 +525,7 @@
           firstDayOfWeek,
           lastDayOfWeek
         ]);
-        $('.btn-currentDay, .btn-prevWeek, .btn-prevMonth').removeClass('active');
+        //$('.btn-currentDay , .btn-prevWeek, .btn-prevMonth').removeClass('active');
         $('.btn-prevWeek').addClass('active');
         pickmeup('.daterange input').hide();
         pickmeup('.daterange input').show();
@@ -384,12 +538,13 @@
         pickmeup('.daterange input').set_date([
           currentDate
         ]);
-        $('.btn-currentDay, .btn-prevWeek, .btn-prevMonth').removeClass('active');
-        $('.btn-currentDay').addClass('active');
+
         pickmeup('.daterange input').hide();
         pickmeup('.daterange input').show();
       }
+
     },
+    
     btnTop: function () {
       const settings = {
         button: '#btnTop',
@@ -455,6 +610,7 @@
         if ($title.length) {
           const $titleTop = $title.offset().top;
           const $headH = $('.kb-navbar').outerHeight() - 30;
+        
           if ($SclTop > $titleTop - $headH) {
             $title.addClass('fixed');
           } else {
@@ -538,6 +694,11 @@ function popupUI(){
     $(pop + " #msgPop").empty();
     popClose(pop);
   });
+  //팝업 백그라운드 있을때
+  $('.modal-bg').on('click',function() {
+    $('body').removeClass('hidden popOpen');
+    $('.modal').fadeOut(500).removeClass('opened');
+  })
 }
 function popPositin(tar,speed){
 	var $wrapH = $(tar).height(),
@@ -640,3 +801,147 @@ $(window).resize(function () {
     );
   }
 })();
+
+//툴 팁
+function tooltips(){
+  $('.tooltips').each(function () {
+    const $this = $(this);
+    const $msg = $('.msg');
+
+    $this.children('.btn-tooltips').click(function(){
+      $msg.hide();
+      $this.children($msg).show()
+    })
+    $this.find('.btn-tipClose').click(function(){
+      $msg.hide();
+    })
+
+  })
+}
+
+// 커스텀 셀렉트
+
+function customSelect() {
+  var x, i, j, l, ll, selElmnt, a, b, c;
+
+  x = document.getElementsByClassName("custom-select");
+  l = x.length;
+  for (i = 0; i < l; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+
+    if (selElmnt.disabled) {
+      x[i].classList.add("disabledSelect");
+      continue;
+    }
+
+    ll = selElmnt.length;
+
+    a = document.createElement("div");
+    a.setAttribute("class", "select-selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+
+    b = document.createElement("div");
+    b.setAttribute("class", "select-items select-hide");
+    for (j = 0; j < ll; j++) {
+      c = document.createElement("div");
+      c.innerHTML = selElmnt.options[j].innerHTML;
+      c.addEventListener("click", function (e) {
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+
+            // 현재 선택된 select box의 값을 출력
+            // console.log("Selected Value:", s.options[s.selectedIndex].value);
+            break;
+          }
+        }
+        h.click();
+
+        // select 값이 변경되면 selectedItem() 함수 실행
+        //selectedItem(s);
+      });
+      b.appendChild(c);
+    }
+    x[i].appendChild(b);
+
+    const bodyElement = document.body;
+    bodyElement.addEventListener("click", function (e) {
+      // 클릭된 요소가 a 요소가 아니면 closeAllSelect 함수를 호출합니다.
+      if (!e.target.classList.contains("select-arrow")) {
+        closeAllSelect();
+      }
+    });
+
+    a.addEventListener("click", function (e) {
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+
+    $(window).scroll(function () {
+      closeAllSelect();
+    });
+  }
+  
+
+  function closeAllSelect(elmnt) {
+    var x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+      if (elmnt == y[i]) {
+        arrNo.push(i);
+      } else {
+        y[i].classList.remove("select-arrow-active");
+      }
+    }
+    for (i = 0; i < xl; i++) {
+      if (arrNo.indexOf(i)) {
+        x[i].classList.add("select-hide");
+      }
+    }
+  }
+
+  
+  // 셀렉트 박스 옵션 fixed로 변경
+  $(".select-selected").each(function () {
+    const $this = $(this);
+    
+    if($this.parents('.custom-select').hasClass('fixed')){
+        $this.click(function () {
+        const customSelectWidth = $this.outerWidth();
+        const customSelectLeft = $this.offset().left;
+        const customSelectTop = $this.offset().top;
+        $this.siblings('.select-items').css({ "left": customSelectLeft + "px", "top": customSelectTop + 32 + "px", "min-width": customSelectWidth });
+      });
+    }
+  });
+  
+}
+
+
+
+
+
+
+
+
+
+

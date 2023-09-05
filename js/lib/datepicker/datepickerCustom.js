@@ -512,7 +512,6 @@
 						dom_add_class(day_element, 'pmu-disabled');
 					} else if (from_user.selected || (!('selected' in from_user) && selected)) {
 						dom_add_class(day_element, 'pmu-selected');
-						//dom_add_class(day_element, 'pmu-test');
 					}
 					if (val === today) {
 						dom_add_class(day_element, 'pmu-today');
@@ -801,8 +800,9 @@
 		}
 		if (!dom_has_class(element, 'pmu-button') || dom_has_class(element, 'pmu-todaySelect') ) {
 
-			options.date[0] = new_date;
-			return false;
+			//options.date[0] = new_date;
+
+			//return false;
 		}
 		event.preventDefault();
 		event.stopPropagation();

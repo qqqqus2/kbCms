@@ -2,258 +2,886 @@
 <html lang="ko">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>KB 증권 CMS</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
 
-  <!-- css -->
-  <link href="/css/main.css" rel="stylesheet" />
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
 
-  <!-- js -->
-  <script src="/js/js/lib/jquery-3.6.0.min.js"></script>
-  <script src="/js/js/lib/datepicker/datepickerCustom.js"></script>
-  <script src="/js/pubCustom.js"></script>
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/lib/datepicker/datepickerCustom.js"></script>
+    <script src="/js/pubCustom.js"></script>
 
 </head>
 
 <body>
-  <!-- wrap -->
-  <section class="kb-wrap">
-    <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
-    <header class="kb-navbar">
-  <div class="navbar-top">
-    <!-- 메뉴 열림 -->
-    <button id="btnExpand" type="button" class="btn-expand">
-      <span class="sr-only">사이드 바 펼치기</span>
-    </button>
-    <div class="navbar-brand-wrap">
-      <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
-    </div>
-    <!-- <a href="#" class="kb-navbar-btn" aria-label="메뉴열기"><i></i><span class="sr-only">메뉴열기</span></a> -->
+    <!-- wrap -->
+    <section class="kb-wrap">
+        <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+        <header class="kb-navbar">
+            <div class="navbar-top">
+                <!-- 메뉴 열림 -->
+                <button id="btnExpand" type="button" class="btn-expand">
+                    <span class="sr-only">사이드 바 펼치기</span>
+                </button>
+                <div class="navbar-brand-wrap">
+                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong
+                            class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+                </div>
 
-    <ul class="navbar-nav kb-navbar-util">
-      <li class="nav-item">
-        <div class="btn-group" role="group">
-          <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <strong>김국민국민국민</strong>(KB123456)님
-          </button>
-          <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+
+                <ul class="navbar-nav kb-navbar-util">
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <strong>김국민국민국민</strong>(KB123456)님
+                            </button>
+                            <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
             <a class="dropdown-item" href="#">비밀번호 변경</a>
           </div> -->
-        </div>
-      </li>
-      <li class="nav-item">
-        <button type="button" class="nav-link log-out">로그아웃</button>
-      </li>
-    </ul>
-  </div>
-</header>
-    <!-- //헤더 -->
-
-    <!-- container -->
-    <div class="kb-container">
-      <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
-      <div class="kb-sidebar">
-  <div class="kb-sidebar-inner" id="kb-lnb-nav">
-    <nav class="kb-lnb" aria-label="Main navigation">
-      <ul class="kb-lnb-dep1">
-        <li>
-          <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
-        </li>
-      
-        <li>
-          <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
-          <ul class="kb-lnb-dep2">
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a> 
-            </li>
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠 부가정보 관리</a> 
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a> 
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>  
-            </li>
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
-            </li>
-            <li>
-              <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
-          <ul class="kb-lnb-dep2">
-            <li>
-              <a href="#" class="kb-lnb-link">타겟분류 관리</a>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">특성분류 관리</a> 
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">내용분류 관리</a>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">연관키워드 관리</a>
-            </li>
-            
-            <li>
-              <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
-            </li>
-
-            <li>
-              <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>   
-            </li>
-
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
-          <ul class="kb-lnb-dep2">
-            <li>
-              <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
-                <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
-                <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
-                <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
-                <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">인사이트 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
-                <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
-                <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">조회통계 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">조회수</a></li>
-                <li><a class="kb-lnb-link" href="#">체류시간</a></li>
-                <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
-                <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">순위통계 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
-                <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
-                <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
-                <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">고객통계 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
-                <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
-                <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
-                <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
-                <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
-                <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
-                <li><a class="kb-lnb-link" href="#">시간대별</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">경로 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">유입경로</a></li>
-                <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
-                <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
-          <ul class="kb-lnb-dep2">
-            <li>
-              <a href="#" class="kb-lnb-link">모델 현황 관리</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
-              </ul>
-            </li>
-        
-            <li>
-              <a href="#" class="kb-lnb-link">분석 모델 운영</a> 
-            </li>
-          
-          </ul>
-        </li>
-        
-      </ul>
-    </nav>
-  </div>
-</div>
-      <!-- //사이드바 -->
-
-      <!-- 컨텐츠 -->
-      <main class="kb-content" role="main">
-        <!-- 컨텐츠헤더 -->
-        <div class="kb-page-title">
-          <div>
-            <div class="kb-title">
-              <h2 class="page-tit">콘텐츠 부가정보 등록</h2>
-              <nav aria-label="breadcrumb" class="ml-auto">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">홈</a></li>
-                  <li class="breadcrumb-item"><a href="#">콘텐츠 생성/배포</a></li><!-- 1뎁스 -->
-                  <li class="breadcrumb-item active" aria-current="page">콘텐츠 부가정보 등록</li><!-- 현재 페이지 -->
-                </ol>
-              </nav>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link log-out">로그아웃</button>
+                    </li>
+                </ul>
             </div>
-          </div>
+        </header>
+        <!-- //헤더 -->
+
+        <!-- container -->
+        <div class="kb-container">
+            <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+            <div class="kb-sidebar">
+                <div class="kb-sidebar-inner" id="kb-lnb-nav">
+                    <nav class="kb-lnb" aria-label="Main navigation">
+                        <ul class="kb-lnb-dep1">
+                            <li>
+                                <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 관리</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">타겟분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">특성분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">내용분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">연관키워드 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                                            <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                                            <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                                            <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                                            <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                                            <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">경로 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">분석 모델 운영</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">계정 관리</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                                            <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">권한 관리</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
+                                            <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- //사이드바 -->
+
+            <!-- 컨텐츠 -->
+            <main class="kb-content" role="main">
+                <!-- 컨텐츠헤더 -->
+                <div class="kb-page-title">
+                    <div>
+                        <div class="kb-title">
+                            <!-- 버튼 추가된 타이틀 -->
+                            <div class="btn-contain inline-flex">
+                                <h2 class="page-tit">콘텐츠 부가정보 등록</h2>
+                                <div class="common-btn-wrap ml-12">
+                                    <button type="button" class="btn btn-sml btn-line">신규등록</button>
+                                    <button type="button" class="btn btn-sml btn-line">복사하기</button>
+                                </div>
+                            </div>
+
+                            <nav aria-label="breadcrumb" class="ml-auto">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                                    <li class="breadcrumb-item"><a href="#">콘텐츠 생성/배포</a></li><!-- 1뎁스 -->
+                                    <li class="breadcrumb-item active" aria-current="page">콘텐츠 부가정보 등록</li>
+                                    <!-- 현재 페이지 -->
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <!-- //컨텐츠헤더 -->
+
+                <!-- 컨텐츠 박스 -->
+                <div class="kb-content-box">
+                    <div class="kb-box-inner">
+                        <h3 class="content-tit">컨텐츠 조회</h3>
+                        <div class="table-wrap">
+                            <table class="table left-table">
+                                <colgroup>
+                                    <col style="width: 17rem;" />
+                                    <col />
+                                </colgroup>
+
+                                <tbody>
+                                    <tr>
+                                        <th>콘텐츠 ID</th>
+                                        <td>
+                                            <div class="form-item inline-flex align-center">
+                                                <div class="input w-200">
+                                                    <input type="text" title="콘텐츠 ID" value="c1030506" />
+                                                </div>
+                                                <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
+                                                <span class="fc-gray-666 fz-14 ml-8">권한이 부여되지 않은 경우 ‘권한 미부여’로
+                                                    보여집니다.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="content-tit mt-32">공통 부가정보</h3>
+                        <div class="table-wrap">
+                            <table class="table left-table">
+                                <colgroup>
+                                    <col style="width: 17rem;" />
+                                    <col />
+                                    <col style="width: 17rem;" />
+                                    <col />
+                                </colgroup>
+
+                                <tbody>
+                                    <tr>
+                                        <th>콘텐츠 ID <i class="fc-red">*</i></th>
+                                        <td>
+                                            <div class="form-item">
+                                                <div class="input w-full">
+                                                    <input type="text" title="콘텐츠 ID" value="c1030506" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <th>콘텐츠 그룹 ID <i class="fc-red">*</i></th>
+                                        <td>
+                                            <div class="form-item inline-flex w-full align-center">
+                                                <div class="input w-full">
+                                                    <input type="text" title="콘텐츠 그룹 ID" value="c1030506" readonly="readonly" />
+                                                </div>
+                                                <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>AEM 콘텐츠</th>
+                                        <td colspan="3" class="pl-0 pr-0">
+                                            <!-- 1줄씩 -->
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">
+                                                    <div class="option">
+                                                        <div class="box w-full">
+                                                            <p class="tit">콘텐츠 연결 <i class="fc-red">*</i></p>
+                                                            <div class="form-item inline-flex w-full align-center">
+                                                                <div class="input w-200">
+                                                                    <input type="text" title="콘텐츠 그룹 ID" value="c1030506" readonly="readonly" />
+                                                                </div>
+                                                                <div class="inline-flex w-full">
+                                                                    <div class="input w-full">
+                                                                        <input type="text" title="콘텐츠 그룹 ID" value="c1030506" readonly="readonly" />
+                                                                    </div>
+                                                                    <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="option">
+                                                        <div class="box w-full">
+                                                            <p class="tit">미리보기</p>
+                                                            <div class="form-item inline-flex flex-column w-full align-center">
+                                                                <div class="textarea h-72">
+                                                                    <textarea placeholder="AEM 콘텐츠 정보를 출력합니다."></textarea>
+                                                                </div>
+                                                                <div class="inline-flex mt-2">
+                                                                    <button type="button" class="btn btn-sml btn-line">HTML</button>
+                                                                    <button type="button" class="btn btn-sml btn-gray ml-6">미리보기</button>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>콘텐츠 특성
+                                            <!-- 툴팁 -->
+                                            <div class="tooltips">
+                                                <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
+                                                <p class="msg">
+                                                    <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>
+                                                    <span>콘텐츠 속성관리 &#62; 특성분류 관리에서 생성되는 정보로 콘텐츠 분석(모니터링)을 위해 지정해주세요.</span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <td colspan="3" class="pl-0 pr-0">
+                                            <!-- 1줄씩 -->
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">콘텐츠 MAP <i class="fc-red">*</i></p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">전체</option>
+                                                                        <option value="">소분류중 선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p class="tit">콘텐츠 형태 <i class="fc-red">*</i></p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">전체</option>
+                                                                        <option value="">소분류중 선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+
+                                            <!-- 1줄씩 -->
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">  
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">콘텐츠 난이도 <i class="fc-red">*</i></p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">전체</option>
+                                                                        <option value="">소분류중 선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p class="tit">콘텐츠 주제 <i class="fc-red">*</i></p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">전체</option>
+                                                                        <option value="">소분류중 선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+
+                                            <!-- 1줄씩 -->
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">추가옵션 테스트 <i class="fc-red">*</i></p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">전체</option>
+                                                                        <option value="">소분류중 선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>콘텐츠 타겟 
+                                            <!-- 툴팁 -->
+                                            <div class="tooltips">
+                                                <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
+                                                <p class="msg">
+                                                    <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>
+                                                    <span>콘텐츠 속성관리 &#62; 타겟분류 관리에서 생성되는 정보로 콘텐츠 분석(모니터링)을 위해 지정해주세요.</span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <td colspan="3" class="pl-0 pr-0">
+                                            <!-- 1줄씩 -->
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">연령</p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p class="tit">자산규모</p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <!-- 1줄씩 -->
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">
+                                                    
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">서비스가입</p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="box">
+                                                            <p class="tit">기타</p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <!-- 1줄씩 -->
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">    
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">추가 옵션 테스트</p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">분류기준 선택</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>콘텐츠 내용
+                                            <!-- 툴팁 -->
+                                            <div class="tooltips">
+                                                <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
+                                                <p class="msg">
+                                                    <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>
+                                                    <span>콘텐츠 속성관리 &#62; 타겟분류 관리에서 생성되는 정보로 콘텐츠 분석(모니터링)을 위해 지정해주세요.</span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <td colspan="3" class="pl-0 pr-0">
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box w-full">
+                                                            <p class="tit">상품 기준정보</p>
+                                                            <div class="form-item inline-flex flex-01 w-auto">
+                                                                <div class="select custom-select w-auto">
+                                                                    <select class="">
+                                                                        <option value="">IPO콕콕/신규상장리뷰</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select w-auto">
+                                                                    <select class="" disabled>
+                                                                        <option value="">중분류</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select w-auto">
+                                                                    <select class="" disabled>
+                                                                        <option value="">소분류</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>                                                          
+                                                            </div>
+                                                            <button type="button" class="btn btn-sml btn-gray ml-6" disabled>추가하기</button>
+                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개 등록 가능</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">계좌 기준정보</p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">대분류</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">중분류</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">소분류</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">서비스 기준정보</p>
+                                                            <div class="form-item">
+                                                                <div class="select custom-select">
+                                                                    <select class="">
+                                                                        <option value="">대분류</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">중분류</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="select custom-select">
+                                                                    <select class="" disabled>
+                                                                        <option value="">소분류</option>
+                                                                        <option value="">선택</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>연관키워드</th>
+                                        <td colspan="3">
+                                            <div class="form-item inline-flex align-center">
+                                                <div class="select custom-select">
+                                                    <select class="">
+                                                        <option value="">소분류 선택</option>
+                                                        <option value="">선택</option>
+                                                    </select>
+                                                </div>
+                                                <button type="button" class="btn btn-sml btn-gray ml-8">불러오기</button>
+                                                <div class="input w-200 ml-8">
+                                                    <input type="text" title="키워드 입력" value="" placeholder="키워드를 직접입력하세요." />
+                                                </div>
+                                                <button type="button" class="btn btn-sml btn-gray ml-8">직접입력</button>
+                                                <span class="fc-gray-666 fz-14 ml-8">최대 10개 등록 가능</span>
+                                            </div>
+                                            <div class="keyword-list">
+                                                <ul>
+                                                    <li>
+                                                        <span>#주식 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#해외주식 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#해외주식해외주식 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#해외주식 1 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#해외주식 2 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#주식 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#해외주식 3 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#해외주식 4 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#해외주식 5 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>#해외주식 6 <button type="button" class="btn-del"></button></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <p class="mt-8 fc-gray-666 fz-14">분류 선택 후 직접입력 할 수 있습니다. 직접 입력 시 해당 분류의 연관키워드로 자동 저장됩니다.(분류 별 최대 20개 키워드 관리 가능)</p>
+                                            <p class="mt-8 fc-gray-666 fz-14">분류 미선택 후 직접입력 시 해당 콘텐츠에만 연관키워드로 등록됩니다.(연관키워드 내 관리안함)</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>파일첨부</th>
+                                        <td colspan="3">
+                                            <!-- 파일 첨부 -->
+                                            <p class="mt-12 fc-gray-666 fz-14">첨부파일은 최대 10MB * 1개로 pdf 파일만 등록할 수 있습니다.</p>
+                                            <div class="mt-12 file-drop">
+
+                                            </div>
+                                            <!-- 첨부된 파일 -->
+                                            <div class="uploaded-file">
+                                                <p>
+                                                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
+                                                    <button type="button" title="삭제" class="btn-del"></button>
+                                                </p>
+                                                <p>
+                                                    <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.jpg(1542byte)</a>
+                                                    <button type="button" title="삭제" class="btn-del"></button>
+                                                </p>
+                                                <p>
+                                                    <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.jpg(1542byte)</a>
+                                                    <button type="button" title="삭제" class="btn-del"></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>심의대상 여부 <i class="fc-red">*</i></th>
+                                        <td colspan="3">
+                                            <label class="radio sml">
+                                                <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                                                <span>대상</span>
+                                            </label>
+                                            <label class="radio sml ml-12">
+                                                <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                                                <span>대상아님</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>심의 상세정보</th>
+                                        <td colspan="3" class="pl-0 pr-0">
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box w-full">
+                                                            <p class="tit">심의필번호</p>
+                                                            <div class="form-item inline-flex flex-01 w-auto">
+                                                                <div class="input w-232">
+                                                                    <input type="text" title="심의필번호" value=""  />
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-sml btn-gray ml-6" >소비자보호포털 열기</button>
+                                                        </div>
+                                                    </div>
+                                            
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">심의기간</p>
+                                                            <div class="form-item">
+                                                                <div class="input input-date range w-232">
+                                                                    <input type="text" id="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box w-full">
+                                                            <p class="tit">광고심의문구</p>
+                                                            <div class="form-item">
+                                                                <div class="textarea h-72 flex-00">
+                                                                    <textarea placeholder="AEM 콘텐츠 정보를 출력합니다."></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>게시기간 <i class="fc-red">*</i></th>
+                                        <td colspan="3">
+                                            <div class="inline-flex align-center">
+                                                <div class="form-item">
+                                                    <div class="input input-date range">
+                                                        <input type="text" id="">
+                                                    </div>
+                                                </div>
+                                                <label class="checkbox sml ml-12">
+                                                    <input type="checkbox" class="" /><i aria-hidden="true" class="lbl"></i>
+                                                    <span>게시기간 미지정</span>
+                                                </label>
+                                            </div>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>유관부서</th>
+                                        <td colspan="3">
+                                            <div class="form-item inline-flex w-full align-center">
+                                                <div class="input w-200 mr-8">
+                                                    <input type="text" title="부서코드" value="" readonly="readonly">
+                                                </div>
+                                                <div class="inline-flex w-full">
+                                                    <div class="input w-full">
+                                                        <input type="text" title="부서정보를 선택하세요." value="" readonly="readonly">
+                                                    </div>
+                                                    <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 버튼 영역-->
+                        <div class="flex flex-01 mt-16">
+                            <button type="button" class="btn btn-mid btn-line">목록</button>
+                        
+                            <div class="ml-auto t-right">
+                                <div class="common-btn-wrap">
+                                    <button type="button" class="btn btn-mid btn-line">사용중지</button>
+                                    <button type="button" class="btn btn-mid btn-yellow">저장</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </main>
+            <!-- //컨텐츠 -->
         </div>
-        <!-- //컨텐츠헤더 -->
-        <style>
-
-        </style>
-        <!-- 컨텐츠 박스 -->
-        <div class="kb-content-box">
-          <h3 class="content-tit">기본 정보</h3>
-          
-        </div>
-      </main>
-      <!-- //컨텐츠 -->
-    </div>
-    <!-- //container -->
+        <!-- //container -->
 
 
-  </section>
-  <!-- //wrap -->
+    </section>
+    <!-- //wrap -->
 
-  <script>
-    
-  </script>
+    <script>
+        
+    </script>
 </body>
 
 </html>

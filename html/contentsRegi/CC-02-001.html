@@ -2,258 +2,831 @@
 <html lang="ko">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>KB 증권 CMS</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
 
-  <!-- css -->
-  <link href="/css/main.css" rel="stylesheet" />
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
 
-  <!-- js -->
-  <script src="/js/js/lib/jquery-3.6.0.min.js"></script>
-  <script src="/js/js/lib/datepicker/datepickerCustom.js"></script>
-  <script src="/js/pubCustom.js"></script>
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/lib/datepicker/datepickerCustom.js"></script>
+    <script src="/js/pubCustom.js"></script>
 
 </head>
 
 <body>
-  <!-- wrap -->
-  <section class="kb-wrap">
-    <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
-    <header class="kb-navbar">
-  <div class="navbar-top">
-    <!-- 메뉴 열림 -->
-    <button id="btnExpand" type="button" class="btn-expand">
-      <span class="sr-only">사이드 바 펼치기</span>
-    </button>
-    <div class="navbar-brand-wrap">
-      <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
-    </div>
-    <!-- <a href="#" class="kb-navbar-btn" aria-label="메뉴열기"><i></i><span class="sr-only">메뉴열기</span></a> -->
+    <!-- wrap -->
+    <section class="kb-wrap">
+        <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+        <header class="kb-navbar">
+            <div class="navbar-top">
+                <!-- 메뉴 열림 -->
+                <button id="btnExpand" type="button" class="btn-expand">
+                    <span class="sr-only">사이드 바 펼치기</span>
+                </button>
+                <div class="navbar-brand-wrap">
+                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong
+                            class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+                </div>
 
-    <ul class="navbar-nav kb-navbar-util">
-      <li class="nav-item">
-        <div class="btn-group" role="group">
-          <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <strong>김국민국민국민</strong>(KB123456)님
-          </button>
-          <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
-            <a class="dropdown-item" href="#">비밀번호 변경</a>
-          </div> -->
-        </div>
-      </li>
-      <li class="nav-item">
-        <button type="button" class="nav-link log-out">로그아웃</button>
-      </li>
-    </ul>
-  </div>
-</header>
-    <!-- //헤더 -->
 
-    <!-- container -->
-    <div class="kb-container">
-      <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
-      <div class="kb-sidebar">
-  <div class="kb-sidebar-inner" id="kb-lnb-nav">
-    <nav class="kb-lnb" aria-label="Main navigation">
-      <ul class="kb-lnb-dep1">
-        <li>
-          <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
-        </li>
-      
-        <li>
-          <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
-          <ul class="kb-lnb-dep2">
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a> 
-            </li>
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠 부가정보 관리</a> 
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a> 
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>  
-            </li>
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
-            </li>
-            <li>
-              <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
-          <ul class="kb-lnb-dep2">
-            <li>
-              <a href="#" class="kb-lnb-link">타겟분류 관리</a>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">특성분류 관리</a> 
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">내용분류 관리</a>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">연관키워드 관리</a>
-            </li>
-            
-            <li>
-              <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
-            </li>
-
-            <li>
-              <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>   
-            </li>
-
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
-          <ul class="kb-lnb-dep2">
-            <li>
-              <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
-                <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
-                <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
-                <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
-                <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">인사이트 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
-                <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
-                <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">조회통계 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">조회수</a></li>
-                <li><a class="kb-lnb-link" href="#">체류시간</a></li>
-                <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
-                <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">순위통계 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
-                <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
-                <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
-                <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">고객통계 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
-                <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
-                <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
-                <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
-                <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
-                <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
-                <li><a class="kb-lnb-link" href="#">시간대별</a></li>
-              </ul>
-            </li>
-          
-            <li>
-              <a href="#" class="kb-lnb-link">경로 분석</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">유입경로</a></li>
-                <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
-                <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
-          <ul class="kb-lnb-dep2">
-            <li>
-              <a href="#" class="kb-lnb-link">모델 현황 관리</a>
-              <ul class="kb-lnb-dep3">
-                <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
-              </ul>
-            </li>
-        
-            <li>
-              <a href="#" class="kb-lnb-link">분석 모델 운영</a> 
-            </li>
-          
-          </ul>
-        </li>
-        
-      </ul>
-    </nav>
-  </div>
-</div>
-      <!-- //사이드바 -->
-
-      <!-- 컨텐츠 -->
-      <main class="kb-content" role="main">
-        <!-- 컨텐츠헤더 -->
-        <div class="kb-page-title">
-          <div>
-            <div class="kb-title">
-              <h2 class="page-tit">콘텐츠 관리</h2>
-              <nav aria-label="breadcrumb" class="ml-auto">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">홈</a></li>
-                  <li class="breadcrumb-item"><a href="#">콘텐츠 생성/배포</a></li><!-- 1뎁스 -->
-                  <li class="breadcrumb-item active" aria-current="page">콘텐츠 부가관리</li><!-- 현재 페이지 -->
-                </ol>
-              </nav>
+                <ul class="navbar-nav kb-navbar-util">
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <strong>김국민국민국민</strong>(KB123456)님
+                            </button>
+                            <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                                <a class="dropdown-item" href="#">비밀번호 변경</a>
+                            </div> -->
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link log-out">로그아웃</button>
+                    </li>
+                </ul>
             </div>
-          </div>
+        </header>
+        <!-- //헤더 -->
+
+        <!-- container -->
+        <div class="kb-container">
+            <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+            <div class="kb-sidebar">
+                <div class="kb-sidebar-inner" id="kb-lnb-nav">
+                    <nav class="kb-lnb" aria-label="Main navigation">
+                        <ul class="kb-lnb-dep1">
+                            <li>
+                                <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 관리</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">타겟분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">특성분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">내용분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">연관키워드 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                                            <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                                            <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                                            <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                                            <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                                            <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">경로 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">분석 모델 운영</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- //사이드바 -->
+
+            <!-- 컨텐츠 -->
+            <main class="kb-content" role="main">
+                <!-- 컨텐츠헤더 -->
+                <div class="kb-page-title">
+                    <div>
+                        <div class="kb-title">
+                            <h2 class="page-tit">콘텐츠 목록</h2>
+                            <nav aria-label="breadcrumb" class="ml-auto">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                                    <li class="breadcrumb-item"><a href="#">콘텐츠 생성/배포</a></li><!-- 1뎁스 -->
+                                    <li class="breadcrumb-item active" aria-current="page">콘텐츠 부가정보 관리</li><!-- 현재 페이지 -->
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <!-- //컨텐츠헤더 -->
+
+                <!-- 컨텐츠 박스 -->
+                <div class="kb-content-box">
+                    <div class="kb-box-inner">
+                        <div class="common-search">
+                            <button type="button" class="btn-searchToggle" title="열기"></button>
+                            <dl>
+                                <dt class="w-120">기간 <i class="fc-red">*</i></dt>
+                                <dd>
+                                    <div class="form-item">
+                                        <div class="select custom-select">
+                                            <select class="">
+                                                <option value="" >등록일</option>
+                                                <option value="">선택 1</option>
+                                                <option value="">선택 2</option>
+                                                <option value="">선택 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="input input-date range">
+                                            <input type="text" id="">
+                                        </div>
+                                        <div class="inline-flex calendar-btns va-middle ml-6">
+                                            <button type="button" class="btn btn-currentDay active">당일</button>
+                                            <button type="button" class="btn btn-prevWeek">1주일</button>
+                                            <button type="button" class="btn btn-prevMonth">1개월</button>
+                                            <button type="button" class="btn btn-Reset">전체</button>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt class="w-120">콘텐츠 카테고리</dt>
+                                <dd>
+                                    <div class="form-item">
+                                        <div class="select custom-select">
+                                            <select class="">
+                                                <option value="" >매체 전체</option>
+                                                <option value="">선택 1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="select custom-select">
+                                            <select class="" disabled>
+                                                <option value="" >대분류 전체</option>
+                                                <option value="">선택 1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="select custom-select">
+                                            <select class="" disabled>
+                                                <option value="" >중분류 전체</option>
+                                                <option value="">선택 1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="select custom-select">
+                                            <select class="" disabled>
+                                                <option value="" >소분류 전체</option>
+                                                <option value="">선택 1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt class="w-120">상태</dt>
+                                <dd>
+                                    <div class="form-item">
+                                        <label class="radio">
+                                            <input type="radio" name="rdo1" class="" checked /><i aria-hidden="true" class="lbl"></i>
+                                            <span>전체</span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                                            <span>작업중</span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                                            <span>작업완료</span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                                            <span>공개완료</span>
+                                        </label>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt class="w-120">키워드</dt>
+                                <dd class="w-full">
+                                    <div class="form-item flex-01">
+                                        <div class="select custom-select">
+                                            <select class="">
+                                                <option value="" >전체</option>
+                                                <option value="">제목</option>
+                                                <option value="">AEM ID</option>
+                                                <option value="">연관키워드</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-item">
+                                        <div class="input w-full">
+                                            <input type="text" title="키워드를 입력하세요" placeholder="여러 개의 키워드 동시 검색 시 ‘,’ 쉼표를 구분자로 사용하여 최대 3개까지 검색조건으로 설정 할 수 있습니다.
+" aria-label="키워드를 입력하세요" />
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <!-- 확장 검색조건 -->
+                            <div class="expand-condition">
+                                <dl class="inner-tbl">
+                                    <dt class="w-120">콘텐츠 속성</dt>
+                                    <dd class="flex-none">
+                                        <!-- 1줄씩 -->
+                                        <div class="option">
+                                            <div class="box">
+                                                <p class="tit">콘텐츠 MAP</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >전체</option>
+                                                            <option value="">소분류중 선택</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <p class="tit">콘텐츠 형태</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >전체</option>
+                                                            <option value="">소분류중 선택</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 1줄씩 -->
+                                        <div class="option">
+                                            <div class="box">
+                                                <p class="tit">콘텐츠 난이도</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >전체</option>
+                                                            <option value="">소분류중 선택</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <p class="tit">콘텐츠 주제</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >전체</option>
+                                                            <option value="">소분류중 선택</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="inner-tbl">
+                                    <dt class="w-120">콘텐츠 특성</dt>
+                                    <dd class="flex-none">
+                                        <!-- 1줄씩 -->
+                                        <div class="option">
+                                            <div class="box">
+                                                <p class="tit">연령</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >세대기준</option>
+                                                            <option value="">선택 1</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >청년세대</option>
+                                                            <option value="">선택 1</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <p class="tit">자산규모</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >분류기준 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >분류기준 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 1줄씩 -->
+                                        <div class="option">
+                                            <div class="box">
+                                                <p class="tit">서비스 가입</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >분류기준 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >분류기준 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box">
+                                                <p class="tit">기타</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >분류기준 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >분류기준 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="inner-tbl">
+                                    <dt class="w-120">콘텐츠 내용</dt>
+                                    <dd class="flex-none">
+                                        <!-- 1줄씩 -->
+                                        <div class="option">
+                                            <div class="box">
+                                                <p class="tit">상품 기준정보</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >대분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >중분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >소분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 1줄씩 -->
+                                        <div class="option">
+                                            <div class="box">
+                                                <p class="tit">계좌 기준정보</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >대분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >중분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >소분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 1줄씩 -->
+                                        <div class="option">
+                                            <div class="box">
+                                                <p class="tit">서비스 기준정보</p>
+                                                <div class="form-item">
+                                                    <div class="select custom-select">
+                                                        <select class="">
+                                                            <option value="" >대분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >중분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select custom-select">
+                                                        <select class="" disabled>
+                                                            <option value="" >소분류 선택</option>
+                                                            <option value="">선택 1</option>
+                                                            <option value="">선택 2</option>
+                                                            <option value="">선택 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="common-search-btn mt-16">
+                        <button type="button" class="btn btn-mid btn-line">초기화</button>
+                        <button type="button" class="btn btn-mid btn-yellow">검색</button>
+                    </div>
+
+                    <div class="kb-box-inner mt-32">
+                        <div class="title-wrap flex align-center mb-12">
+                            <div class="left">검색결과 <strong class="fc-blue">999</strong> / 9999</div>
+                            <div class="ml-auto inline-flex justify-end">
+                                <div class="form-item">
+                                    <div class="select custom-select">
+                                        <select class="">
+                                            <option value="">20개씩 보기</option>
+                                            <option value="">50개씩 보기</option>
+                                            <option value="">100개씩 보기</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-sml btn-line btn-down ml-6">엑셀다운로드</button>
+                                <button type="button" class="btn btn-sml btn-gray ml-6">신규등록</button>
+                            </div>
+                        </div>
+                        <div class="table-wrap">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>
+                                            <span class="list-align minW-100">
+                                                콘텐츠그룹 ID
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span class="list-align minW-100">
+                                                콘텐츠 ID
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span class="list-align minW-100">
+                                                AEM ID
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span class="minW-200">콘텐츠 제목</span>
+                                        </th>
+                                        <th>
+                                            <span class="minW-100">매체</span>
+                                        </th>
+                                        <th><span class="minW-150">매체 카테고리</span></th>
+                                        <th>우선노출</th>
+                                        <th>심의대상</th>
+                                        <th>
+                                            <span class="list-align minW-200">
+                                                게시기간
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>상태</th>
+                                        <th>
+                                            <span class="list-align">
+                                                조회수
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span class="list-align">
+                                                추천수
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span class="list-align">
+                                                비추천수
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span class="list-align minW-200">
+                                                등록일시
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>등록자</th>
+                                        <th>
+                                            <span class="list-align minW-200">
+                                                최종 수정일시
+                                                <i role="button" class="btn-alignList"></i>
+                                            </span>
+                                        </th>
+                                        <th>최종 수정자</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>999</td>
+                                        <td>GR00003</td>
+                                        <td><a href="#" class="linked">C01010105</a></td>
+                                        <td><a href="#" class="linked">SEC010104</a></td>
+                                        <td><a href="#" class="linked ellipsis-1">미 은행 무더기 신용등급 강등 무더기 신용등급 강등</a></td>
+                                        <td>마블</td>
+                                        <td>오늘의콕 > 1분 브리핑</td>
+                                        <td>예</td>
+                                        <td>대상</td>
+                                        <td>2023-08-01 ~ 2023-12-31</td>
+                                        <td>작성중</td>
+                                        <td>1421</td>
+                                        <td>421</td>
+                                        <td>25</td>
+                                        <td>2023-08-01 00:00</td>
+                                        <td>홍길동</td>
+                                        <td>2023-08-01 00:00</td>
+                                        <td>홍길동</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1000</td>
+                                        <td>GR00003</td>
+                                        <td><a href="#" class="linked">C01010105</a></td>
+                                        <td><a href="#" class="linked">SEC010104</a></td>
+                                        <td><a href="#" class="linked ellipsis-1">미 은행 무더기 신용등급 강등 무더기 신용등급 강등</a></td>
+                                        <td>PC/홈페이지</td>
+                                        <td>프라임클럽 > 오늘의 전략 > 모닝전략</td>
+                                        <td>아니오</td>
+                                        <td>대상아님</td>
+                                        <td>2023-08-01 ~ 2023-12-31</td>
+                                        <td>공개완료</td>
+                                        <td>1421</td>
+                                        <td>421</td>
+                                        <td>25</td>
+                                        <td>2023-08-01 00:00</td>
+                                        <td>홍길동</td>
+                                        <td>2023-08-01 00:00</td>
+                                        <td>홍길동</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>GR00003</td>
+                                        <td><a href="#" class="linked">C01010105</a></td>
+                                        <td><a href="#" class="linked">SEC010104</a></td>
+                                        <td><a href="#" class="linked ellipsis-1">미 은행 무더기 신용등급 강등 무더기 신용등급 강등</a></td>
+                                        <td>마블와이드</td>
+                                        <td>프라임클럽 > 오늘의 전략 > 모닝전략</td>
+                                        <td>아니오</td>
+                                        <td>대상아님</td>
+                                        <td>2023-08-01 ~ 2023-12-31</td>
+                                        <td>공개완료</td>
+                                        <td>1421</td>
+                                        <td>421</td>
+                                        <td>25</td>
+                                        <td>2023-08-01 00:00</td>
+                                        <td>홍길동</td>
+                                        <td>2023-08-01 00:00</td>
+                                        <td>홍길동</td>
+                                    </tr>
+                    
+                                    <!-- 검색결과가 없습니다 -->
+                                    <tr>
+                                        <td colspan="18">
+                                            <div class="search-notFound">
+                                                검색결과가 없습니다.
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    
+                        <!-- 페이징 -->
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-center mt-16">
+                                <li class="page-item">
+                                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                                        <span aria-hidden="true">&#60;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                                        <span aria-hidden="true">&#62;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </main>
+            <!-- //컨텐츠 -->
         </div>
-        <!-- //컨텐츠헤더 -->
-        <style>
-
-        </style>
-        <!-- 컨텐츠 박스 -->
-        <div class="kb-content-box">
-          <h3 class="content-tit">기본 정보</h3>
-          
-        </div>
-      </main>
-      <!-- //컨텐츠 -->
-    </div>
-    <!-- //container -->
+        <!-- //container -->
 
 
-  </section>
-  <!-- //wrap -->
+    </section>
+    <!-- //wrap -->
 
-  <script>
-    
-  </script>
+    <script>
+        $('.btn-searchToggle').on('click',function(){
+            const $this = $(this);
+            const title = $this.attr('title');
+
+            $this.parents('.common-search').toggleClass('active');
+            $this.siblings('.expand-condition').stop().slideToggle(300);
+            
+            if(title == '닫힘'){
+                $this.attr('title', '열기');
+            }else{
+                $this.attr('title', '닫기');
+            }
+        })
+    </script>
 </body>
 
 </html>

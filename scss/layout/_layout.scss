@@ -22,20 +22,19 @@
     }
   }
 }
-.no-sidebar{
-  .kb-content {
-    margin-left: 0;
-    .kb-page-title {
-      &.fixed>div {
-        left: 0;
-      }
-    }
-  }
-}
+// .no-sidebar{
+//   .kb-content {
+//     margin-left: 0;
+//     .kb-page-title {
+//       &.fixed>div {
+//         left: 0;
+//       }
+//     }
+//   }
+// }
 
 .login-result,
-.sysMgt-layout,
-.no-sidebar {
+.cms-request{
   .kb-navbar .navbar-brand-wrap{
     margin-left:3.2rem;
   }
@@ -47,6 +46,7 @@
 .kb-content{
   margin-left: 26rem;
   //min-height: 70rem;
+  position: relative;
   padding: 6.4rem 3.2rem 3.2rem;
   transition: .3s margin cubic-bezier(0.075, 0.82, 0.165, 1);
   .kb-page-title{
@@ -72,14 +72,20 @@
       transition: height 0.3s;
       left: 26rem;
     }
+    &.fixed{
+      padding-top: 3.4rem;
+    }
     &.fixed>div{
       position: fixed;
       top: 6.4rem;
       left: 26rem;
-      right: 3.2rem;
-      z-index: 1006;
-      height: 4.125rem;
+      right: 0;
+      padding-right: 3.2rem;
+      z-index: 95;
+      height: 5.125rem;
+      border-bottom: 0.1rem solid var(--line-color-ccc);
       background-color: var(--background-color);
+      box-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.05);
       .page-tit {
         padding-left: 3.2rem;
       }
@@ -131,12 +137,13 @@
   
 }
 
-.kb-content-box{
+.kb-box-inner{
   background-color: #fff;
   border-radius: 0.8rem;
   box-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.05);
   padding: 2.4rem;
-  & + .kb-content-box{
+  position: relative;
+  & + .kb-box-inner{
     margin-top: 1.6rem;
   }
 }
@@ -157,7 +164,7 @@ h4.tit{
 //시스템 관리
 .sysMgt-layout {
   .kb-content {
-    margin-left: 0;
+    //margin-left: 0;
     .kb-page-title {
       &.fixed>div {
         left: 0;
@@ -167,24 +174,25 @@ h4.tit{
       }
     }
   }
-  .kb-content-box{
-    margin-left: 27.2rem;
+  .kb-box-inner{
+    margin-left: 30.2rem;
   }
 
   .sys-sidebar{
-    width: 25.6rem;
-    position: fixed;
+    width: 28.6rem;
+    position: absolute;
     box-sizing: border-box;
     padding: 1.2rem;
-    top: 15rem;
+    top: 0;
     padding-bottom:9rem;
-    left: 3.2rem;
+    left: -30.2rem;
     border-radius: 0.8rem;
     background-color: #fff;
     overflow: hidden;
     transition: .3s top;
     height: calc(100vh - 18rem);
     box-shadow: 0.1rem 0.1rem 0.4rem 0 #0000000D;
+    
     .tit{
       line-height: 2.4rem;
       font-weight: 700;
@@ -192,7 +200,7 @@ h4.tit{
       font-size: 1.6rem;
     }
     .nav-list{
-      padding-bottom: 7rem;
+      // padding-bottom: 7rem;
       li{
         a{
           display: inline-block;
@@ -207,11 +215,76 @@ h4.tit{
           &:hover{
             background: rgba(46, 116, 242, 0.05);
           }
-          &.active{
+        }
+        &.active{
+          a{
             font-weight: 500;
+            background: rgba(46, 116, 242, 0.05);
           }
         }
       }
+
+      dl{
+        dt{
+          padding: 0.8rem 1.2rem;
+          font-weight: 700;
+          font-size:1.5rem;
+        }
+        dd{
+          .depth-2{
+            display: block;
+            padding:0.8rem 1.2rem;
+            padding-left: 2.4rem;
+            position: relative;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            cursor: pointer;
+            font-weight: 300;
+            &::before{
+              content:'';
+              position: absolute;
+              left: 0.8rem;
+              width: 1.6rem;
+              height: 1.6rem;
+              top: 50%;
+              background-size: 0.8rem;
+              margin-top: -1rem;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10' fill='none'%3E%3Cpath d='M1 1.00666L1.00666 1M1 3.67111L1.00666 3.66445M1 6.33555L1.00666 6.32889M1 9L1.00666 8.99334M8.99334 9L9 8.99334M6.32889 9L6.33555 8.99334M3.66445 9L3.67111 8.99334' stroke='%23999999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            }
+          }
+          .depth-3{
+            position: relative;
+            padding: 0.8rem 1.2rem;
+            padding-left: 3.6rem;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            font-weight: 300;
+            cursor: pointer;
+            &::before{
+              content:'';
+              position: absolute;
+              left: 1.8rem;
+              width: 1.6rem;
+              height: 1.6rem;
+              top: 50%;
+              background-size: 0.8rem;
+              margin-top: -1rem;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10' fill='none'%3E%3Cpath d='M1 1.00666L1.00666 1M1 3.67111L1.00666 3.66445M1 6.33555L1.00666 6.32889M1 9L1.00666 8.99334M8.99334 9L9 8.99334M6.32889 9L6.33555 8.99334M3.66445 9L3.67111 8.99334' stroke='%23999999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            }
+          }
+        }
+      }
+    }
+    h5.menu-tit{
+      font-size:1.5rem;
+      line-height: 2.2rem;
+      font-weight: 700;
+      padding: 0.8rem 1.2rem;
+      color: var(--primary-blue-color);
     }
     .bottom-menu{
       position: absolute;
@@ -234,11 +307,15 @@ h4.tit{
         left: 0;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
       }
+      > *{
+        flex: 1 1 auto;
+      }
       .btn{
         flex: 1 1 auto;
         padding-top: 0.2rem;
         line-height: 2.8rem;
         width: 100%;
+        border: 0.1rem solid #AEB6D0;
         text-align: center;
         &.btn-grpDel,
         &.btn-grpAdd{
@@ -268,13 +345,35 @@ h4.tit{
         }
         &.btn-grpAdd{
           background-color: var(--background-color);
-          border:0.1rem solid #AEB6D0;
           background:#fff;
           border-radius: 0.1rem;
           &::before {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M1 6H6M6 6H11M6 6V1M6 6V11' stroke='%2342444E' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
           }
         }
+      }
+      .flex{
+        gap: 0.6rem;
+        width: 100%;
+      }
+      .btn-up,
+      .btn-down{
+        font-size:0;
+        background-size: 2rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 0.1rem solid #AEB6D0;
+        flex: 1 1 auto;
+        margin: 0;
+        &::before{
+          content:none;
+        }
+      }
+      .btn-up{
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M9.14868 6.38264C9.53922 5.74848 10.4611 5.74848 10.8516 6.38264L14.8349 12.8506C15.2452 13.5169 14.7659 14.375 13.9834 14.375H6.01692C5.23445 14.375 4.75512 13.5169 5.16543 12.8506L9.14868 6.38264Z' fill='%23202020'/%3E%3C/svg%3E");
+      }
+      .btn-down{
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10.8513 13.6174C10.4608 14.2515 9.53889 14.2515 9.14835 13.6174L5.16511 7.14938C4.7548 6.48312 5.23413 5.625 6.01659 5.625L13.9831 5.625C14.7655 5.625 15.2449 6.48312 14.8346 7.14938L10.8513 13.6174Z' fill='%23202020'/%3E%3C/svg%3E");
       }
     }
   }
@@ -290,13 +389,26 @@ h4.tit{
   left: 0;
   top: 0;
   backdrop-filter: blur(0.2rem);
-  background: rgba($color: #000000, $alpha: 0.5);
+  .modal-bg{
+    position: fixed;
+    left: 0;
+    right:0;
+    top: 0;
+    bottom: 0;
+    background: rgba($color: #000000, $alpha: 0.5);
+  }
+  
   .modal-dialog{
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     height: 100%;
+  }
+  &.w-1200{
+    .modal-dialog .modal-content{
+      width: 120rem;
+    }
   }
   &.w-1000{
     .modal-dialog .modal-content{
@@ -306,6 +418,16 @@ h4.tit{
   &.w-800{
     .modal-dialog .modal-content{
       width: 80rem;
+    }
+  }
+   &.w-600{
+    .modal-dialog .modal-content{
+      width: 60rem;
+    }
+  }
+  &.w-500{
+    .modal-dialog .modal-content{
+      width: 50rem;
     }
   }
   .modal-dialog .modal-content{
@@ -322,7 +444,28 @@ h4.tit{
     top: -5rem;
     overflow: hidden;
     transition: 0.5s top;
+    .modal-head {
+      padding:2.4rem;
+      display: flex;
+      align-items: center;
+      h5.tit{
+        font-size:1.8rem;
+        font-weight: 700;
+        line-height: 3rem;
+      }
+      .btn-popClose{
+        margin-left: auto;
+        font-size: 0;
+        width:3.2rem;
+        height: 3.2rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M9.01067 22.9906L16.0013 15.9999L22.992 22.9906M22.992 9.00928L16 15.9999L9.01067 9.00928' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      }
+    }
     .modal-body{
+      padding: 0 2.4rem;
       overflow-y: auto;
       flex: 1 1 auto;
       display: flex;
@@ -351,6 +494,13 @@ h4.tit{
         font-weight: 700;
         position: relative;
         color:#666;
+        &:hover{
+          background-color: rgba(46, 116, 242, 0.05);
+        }
+        &:active{
+          transform: none;
+          background-color: rgba(46, 116, 242, 0.2);
+        }
         &:last-child{
           color: var(--primary-blue-color);
         } 
@@ -372,5 +522,37 @@ h4.tit{
     .modal-dialog .modal-content{
       top: 0;
     }
+  }
+
+  //로딩 팝업
+  &.loadingPop{
+    .modal-dialog{
+      width: 14rem;
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%);
+      height: 14rem;
+      border-radius: 3.2rem;
+      background-color: rgba(0,0,0,0.6);
+      &::after{
+        content:'';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-size: 6.4rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin: auto; background: transparent; display: block; shape-rendering: auto;' width='80px' height='80px' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Ccircle cx='50' cy='50' fill='none' stroke='%23ffdc00' stroke-width='10' r='35' stroke-dasharray='164.93361431346415 56.97787143782138'%3E%3CanimateTransform attributeName='transform' type='rotate' repeatCount='indefinite' dur='1s' values='0 50 50;360 50 50' keyTimes='0;1'/%3E%3C/circle%3E%3C!-- %5Bldio%5D generated by https://loading.io/ --%3E%3C/svg%3E");
+      }
+      h2{
+        font-size: 0;
+      }
+    }
+    
   }
 }

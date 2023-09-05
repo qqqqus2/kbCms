@@ -1,4 +1,35 @@
 //form
+input[type="text"],
+input[type="password"]{
+  border-radius: 0.3rem;
+  border: 0.1rem solid transparent;
+  border-color: var(--line-color-ccc);
+  padding: 0.7rem 1.2rem 0.5rem;
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  min-width: 15rem;
+  height: 3.2rem;
+  appearance: none;
+  &::placeholder{
+    color: var(--gray_999);
+  }
+  &:hover:not([readonly]){
+    border-color: var(--primary-blue-color);
+  }
+  &:focus{
+    outline: none;
+    border-color: var(--gray_02-darkBlue);
+  }
+  &:disabled,
+  &:read-only{
+    background-color: var(--background-color);
+    &:focus {
+      border-color: var(--line-color-ccc);
+    }
+  }
+}
+
 .form-item{
   .input{
     display: inline-block;
@@ -13,33 +44,7 @@
       width: 100%;
     }
   }
-  input[type="text"],
-  input[type="password"]{
-    border-radius: 0.3rem;
-    border: 0.1rem solid transparent;
-    border-color: var(--line-color-ccc);
-    padding: 0.7rem 1.2rem 0.5rem;
-    font-weight: 300;
-    font-size: 1.4rem;
-    line-height: 2rem;
-    min-width: 15rem;
-    height: 3.2rem;
-    appearance: none;
-    &::placeholder{
-      color:#999;
-    }
-    &:hover{
-      border-color: var(--primary-blue-color);
-    }
-    &:focus{
-      outline: none;
-      border-color: var(--gray_02-darkBlue);
-    }
-    &:disabled,
-    &:read-only{
-      background-color: var(--background-color);
-    }
-  }
+
   .input-date{
     position: relative;
     width: 12.2rem;
@@ -56,9 +61,9 @@
       }
     }
     &.range{
-      width: 20.2rem;
+      width: 23.2rem;
       input[type="text"]{
-        background-position: 17rem center;
+        background-position: 95% center;
       }
     }
     input[type="text"]{
@@ -71,35 +76,132 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5.625 2.5V4.375M14.375 2.5V4.375M2.5 15.625V6.25C2.5 5.75272 2.69754 5.27581 3.04917 4.92417C3.40081 4.57254 3.87772 4.375 4.375 4.375H15.625C16.1223 4.375 16.5992 4.57254 16.9508 4.92417C17.3025 5.27581 17.5 5.75272 17.5 6.25V15.625M2.5 15.625C2.5 16.1223 2.69754 16.5992 3.04917 16.9508C3.40081 17.3025 3.87772 17.5 4.375 17.5H15.625C16.1223 17.5 16.5992 17.3025 16.9508 16.9508C17.3025 16.5992 17.5 16.1223 17.5 15.625M2.5 15.625V9.375C2.5 8.87772 2.69754 8.40081 3.04917 8.04917C3.40081 7.69754 3.87772 7.5 4.375 7.5H15.625C16.1223 7.5 16.5992 7.69754 16.9508 8.04917C17.3025 8.40081 17.5 8.87772 17.5 9.375V15.625' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8.65234 10.2865V15.0001H7.66927V11.2175H7.64323L6.5625 11.8946V11.0287L7.72786 10.2865H8.65234Z' fill='black'/%3E%3Cpath d='M9.61276 15.0001L9.60625 14.2904L11.299 12.7345C11.7384 12.3145 11.976 12.0541 11.976 11.6798C11.976 11.2598 11.6603 10.9994 11.2273 11.0027C10.7846 10.9994 10.4949 11.2794 10.4982 11.7319H9.56719C9.56393 10.8106 10.2475 10.2214 11.2404 10.2214C12.2495 10.2214 12.9201 10.7976 12.9201 11.6147C12.9201 12.1518 12.6596 12.5912 11.6896 13.4701L10.9734 14.1667V14.1928H12.9852V15.0001H9.61276Z' fill='black'/%3E%3C/svg%3E");
     }
   }
-  .select{
+  .custom-select{
+    position: relative;
+    // 테이블 안에 셀렉트일시 스크롤생김 방지
+    &.fixed {
+      .select-items {
+        position: fixed;
+        right: auto;
+      }
+    }
+    // disabled 된 셀렉트는 기본으로
+    &.disabledSelect {
+      select{
+        opacity: 1;
+        width: auto;
+        height: auto;
+        position: relative;
+        display: block;
+        padding: 0.6rem 2.4rem 0.6rem 1.1rem;
+        min-width: 15rem;
+        height: 3.2rem;
+        border-radius: 0.3rem;
+      }
+      &:hover{
+        border-color: var(--line-color-ccc);
+      }
+    }
     select{
-      border-radius: 0.3rem;
-      border: 0.1rem solid transparent;
-      border-color: var(--line-color-ccc);
-      padding: 0.6rem 2.4rem 0.6rem 1.1rem;
-      min-width: 15rem;
-      height: 3.2rem;
+      opacity: 0;
+      height: 0;
+      width: 0;
+      position: absolute;
       appearance: none;
       background-position: right center;
       background-repeat: no-repeat;
       background-size: 2.4rem;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E");
-      option[value=""][disabled] {
-        display: none;
-      }
-      &:hover{
-        border-color: var(--primary-blue-color);
-      }
+
+      // &:hover{
+      //   border-color: var(--primary-blue-color);
+      // }
       &:focus{
         outline: none;
         border-color: var(--gray_02-darkBlue);
       }
+      
       &:disabled{
         background-color: var(--background-color);
       }
     }
   }
 
+  // 커스텀 셀렉트
+  .select-selected {
+    border-radius: 0.3rem;
+    height: 3.2rem;
+    background-color: #fff;
+    white-space: nowrap;
+    min-width: 15rem;
+    border-color: var(--line-color-ccc);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 2.4rem;
+    position: relative;
+    &:hover{
+      border-color: var(--primary-blue-color);
+    }
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      transition: .3s transform;
+      top: 50%;
+      width: 2.4rem;
+      height: 2.4rem;
+      transform: translateY(-50%) rotate3d(1, 0 , 0, 0deg);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+    // &:hover{
+    //   border-color: var(--primary-blue-color);
+    // }
+    &.select-arrow-active{
+      &::after {
+        transform: translateY(-50%) rotate3d(1, 0, 0, 180deg);
+      }
+    }
+  }
+
+  .select-items div,
+  .select-selected {
+    padding: 0.6rem 2.4rem 0.6rem 1.1rem;
+    border: 0.1rem solid transparent;
+    border-color: var(--line-color-ccc);
+    cursor: pointer;
+  }
+
+  .select-items {
+    position: absolute;
+    // position: fixed;
+    // right: auto;
+    background-color:  #fff;
+    border-top:0.1rem solid var(--line-color-ccc);
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.1);
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.3rem;
+    width: auto;
+    z-index: 99;
+    border-radius: 0.3rem;
+    div{
+      border-top: 0;
+      height: 3.2rem;
+      padding-right:1.1rem;
+    }
+  }
+
+  .select-hide {
+    display: none;
+  }
+
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
   .is-error {
     input[type="text"],
     input[type="password"],
@@ -137,6 +239,10 @@
     span{
       line-height: 1.6rem;
     }
+  }
+  & + .checkbox,
+  & + .radio{
+    margin-left: 2.4rem;
   }
 }
 .checkbox input,
@@ -223,7 +329,6 @@
   top: 0.6rem;
   border-radius: 50%;
   background-color: #fff;
-  transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1) all;
   transform: scale(0);
 }
 .sml.radio input+.lbl:after {
@@ -236,7 +341,7 @@
   border-radius: 0;
   width: 0.9rem;
   height: 0.5rem;
-  top: 0.7rem;
+  top: 0.8rem;
   left: 0.7rem;
   border: 0.2rem solid var(--line-color-ccc);
   border-top: none;
@@ -246,11 +351,16 @@
   transform: rotate(-45deg);
 }
 .sml.checkbox input+.lbl:after{
-  width: 0.7rem;
+  width: 0.6rem;
   height: 0.4rem;
-  top: 0.6rem;
+  top: 0.7rem;
   left: 0.6rem;
 }
+.radio input:checked+.lbl + span,
+.checkbox input:checked+.lbl + span{
+  font-weight: 500;
+}
+
 .radio input:checked+.lbl::before,
 .checkbox input:checked+.lbl::before{
   background-color: var(--gray_02-darkBlue);
@@ -338,4 +448,65 @@
   &.is-success {
     color: var(--primary-blue-color);
   }
+}
+
+.textarea{
+  textarea{
+    border-radius: 0.3rem;
+    border:0.1rem solid var(--line-color-ccc);
+    resize: none;
+    padding: 0.6rem 1.2rem;
+    height: 100%;
+    &::placeholder{
+      color:var(--gray_999);
+    }
+    &:disabled{
+      outline: none;
+    }
+  }
+}
+
+.file-drop{
+  border:0.2rem dashed var(--line-color-ccc);
+  position: relative;
+  min-height: 8.2rem;
+  background-color: #FBFBFB;
+  border-radius: 0.3rem;
+  &::before{
+    content: '파일첨부 영역을 클릭하거나 Drag&Drop으로 파일을 업로드하세요.';
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    text-align: center;
+    transform: translateY(-50%);
+    color: var(--gray_999);
+    font-size: 1.4rem;
+  }
+}
+.uploaded-file{
+  border: 0.2rem dashed var(--line-color-ccc);
+  position: relative;
+  background-color: #FBFBFB;
+  border-radius: 0.3rem;
+  display: flex;
+  padding: 1rem 2rem;
+  margin-top: 0.8rem;
+  flex-direction: column;
+  p{
+    display: inline-flex;
+    + p{
+      margin-top: 0.6rem;
+    }
+    a{
+      color: var(--primary-blue-color);
+      font-size: 1.4rem;
+      text-decoration: underline;
+      display: block;
+      margin-right: 0.4rem;
+    }
+
+  }
+  
 }

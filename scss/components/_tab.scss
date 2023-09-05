@@ -24,6 +24,9 @@
   white-space: nowrap;
   text-align: center;
   padding: 0 1.5rem;
+  &.w-minauto{
+    min-width: auto;
+  }
   &::before {
     content: '';
     display: block;
@@ -40,6 +43,9 @@
     li{
       width: auto;
       margin: 0 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     & + li{
       // margin-left:1.6rem
     }
@@ -56,9 +62,26 @@
       font-weight: 500;
       color: var(--gray_999);
     }
+    // 탭 아이템 삭제 버튼
+    .btn-itemDel{
+      font-size: 0;
+      display: inline-block;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      background-size: 2rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5.63184 14.3692L10.001 10L14.3702 14.3692M14.3702 5.63086L10.0002 10L5.63184 5.63086' stroke='%23999999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
     &.active {
       a {
         color: var(--primary-blue-color);
+        font-weight: 700;
+      }
+      // 탭 아이템 삭제 버튼
+      .btn-itemDel {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5.63184 14.3692L10.001 10L14.3702 14.3692M14.3702 5.63086L10.0002 10L5.63184 5.63086' stroke='%232E74F2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       }
     }
   }
@@ -67,5 +90,27 @@
   display: none;
   &.active {
     display: block;
+  }
+}
+
+//탭 아이템 추가 및 복사 추가하기 버튼 
+.btn-addTab{
+  font-size: 1.3rem;
+  line-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 1.2rem 0.1rem 0.8rem;
+  border: 0.1rem dashed var(--line-color-ccc);
+  border-radius: 1.2rem;
+  & + .btn-addTab{
+    margin-left: 1.6rem;
+  }
+  &::before{
+    content:'';
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 8H8M8 8H12M8 8V4M8 8V12' stroke='%23999999' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
 }

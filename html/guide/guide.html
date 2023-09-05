@@ -13,8 +13,11 @@
 
 <!-- js -->
 <script src="/js/lib/jquery-3.6.0.min.js"></script>
+<script src="/js/lib/moment.min.js"></script>
+<script src="/js/lib/datepicker/daterangepicker.js"></script>
 <script src="/js/lib/datepicker/datepickerCustom.js"></script>
 <script src="/js/pubCustom.js"></script>
+
 </head>
 
 <body>
@@ -31,7 +34,7 @@
           <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리
               시스템</strong></a>
         </div>
-        <!-- <a href="#" class="kb-navbar-btn" aria-label="메뉴열기"><i></i><span class="sr-only">메뉴열기</span></a> -->
+          
     
         <ul class="navbar-nav kb-navbar-util">
           <li class="nav-item">
@@ -294,7 +297,7 @@
         <!-- //컨텐츠헤더 -->
 
         <!-- 컨텐츠 박스 -->
-        <div class="kb-content-box" >
+        <div class="kb-box-inner" >
           <h3 class="content-tit">input</h3>
           <div class="mt-20">
             <div class="form-item">
@@ -320,13 +323,13 @@
           </div>
         </div>
 
-        <div class="kb-content-box">
+        <div class="kb-box-inner">
           <h3 class="content-tit">select</h3>
           <div class="mt-20">
             <div class="form-item mt-12">
-              <div class="select"><!-- 잘못 입력시 is-error -->
+              <div class="select custom-select"><!-- 잘못 입력시 is-error -->
                 <select class="">
-                  <option value="" disabled selected>선택해주세요</option>
+                  <option value="" selected>선택해주세요</option>
                   <option value="">선택 1</option>
                   <option value="">선택 2</option>
                   <option value="">선택 3</option>
@@ -350,7 +353,7 @@
           </div>
         </div>
 
-        <div class="kb-content-box">
+        <div class="kb-box-inner">
           <h3 class="content-tit">Tab</h3>
           <div class="mt-20">
             
@@ -372,7 +375,7 @@
           </div>
         </div>
 
-        <div class="kb-content-box">
+        <div class="kb-box-inner">
           <h3 class="content-tit">Table</h3>
           <div class="mt-20">
             <h4 class="tit">Default</h4>
@@ -477,7 +480,7 @@
           </div>
         </div>
 
-        <div class="kb-content-box">
+        <div class="kb-box-inner">
           <h3 class="content-tit">Buttons</h3>
           <div class="mt-20">
             <h4 class="tit">Mid</h4>
@@ -522,7 +525,7 @@
 
         </div>
 
-        <div class="kb-content-box">
+        <div class="kb-box-inner">
           <h3 class="content-tit">달력</h3>
           <div class="mt-20">
             <div>
@@ -580,7 +583,7 @@
           </div>
         </div>
 
-        <div class="kb-content-box">
+        <div class="kb-box-inner">
           <h3 class="content-tit">팝업</h3>
           <div class="mt-20">
             <a href="#exampleModalConfirm" class="btn btn-sml btn-round btn-gray pop-open">컨펌 팝업 열기</a>
@@ -623,7 +626,7 @@
           </article>
         </div>
 
-        <div class="kb-content-box">
+        <div class="kb-box-inner">
           <h3 class="content-tit">Checkbox &amp; Radio &amp; Pagination</h3>
           <div class="mt-20">
             <h4 class="tit">체크박스 MID</h4>

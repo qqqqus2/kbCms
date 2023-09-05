@@ -1,5 +1,9 @@
 //권한 설정 뎁스
 .table-wrap{
+    .menu-1depth{
+        display: inline-block;
+        line-height: 2.9rem;
+    }
     .menu-2depth,
     .menu-3depth{
         position: relative;
@@ -22,5 +26,334 @@
 
     .menu-3depth{
         left:2rem;
+    }
+}
+
+// 메뉴관리 사이드 메뉴
+.menuItem-wrap{
+    height: calc(100% - 11rem);
+}
+
+//사용중지 팝업 유의사항
+.info-contetns{
+    width: 100%;
+    .tit{
+        font-size: 1.5rem;
+        line-height: 2.2rem;
+        font-weight: 500;
+        color:var(--gray_01_black);
+        margin-bottom: 0.8rem;
+    }
+    ul{
+        li{
+            position: relative;
+            padding-left: 0.6rem;
+            color: var(--gray_03_subText);
+            font-weight: 300;
+            line-height: 2rem;
+            & + li{
+                margin-top: 0.4rem;
+            }
+            strong{
+                font-weight: 500;
+            }
+            &:before{
+                content: '';
+                display: block;
+                width: 0.2rem;
+                height: 0.2rem;
+                position: absolute;
+                left: 0;
+                top: 0.8rem;
+                background: var(--gray_01_black);
+            }
+        }
+    }
+}
+
+//그룹 등록 팝업
+.regist-grp{
+    position: relative;
+    width: 100%;
+    dl{
+        padding: 2.4rem;
+        padding-left: 14rem;
+        background-color: #FBFBFB;
+        border:0.1rem solid #eee;
+        border-radius: 0.8rem;
+        margin-bottom: 2.4rem;
+        position: relative;
+        dt{
+            position: absolute;
+            left: 0;
+            padding-left: 2rem;
+            text-align: left;
+            top: 50%;
+            box-sizing: border-box;
+            font-weight: 500;
+            transform: translateY(-50%);
+            width: 13rem;
+        }
+        dd{
+            padding-right: 1.5rem;
+            .input{
+                width: 100%;
+            }
+        }
+    }
+    .grp-wrap{
+        background-color: #FBFBFB;
+        border: 0.1rem solid #eee;
+        border-radius: 0.8rem;
+        margin-bottom: 2.4rem;
+        padding: 1.5rem 0;
+        position: relative;
+        dl{
+            padding: 0.9rem;
+            padding-left: 14rem;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            background-color: transparent;
+        }
+    }
+}
+
+
+// 권한그룹 계정추가 팝업
+#grpRightAdd{
+    .tit{
+        font-size:1.6rem;
+        line-height: 2.4rem;
+        font-weight: 700;
+        color:var(--gray_01_black);
+    }
+    .list-wrap{
+        position: relative;
+        margin-top: 3.2rem;
+    }
+    .btn-move{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: calc(100% - 3.6rem);
+        margin-left: -3.6rem;
+        width: 7.2rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0 2rem;
+        box-sizing: border-box;
+        gap: 0.6rem;
+        .btn{
+            width: 100%;
+            font-size:0;
+            border: 0.1rem #AEB6D0 solid;
+            border-radius: 0.2rem;
+            height: 100%;
+            background-size: 2rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            &.btn-leftMove{
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M6.38264 10.8513C5.74848 10.4608 5.74848 9.53889 6.38264 9.14835L12.8506 5.16511C13.5169 4.7548 14.375 5.23413 14.375 6.01659L14.375 13.9831C14.375 14.7655 13.5169 15.2449 12.8506 14.8346L6.38264 10.8513Z' fill='%23202020'/%3E%3C/svg%3E");
+            }
+            &.btn-rightMove{
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M13.6174 9.14868C14.2515 9.53922 14.2515 10.4611 13.6174 10.8516L7.14938 14.8349C6.48312 15.2452 5.625 14.7659 5.625 13.9834L5.625 6.01692C5.625 5.23445 6.48312 4.75512 7.14938 5.16543L13.6174 9.14868Z' fill='%23202020'/%3E%3C/svg%3E");
+            }
+            &:active{
+                transform: none;
+                background-color: #AEB6D0;
+            }
+        }
+    }
+}
+
+//키워드 리스트
+.keyword-list{
+    position: relative;
+    margin:0.6rem -0.3rem 0;
+    font-size: 0;
+    .keyword-wrap{
+        display: inline-block;
+        padding: 0.3rem;
+        & + .keyword-wrap {
+            margin-top: 0;
+        }
+    }
+}
+.keyword-wrap{
+    & + .keyword-wrap {
+        margin-top: 0.6rem;
+    }
+    span.keyword-item {
+        font-size: 1.4rem;
+        padding: 0.8rem 1.2rem 0.4rem;
+        line-height: 2rem;
+        padding-right: 4rem;
+        position: relative;
+        background-color: var(--background-color);
+        border-radius: 0.4rem;
+        align-items: center;
+        display: inline-flex;
+        .input{
+            input{
+                width: 100%;
+            }
+        }
+        .btn-del {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1.2rem;
+        }
+    }
+}
+
+// aem 미리보기
+.aem-preview{
+    height: 40rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.reply-title{
+    display: flex;
+    margin-bottom: 1.2rem;
+    h5{
+        font-size: 1.5rem;
+        line-height: 2.2rem;
+        font-weight: 500;
+    }
+    .ml-auto{
+        font-size: 1.4rem;
+        color: var(--gray_01_black);
+        strong{
+            font-weight:500;
+        }
+    }
+}
+.reply-write{
+    display: flex;
+    width: 100%;
+    gap:0.6rem;
+    .textarea{
+        height: 7.2rem;
+        width: 100%;
+    }
+    .btn{
+        width: 7.2rem;
+        height: 7.2rem;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+    }
+}
+
+.tab-sort{
+    margin-top: 4rem;
+    padding-bottom: 2.4rem;
+    border-bottom: 0.1rem dashed var(--line-color-ccc);
+    ul{
+        font-size: 0;
+        li{
+            display: inline-block;
+            position: relative;
+            padding:0 1.2rem;
+            &:first-child{
+                padding-left: 0;
+            }
+            & + li{
+                &::before{
+                    content:'';
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    width: 0.1rem;
+                    height: 1.6rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background:#D9D9D9;
+                    top: 50%;
+                }
+            }
+            a{
+                font-size: 1.5rem;
+                color: var(--gray_999);
+                &.active{
+                    font-weight: 700;
+                    color:var(--gray_01_black);
+                }
+            }
+        }
+    }
+}
+.reply-list{
+    li{
+        & + li{
+            padding-top: 2.4rem;
+            margin-top: 2.4rem;
+            border-top: 0.1rem dashed var(--line-color-ccc);
+        }
+        .reply-top{
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            .user-info{
+                font-size: 1.5rem;
+                .writer-name,
+                .date{
+                    display: inline-block;
+                    padding:0 1.2rem;
+                }
+                span{
+                    position: relative;
+                    color: var(--gray_03_subText);
+                    &::before{
+                        content:'';
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        width: 0.1rem;
+                        height: 1.6rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background:#D9D9D9;
+                        top: 50%;
+                    }
+                }
+                .writer-name{
+                    padding-left: 0;
+                    font-weight: 500;
+                    color: var(--gray_01_black);
+                }
+            }
+            .ml-auto{
+                .btn{
+                    min-width: 5.7rem;
+                    & + .btn{
+                        margin-left: 0.6rem;
+                    }
+                }
+            }
+        }
+    }
+}
+.reply-txt{
+    position: relative;
+    padding-left: 9rem;
+    min-height: 4.4rem;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    color: var(--gray_03_subText);
+    .reply-idx{
+        position: absolute;
+        height: 4.4rem;
+        width: 6.5rem;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+        padding: 1rem;
+        background-color: var(--background-color);
+        line-height: 2.4rem;
+        color: var(--gray_02-darkBlue);
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
     }
 }

@@ -85,12 +85,10 @@ $today-color : #202020 !default;
     .pmu-selected {
       background: $selected-background;
       color: $selected;
-      border-radius: 0;
-
-      &.pmu-today {
-        border-radius: 50%;
-      }
-      
+      border-radius: 0; 
+    }
+    .pmu-today {
+      border-radius: 50%;
     }
 
     .pmu-not-in-month.pmu-selected {
@@ -250,8 +248,9 @@ $today-color : #202020 !default;
     border: 0.1rem solid var(--line-color-ccc);
     border-radius: 1.6rem;
     line-height: 1.6rem;
-    padding: 0.6rem 1.6rem;
-    padding-top: 0.8rem;
+    font-size: 1.3rem;
+    padding: 0.2rem 1rem;
+    padding-top: 0.4rem;
     font-weight: 300;
     background-color: var(--background-color);
     cursor: pointer;
