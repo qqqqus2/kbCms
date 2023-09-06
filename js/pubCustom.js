@@ -362,27 +362,25 @@
         }
       });
       
-
       var start = moment();
       var end = moment();
 
       function dateRange(){
         $('.range input').daterangepicker({
-            "timePicker": false,
-            "locale": {
-              "format": 'YYYY-MM-DD',
-              "direction": "rtl",
-              "separator": " ~ ",
-              "applyLabel": "확인",
-              "cancelLabel": "다시 선택",
-              "fromLabel": "부터",
-              "toLabel": "까지",
-              "customRangeLabel": "Custom",
-              "daysOfWeek": ["일","월", "화","수","목","금","토"],
-              "monthNames": [ "1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
-              "firstDay": 0
-            },
-
+          "timePicker": false,
+          "locale": {
+            "format": 'YYYY-MM-DD',
+            "direction": "rtl",
+            "separator": " ~ ",
+            "applyLabel": "확인",
+            "cancelLabel": "다시 선택",
+            "fromLabel": "부터",
+            "toLabel": "까지",
+            "customRangeLabel": "Custom",
+            "daysOfWeek": ["일","월", "화","수","목","금","토"],
+            "monthNames": [ "1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+            "firstDay": 0
+          },
         });
       }
       dateRange()
@@ -444,6 +442,7 @@
           return renderObj;
         }
       });
+      
       // 주단위 선택 스크립트
       const $weekSelect = $('.weekselect');
       const datePickerWeek = document.querySelector('.weekselect input');
@@ -820,29 +819,38 @@ function tooltips(){
 }
 
 // 커스텀 셀렉트
-
 function customSelect() {
   var x, i, j, l, ll, selElmnt, a, b, c;
 
   x = document.getElementsByClassName("custom-select");
   l = x.length;
+
   for (i = 0; i < l; i++) {
     selElmnt = x[i].getElementsByTagName("select")[0];
 
-    if (selElmnt.disabled) {
+    if(selElmnt.selectedIndex >= 0){
+      if (selElmnt.disabled) {
+        x[i].classList.add("disabledSelect");
+        continue;
+      }
+    } else {
       x[i].classList.add("disabledSelect");
+      x[i].classList.add("nullOption");
+      // x[i].querySelector('select').disabled = true;
       continue;
     }
-
+    
     ll = selElmnt.length;
-
     a = document.createElement("div");
     a.setAttribute("class", "select-selected");
     a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
     x[i].appendChild(a);
 
+    // console.log(selElmnt.selectedIndex)
+
     b = document.createElement("div");
     b.setAttribute("class", "select-items select-hide");
+
     for (j = 0; j < ll; j++) {
       c = document.createElement("div");
       c.innerHTML = selElmnt.options[j].innerHTML;
@@ -872,10 +880,11 @@ function customSelect() {
         h.click();
 
         // select 값이 변경되면 selectedItem() 함수 실행
-        //selectedItem(s);
+        s.dispatchEvent(new Event('change'));
       });
       b.appendChild(c);
     }
+    
     x[i].appendChild(b);
 
     const bodyElement = document.body;

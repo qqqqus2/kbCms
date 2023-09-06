@@ -289,10 +289,11 @@ a,
 .w-full{
   width: 100% !important;
 }
+
 @for $i from 0 through 400 {
   .w-#{$i} {
-    width: $i * 0.1rem !important;
-  }
+      width: $i * 0.1rem !important;
+    }
   .w-#{$i}f {
     flex: 0 0 $i * 0.1rem !important;
   }
@@ -1009,19 +1010,35 @@ dl.inner-tbl {
     gap: 1.6rem 0;
     & + .option {
       margin-top: 1.2rem;
+      position: relative;
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: -1.6rem;
+        right: -1.6rem;
+        top: -0.6rem;
+        height: 0.1rem;
+        background:var(--line-color-eee);
+      }
     }
 
     >.box {
       width: 50%;
       display: flex;
       align-items: center;
-      
+      position: relative;
+      padding-left: 12rem;
       .tit {
         flex-shrink: 0;
         width: 12rem;
         color: var(--gray_03-subText);
         font-size: 1.3rem;
         font-weight: 500;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
       }
       & + .box{
         .tit{

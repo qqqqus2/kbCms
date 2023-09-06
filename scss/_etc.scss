@@ -32,6 +32,57 @@
 // 메뉴관리 사이드 메뉴
 .menuItem-wrap{
     height: calc(100% - 11rem);
+    .home{
+        padding: 0 1.2rem;
+    }
+    .kb-lnb-dep1{
+        margin: 0 -1.2rem;
+    }
+    label{
+        position: relative;
+        padding-right: 2rem;
+        display: block;
+        input {
+            position: absolute;
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+    
+        .lbl {
+            position: relative;
+        }
+    
+        input:checked+.lbl {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: var(--primary-blue-color);
+            opacity: 0.2;
+        }
+    
+        input:checked+.lbl+span {
+            font-weight: 500;
+        }
+    }
+    .btn-toggle{
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        right: 0;
+        top: 0;
+        background-color: transparent;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 12H12M12 12H18M12 12V6M12 12V18' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        &.active{
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 12H12H18' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        }
+    }
 }
 
 //사용중지 팝업 유의사항
@@ -355,5 +406,48 @@
         font-size: 2rem;
         font-weight: 700;
         text-align: center;
+    }
+}
+
+//파일 다운롣 팝업
+.download-wrap{
+    width: 100%;
+    display: block;
+    padding: 0 0 2.4rem;
+    .downPop-tit{
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--gray_01_black);
+        margin-bottom: 1.2rem;
+    }
+    .file-list{
+        li{
+            & + li{
+                margin-top: 0.6rem;
+            }
+            a{
+                font-size: 1.4rem;
+                padding: 0.6rem 1.2rem;
+                padding-left: 3.5rem;
+                position: relative;
+                font-weight: 300;
+                display: inline-block;
+                background-color: var(--background-color);
+                &::before{
+                    content: '';
+                    display: block;
+                    width: 2rem;
+                    height: 2rem;
+                    left: 0.8rem;
+                    top:50%;
+                    transform: translateY(-50%);
+                    background-size: 2rem;
+                    background-repeat: no-repeat;
+                    background-position:center;
+                    position: absolute;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 16.6668H15M10 3.3335V13.3335M10 13.3335L12.9167 10.4168M10 13.3335L7.08333 10.4168' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                }
+            }
+        }
     }
 }

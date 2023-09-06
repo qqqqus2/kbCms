@@ -243,6 +243,46 @@
         </div>
       </main>
       <!-- //컨텐츠 -->
+
+      <!-- Modal -->
+      <article class="modal" id="fileDownPop" tabindex="-1" aria-hidden="true">
+        <i class="modal-bg"></i>
+        <div class="modal-dialog">
+          <div class="modal-content w-500">
+            <div class="modal-head">
+              <h5 class="tit">파일 다운로드</h5>
+              <button type="button" class="btn btn-popClose" onclick="popClose('#fileDownPop')">팝업
+                닫기</button>
+            </div>
+            <div class="modal-body flex-column">
+              <div class="download-wrap">
+                <p class="downPop-tit">퇴직연금 상품 언어 가이드_2023.07 버전</p>
+                <ul class="file-list">
+                  <li>
+                    <a href="#" class="download-item">업로드한 첫번째 파일명이 출력됩니다(다운로드 가능).pdf (15 byte)</a>
+                  </li>
+                  <li>
+                    <a href="#" class="download-item">업로드한 두번째 파일명이 출력됩니다(다운로드 가능).pdf (110525 byte)</a>
+                  </li>
+                  <li>
+                    <a href="#" class="download-item">업로드한 세번째 출력됩니다(다운로드 가능).pdf (125 byte)</a>
+                  </li>
+                  <li>
+                    <a href="#" class="download-item">업로드한 네번째 파일명이 출력됩니다(다운로드 가능).pdf (10525 byte)</a>
+                  </li>
+                  <li>
+                    <a href="#" class="download-item">업로드한 다섯번째 파일명(다운로드 가능).pdf (11525 byte)</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" onclick="popClose('#fileDownPop')">확인</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
     <!-- //container -->
 
@@ -251,7 +291,9 @@
   <!-- //wrap -->
 
   <script>
-
+    $(function () {
+      popOpen('#fileDownPop')
+    })
   </script>
 </body>
 

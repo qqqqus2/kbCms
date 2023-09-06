@@ -101,6 +101,24 @@ input[type="password"]{
       &:hover{
         border-color: var(--line-color-ccc);
       }
+      &.nullOption {
+        position: relative;
+        &::after{
+          left: 0;
+          top: 0;
+          position: absolute;
+          line-height: 2rem;
+          padding: 0.6rem 2.4rem 0.6rem 1.1rem;
+          box-sizing: border-box;
+          content:'옵셥 값이 없습니다.';
+        }
+        select{
+          width: 100%;
+          &:disabled {
+            background-color: #fff;
+          }
+        } 
+      }
     }
     select{
       opacity: 0;

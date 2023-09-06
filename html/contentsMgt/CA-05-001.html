@@ -259,10 +259,235 @@
         <!-- 컨텐츠 박스 -->
         <div class="kb-content-box">
           <div class="kb-box-inner">
-            <h3 class="content-tit">기본 정보</h3>
-            
+            <div class="common-search">
+              <dl>
+                <dt class="w-150">콘텐츠 내용분류</dt>
+                <dd>
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="">
+                        <option value="">대분류 전체</option>
+                        <option value="">대분류 메뉴</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="" disabled>
+                        <option value="">중분류 전체</option>
+                        <option value="">중분류 메뉴</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="" disabled>
+                        <option value="">소분류 전체</option>
+                        <option value="">소분류 메뉴</option>
+                      </select>
+                    </div>
+                  </div>
+                </dd>
+              </dl>
+              <dl>
+                <dt class="w-150">연관키워드</dt>
+                <dd class="w-full">
+                  <div class="form-item inline-flex align-center">
+                    <div class="select custom-select flex-00 w-200">
+                      <select class="">
+                        <option value="">전체</option>
+                        <option value="">제목</option>
+                        <option value="">내용</option>
+                        <option value="">등록자</option>
+                      </select>
+                    </div>
+                    <div class="input w-full ml-6">
+                      <input type="text" title="연관키워드 입력"
+                        placeholder="여러 개의 키워드 동시 검색 시 ‘,’ 쉼표를 구분자로 사용하여 최대 3개까지 검색조건으로 설정 할 수 있습니다." aria-label="연관키워드 입력" />
+                    </div>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="common-search-btn mt-16">
+            <button type="button" class="btn btn-mid btn-line">초기화</button>
+            <button type="button" class="btn btn-mid btn-yellow">검색</button>
+          </div>
+        
+          <div class="kb-box-inner mt-32">
+            <div class="common-search-table">
+              <div class="title-wrap flex align-center mb-12">
+                <div class="left">검색결과 <strong class="fc-blue">999</strong> / 9999</div>
+                <div class="ml-auto inline-flex justify-end">
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="">
+                        <option value="">20개씩 보기</option>
+                        <option value="">50개씩 보기</option>
+                        <option value="">100개씩 보기</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sml btn-line btn-x ml-6">선택삭제</button>
+                  <button type="button" class="btn btn-sml btn-gray ml-6">신규등록</button>
+                </div>
+              </div>
+        
+              <!-- 테이블 -->
+              <div class="table-wrap">
+                <table class="table">
+                  <colgroup>
+                    <col style="width: 2rem;" />
+                    <col style="width: 8rem;" />
+                    <col style="width: auto;" />
+                    <col style="width: 3rem;" />
+                    <col style="width: 3rem;" />
+                    <col style="width: 3rem;" />
+                    <col style="width: 3rem;" />
+                    <col style="width: 15rem;" />
+                    <col style="width: 4.5rem;" />
+                    <col style="width: 15rem;" />
+                    <col style="width: 4.5rem;" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        <label class="checkbox sml only">
+                          <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
+                        </label>
+                      </th>
+                      <th>NO</th>
+                      <th>제목</th>
+                      <th>상품 <br />기준정보</th>
+                      <th>서비스 <br />기준정보</th>
+                      <th>계좌 <br />기준정보</th>
+                      <th>첨부파일</th>
+                      <th>
+                        <span class="list-align">
+                          등록일시
+                          <i role="button" class="btn-alignList"></i>
+                        </span>
+                      </th>
+                      <th>등록자</th>
+                      <th>
+                        <span class="list-align">
+                          최종 수정일시
+                          <i role="button" class="btn-alignList"></i>
+                        </span>
+                      </th>
+                      <th>최종 수정자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only">
+                          <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                        </label>
+                      </td>
+                      <td>1</td>
+                      <td class="t-left">
+                        <a href="#none" class="linked ellipsis-1">미국 파생상품 언어가이드 미국 파생상품 언어가이드 미국 파생상품 언어가이드</a>
+                      </td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>
+                        <a href="#none" class="linked">3</a>
+                      </td>
+                      <td>2023-07-14 12:23</td>
+                      <td>홍길동</td>
+                      <td>2023-07-14 12:23</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only">
+                          <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                        </label>
+                      </td>
+                      <td>2</td>
+                      <td class="t-left">
+                        <a href="#none" class="linked ellipsis-1">미국 파생상품 언어가이드 미국 파생상품 언어가이드 미국 파생상품 언어가이드</a>
+                      </td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>
+                        <a href="#none" class="linked">3</a>
+                      </td>
+                      <td>2023-07-14 12:23</td>
+                      <td>홍길동</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only">
+                          <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                        </label>
+                      </td>
+                      <td>3</td>
+                      <td class="t-left">
+                        <a href="#none" class="linked ellipsis-1">미국 파생상품 언어가이드 미국 파생상품 언어가이드 미국 파생상품 언어가이드</a>
+                      </td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>
+                        <a href="#none" class="linked">5</a>
+                      </td>
+                      <td>2023-07-14 12:23</td>
+                      <td>홍길동</td>
+                      <td>2023-07-14 12:23</td>
+                      <td>홍길동</td>
+                    </tr>
+                    
+                    <!-- 검색결과가 없습니다 -->
+                    <tr>
+                      <td colspan="11">
+                        <div class="search-notFound">
+                          검색결과가 없습니다.
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+        
+                <!-- 페이징 -->
+                <nav aria-label="Page navigation">
+                  <ul class="pagination justify-center mt-16">
+                    <li class="page-item">
+                      <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                        <span aria-hidden="true">&#60;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                        <span aria-hidden="true">&#62;</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link next-last" href="#" aria-label="마지막으로">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
           </div>
         </div>
+
       </main>
       <!-- //컨텐츠 -->
     </div>
