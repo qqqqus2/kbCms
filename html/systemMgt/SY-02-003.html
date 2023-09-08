@@ -548,7 +548,14 @@
     <!-- //wrap -->
 
     <script>
+        //권한관리 사이드바 클릭시 active 
+        $('.nav-list li a').click(function(){
+            const $this = $(this);
+            const li = $('.nav-list li');
 
+            li.removeClass('active')
+            $this.parent('li').addClass('active');
+        })
     </script>
 </body>
 

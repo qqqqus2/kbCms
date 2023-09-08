@@ -859,7 +859,7 @@ $bdTypes: (solid, dashed, dotted);
     tr:last-child{
       th,
       td{
-        border-bottom: 0;
+        border-bottom: 0.1rem solid #eee;
       }
     }
   }
@@ -936,7 +936,7 @@ $bdTypes: (solid, dashed, dotted);
       border-top: 0.1rem var(--line-color-eee) solid;
       padding: 1.2rem 0;
       padding-left: 0;
-      padding-right: 15rem;
+      padding-right: 5rem;
       .option {
         gap: 3.2rem;
       }
@@ -1002,6 +1002,9 @@ dl.inner-tbl {
   }
   &:last-child{
     padding-bottom: 0;
+  }
+  .custom-select{
+    min-width: 0;
   }
   .option {
     display: flex;

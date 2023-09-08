@@ -1,6 +1,7 @@
 //form
 input[type="text"],
-input[type="password"]{
+input[type="password"],
+input[type="number"]{
   border-radius: 0.3rem;
   border: 0.1rem solid transparent;
   border-color: var(--line-color-ccc);
@@ -8,7 +9,7 @@ input[type="password"]{
   font-weight: 300;
   font-size: 1.4rem;
   line-height: 2rem;
-  min-width: 15rem;
+  min-width: 10rem;
   height: 3.2rem;
   appearance: none;
   &::placeholder{
@@ -28,6 +29,15 @@ input[type="password"]{
       border-color: var(--line-color-ccc);
     }
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .form-item{
@@ -78,6 +88,7 @@ input[type="password"]{
   }
   .custom-select{
     position: relative;
+    min-width: 15rem;
     // 테이블 안에 셀렉트일시 스크롤생김 방지
     &.fixed {
       .select-items {
@@ -89,12 +100,12 @@ input[type="password"]{
     &.disabledSelect {
       select{
         opacity: 1;
-        width: auto;
+        width: 100%;
         height: auto;
         position: relative;
         display: block;
         padding: 0.6rem 2.4rem 0.6rem 1.1rem;
-        min-width: 15rem;
+        min-width: 10rem;
         height: 3.2rem;
         border-radius: 0.3rem;
       }
@@ -110,7 +121,7 @@ input[type="password"]{
           line-height: 2rem;
           padding: 0.6rem 2.4rem 0.6rem 1.1rem;
           box-sizing: border-box;
-          content:'옵셥 값이 없습니다.';
+          // content:'옵셥 값이 없습니다.';
         }
         select{
           width: 100%;
@@ -141,6 +152,10 @@ input[type="password"]{
       
       &:disabled{
         background-color: var(--background-color);
+        + .select-selected,
+        + .select-items{
+          display: none;
+        }
       }
     }
   }
@@ -151,7 +166,7 @@ input[type="password"]{
     height: 3.2rem;
     background-color: #fff;
     white-space: nowrap;
-    min-width: 15rem;
+    min-width: 10rem;
     border-color: var(--line-color-ccc);
     background-position: right center;
     background-repeat: no-repeat;
@@ -192,7 +207,6 @@ input[type="password"]{
 
   .select-items {
     position: absolute;
-    // position: fixed;
     // right: auto;
     background-color:  #fff;
     border-top:0.1rem solid var(--line-color-ccc);
@@ -201,15 +215,18 @@ input[type="password"]{
     box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.1);
     top: 100%;
     left: 0;
-    right: 0;
+    // right: 0;
     margin-top: 0.3rem;
     width: auto;
+    min-width: 100%;
     z-index: 99;
     border-radius: 0.3rem;
+
     div{
       border-top: 0;
       height: 3.2rem;
-      padding-right:1.1rem;
+      white-space: nowrap;
+      padding-right: 2.4rem;
     }
   }
 
@@ -328,18 +345,25 @@ input[type="password"]{
   background-color: #fff;
   border: 0.1rem solid var(--line-color-ccc);
 }
+
+
 .checkbox input+.lbl:before{
   background-color: #fff;
   border:0.1rem solid var(--line-color-ccc);
 }
-.checkbox input+.lbl:after,
-.radio input+.lbl:after {
+
+.checkbox input:disabled+.lbl:before{
+  background-color: var(--line-color-ccc);
+}
+
+.checkbox input + .lbl:after,
+.radio input + .lbl:after {
   content: '';
   display: inline-block;
   position: absolute;
   background-color: #fff;
 }
-.radio input+.lbl:after{
+.radio input + .lbl:after{
   width: 1.2rem;
   height: 1.2rem;
   opacity: 0;
@@ -349,6 +373,15 @@ input[type="password"]{
   background-color: #fff;
   transform: scale(0);
 }
+.radio input:disabled+.lbl:before {
+  background-color: var(--line-color-ccc);
+}
+.radio input:disabled + .lbl:after {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.12);
+}
+
 .sml.radio input+.lbl:after {
   width: 1rem;
   height: 1rem;
@@ -367,6 +400,10 @@ input[type="password"]{
   background: transparent;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
+}
+
+.checkbox input:disabled+.lbl:after{
+  border-color: #fff;
 }
 .sml.checkbox input+.lbl:after{
   width: 0.6rem;
@@ -478,8 +515,13 @@ input[type="password"]{
     &::placeholder{
       color:var(--gray_999);
     }
-    &:disabled{
+    &:disabled,
+    &:read-only{
       outline: none;
+      background-color: var(--background-color);
+      &:focus {
+        border-color: var(--line-color-ccc);
+      }
     }
   }
 }
@@ -494,13 +536,18 @@ input[type="password"]{
     content: '파일첨부 영역을 클릭하거나 Drag&Drop으로 파일을 업로드하세요.';
     display: block;
     position: absolute;
-    width: 100%;
-    left: 0;
+    width: auto;
+    left: 50%;
     top: 50%;
     text-align: center;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     color: var(--gray_999);
     font-size: 1.4rem;
+    padding-left: 2.8rem;
+    background-position: left center;
+    background-size: 2.4rem;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' fill='%23cccccc'/%3E%3Cpath d='M12 7.75739L12 16.2424' stroke='white' stroke-width='1.5' stroke-linecap='square'/%3E%3Cpath d='M16.2427 12L7.75768 12' stroke='white' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
   }
 }
 .uploaded-file{

@@ -240,7 +240,7 @@
           let isActive = false;
         
           if ($path.indexOf($href) > -1) {
-            isActive = true;
+            // isActive = true;
           } else if ($text === $title) {
             isActive = true;
           }
@@ -289,6 +289,7 @@
           startDate: start,
           endDate: end,
           "singleDatePicker": true,
+          "showDropdowns": true,
           "timePicker": false,
           "locale": {
             "format": 'YYYY-MM-DD',
@@ -367,9 +368,11 @@
 
       function dateRange(){
         $('.range input').daterangepicker({
+          showDropdowns: true,
           "timePicker": false,
           "locale": {
             "format": 'YYYY-MM-DD',
+            "showDropdowns": true,
             "direction": "rtl",
             "separator": " ~ ",
             "applyLabel": "확인",
