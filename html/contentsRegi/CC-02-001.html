@@ -503,7 +503,8 @@
                                     <dd class="flex-none">
                                         <!-- 1줄씩 -->
                                         <div class="option">
-                                            <div class="box">
+                                            <!-- 2023-09-12 w-full 클래스 추가 -->
+                                            <div class="box w-full">
                                                 <p class="tit">상품 기준정보</p>
                                                 <div class="form-item">
                                                     <div class="select custom-select">
@@ -535,7 +536,8 @@
                                         </div>
                                         <!-- 1줄씩 -->
                                         <div class="option">
-                                            <div class="box">
+                                            <!-- 2023-09-12 w-full 클래스 추가 -->
+                                            <div class="box w-full">
                                                 <p class="tit">계좌 기준정보</p>
                                                 <div class="form-item">
                                                     <div class="select custom-select">
@@ -567,7 +569,8 @@
                                         </div>
                                         <!-- 1줄씩 -->
                                         <div class="option">
-                                            <div class="box">
+                                            <!-- 2023-09-12 w-full 클래스 추가 -->
+                                            <div class="box w-full">
                                                 <p class="tit">서비스 기준정보</p>
                                                 <div class="form-item">
                                                     <div class="select custom-select">
@@ -828,24 +831,11 @@
         </div>
         <!-- //container -->
 
-
     </section>
     <!-- //wrap -->
 
     <script>
-        $('.btn-searchToggle').on('click',function(){
-            const $this = $(this);
-            const title = $this.attr('title');
-
-            $this.parents('.common-search').toggleClass('active');
-            $this.siblings('.expand-condition').stop().slideToggle(300);
-            
-            if(title == '닫힘'){
-                $this.attr('title', '열기');
-            }else{
-                $this.attr('title', '닫기');
-            }
-        })
+        // 작동 스크립트 공통 적용
     </script>
 </body>
 

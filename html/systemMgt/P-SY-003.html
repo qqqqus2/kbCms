@@ -778,8 +778,6 @@
                                     <colgroup>
                                         <col style="width: 15rem;" />
                                         <col />
-                                        <col style="width: 15rem;" />
-                                        <col />
                                     </colgroup>
 
                                     <tbody>
@@ -787,48 +785,60 @@
                                             <th>권한 그룹</th>
                                             <td>
                                                 <div class="form-item">
-                                                    <div class="input w-full">
+                                                    <div class="input w-250">
                                                         <input type="text" title="권한 그룹" readonly="readonly" placeholder=""
                                                             value="최고관리자" aria-label="권한 그룹" />
                                                     </div>
                                                 </div>
                                             </td>
-                                            <th>계정검색 <i class="fc-red">*</i></th>
-                                            <td>
-                                                <div class="flex">
-                                                    <div class="form-item w-auto">
-                                                        <div class="select custom-select">
-                                                            <select class="">
-                                                                <option value="">이름</option>
-                                                                <option value="">이름</option>
-                                                                <option value="">사번</option>
-                                                                <option value="">부서명</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-item">
-                                                        <div class="input w-full">
-                                                            <input type="text" title="직접입력" placeholder="직접입력" value=""
-                                                                aria-label="직접입력" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- 버튼영역 -->
-                            <div class="mt-16 w-full flex align-center justify-center">
-                                <button type="button" class="btn btn-mid btn-line">초기화</button>
-                                <button type="button" class="btn btn-mid btn-yellow">검색</button>
-                            </div>
-
+                            
                             <!-- 계정 추가 목록 -->
-                            <div class="inline-flex flex-11 list-wrap">
+                            <div class="inline-flex flex-11 list-wrap"> 
                                 <div class="search-list pr-36 w-full">
+                                    <p class="tit mb-12">권한그룹 계정검색</p>
+                                    <div class="mb-12">
+                                        <table class="table left-table">
+                                            <colgroup>
+                                                <col style="width: 15rem;" />
+                                                <col />
+                                            </colgroup>
+                                    
+                                            <tbody>
+                                                <th>계정검색 <i class="fc-red">*</i></th>
+                                                <td>
+                                                    <div class="flex">
+                                                        <div class="form-item w-auto">
+                                                            <div class="select custom-select">
+                                                                <select class="">
+                                                                    <option value="">이름</option>
+                                                                    <option value="">사번</option>
+                                                                    <option value="">부서명</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-item">
+                                                            <div class="input w-full">
+                                                                <input type="text" title="직접입력" placeholder="직접입력" value="" aria-label="직접입력" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- 버튼영역 -->
+                                    <div class="mt-16 w-full flex align-center justify-center">
+                                        <button type="button" class="btn btn-mid btn-yellow">검색</button>
+                                    </div>
+                                    
                                     <p class="tit mb-12">검색결과 <strong class="fc-blue">999</strong></p>
-                                    <div class="table-wrap inner-scroll h-270">
+                                    <div class="table-wrap inner-scroll h-210">
                                         <table class="table">
                                             <colgroup>
                                                 <col style="width: auto;" />
@@ -886,10 +896,11 @@
                                                         </p>
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <!-- 권한 disabled 클래스 : denied -->
+                                                <tr class="denied">
                                                     <td>
                                                         <label class="checkbox sml only">
-                                                            <input type="checkbox" class="ui-tbl-chk" /><i
+                                                            <input type="checkbox" disabled class="ui-tbl-chk" /><i
                                                                 aria-hidden="true" class="lbl"></i>
                                                         </label>
                                                     </td>
@@ -940,7 +951,7 @@
 
                                 <div class="add-list pl-36 w-full">
                                     <p class="tit mb-12">계정추가 목록</p>
-                                    <div class="table-wrap inner-scroll h-270">
+                                    <div class="table-wrap inner-scroll h-340">
                                         <table class="table">
                                             <colgroup>
                                                 <col style="width: auto;" />

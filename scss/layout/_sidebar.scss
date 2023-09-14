@@ -206,7 +206,9 @@
         font-weight: 300;
         line-height: 2rem;
         font-weight: 300;
+        display: inline-block;
         position: relative;
+        width: 100%;
         &::before{
           content:'';
           display: block;
@@ -240,6 +242,7 @@
           top: 0;
           margin-top: 0;
           opacity: 0.2;
+          z-index: -1;
           background-color: var(--primary-yellow-color);
         }
       }
@@ -303,10 +306,12 @@
         font-weight: 500;
       }
     }
+    
     .kb-lnb-dep1{
       padding: 0 1.2rem;
       >li {
         >.kb-lnb-link {
+          padding: 0 1rem;
           &.in-sub {
             padding-right: 1.875rem !important;
             &:before,

@@ -301,7 +301,7 @@
                                         </div>
                                     </div>
 
-                                    <label class="checkbox sml">
+                                    <label class="checkbox sml ml-16">
                                         <input type="checkbox" class="" name="" />
                                         <i aria-hidden="true" class="lbl"></i>
                                         <span>하위분류 포함</span>
@@ -344,9 +344,10 @@
                         <div class="title-wrap flex align-center mb-12">
                             <div class="left flex-00 w-auto">검색결과 <strong class="fc-blue">999</strong> / 9999</div>
                             <div class="ml-auto inline-flex justify-end">
-                                <button type="button" class="btn btn-sml btn-line btn-o ml-6">선택 사용</button>
-                                <button type="button" class="btn btn-sml btn-line btn-x ml-6">선택 사용안함</button>
-                                <button type="button" class="btn btn-sml btn-gray ml-6">신규등록</button>
+                                <!-- 2023-09-13 ml-6 클래스 수정 (ml-6 > ml-4, ml-8) -->
+                                <button type="button" class="btn btn-sml btn-line btn-o">선택 사용</button>
+                                <button type="button" class="btn btn-sml btn-line btn-x ml-4">선택 사용안함</button>
+                                <button type="button" class="btn btn-sml btn-gray ml-8">신규등록</button>
                             </div>
                         </div>
                         <div class="table-wrap">
@@ -624,6 +625,45 @@
                             </table>
                         </div>
 
+                        <!-- 2023-09-13 페이징 추가 -->
+                        <!-- 페이징 -->
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-center mt-16">
+                                <li class="page-item">
+                                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                                        <span aria-hidden="true">&#60;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                                        <span aria-hidden="true">&#62;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        
+                        <!-- 2023-09-13 유의사항 추가 -->
+                        <div class="info-contetns mt-24">
+                            <p class="tit">유의사항</p>
+                            <ul>
+                                <li>최상위분류 정보는 CMS 내 추가/변경 할 수 없습니다. 필요 시 시스템 관리자에게 문의해주세요.</li>
+                                <li>상위분류의 사용여부가 ‘사용안함’ 상태인 경우 하위분류 모두 콘텐츠 부가정보 등록 시 사용할 수 없습니다.</li>
+                                <li>부가정보에 적용된 특성분류의 사용상태를 ‘사용안함’으로 변경할 수 없습니다.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </main>

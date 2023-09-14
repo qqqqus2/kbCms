@@ -250,7 +250,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">홈</a></li>
                                     <li class="breadcrumb-item"><a href="#">콘텐츠속성 관리</a></li><!-- 1뎁스 -->
-                                    <li class="breadcrumb-item active" aria-current="page">타겟분류 관리</li><!-- 현재 페이지 -->
+                                    <li class="breadcrumb-item active" aria-current="page">내용분류 관리</li><!-- 현재 페이지 -->
                                 </ol>
                             </nav>
                         </div>
@@ -398,7 +398,7 @@
                     </div>
 
                     <!-- 하위분류 목록 | 검색결과 테이블 -->
-                    <div class="kb-box-inner" style="display: none;">
+                    <div class="kb-box-inner" >
                         <div class="title-wrap flex align-center mb-12">
                             <div class="left flex-00 w-auto">하위분류 목록(상품기준정보 > 선물옵션 > 선물) | 검색결과 <strong class="fc-blue">999</strong>
                                 / 9999</div>
@@ -525,7 +525,35 @@
                                 </tbody>
                             </table>
                         </div>
-
+                        <!-- 2023-09-13 페이징 추가 -->
+                        <!-- 페이징 -->
+                        <nav aria-label="Page navigation" class="mb-20">
+                            <ul class="pagination justify-center mt-16">
+                                <li class="page-item">
+                                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                                        <span aria-hidden="true">&#60;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                                        <span aria-hidden="true">&#62;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
 
                     <!-- 하위분류 목록 미보유시 | 검색결과 테이블 -->
@@ -572,7 +600,7 @@
                                         <th>신고객상품<br />중분류</th>
                                         <th>신고객상품<br />소분류</th>
                                         <th>자산군1</th>
-                                        <th>자산구2</th>
+                                        <th>자산군2</th>
                                         <th>자산군3</th>
                                         <th>종목유형</th>
                                         <th>종목<br />세부유형</th>
@@ -672,6 +700,134 @@
 
                     </div>
 
+                    <!-- 2023-09-13 계좌데이터 목록 검색결과 테이블 추가 -->
+                    <div class="kb-box-inner">
+                        <div class="title-wrap flex align-center mb-12">
+                            <div class="left flex-00 w-auto">계좌데이터 목록 <strong class="fc-blue">999</strong>
+                                / 9999</div>
+                            <div class="ml-auto inline-flex justify-end">
+                                <div class="form-item">
+                                    <div class="select custom-select">
+                                        <select class="">
+                                            <option value="">20개씩 보기</option>
+                                            <option value="">50개씩 보기</option>
+                                            <option value="">100개씩 보기</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-sml btn-line btn-x ml-6">선택삭제</button>
+                                <button type="button" class="btn btn-sml btn-gray ml-6">데이터 연결하기</button>
+                            </div>
+                        </div>
+                        <div class="table-wrap">
+                            <table class="table nowrap">
+                                <colgroup>
+                                    <col style="width: 5rem;" />
+                                    <col style="width: 8rem;" />
+                                    <col style="width: auto;" />
+                                    <col style="width: auto;" />
+                                    <col style="width: auto;" />
+                                    <col style="width: auto;" />
+                                    <col style="width: auto;" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <label class="checkbox sml only">
+                                                <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
+                                            </label>
+                                        </th>
+                                        <th>NO</th>
+                                        <th>상품유형명</th>
+                                        <th>계좌상품구분명</th>
+                                        <th>신탁전용구분명</th>
+                                        <th>가상계좌종류명</th>
+                                        <th>WRAP계좌구분명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label class="checkbox sml only">
+                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                            </label>
+                                        </td>
+                                        <td>999</td>
+                                        <td>개인종합자산관리계좌</td>
+                                        <td>중개형 ISA</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="checkbox sml only">
+                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                            </label>
+                                        </td>
+                                        <td>999</td>
+                                        <td>퇴직연금운용</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>퇴직연금DB가입자계좌</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="checkbox sml only">
+                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                            </label>
+                                        </td>
+                                        <td>999</td>
+                                        <td>CMA</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>WRAP가입계좌</td>
+                                    </tr>
+                    
+                                    <!-- 검색결과가 없습니다 -->
+                                    <tr>
+                                        <td colspan="10">
+                                            <div class="search-notFound">
+                                                연결된 데이터가 없습니다.
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    
+                        <!-- 페이징 -->
+                        <nav aria-label="Page navigation" class="mb-20">
+                            <ul class="pagination justify-center mt-16">
+                                <li class="page-item">
+                                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                                        <span aria-hidden="true">&#60;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                                        <span aria-hidden="true">&#62;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    
+                    </div>
                 </div>
             </main>
             <!-- //컨텐츠 -->

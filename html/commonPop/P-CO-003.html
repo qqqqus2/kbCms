@@ -246,269 +246,71 @@
             <!-- //컨텐츠 -->
 
             <!-- Modal -->
-            <article class="modal w-1000" id="contenSearch" tabindex="-1" aria-hidden="true">
+            <article class="modal w-1000" id="monitoringFileUpload" tabindex="-1" aria-hidden="true">
                 <i class="modal-bg"></i>
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-head">
-                            <h5 class="tit">콘텐츠 조회</h5>
-                            <button type="button" class="btn btn-popClose" onclick="popClose('#contenSearch')">팝업
+                            <h5 class="tit">모니터링 파일 업로드</h5>
+                            <button type="button" class="btn btn-popClose" onclick="popClose('#monitoringFileUpload')">팝업
                                 닫기</button>
                         </div>
                         <div class="modal-body flex-column">
-                            <div class="regist-grp">
-                                <div class="grp-wrap">
-                                    <dl>
-                                        <dt>등록일</dt>
-                                        <dd>
-                                            <div class="form-item">
-                                                <div class="input input-date range">
-                                                    <input type="text" id="">
-                                                </div>
-                                                <div class="inline-flex calendar-btns va-middle ml-6">
-                                                    <button type="button" class="btn btn-currentDay active">당일</button>
-                                                    <button type="button" class="btn btn-prevWeek">1주일</button>
-                                                    <button type="button" class="btn btn-prevMonth">1개월</button>
-                                                    <button type="button" class="btn btn-Reset">전체</button>
-                                                </div>
-                                            </div>
-                                        </dd>
-                                    </dl>
-
-                                    <dl>
-                                        <dt>매체</dt>
-                                        <dd>
-                                            <label class="radio sml">
-                                                <input type="radio" class="" name="rdo1" />
-                                                <i aria-hidden="true" class="lbl"></i>
-                                                <span>전체</span>
-                                            </label>
-                                            <label class="radio sml">
-                                                <input type="radio" class="" name="rdo1" />
-                                                <i aria-hidden="true" class="lbl"></i>
-                                                <span>마블</span>
-                                            </label>
-                                            <label class="radio sml">
-                                                <input type="radio" class="" name="rdo1" />
-                                                <i aria-hidden="true" class="lbl"></i>
-                                                <span>마블미니</span>
-                                            </label>
-                                            <label class="radio sml">
-                                                <input type="radio" class="" name="rdo1" />
-                                                <i aria-hidden="true" class="lbl"></i>
-                                                <span>마블와이드</span>
-                                            </label>
-                                            <label class="radio sml">
-                                                <input type="radio" class="" name="rdo1" />
-                                                <i aria-hidden="true" class="lbl"></i>
-                                                <span>모바일웹</span>
-                                            </label>
-                                            <label class="radio sml">
-                                                <input type="radio" class="" name="rdo1" />
-                                                <i aria-hidden="true" class="lbl"></i>
-                                                <span>PC/홈페이지</span>
-                                            </label>
-                                        </dd>
-                                    </dl>
-
-                                    <dl>
-                                        <dt>키워드</dt>
-                                        <dd>
-                                            <div class="form-item flex align-center">
-                                                <div class="select custom-select flex-00 w-200">
-                                                    <select class="">
-                                                        <option value="">소분류 선택</option>
-                                                        <option value="">선택</option>
-                                                    </select>
-                                                </div>
-                                                <div class="input w-full ml-8 flex-11">
-                                                    <input type="text" title="키워드 입력" value=""
-                                                        placeholder="키워드를 직접입력하세요." />
-                                                </div>
-                                            </div>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-
-                            <div class="common-search-btn mt-16 flex-00">
-                                <button type="button" class="btn btn-mid btn-line">초기화</button>
-                                <button type="button" class="btn btn-mid btn-yellow">검색</button>
-                            </div>
-
-                            <!-- 테이블  -->
-                            <div class="table-wrap inner-scroll h-270 mt-32">
-                                <table class="table">
+                            <!-- 파일 업로드 -->
+                            <div class="table-wrap">
+                                <table class="table left-table">
                                     <colgroup>
-                                        <col style="width: 2rem;" />
-                                        <col style="width: auto;" />
-                                        <col style="width: auto;" />
-                                        <col style="width: auto;" />
-                                        <col style="width: auto;" />
-                                        <col style="width: auto;" />
-                                        <col style="width: auto;" />
-                                        <col style="width: auto;" />
+                                        <col style="width: 18rem;" />
+                                        <col />
                                     </colgroup>
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <label class="checkbox sml only">
-                                                    <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
-                                                </label>
-                                            </th>
-                                            <th>
-                                                <span class="list-align">
-                                                    콘텐츠그룹 ID
-                                                    <i role="button" class="btn-alignList"></i>
-                                                </span>
-                                            </th>
-                                            <th>
-                                                <span class="list-align">
-                                                    콘텐츠 ID
-                                                    <i role="button" class="btn-alignList"></i>
-                                                </span>
-                                            </th>
-                                            <th>
-                                                <span class="list-align">
-                                                    AEM ID
-                                                    <i role="button" class="btn-alignList"></i>
-                                                </span>
-                                            </th>
-                                            <th>콘텐츠 제목</th>
-                                            <th>매체</th>
-                                            <th>
-                                                <span class="list-align">
-                                                    등록일시
-                                                    <i role="button" class="btn-alignList"></i>
-                                                </span>
-                                            </th>
-                                            <th>등록자</th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <tr>
+                                            <th scope="col" class="t-left">파일 업로드 <i class="fc-red">*</i></th>
                                             <td>
-                                                <label class="checkbox sml only">
-                                                    <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                                </label>
-                                            </td>
-                                            <td>KB0083720</td>
-                                            <td>C010105</td>
-                                            <td>SEC010104</td>
-                                            <td><div class="ellipsis-1">미 은행 무더기 신용등급 강등, 3대</div></td>
-                                            <td>마블</td>
-                                            <td>2023-07-15 12:23</td>
-                                            <td>홍길동</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="checkbox sml only">
-                                                    <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                                </label>
-                                            </td>
-                                            <td>KB0083720</td>
-                                            <td>C010105</td>
-                                            <td>SEC010104</td>
-                                            <td>
-                                                <div class="ellipsis-1">미 은행 무더기 신용등급 강등, 3대</div>
-                                            </td>
-                                            <td>마블미니</td>
-                                            <td>2023-07-15 12:23</td>
-                                            <td>홍길동</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="checkbox sml only">
-                                                    <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                                </label>
-                                            </td>
-                                            <td>KB0083720</td>
-                                            <td>C010105</td>
-                                            <td>SEC010104</td>
-                                            <td>
-                                                <div class="ellipsis-1">미 은행 무더기 신용등급 강등, 3대</div>
-                                            </td>
-                                            <td>마블와이드</td>
-                                            <td>2023-07-15 12:23</td>
-                                            <td>홍길동</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="checkbox sml only">
-                                                    <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                                </label>
-                                            </td>
-                                            <td>KB0083720</td>
-                                            <td>C010105</td>
-                                            <td>SEC010104</td>
-                                            <td>
-                                                <div class="ellipsis-1">미 은행 무더기 신용등급 강등, 3대</div>
-                                            </td>
-                                            <td>마블</td>
-                                            <td>2023-07-15 12:23</td>
-                                            <td>홍길동</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="checkbox sml only">
-                                                    <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                                </label>
-                                            </td>
-                                            <td>KB0083720</td>
-                                            <td>C010105</td>
-                                            <td>SEC010104</td>
-                                            <td>
-                                                <div class="ellipsis-1">미 은행 무더기 신용등급 강등, 3대</div>
-                                            </td>
-                                            <td>마블와이드</td>
-                                            <td>2023-07-15 12:23</td>
-                                            <td>홍길동</td>
-                                        </tr>
-                            
-                                        <!-- 검색결과가 없습니다 -->
-                                        <tr>
-                                            <td colspan="8">
-                                                <div class="search-notFound">
-                                                    검색결과가 없습니다.
+                                                <!-- 파일 첨부 -->
+                                                <p class="mt-12 fc-gray-666 fz-14">업로드 파일은 csv파일만 가능하며 10MB까지 등록할 수 있습니다.</p>
+                                                <div class="mt-12 file-drop">
+                                
                                                 </div>
+                                                <!-- 첨부된 파일 -->
+                                                <div class="uploaded-file">
+                                                    <p>
+                                                        <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
+                                                        <button type="button" title="삭제" class="btn-del"></button>
+                                                    </p>
+                                                    <p>
+                                                        <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.jpg(1542byte)</a>
+                                                        <button type="button" title="삭제" class="btn-del"></button>
+                                                    </p>
+                                                    <p>
+                                                        <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.jpg(1542byte)</a>
+                                                        <button type="button" title="삭제" class="btn-del"></button>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col" class="t-left">업로드 파일 내용 예시</th>
+                                            <td>
+                                                <span>#업로드 파일 내용 예시</span>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
-                            <!-- 페이징 -->
-                            <nav aria-label="Page navigation" class="mb-20">
-                                <ul class="pagination justify-center mt-16">
-                                    <li class="page-item">
-                                        <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
-                                            <span aria-hidden="true">&#60;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link next-page" href="#" aria-label="다음페이지로">
-                                            <span aria-hidden="true">&#62;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link next-last" href="#" aria-label="마지막으로">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
+                            <div class="info-contetns mt-20 mb-24">
+                                <p class="tit">유의사항</p>
+                                <ul>
+                                    <li>업로드 파일은 <strong class="fc-blue">업로드 파일 내용 예시를 참고하여 형식에 맞게 작성</strong>하세요 (데이터 구분자 : ‘|’, 건마다 줄바꿈)</li>
+                                    <li><strong class="fc-blue">문서 보안(DRM)을 해제한 영문파일명의 csv파일을 업로드</strong>하세요.</li>
+                                    <li>csv파일 업로드 후 [등록]버튼을 클릭하시고 반드시 자료 등록 결과(오류 발생 시, 해당 행/열 값 확인 가능)를 확인하세요.</li>
+                                    <li>오류가 발생한 경우 업로드한 파일의 데이터 전체가 등록되지 않습니다.</li>
                                 </ul>
-                            </nav>
-
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn">적용</button>
+                            <button type="button" class="btn">취소</button>
+                            <button type="button" class="btn">등록</button>
                         </div>
                     </div>
                 </div>
@@ -523,7 +325,7 @@
 
     <script>
         $(function () {
-            popOpen('#contenSearch')
+            popOpen('#monitoringFileUpload')
         })
     </script>
 </body>

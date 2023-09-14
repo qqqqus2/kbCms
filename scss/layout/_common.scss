@@ -86,6 +86,9 @@ a,
 .fc-blue {
   color: var(--primary-blue-color) !important;
 }
+.fc-wht {
+  color: #fff !important;
+}
 
 /* 정렬 */
 .t-right {
@@ -779,6 +782,9 @@ $bdTypes: (solid, dashed, dotted);
   border-collapse: collapse;
   border-bottom: 0.1rem solid #eee;
   position: relative;
+  &.nowrap{
+    white-space: nowrap;
+  }
   &::before{
     content:'';
     display: block;
@@ -825,8 +831,9 @@ $bdTypes: (solid, dashed, dotted);
   }
   thead{
     th{
-      padding: 0.8rem 0.8rem 0.7rem;
+      padding: 1.2rem 0.8rem 0.9rem;
       white-space: nowrap;
+      height: 4.5rem;
       span{
         display: inline-block;
       }
@@ -839,12 +846,12 @@ $bdTypes: (solid, dashed, dotted);
     text-align: center;
     th{
       background-color: #FBFBFB;  
-      padding: 1.2rem 1.6rem;
+      padding: 1.5rem 1.6rem;
     }
     td{
       border-top: 0.1rem solid #eee;
-      padding: 0.6rem 1.6rem 0.5rem;
-      min-height: 4.5rem;
+      padding: 1rem 1.6rem 0.7rem;
+      height: 4rem;
       border-right: 0.1rem solid #eee;
       font-size: 1.3rem;
       &:last-child{
@@ -986,6 +993,32 @@ $bdTypes: (solid, dashed, dotted);
       }
       &::after{
         transform: rotate3d(1,0, 0, 0);
+      }
+    }
+  }
+  &.monitoring-search{
+    .expand-condition{
+      dl.inner-tbl:nth-child(1){
+        border-top:0.1rem dashed var(--line-color-ccc);
+      }
+      dl.inner-tbl{
+        padding: 0.6rem 0;
+        margin-top: 0;
+        border-top: 0;
+      }
+    }
+    .selected-condition{
+      padding: 3rem 0 0;
+      display: flex;
+      gap: 0.6rem;
+      span{
+        display: inline-block;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 0.8rem;
+        background-color: var(--background-color);
+        color: var(--gray_01_black);
       }
     }
   }

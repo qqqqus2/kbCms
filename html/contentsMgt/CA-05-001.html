@@ -260,6 +260,31 @@
         <div class="kb-content-box">
           <div class="kb-box-inner">
             <div class="common-search">
+              <!-- 2023-09-13 검색조건에 기간 영역 추가 -->
+              <dl>
+                <dt class="w-150">기간 <i class="fc-red">*</i></dt>
+                <dd>
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="">
+                        <option value="">등록일</option>
+                        <option value="">최종수정일</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-item">
+                    <div class="input input-date range">
+                      <input type="text" id="">
+                    </div>
+                    <div class="inline-flex calendar-btns va-middle ml-6">
+                      <button type="button" class="btn btn-currentDay active">당일</button>
+                      <button type="button" class="btn btn-prevWeek">1주일</button>
+                      <button type="button" class="btn btn-prevMonth">1개월</button>
+                      <button type="button" class="btn btn-Reset">전체</button>
+                    </div>
+                  </div>
+                </dd>
+              </dl>
               <dl>
                 <dt class="w-150">콘텐츠 내용분류</dt>
                 <dd>
@@ -290,10 +315,10 @@
                 </dd>
               </dl>
               <dl>
-                <dt class="w-150">연관키워드</dt>
+                <dt class="w-150">키워드</dt>
                 <dd class="w-full">
                   <div class="form-item inline-flex align-center">
-                    <div class="select custom-select flex-00 w-200">
+                    <div class="select custom-select flex-00">
                       <select class="">
                         <option value="">전체</option>
                         <option value="">제목</option>

@@ -1336,7 +1336,7 @@
 		prev                      : '이전',
 		next                      : '다음',
 		close                     : '확인',
-		todaySelect               : '오늘선택',
+		// todaySelect               : '오늘선택',
 		mode                      : 'single',
 		select_year               : true,
 		select_month              : true,
@@ -1380,7 +1380,7 @@
 				'<div class="pmu-month pmu-button"></div>' +
 				'<div class="pmu-next pmu-button">' + options.next + '</div>' +
 				'<div class="pmu-close pmu-button">' + options.close + '</div>' +
-				'<div class="pmu-todaySelect pmu-button">오늘선택</div>' +
+				// '<div class="pmu-todaySelect pmu-button">오늘선택</div>' +
 				'</nav>' +
 				'<nav class="pmu-day-of-week"><div>' + days_of_week.join('</div><div>') + '</div></nav>' +	
 				'</div>';

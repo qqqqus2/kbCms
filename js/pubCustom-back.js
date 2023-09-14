@@ -11,6 +11,10 @@
         // 팝업
         popupUI();
 
+        $(".pmu-todaySelect").on("click", function () {
+            var currentDate = new Date();
+            pickmeup(".daterange input").set_date([currentDate]);
+        });
     });
 
     const uiInit = function () {
@@ -182,26 +186,55 @@
         },
 
         sidebar: function () {
-          $(document).on("click", ".btn-expand", function (e) {
-              $(".kb-wrap").toggleClass("sidebar-off");
-          });
+            $(document).on("click", ".btn-expand", function (e) {
+                $(".kb-wrap").toggleClass("sidebar-off");
+            });
 
-          if (
-              !$(".kb-lnb .kb-lnb-dep1")
-                  .children(":first-child")
-                  .hasClass("active")
-          ) {
-              $(".kb-lnb .kb-lnb-link").removeClass("open");
-          }
+            if (
+                !$(".kb-lnb .kb-lnb-dep1")
+                    .children(":first-child")
+                    .hasClass("active")
+            ) {
+                $(".kb-lnb .kb-lnb-link").removeClass("open");
+            }
 
-          $(document).on(
-              "click",
-              ".kb-lnb .kb-lnb-dep1 .kb-lnb-link",
-              function (e) {
-                  if ($(this).hasClass("in-sub")) {
+            $(document).on(
+                "click",
+                ".kb-lnb .kb-lnb-dep1 .kb-lnb-link",
+                function (e) {
+                    if ($(this).hasClass("in-sub")) {
+                        e.preventDefault();
+                        const $this = $(this);
+                        const $subMenu = $this.next();
+                        if ($this.hasClass("open")) {
+                            $this.removeClass("open");
+                            $subMenu.stop(true, false).slideUp(300);
+                        } else {
+                            $this.addClass("open");
+                            $subMenu.stop(true, false).slideDown(300);
+                            $this
+                                .parent()
+                                .siblings()
+                                .find(">.open")
+                                .each(function () {
+                                    const $open = $(this);
+                                    $open.removeClass("open");
+                                    $open.next().stop(true, false).slideUp(300);
+                                });
+                        }
+                    }
+                }
+            );
+            $(document).on(
+                "click",
+                ".kb-lnb .kb-lnb-dep2 .kb-lnb-link",
+                function (e) {
+                  if ($(this).hasClass("in-subDepth2")) {
                       e.preventDefault();
+                      
                       const $this = $(this);
                       const $subMenu = $this.next();
+
                       if ($this.hasClass("open")) {
                           $this.removeClass("open");
                           $subMenu.stop(true, false).slideUp(300);
@@ -219,37 +252,14 @@
                               });
                       }
                   }
-              }
-          );
-          $(document).on(
-              "click",
-              ".kb-lnb .kb-lnb-dep2 .kb-lnb-link",
-              function (e) {
-                if ($(this).hasClass("in-subDepth2")) {
-                    e.preventDefault();
-
-                    const $this = $(this);
-                    const $subMenu = $this.next();
-
-                    if ($this.hasClass("open")) {
-                        $this.removeClass("open");
-                        $subMenu.stop(true, false).slideUp(300);
-                    } else {
-                        $this.addClass("open");
-                        $subMenu.stop(true, false).slideDown(300);
-                        $this
-                            .parent()
-                            .siblings()
-                            .find(">.open")
-                            .each(function () {
-                                const $open = $(this);
-                                $open.removeClass("open");
-                                $open.next().stop(true, false).slideUp(300);
-                            });
-                    }
                 }
-              }
-          );
+            );
+            
+
+            // $(document).on('click', '.kb-lnb-dep1 .in-sub', function (e) {
+            //   e.preventDefault();
+            //   $(this).parent().addClass('open').siblings().removeClass('open');
+            // });
         },
         menuActive: function () {
             if ($(".kb-sidebar").length) {
@@ -533,6 +543,141 @@
                 );
                 dateRange();
             });
+
+            //var specificDate = new Date();
+            // pickmeup('.weekselect input', {
+            //   select_year: false,
+            //   select_month: false,
+            //   mode: 'range',
+            //   format: 'Y.m.d',
+            //   render: function (date) {
+            //     const specificDate = new Date(2022, 7, 14);// 월은 0부터 시작하여 + 1을 해야 원하는 달이 됨
+            //     // 특정일 이전의 날짜 비활성화
+            //     const isBeforeSpecificDate = date < specificDate;
+
+            //     const renderObj = {
+            //       disabled: isBeforeSpecificDate
+            //     };
+
+            //     return renderObj;
+            //   }
+            // });
+
+            // 주단위 선택 스크립트
+            // const $weekSelect = $('.weekselect');
+            // const datePickerWeek = document.querySelector('.weekselect input');
+
+            // if($weekSelect.length){
+            //   datePickerWeek.addEventListener('pickmeup-change', function (e) {
+            //     const dateRange = e.detail.formatted_date;
+
+            //     if (dateRange.length === 2) {
+            //       const startDate = new Date(dateRange[0]);
+            //       const endDate = new Date(dateRange[1]);
+
+            //       const firstDayOfWeek = new Date(startDate);
+            //       firstDayOfWeek.setDate(startDate.getDate() - startDate.getDay() + 1);
+
+            //       const lastDayOfWeek = new Date(endDate);
+            //       lastDayOfWeek.setDate(endDate.getDate() + (6 - endDate.getDay() + 1));
+
+            //       pickmeup('.weekselect input').clear();
+            //       pickmeup('.weekselect input').set_date([firstDayOfWeek, lastDayOfWeek]);
+
+            //       // pickmeup('.weekselect input').hide();
+            //     }
+            //   });
+            // }
+
+            // pickmeup('.monitoring-date input', {
+            //   // hide_on_select : true,
+            //   // mode: 'range',
+            //   calendars: 1,
+            //   format: 'Y.m.d',
+            //   render: function (date) {
+            //     const specificDate = new Date(2023, 0, 1);// 월은 0부터 시작하여 - 1을 해야 원하는 달이 됨
+            //     // 특정일 이전의 날짜 비활성화
+            //     const isBeforeSpecificDate = date < specificDate;
+
+            //     const renderObj = {
+            //       disabled: isBeforeSpecificDate
+            //     };
+
+            //     return renderObj;
+            //   }
+            // });
+
+            // document.querySelector('.btn-today').addEventListener('click', selectCurrentDay);
+            // document.querySelector('.btn-week').addEventListener('click', selectPreviousWeek);
+            // document.querySelector('.btn-month').addEventListener('click', selectPreviousMonth);
+
+            // pickmeup('.dayselect input', {
+            //   // hide_on_select: true,
+            //   format: 'Y.m.d'
+            // });
+
+            // 이전 달 전체를 선택하는 함수
+
+            // function selectPreviousMonth() {
+
+            //   var currentDate = new Date();
+
+            //   pickmeup('.monitoring-date input', {
+            //     // hide_on_select: true,
+            //     mode: 'single',
+            //     select_year: false,
+            //     select_day: false,
+            //     format: 'Y.m'
+            //   });
+
+            //   $('.btn-today, .btn-week, .btn-month').removeClass('active');
+            //   $('.btn-month').addClass('active');
+
+            //   pickmeup('.input-date input').hide();
+            //   pickmeup('.input-date input').show();
+            // }
+
+            //var dateLabel = $('.monitoring-date input').val();
+            //$('.monitoring-date label').html(dateLabel);
+
+            // 이전 주 전체를 선택하는 함수
+            // function selectPreviousWeek() {
+            //   var currentDate = new Date();
+            //   var firstDayOfWeek = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 6, 1);
+            //   var lastDayOfWeek = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 0);
+
+            //   pickmeup('.monitoring-date input').set_date([
+            //     firstDayOfWeek,
+            //     lastDayOfWeek
+            //   ]);
+
+            //   var dateLabel = $('.monitoring-date input').val();
+
+            //   $('.monitoring-date label').html(dateLabel);
+            //   $('.btn-today, .btn-week, .btn-month').removeClass('active');
+            //   $('.btn-week').addClass('active');
+            //   pickmeup('.input-date input').hide();
+            //   pickmeup('.input-date input').show();
+            // }
+
+            // 현재 선택하는 함수
+            // $('.monitoring-day label').daterangepicker({
+            //   startDate: start,
+            //   endDate: end,
+            //   "singleDatePicker": true,
+            //   "showDropdowns": true,
+            //   "timePicker": false,
+            //   "opens": "center",
+            //   "locale": {
+            //     "format": 'YYYY-MM-DD',
+            //     "direction": "ltr",
+            //     "applyLabel": "확인",
+            //     "customRangeLabel": "Custom",
+            //     "daysOfWeek": ["일","월", "화","수","목","금","토"],
+            //     "monthNames": [ "1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+            //     "firstDay": 0,
+            //   },
+            // });
 
             $(".monitoring-date label").html(start.format("YYYY.MM.DD"));
             monitoringDate();
