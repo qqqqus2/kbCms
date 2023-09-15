@@ -2,278 +2,911 @@
 <html lang="ko">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>KB 증권 CMS</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
 
-  <!-- css -->
-  <link href="/css/main.css" rel="stylesheet" />
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
 
-  <!-- js -->
-  <script src="/js/lib/jquery-3.6.0.min.js"></script>
-  <script src="/js/lib/moment.min.js"></script>
-  <script src="/js/lib/datepicker/daterangepicker.js"></script>
-  <script src="/js/lib/datepicker/datepickerCustom.js"></script>
-  <script src="/js/pubCustom.js"></script>
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/lib/datepicker/datepickerCustom.js"></script>
+    <script src="/js/pubCustom.js"></script>
 
 </head>
 
 <body>
-  <!-- wrap -->
-  <section class="kb-wrap">
-    <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
-    <header class="kb-navbar">
-  <div class="navbar-top">
-    <!-- 메뉴 열림 -->
-    <button id="btnExpand" type="button" class="btn-expand">
-      <span class="sr-only">사이드 바 펼치기</span>
-    </button>
-    <div class="navbar-brand-wrap">
-      <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
-    </div>
-      
+    <!-- wrap -->
+    <section class="kb-wrap">
+        <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+        <header class="kb-navbar">
+            <div class="navbar-top">
+                <!-- 메뉴 열림 -->
+                <button id="btnExpand" type="button" class="btn-expand">
+                    <span class="sr-only">사이드 바 펼치기</span>
+                </button>
+                <div class="navbar-brand-wrap">
+                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong
+                            class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+                </div>
 
-    <ul class="navbar-nav kb-navbar-util">
-      <li class="nav-item">
-        <div class="btn-group" role="group">
-          <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <strong>김국민국민국민</strong>(KB123456)님
-          </button>
-          <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+
+                <ul class="navbar-nav kb-navbar-util">
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <strong>김국민국민국민</strong>(KB123456)님
+                            </button>
+                            <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
             <a class="dropdown-item" href="#">비밀번호 변경</a>
           </div> -->
-        </div>
-      </li>
-      <li class="nav-item">
-        <button type="button" class="nav-link log-out">로그아웃</button>
-      </li>
-    </ul>
-  </div>
-</header>
-    <!-- //헤더 -->
-
-    <!-- container -->
-    <div class="kb-container">
-      <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
-      <div class="kb-sidebar">
-        <div class="kb-sidebar-inner" id="kb-lnb-nav">
-          <nav class="kb-lnb" aria-label="Main navigation">
-            <ul class="kb-lnb-dep1">
-              <li>
-                <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
-              </li>
-      
-              <li>
-                <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
-                <ul class="kb-lnb-dep2">
-                  <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
-                  </li>
-                  <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠 부가정보 관리</a>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
-                  </li>
-                  <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
-                  </li>
-                  <li>
-                    <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
-                  </li>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link log-out">로그아웃</button>
+                    </li>
                 </ul>
-              </li>
-      
-              <li>
-                <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
-                <ul class="kb-lnb-dep2">
-                  <li>
-                    <a href="#" class="kb-lnb-link">타겟분류 관리</a>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">특성분류 관리</a>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">내용분류 관리</a>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">연관키워드 관리</a>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
-                  </li>
-      
-                </ul>
-              </li>
-      
-              <li>
-                <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
-                <ul class="kb-lnb-dep2">
-                  <li>
-                    <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
-                      <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
-                    </ul>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
-                      <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
-                      <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
-                      <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
-                    </ul>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">인사이트 분석</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
-                      <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
-                      <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
-                    </ul>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">조회통계 분석</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">조회수</a></li>
-                      <li><a class="kb-lnb-link" href="#">체류시간</a></li>
-                      <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
-                      <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
-                    </ul>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">순위통계 분석</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
-                      <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
-                      <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
-                      <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
-                    </ul>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">고객통계 분석</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
-                      <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
-                      <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
-                      <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
-                      <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
-                      <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
-                      <li><a class="kb-lnb-link" href="#">시간대별</a></li>
-                    </ul>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">경로 분석</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">유입경로</a></li>
-                      <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
-                      <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-      
-              <li>
-                <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
-                <ul class="kb-lnb-dep2">
-                  <li>
-                    <a href="#" class="kb-lnb-link">모델 현황 관리</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
-                    </ul>
-                  </li>
-      
-                  <li>
-                    <a href="#" class="kb-lnb-link">분석 모델 운영</a>
-                  </li>
-      
-                </ul>
-              </li>
-              
-              <li>
-                <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
-                <ul class="kb-lnb-dep2">
-                  <li>
-                    <a href="#" class="kb-lnb-link">계정 관리</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
-                      <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#" class="kb-lnb-link">권한 관리</a>
-                    <ul class="kb-lnb-dep3">
-                      <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
-                      <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <!-- //사이드바 -->
-
-      <!-- 컨텐츠 -->
-      <main class="kb-content" role="main">
-        <!-- 컨텐츠헤더 -->
-        <div class="kb-page-title">
-          <div>
-            <div class="kb-title">
-              <h2 class="page-tit">외부 트렌드 분석</h2>
-              <nav aria-label="breadcrumb" class="ml-auto">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">홈</a></li>
-                  <li class="breadcrumb-item"><a href="#">모니터링</a></li><!-- 1뎁스 -->
-                  <li class="breadcrumb-item"><a href="#">인사이트 분석</a></li><!-- 2뎁스 -->
-                  <li class="breadcrumb-item active" aria-current="page">외부 트렌드 분석</li><!-- 현재 페이지 -->
-                </ol>
-              </nav>
             </div>
-          </div>
+        </header>
+        <!-- //헤더 -->
+
+        <!-- container -->
+        <div class="kb-container">
+            <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+            <div class="kb-sidebar">
+                <div class="kb-sidebar-inner" id="kb-lnb-nav">
+                    <nav class="kb-lnb" aria-label="Main navigation">
+                        <ul class="kb-lnb-dep1">
+                            <li>
+                                <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">타겟분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">특성분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">내용분류 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">연관키워드 관리</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                                            <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                                            <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                                            <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                                            <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                                            <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                                            <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                                            <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                                            <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">경로 분석</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                                            <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">분석 모델 운영</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                                <ul class="kb-lnb-dep2">
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">계정 관리</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                                            <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="kb-lnb-link">권한 관리</a>
+                                        <ul class="kb-lnb-dep3">
+                                            <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
+                                            <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- //사이드바 -->
+
+            <!-- 컨텐츠 -->
+            <main class="kb-content" role="main">
+                <!-- 컨텐츠헤더 -->
+                <div class="kb-page-title">
+                    <div>
+                        <div class="kb-title">
+                            <h2 class="page-tit">외부 트렌드 분석</h2>
+                            <nav aria-label="breadcrumb" class="ml-auto">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                                    <li class="breadcrumb-item"><a href="#">모니터링</a></li><!-- 1뎁스 -->
+                                    <li class="breadcrumb-item"><a href="#">인사이트 분석</a></li><!-- 2뎁스 -->
+                                    <li class="breadcrumb-item active" aria-current="page">외부 트렌드 분석</li><!-- 현재 페이지 -->
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <!-- //컨텐츠헤더 -->
+
+                <!-- 컨텐츠 박스 -->
+                <div class="kb-content-box">
+                    <div class="kb-box-inner">
+                        <div class="common-search monitoring-search">
+                            <button type="button" class="btn-searchToggle" title="열기"></button>
+                            <div class="form-item">
+                                <div class="monitoring-date input input-date">
+                                    <button type="button" class="btn-dateMove prev-date" title="이전"></button>
+                                    <label>2023.00.00</label>
+                                    <button type="button" class="btn-dateMove next-date" title="다음"></button>
+
+                                    <input type="text" id="datepicker">
+                                </div>
+                                <div class="inline-flex">
+                                    <button type="button"
+                                        class="btn btn-today btn-tiny btn-round btn-line active">일간</button>
+                                    <button type="button"
+                                        class="btn btn-week btn-tiny ml-4 btn-round btn-line">주간</button>
+                                    <button type="button"
+                                        class="btn btn-month btn-tiny ml-4 btn-round btn-line">월간</button>
+                                </div>
+                            </div>
+
+                            <!-- 확장 닫기 후 선택된 조건 -->
+                            <div class="selected-condition">
+                                <span>모니터링</span>
+                                <span>키워드 선택</span>
+                                <span>지속상승</span>
+                            </div>
+
+                            <!-- 확장 검색조건 -->
+                            <div class="expand-condition">
+                                <dl class="inner-tbl">
+                                    <dt class="w-120 t-left">분석 구분</dt>
+                                    <dd class="align-center">
+                                        <label class="radio radio-custom">
+                                            <input type="radio" name="rdo1" />
+                                            <i class="lbl">모니터링</i>
+                                        </label>
+                                        <label class="radio radio-custom">
+                                            <input type="radio" name="rdo1" checked />
+                                            <i class="lbl">예측</i>
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl class="inner-tbl">
+                                    <dt class="w-120 t-left">분석 조건</dt>
+                                    <dd class="align-center">
+                                        <div class="form-item flex">
+                                            <div class="select custom-select minW-160">
+                                                <select class="">
+                                                    <option value="">키워드 선택</option>
+                                                    <option value="">선택</option>
+                                                </select>
+                                            </div>
+                                            <div class="select custom-select minW-160">
+                                                <select class="">
+                                                    <option value="">유형 선택</option>
+                                                    <option value="">급상승</option>
+                                                    <option value="">지속상승</option>
+                                                    <option value="">규칙성</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="common-search-btn mt-16 mb-32">
+                        <button type="button" class="btn btn-mid btn-line">초기화</button>
+                        <button type="button" class="btn btn-mid btn-yellow">검색</button>
+                    </div>
+
+                    <div class="kb-box-inner">
+                        <div class="common-table">
+                            <div class="title-wrap flex align-center mb-12">
+                                <div class="ml-auto inline-flex justify-end">
+                                    <button type="button" class="btn btn-sml btn-line btn-up ml-6">파일업류드</button>
+                                    <button type="button" class="btn btn-sml btn-line btn-down ml-6">파일다운로드</button>
+                                </div>
+                            </div>
+
+                            <div class="monitoring-contentsBox flex">
+                                <div class="left-cont flex-11">
+                                    <h4 class="tit">급상승 검색어</h4>
+                                    <!-- 테이블 -->
+                                    <div class="table-wrap">
+                                        <table class="table nowrap">
+                                            <colgroup>
+                                                <col style="width: 8rem;" />
+                                                <col style="width: auto;" />
+                                                <col style="width: 10rem;" />
+                                                <col style="width: auto;" />
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <span class="list-align">
+                                                            4주 검색 순위
+                                                            <i role="button" class="btn-alignList"></i>
+                                                        </span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="list-align">
+                                                            연관검색어
+                                                            <i role="button" class="btn-alignList"></i>
+                                                        </span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="list-align">
+                                                            상승전망
+                                                            <i role="button" class="btn-alignList"></i>
+                                                        </span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="list-align">
+                                                            활동성
+                                                            <i role="button" class="btn-alignList"></i>
+                                                        </span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td class="t-left">고정금리</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">73%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td class="t-left">미술품거래</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td class="t-left">미술품투자</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td class="t-left">미술품투자</td>
+                                                    <td>X</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td class="t-left">미술품투자</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td class="t-left">미술품투자</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td class="t-left">미술품투자</td>
+                                                    <td>X</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td class="t-left">미술품투자</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td class="t-left">미술품투자</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td class="t-left">미술품투자</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td class="t-left">밀선물</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td class="t-left">밀선물</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>13</td>
+                                                    <td class="t-left">밀선물</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>14</td>
+                                                    <td class="t-left">밀선물</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>15</td>
+                                                    <td class="t-left">정기적금</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>16</td>
+                                                    <td class="t-left">정기적금</td>
+                                                    <td>X</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>17</td>
+                                                    <td class="t-left">정기적금</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>18</td>
+                                                    <td class="t-left">정기적금</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>19</td>
+                                                    <td class="t-left">정기적금</td>
+                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20</td>
+                                                    <td class="t-left">정기적금</td>
+                                                    <td>X</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-right">51%</td>
+                                                </tr>
+                                                <!-- 검색결과가 없습니다 -->
+                                                <tr>
+                                                    <td colspan="4">
+                                                        <div class="search-notFound">
+                                                            검색결과가 없습니다.
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- 페이징 -->
+                                    <nav aria-label="Page navigation" class="mb-20">
+                                        <ul class="pagination justify-center mt-16">
+                                            <li class="page-item">
+                                                <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                                                    <span aria-hidden="true">&#60;</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                                                    <span aria-hidden="true">&#62;</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link next-last" href="#" aria-label="마지막으로">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                                <div class="right-cont flex-11">
+                                    <h4 class="tit">최근 3년 간의 검색 수 추이</h4>
+                                    <div class="chart-line-wrap h-222 bd-radius-8">
+                                        <div id="line-chart" class="h-300 w-100p"></div>
+                                    </div>
+
+                                    <h4 class="tit mt-32">관련뉴스</h4>
+                                    <!-- 테이블 -->
+                                    <div class="table-wrap">
+                                        <table class="table nowrap">
+                                            <colgroup>
+                                                <col style="width: 8rem;" />
+                                                <col style="width: auto" />
+                                                <col style="width: 40%;" />
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th>순번</th>
+                                                    <th>제목</th>
+                                                    <th>링크</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>
+                                                        <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" title="새창열림" target="_blank"
+                                                            class="linked ellipsis block w-200">
+                                                            https://www.hankyung.com/economy/article/2023081373541
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <!-- 검색결과가 없습니다 -->
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <div class="search-notFound">
+                                                            검색결과가 없습니다.
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <h4 class="tit mt-32">관련 검색어</h4>
+                                    <!-- 테이블 -->
+                                    <div class="table-wrap">
+                                        <table class="table left-table">
+                                            <colgroup>
+                                                <col style="width: 8rem;" />
+                                                <col style="width: auto;" />
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th>네이버</th>
+                                                    <td>주택담보대출 30년 고정금리, 변동금리에서 고정금리로, 변동금리 주기</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>구글</th>
+                                                    <td>주택담보대출고정금리, 고정금리 변동금리, 주담대 고정금리</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-contetns mt-24">
+                                <p class="tit">유의사항</p>
+                                <ul>
+                                    <li>데이터가 업로드 되지 않은 일자의 경우 검색 결과가 보여지지 않을 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </main>
+            <!-- //컨텐츠 -->
         </div>
-        <!-- //컨텐츠헤더 -->
-        
-        <!-- 컨텐츠 박스 -->
-        <div class="kb-box-inner">
-          <h3 class="content-tit">기본 정보</h3>
-
-        </div>
-      </main>
-      <!-- //컨텐츠 -->
-    </div>
-    <!-- //container -->
+        <!-- //container -->
 
 
-  </section>
-  <!-- //wrap -->
+    </section>
+    <!-- //wrap -->
 
-  <script>
+    <script>
+        // var echarts = require('echarts');
 
-  </script>
+        var chartDom = document.getElementById('line-chart');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        // function randomData() {
+        //     now = new Date(+now + oneDay);
+        //     value = value + Math.random() * 21 - 10;
+        //     return {
+        //         name: now.toString(),
+        //         value: [
+        //         [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+        //         Math.round(value)
+        //         ]
+        //     };
+        // }
+        // let data = [];
+        // let now = new Date();
+        // let oneDay = 24 * 3600 * 1000;
+        // let value = Math.random() * 500;
+        // for (var i = 0; i < 1000; i++) {
+        //     data.push(randomData());
+        // }
+        option = {
+
+            tooltip: {
+                trigger: 'axis',
+                // formatter: function (params) {
+                //     params = params[0];
+                //     var date = new Date(params.name);
+                //     return (
+                //         date.getDate() +
+                //         '/' +
+                //         (date.getMonth() + 1) +
+                //         '/' +
+                //         date.getFullYear() +
+                //         ' : ' +
+                //         params.value[1]
+                //     );
+                // },
+                axisPointer: {
+                    animation: true
+                }
+            },
+            xAxis: {
+                type: "category",
+                // 3년간 월간 36 개월
+                data: [
+                    "2020.10",
+                    "2020.11",
+                    "2020.12",
+                    "2021.01",
+                    "2021.02",
+                    "2021.03",
+                    "2021.04",
+                    "2021.05",
+                    "2021.06",
+                    "2021.07",
+                    "2021.08",
+                    "2021.09",
+                    "2021.10",
+                    "2021.11",
+                    "2021.12",
+                    "2022.01",
+                    "2022.02",
+                    "2022.03",
+                    "2022.04",
+                    "2022.05",
+                    "2022.06",
+                    "2022.07",
+                    "2022.08",
+                    "2022.09",
+                    "2022.10",
+                    "2022.11",
+                    "2022.12",
+                    "2023.01",
+                    "2023.02",
+                    "2023.03",
+                    "2023.04",
+                    "2023.05",
+                    "2023.06",
+                    "2023.07",
+                    "2023.08",
+                    "2023.09",
+
+                ]
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%'],
+                splitLine: {
+                    show: true
+                }
+            },
+            series: [
+                {
+                    name: '최근 3년간 데이터',
+                    type: 'line',
+                    showSymbol: false,
+                    data: [
+                        820,
+                        932,
+                        901,
+                        934,
+                        1290,
+                        1330,
+                        1320,
+                        820,
+                        932,
+                        901,
+                        934,
+                        1290,
+                        1330,
+                        1320,
+                        820,
+                        932,
+                        901,
+                        934,
+                        1290,
+                        1330,
+                        1320,
+                        820,
+                        932,
+                        901,
+                        934,
+                        1290,
+                        1330,
+                        1320,
+                        820,
+                        932,
+                        901,
+                        934,
+                        1290,
+                        1330,
+                        1320,
+                        20
+                    ],
+                    animationEasing: "quadraticIn",
+                    lineStyle: {
+                        color: "rgba(255, 207, 83, 1)"
+                    }
+                }
+            ]
+        };
+        // setInterval(function () {
+        // for (var i = 0; i < 500; i++) {
+        //     data.shift();
+        //     data.push(randomData());
+        // }
+        // myChart.setOption({
+        //     series: [
+        //     {
+        //         data: data
+        //     }
+        //     ]
+        // });
+        // }, 1000);
+
+        option && myChart.setOption(option);
+        window.addEventListener('resize', myChart.resize);
+    </script>
 </body>
 
 </html>

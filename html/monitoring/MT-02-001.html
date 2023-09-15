@@ -250,7 +250,7 @@
                             <div class="form-item">
                                 <div class="monitoring-date input input-date">
                                     <button type="button" class="btn-dateMove prev-date" title="이전"></button>
-                                    <label>2023.00.00</label> 
+                                    <label>2023.00.00</label>
                                     <button type="button" class="btn-dateMove next-date" title="다음"></button>
 
                                     <input type="text" id="datepicker">
@@ -383,16 +383,15 @@
                                         </select>
                                     </div>
                                 </div>
-                            
+
                                 <div class="ml-auto t-right">
-                                    <button type="button" class="btn btn-sml btn-line btn-up ml-6">파일 업로드</button>
                                     <button type="button" class="btn btn-sml btn-line btn-down ml-6">파일 다운로드</button>
                                 </div>
                             </div>
-                            
+
                             <div class="flex">
                                 <div id="pie-chart1" class="chart-wrap h-400"></div>
-                            
+
                                 <div class="table-wrap">
                                     <table class="table nowrap">
                                         <colgroup>
@@ -448,21 +447,20 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="monitoring-contentsBox">
                             <div class="flex mt-32">
-                                <div>카테고리별</div>
-                        
+                                <h4 class="tit">카테고리별</h4>
+
                                 <div class="ml-auto t-right">
-                                    <button type="button" class="btn btn-sml btn-line btn-up ml-6">파일 업로드</button>
                                     <button type="button" class="btn btn-sml btn-line btn-down ml-6">파일 다운로드</button>
                                 </div>
                             </div>
-                        
+
                             <!-- 카테고리별  -->
                             <div class="flex">
                                 <div id="pie-chart2" class="chart-wrap h-400"></div>
-                        
+
                                 <div class="table-wrap">
                                     <table class="table nowrap">
                                         <colgroup>
@@ -546,36 +544,39 @@
     <!-- //wrap -->
 
     <script>
-        
-        $(function(){
+
+        $(function () {
             let currentDate = moment();
             const $monitorDate = $('.monitoring-date');
 
-            $('.prev-date').click(function(){
+            $('.prev-date').click(function () {
                 
-                if($monitorDate.hasClass('month')){
-                    
-                    currentDate.subtract(1, "months");
+                if ($monitorDate.hasClass('month')) {
 
+                    currentDate.subtract(1, "months");
+                    
                     // 이전 달이 1월인 경우, 이전 년도로 이동
                     if (currentDate.month() === 0) {
-                         currentDate.subtract(1, "years");
+                        currentDate.subtract(1, "years");
                     }
-                    
-                    $('.monitoring-date label').html(currentDate.format('YYYY.MM'));
 
-                }else if($monitorDate.hasClass('week')){
+                    $('.monitoring-date label').html(currentDate.format('YYYY.MM'));
+                    $('#datepicker').val(currentDate.format('YYYY.MM'))
+                } else if ($monitorDate.hasClass('week')) {
                     currentDate.subtract(1, "weeks");
 
                     const startOfWeek = currentDate.clone().startOf("week").format("YYYY.MM.DD");
                     const endOfWeek = currentDate.clone().endOf("week").format("YYYY.MM.DD");
 
                     $('.monitoring-date label').html(`${startOfWeek} ~ ${endOfWeek}`);
+                    $('#datepicker').val(currentDate.format(startOfWeek + '~' + endOfWeek))
 
-                }else{
+                } else {
                     currentDate.subtract(1, "days");
                     $('.monitoring-date label').html(currentDate.format('YYYY.MM.DD'));
+                    $('#datepicker').val(currentDate.format('YYYY.MM.DD'))
                 }
+                
             })
 
             $('.next-date').click(function () {
@@ -599,9 +600,9 @@
                 }
             })
         })
-        
+
         var dom1 = document.querySelector('#pie-chart1');
-        var dom2 = document.querySelector('#pie-chart2')
+        var dom2 = document.querySelector('#pie-chart2');
 
         var myChart1 = echarts.init(dom1, null, {
             renderer: 'canvas',
@@ -611,7 +612,7 @@
             renderer: 'canvas',
             useDirtyRect: false
         });
-        
+
         var color1 = [
             '#FFCF53',
             '#FA844E',
@@ -656,22 +657,23 @@
             '#7155C8',
             '#354673',
         ];
-        var title = {left : 'center'}
+        var title = { left: 'center' }
         var tooltip = { trigger: 'item' }
-        var legend = {                 
+        var legend = {
             align: "auto",
             left: 'left',
             bottom: 0,
             height: 200,
             icon: 'circle',
-            padding: [16, 50, 16, 50], }
+            padding: [16, 10, 16, 10],
+        }
 
         var itemStyle = {
             shadowBlur: 0,
             shadowOffsetX: 0,
             shadowColor: 'rgba(0, 0, 0, 0)'
         }
-            
+
         var app = {};
 
         var option1;

@@ -695,3 +695,40 @@
     }
   }
 }
+.monitoring-contentsBox{
+  & + .monitoring-contentsBox{
+    margin-top: 4.8rem;
+    padding-top: 1.6rem;
+    border-top: 0.1rem solid var(--line-color-ccc);
+  }
+  .tit{
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  &.flex{
+    gap:2.4rem;
+  }
+}
+.common-table{
+  .title-wrap{
+    .tit {
+      margin-bottom: 0;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.monitoring-month .drp-calendar.right {
+  display: none !important;
+}
+
+.chart-line-wrap{
+  border: 0.1rem solid var(--line-color-ccc);
+  position: relative;
+  #line-chart{
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+  }
+}

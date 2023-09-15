@@ -545,6 +545,7 @@
                     singleDatePicker: true,
                     showDropdowns: true,
                     timePicker: false,
+                    autoUpdateInput : true,
                     opens: "center",
                     locale: {
                         format: "YYYY.MM.DD",
@@ -606,6 +607,7 @@
                     minYear: 2023,
                     timePicker: false,
                     opens: "center",
+                    autoUpdateInput: true,
                     locale: {
                         format: "YYYY.MM.DD",
                         showDropdowns: true,
@@ -641,7 +643,7 @@
             $(".btn-month").on("click", function () {
                 $(".btn-today, .btn-week, .btn-month").removeClass("active");
                 $(this).addClass("active");
-                $(".daterangepicker").addClass("monitoring-month");
+                
 
                 var end = moment();
                 $(".monitoring-date label").html(end.format("YYYY.MM"));
@@ -652,9 +654,15 @@
                     endDate: moment().endOf("month"),
                     minYear: 2023,
                     // "maxYear" : 2024,
-                    showDropdowns: true,
+                    // showDropdowns: true,
+                    dateLimit: {
+                    'months': 1,
+                    'days': -1
+                    },
+                    autoUpdateInput : true,
                     timePicker: false,
                     opens: "center",
+                    linkedCalendars: false,
                     locale: {
                         format: "YYYY.MM.DD",
                         direction: "ltr",
@@ -679,8 +687,11 @@
                         ],
                         firstDay: 0,
                     },
+                }).on('show.daterangepicker', function(ev, picker){
+                    $(".daterangepicker").addClass("monitoring-month");
                 });
-                applyDate();
+                
+                //applyDate();
             });
 
             function applyDate() {
