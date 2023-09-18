@@ -719,8 +719,9 @@
   }
 }
 
-.monitoring-month .drp-calendar.right {
-  display: none !important;
+.form-item .monitoring-date{
+  align-items: center;
+  display: inline-flex;
 }
 
 .chart-line-wrap{

@@ -90,16 +90,26 @@ input[type=number] {
   .monitoring-date{
     position: relative;
     width: auto;
-    label{
+    // label{
+    //   font-size: 1.8rem;
+    //   font-weight: 700;
+    //   position: relative;
+    // }
+    input#datepicker{
+      position: relative;
+      border:0;
+      background: none;
+      width: 12rem;
+      text-align: center;
+      padding: 0;
       font-size: 1.8rem;
       font-weight: 700;
+      cursor: pointer;
     }
-    input{
-      overflow: hidden;
-      height: 0;
-      position: absolute;
-      border:0;
-      padding: 0;
+    &.week{
+      input#datepicker{
+        width: 22rem;
+      }
     }
   }
   

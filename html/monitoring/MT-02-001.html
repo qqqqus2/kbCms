@@ -250,10 +250,8 @@
                             <div class="form-item">
                                 <div class="monitoring-date input input-date">
                                     <button type="button" class="btn-dateMove prev-date" title="이전"></button>
-                                    <label>2023.00.00</label>
+                                    <input type="text" id="datepicker" autocomplete="off" readonly>
                                     <button type="button" class="btn-dateMove next-date" title="다음"></button>
-
-                                    <input type="text" id="datepicker">
                                 </div>
                                 <div class="inline-flex">
                                     <button type="button"
@@ -544,62 +542,6 @@
     <!-- //wrap -->
 
     <script>
-
-        $(function () {
-            let currentDate = moment();
-            const $monitorDate = $('.monitoring-date');
-
-            $('.prev-date').click(function () {
-                
-                if ($monitorDate.hasClass('month')) {
-
-                    currentDate.subtract(1, "months");
-                    
-                    // 이전 달이 1월인 경우, 이전 년도로 이동
-                    if (currentDate.month() === 0) {
-                        currentDate.subtract(1, "years");
-                    }
-
-                    $('.monitoring-date label').html(currentDate.format('YYYY.MM'));
-                    $('#datepicker').val(currentDate.format('YYYY.MM'))
-                } else if ($monitorDate.hasClass('week')) {
-                    currentDate.subtract(1, "weeks");
-
-                    const startOfWeek = currentDate.clone().startOf("week").format("YYYY.MM.DD");
-                    const endOfWeek = currentDate.clone().endOf("week").format("YYYY.MM.DD");
-
-                    $('.monitoring-date label').html(`${startOfWeek} ~ ${endOfWeek}`);
-                    $('#datepicker').val(currentDate.format(startOfWeek + '~' + endOfWeek))
-
-                } else {
-                    currentDate.subtract(1, "days");
-                    $('.monitoring-date label').html(currentDate.format('YYYY.MM.DD'));
-                    $('#datepicker').val(currentDate.format('YYYY.MM.DD'))
-                }
-                
-            })
-
-            $('.next-date').click(function () {
-                if ($monitorDate.hasClass('month')) {
-
-                    currentDate.add(1, "months");
-
-                    $('.monitoring-date label').html(currentDate.format('YYYY.MM'));
-
-                } else if ($monitorDate.hasClass('week')) {
-                    currentDate.add(1, "weeks");
-
-                    const startOfWeek = currentDate.clone().startOf("week").format("YYYY.MM.DD");
-                    const endOfWeek = currentDate.clone().endOf("week").format("YYYY.MM.DD");
-
-                    $('.monitoring-date label').html(`${startOfWeek} ~ ${endOfWeek}`);
-
-                } else {
-                    currentDate.add(1, "days");
-                    $('.monitoring-date label').html(currentDate.format('YYYY.MM.DD'));
-                }
-            })
-        })
 
         var dom1 = document.querySelector('#pie-chart1');
         var dom2 = document.querySelector('#pie-chart2');

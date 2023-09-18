@@ -269,10 +269,8 @@
                             <div class="form-item">
                                 <div class="monitoring-date input input-date">
                                     <button type="button" class="btn-dateMove prev-date" title="이전"></button>
-                                    <label>2023.00.00</label>
+                                    <input type="text" id="datepicker" autocomplete="off" readonly>
                                     <button type="button" class="btn-dateMove next-date" title="다음"></button>
-
-                                    <input type="text" id="datepicker">
                                 </div>
                                 <div class="inline-flex">
                                     <button type="button"
@@ -284,14 +282,16 @@
                                 </div>
                             </div>
                         </div>
-
+                    </div>
+                    
+                    <div class="kb-box-inner">
                         <div class="ui_tab">
                             <div class="tab_inner">
                                 <i class="tab_line" aria-hidden="true"></i>
-                                <ul class="tab-list w-auto">
+                                <ul class="tab-list w-auto link-tab">
                                     <li class="tab active"><a href="#tab-1">블로그</a></li>
-                                    <li class="tab"><a href="#tab-2">뉴스레터</a></li>
-                                    <li class="tab"><a href="#tab-3">업권</a></li>
+                                    <li class="tab"><a href="MT-03-005.html">뉴스레터</a></li>
+                                    <li class="tab"><a href="MT-03-006.html">업권</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -307,8 +307,8 @@
                         
                             <div class="monitoring-contentsBox flex">
                                 <div class="left-cont flex-11">
-                                    <div id="pie-chart" class="chart-wrap h-400"></div>
-                                    <div id="bar-chart" class="chart-wrap h-400"></div>
+                                    <div id="pie-chart1" class="chart-wrap h-400"></div>
+                                    <div id="bar-chart1" class="chart-wrap h-400"></div>
                                 </div>
                                 <div class="right-cont flex-11">
                                     <div class="table-wrap">
@@ -330,6 +330,21 @@
                                                         <a href="#" class="linked">레벨5. 휴대폰 요금 연체하면 신용점수 낮아지나요?</a>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td class="t-left">NH투자증권</td>
+                                                    <td class="t-left">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="t-left">삼성증권</td>
+                                                    <td class="t-left">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="t-left">미래에셋증권</td>
+                                                    <td class="t-left">
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -337,9 +352,6 @@
                             </div>
                         </div>
 
-                        <div id="tab-2" class="common-table tab_box"></div>
-                        
-                        <div id="tab-3" class="common-table tab_box"></div>
                     </div>
                 </div>
 
@@ -354,14 +366,14 @@
 
     <script>
 
-        var dom1 = document.querySelector('#pie-chart');
-        var dom2 = document.querySelector('#bar-chart');
+        var dom1_1 = document.querySelector('#pie-chart1');
+        var dom1_2 = document.querySelector('#bar-chart1');
 
-        var pieChart = echarts.init(dom1, null, {
+        var pieChart1 = echarts.init(dom1_1, null, {
             renderer: 'canvas',
             useDirtyRect: false
         });
-        var barChart = echarts.init(dom2, null, {
+        var barChart1 = echarts.init(dom1_2, null, {
             renderer: 'canvas',
             useDirtyRect: false
         });
@@ -426,6 +438,8 @@
                         { value: 17, name: 'NH투자증권' },
                         { value: 8, name: '삼성증권' },
                         { value: 7, name: '미래에셋증권' },
+                        { value: 6, name: 'OO증권1' },
+                        { value: 5, name: 'OO증권2' },
                     ],
                     emphasis: {
                         itemStyle: itemStyle
@@ -436,32 +450,40 @@
         };
 
         option2 = {
+            tooltip: tooltip,
             xAxis: {
-                type: 'value'
+                type: 'value',
+                nameTextStyle: {
+                    fontFamily: 'KBFGText'
+                },
             },
             yAxis: {
                 type: 'category',
-                data: ['토스증권', 'NH투자증권', '삼성증권', '미래에셋증권',]
+                data: ['토스증권', 'NH투자증권', '삼성증권', '미래에셋증권','OO증권1','OO증권2'],
+                axisTick: {
+                    show: false,
+                },
             }, 
             grid: { containLabel: true },
             series: [
                 {
-                    data: [120, 200, 150, 80, 70, 110, 130],
+                    data: [17, 10, 8, 7, 6, 5],
                     type: 'bar',
                     colorBy: "data",
-                    color: color
+                    color: color,
+                    barWidth : 16
                 }
             ]
         };
 
          if (option1 && typeof option1 === 'object') {
-            pieChart.setOption(option1);
+            pieChart1.setOption(option1);
         }
         if (option2 && typeof option2 === 'object') {
-            barChart.setOption(option2);
+            barChart1.setOption(option2);
         }
 
-        window.addEventListener('resize', pieChart.resize, barChart.resize);
+        window.addEventListener('resize', pieChart1.resize, barChart1.resize);
     </script>
 </body>
 

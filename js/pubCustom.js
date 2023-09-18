@@ -534,23 +534,26 @@
                 dateRange();
             });
 
-            $(".monitoring-date label").html(start.format("YYYY.MM.DD"));
             monitoringDate();
 
+            $(".monitoring-date input").val(start.format("YYYY.MM.DD"));
             function monitoringDate() {
-                $(".monitoring-date label").daterangepicker({
+
+                $(".monitoring-date #datepicker").daterangepicker({
                     startDate: start,
                     endDate: end,
                     minYear: 2023,
                     singleDatePicker: true,
                     showDropdowns: true,
+                    alwaysShowCalendars: true,
                     timePicker: false,
-                    autoUpdateInput : true,
+                    autoUpdateInput: true,
                     opens: "center",
                     locale: {
                         format: "YYYY.MM.DD",
                         direction: "ltr",
                         applyLabel: "확인",
+                        autoApply: true,
                         customRangeLabel: "Custom",
                         daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
                         monthNames: [
@@ -571,42 +574,17 @@
                     },
                 });
             }
-
-            $(".btn-today").on("click", function (ev, picker) {
-                $(".btn-today, .btn-week, .btn-month").removeClass("active");
-                $(this).addClass("active");
-                $(".daterangepicker").addClass("monitoring-day");
-                $(".monitoring-date").removeClass("week month").addClass("day");
-
-                monitoringDate();
-
-                $(".monitoring-date label").html(end.format("YYYY.MM.DD"));
-                applyDate();
-            });
-
-            //주단위
-            $(".btn-week").on("click", function () {
-                $(".btn-today, .btn-week, .btn-month").removeClass("active");
-                $(this).addClass("active");
-
-                $(".daterangepicker").addClass("monitoring-week");
-
-                var start = moment().subtract(6, "days");
-                var end = moment();
-                $(".monitoring-date label").html(
-                    start.format("YYYY.MM.DD") +
-                        " ~ " +
-                        end.format("YYYY.MM.DD")
-                );
-                $(".monitoring-date").removeClass("day month").addClass("week");
-
-                $(".monitoring-date label").daterangepicker({
+            function monitoringWeek() {
+               $(".monitoring-date #datepicker").daterangepicker({
                     startDate: moment().subtract(6, "days"),
                     endDate: moment(),
                     showDropdowns: true,
                     minYear: 2023,
                     timePicker: false,
                     opens: "center",
+                    maxSpan: {
+                        days: 7,
+                    },
                     autoUpdateInput: true,
                     locale: {
                         format: "YYYY.MM.DD",
@@ -618,7 +596,15 @@
                         fromLabel: "부터",
                         toLabel: "까지",
                         customRangeLabel: "Custom",
-                        daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
+                        daysOfWeek: [
+                            "일",
+                            "월",
+                            "화",
+                            "수",
+                            "목",
+                            "금",
+                            "토",
+                        ],
                         monthNames: [
                             "1월",
                             "2월",
@@ -635,8 +621,169 @@
                         ],
                         firstDay: 0,
                     },
+                })
+                .on("show.daterangepicker", function (ev, picker) {
+                    $(".daterangepicker").addClass("monitoring-week");
                 });
-                applyDate();
+            }
+            function monitoringMonth() {
+                $(".monitoring-date #datepicker").daterangepicker({
+                    startDate: moment().startOf("month"),
+                    endDate: moment().endOf("month"),
+                    minYear: 2023,
+                    // "maxYear" : 2024,
+                    showDropdowns: true,
+                    singleDatePicker: true,
+                    maxSpan: {
+                        days: 30,
+                    },
+                    autoUpdateInput: true,
+                    timePicker: false,
+                    opens: "center",
+                    linkedCalendars: false,
+                    locale: {
+                        format: "YYYY.MM",
+                        direction: "ltr",
+                        applyLabel: "확인",
+                        fromLabel: "부터",
+                        toLabel: "까지",
+                        // customRangeLabel: "Custom",
+                        daysOfWeek: [
+                            "일",
+                            "월",
+                            "화",
+                            "수",
+                            "목",
+                            "금",
+                            "토",
+                        ],
+                        monthNames: [
+                            "1월",
+                            "2월",
+                            "3월",
+                            "4월",
+                            "5월",
+                            "6월",
+                            "7월",
+                            "8월",
+                            "9월",
+                            "10월",
+                            "11월",
+                            "12월",
+                        ],
+                        firstDay: 0,
+                    },
+                })
+                .on("show.daterangepicker", function (ev, picker) {
+                    $(".daterangepicker").addClass("monitoring-month");
+                });
+            }
+
+            function monitorCalendar () {
+                let currentDate = moment();
+                const $monitorDate = $('.monitoring-date');
+
+                $(".prev-date").on("click", function () {
+                    
+                    if ($monitorDate.hasClass("month")) {
+                        currentDate.subtract(1, "months");
+
+                        // 이전 달이 1월인 경우, 이전 년도로 이동
+                        if (currentDate.month() === 0) {
+                            currentDate.subtract(1, "years");
+                        }
+                        $("#datepicker").val(currentDate.format("YYYY.MM"));
+
+                    } else if ($monitorDate.hasClass("week")) {
+                        currentDate.subtract(1, "weeks");
+
+                        const startOfWeek = currentDate
+                            .clone()
+                            .startOf("week")
+                            .format("YYYY.MM.DD");
+                        const endOfWeek = currentDate
+                            .clone()
+                            .endOf("week")
+                            .format("YYYY.MM.DD");
+
+                        $("#datepicker").val(
+                            currentDate.format(startOfWeek + " ~ " + endOfWeek)
+                        );
+
+                    } else {
+                        currentDate.subtract(1, "days");
+
+                        $("#datepicker").val(currentDate.format("YYYY.MM.DD"));
+                        //monitoringDate();
+                        $("#datepicker").on("apply.daterangepicker", this);
+                    }
+
+                });
+
+                $(".next-date").on("click", function () {
+                    if ($monitorDate.hasClass("month")) {
+                        currentDate.add(1, "months");
+
+                        $(".monitoring-date label").html(
+                            currentDate.format("YYYY.MM")
+                        );
+                        $("#datepicker").val(currentDate.format("YYYY.MM"));
+                    } else if ($monitorDate.hasClass("week")) {
+                        currentDate.add(1, "weeks");
+
+                        const startOfWeek = currentDate
+                            .clone()
+                            .startOf("week")
+                            .format("YYYY.MM.DD");
+                        const endOfWeek = currentDate
+                            .clone()
+                            .endOf("week")
+                            .format("YYYY.MM.DD");
+
+                        $(".monitoring-date label").html(
+                            `${startOfWeek} ~ ${endOfWeek}`
+                        );
+                        $("#datepicker").val(
+                            currentDate.format(startOfWeek + " ~ " + endOfWeek)
+                        );
+                    } else {
+                        currentDate.add(1, "days");
+                        $(".monitoring-date label").html(
+                            currentDate.format("YYYY.MM.DD")
+                        );
+                        $("#datepicker").val(currentDate.format("YYYY.MM.DD"));
+                    }
+                });
+                $(".btn-today").on("click", function (ev, picker) {
+                $(".btn-today, .btn-week, .btn-month").removeClass("active");
+                $(this).addClass("active");
+                $(".daterangepicker").addClass("monitoring-day");
+                $(".monitoring-date").removeClass("week month").addClass("day");
+
+                monitoringDate();
+
+                $(".monitoring-date labael").html(end.format("YYYY.MM.DD"));
+                $("#datepicker").val(end.format("YYYY.MM.DD"));
+            });
+
+            //주단위
+            $(".btn-week").on("click", function () {
+                $(".btn-today, .btn-week, .btn-month").removeClass("active");
+                $(this).addClass("active");
+
+                $(".daterangepicker").addClass("monitoring-week");
+
+                var start = moment().subtract(6, "days");
+                var end = moment();
+                $(".monitoring-date label").html(start.format("YYYY.MM.DD") + " ~ " + end.format("YYYY.MM.DD"));
+                $("#datepicker").val(
+                    start.format("YYYY.MM.DD") +
+                        " ~ " +
+                        end.format("YYYY.MM.DD")
+                );
+                $(".monitoring-date").removeClass("day month").addClass("week");
+
+                monitoringWeek();
             });
 
             //월단위
@@ -644,72 +791,15 @@
                 $(".btn-today, .btn-week, .btn-month").removeClass("active");
                 $(this).addClass("active");
                 
-
                 var end = moment();
                 $(".monitoring-date label").html(end.format("YYYY.MM"));
+                $("#datepicker").val(end.format("YYYY.MM"));
                 $(".monitoring-date").removeClass("day week").addClass("month");
 
-                $(".monitoring-date label").daterangepicker({
-                    startDate: moment().startOf("month"),
-                    endDate: moment().endOf("month"),
-                    minYear: 2023,
-                    // "maxYear" : 2024,
-                    // showDropdowns: true,
-                    dateLimit: {
-                    'months': 1,
-                    'days': -1
-                    },
-                    autoUpdateInput : true,
-                    timePicker: false,
-                    opens: "center",
-                    linkedCalendars: false,
-                    locale: {
-                        format: "YYYY.MM.DD",
-                        direction: "ltr",
-                        applyLabel: "확인",
-                        fromLabel: "부터",
-                        toLabel: "까지",
-                        customRangeLabel: "Custom",
-                        daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
-                        monthNames: [
-                            "1월",
-                            "2월",
-                            "3월",
-                            "4월",
-                            "5월",
-                            "6월",
-                            "7월",
-                            "8월",
-                            "9월",
-                            "10월",
-                            "11월",
-                            "12월",
-                        ],
-                        firstDay: 0,
-                    },
-                }).on('show.daterangepicker', function(ev, picker){
-                    $(".daterangepicker").addClass("monitoring-month");
-                });
-                
-                //applyDate();
+                monitoringMonth();
             });
-
-            function applyDate() {
-                // $('.monitoring-date label').on('apply.daterangepicker', function(ev, picker) {
-                //   const $this = $(this);
-                //   const rangePicker = $('.daterangepicker');
-                //   if(rangePicker.hasClass('.monitoring-month')){
-                //     $this.html(end.format('YYYY.MM'));
-                //     alert(1)
-                //   }else if(rangePicker.hasClass('.monitoring-week')){
-                //     $('.monitoring-date label').html(start.format('YYYY.MM.DD') + ' ~ ' + end.format('YYYY.MM.DD'));
-                //     alert(2)
-                //   }else{
-                //     $this.html(end.format('YYYY.MM.DD'));
-                //     alert(3)
-                //   }
-                // });
             }
+            monitorCalendar();
         },
 
         btnTop: function () {
@@ -824,7 +914,7 @@
                         $chk = $wrap
                             .find("input.ui-tbl-chk[name=" + $name + "]")
                             .not(":disabled");
-                    console.log($name);
+                    // console.log($name);
                     if ($(this).prop("checked")) {
                         $chk.prop("checked", true).change();
                     } else {

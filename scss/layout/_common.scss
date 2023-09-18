@@ -24,7 +24,9 @@ html {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
-
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
   ::-webkit-scrollbar {
     width: 0.8rem;
     height: 0.8rem;
