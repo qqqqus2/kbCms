@@ -358,7 +358,7 @@
                                 <div class="flex flex-11">
                                     <button type="button" class="btn btn-up">위로 이동</button>
                                     <button type="button" class="btn btn-down">아래로 이동</button>
-                                    <button type="button" class="btn btn-gray ml-0">확인</button>
+                                    <button type="button" class="btn btn-gray ml-0 flex-00 w-50p">변경저장</button>
                                 </div>
                                 <button type="button" class="btn btn-grpAdd pl-2 t-center">메뉴추가</button>
                             </div>
@@ -418,16 +418,18 @@
                                     <tr>
                                         <th>사용여부 <i class="fc-red">*</i></th>
                                         <td>
-                                            <label class="radio ">
-                                                <input type="radio" name="rdo2" class="" checked /><i aria-hidden="true"
-                                                    class="lbl"></i>
-                                                <span>사용</span>
-                                            </label>
-                                            <label class="radio ">
-                                                <input type="radio" name="rdo2" class="" /><i aria-hidden="true"
-                                                    class="lbl"></i>
-                                                <span>사용안함</span>
-                                            </label>
+                                            <div class="inline-flex">
+                                                <label class="radio ">
+                                                    <input type="radio" name="rdo2" class="" checked /><i aria-hidden="true"
+                                                        class="lbl"></i>
+                                                    <span>사용</span>
+                                                </label>
+                                                <label class="radio ">
+                                                    <input type="radio" name="rdo2" class="" /><i aria-hidden="true"
+                                                        class="lbl"></i>
+                                                    <span>사용안함</span>
+                                                </label>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -445,8 +447,8 @@
                             <p class="tit">유의사항</p>
                             <ul>
                                 <li>등록하는 메뉴는 메뉴구조에서 선택된 메뉴의 하위에 추가됩니다.</li>
-                                <li>메뉴는 동일한 메뉴 Depth에서 ▼ ▲ 버튼을 선택하여 상/하로 이동할 수 있으며, ▼ ▲ 버튼 선택 시 즉시 반영됩니다.</li>
-                                <li>루트와 홈은 ‘사용안함’ 상태로 변경하실 수 없습니다.</li>
+                                <li>메뉴는 동일한 메뉴 Depth에서 ▼ ▲ 버튼 선택 시 상/하로 이동할 수 있으며, 변경저장 버튼 클릭 시 반영됩니다.</li>
+                                <li>루트와 홈은 ‘사용안함’ 상태로 변경할 수 없습니다.</li>
                             </ul>
                         </div>
                     </div>

@@ -3,8 +3,47 @@
   .menu-1depth {
     display: inline-block;
     line-height: 2.9rem;
+    cursor: pointer;
+    width: 100%;
+    .lbl{
+      display: block;
+      position: relative;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0.625rem;
+        top: 50%;
+        width: 1.2rem;
+        height: 0.6rem;
+        margin-top: -0.2815rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: rotate3d(1, 0, 0, 0deg);
+        transition: 0.3s;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8' fill='none'%3E%3Cpath d='M13 0.999999L7 7L1 1' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      }
+    }
+    
+    input{
+      overflow: hidden;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+    .lbl{
+      font-weight: 700;
+    }
   }
-
+  tr.menu-hide {
+    .menu-1depth {
+      .lbl {
+        &::after {
+          transform: rotate3d(1, 0, 0, 180deg);
+        }
+      }
+    }
+  }
   .menu-2depth,
   .menu-3depth {
     position: relative;
@@ -722,6 +761,70 @@
 .form-item .monitoring-date{
   align-items: center;
   display: inline-flex;
+  #monthpicker{
+    display: none;
+    position: relative;
+    border: 0;
+    background: none;
+    width: 12rem;
+    text-align: center;
+    padding: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  &.month{
+    #monthpicker{
+      display: block;
+    }
+    #datepicker{
+      display: none;
+    }
+  }
+}
+
+.ui-datepicker{
+  position: absolute;
+  color: inherit;
+  background-color: #fff;
+  border-radius: 0.4rem;
+  border: 0.1rem solid #ddd;
+  width: 28rem;
+  margin-left: -6rem;
+  max-width: none;
+  padding: 0.8rem;
+  margin-top: 7px;
+  top: 10rem;
+  left: 20px;
+  z-index: 3001;
+  display: none;
+  font-size: 1.5rem;
+  line-height: 1em;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.08);
+  .mtz-monthpicker-year{
+    border-color: var(--line-color-ccc);
+    padding: 0.6rem;
+    height: 2.2rem;
+    border-radius: 0.3rem;
+    height: auto;
+    margin: 0;
+    cursor: default;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  table{
+    margin-top: 1rem;
+    td{
+      padding: 0.5rem !important;
+      line-height: 1.2 !important;
+      cursor: pointer !important;
+      &.ui-state-active,
+      &:hover{
+        background: var(--primary-yellow-color);
+        color: var(--gray_01_black);
+      }
+    }
+  }
 }
 
 .chart-line-wrap{

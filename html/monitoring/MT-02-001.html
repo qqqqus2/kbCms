@@ -11,7 +11,6 @@
     <!-- css -->
     <link href="/css/main.css" rel="stylesheet" />
 
-
     <!-- js -->
     <script src="/js/lib/jquery-3.6.0.min.js"></script>
     <script src="/js/lib/moment.min.js"></script>
@@ -250,7 +249,8 @@
                             <div class="form-item">
                                 <div class="monitoring-date input input-date">
                                     <button type="button" class="btn-dateMove prev-date" title="이전"></button>
-                                    <input type="text" id="datepicker" autocomplete="off" readonly>
+                                    <input type="text" id="datepicker" autocomplete="off" readonly />
+                                    <input type="text" id="monthpicker" autocomplete="off" readonly data-start-year="2023" />
                                     <button type="button" class="btn-dateMove next-date" title="다음"></button>
                                 </div>
                                 <div class="inline-flex">
@@ -261,13 +261,6 @@
                                     <button type="button"
                                         class="btn btn-month btn-tiny ml-4 btn-round btn-line">월간</button>
                                 </div>
-                            </div>
-
-                            <!-- 확장 닫기 후 선택된 조건 -->
-                            <div class="selected-condition">
-                                <span>매체 전체</span>
-                                <span>오늘의 콕</span>
-                                <span>유관부서 전체</span>
                             </div>
 
                             <!-- 확장 검색조건 -->
@@ -324,6 +317,12 @@
                                         </div>
                                     </dd>
                                 </dl>
+                            </div>
+                            <!-- 확장 닫기 후 선택된 조건 -->
+                            <div class="selected-condition">
+                                <span>매체 전체</span>
+                                <span>오늘의 콕</span>
+                                <span>유관부서 전체</span>
                             </div>
                         </div>
 
@@ -388,9 +387,10 @@
                             </div>
 
                             <div class="flex">
-                                <div id="pie-chart1" class="chart-wrap h-400"></div>
+                                <div id="pie-chart1" class="chart-wrap h-400 flex-00 w-50p"></div>
 
-                                <div class="table-wrap">
+                                <div class="table-wrap flex-11">
+                                    <!-- 2023-09-21 테이블 변경 -->
                                     <table class="table nowrap">
                                         <colgroup>
                                             <col style="width: auto;" />
@@ -399,13 +399,18 @@
                                         </colgroup>
                                         <thead>
                                             <tr>
-                                                <th>콘텐츠 주제</th>
-                                                <th>등록수</th>
-                                                <th>비율</th>
+                                                <th colspan="2">콘텐츠 주제</th>
+                                                <th rowspan="2">등록수</th>
+                                                <th rowspan="2">비율</th>
+                                            </tr>
+                                            <tr>
+                                                <th>대분류</th>
+                                                <th>중분류</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
+                                                <th class="" rowspan="7">오늘의 톡</th>
                                                 <td class="t-left">주식</td>
                                                 <td class="t-right">51</td>
                                                 <td>51%</td>
@@ -440,6 +445,12 @@
                                                 <td class="t-right">5</td>
                                                 <td>5%</td>
                                             </tr>
+                                            <tr>
+                                                <th class="">프라임클럽</th>
+                                                <td class="t-left">주식</td>
+                                                <td class="t-right">40</td>
+                                                <td>40%</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -457,9 +468,9 @@
 
                             <!-- 카테고리별  -->
                             <div class="flex">
-                                <div id="pie-chart2" class="chart-wrap h-400"></div>
+                                <div id="pie-chart2" class="chart-wrap h-400 flex-00 w-50p"></div>
 
-                                <div class="table-wrap">
+                                <div class="table-wrap flex-11">
                                     <table class="table nowrap">
                                         <colgroup>
                                             <col style="width: auto;" />
@@ -632,13 +643,14 @@
                     height: "90%",
                     radius: ['40%', '70%'],
                     data: [
-                        { value: 51, name: '주식' },
-                        { value: 17, name: '금융상품' },
-                        { value: 8, name: '재테크' },
-                        { value: 7, name: '부동산' },
-                        { value: 6, name: 'ETF' },
-                        { value: 6, name: '세무' },
-                        { value: 5, name: '자산분배' },
+                        { value: 51, name: '오늘의 톡 > 주식' },
+                        { value: 40, name: '프라임클럽 > 주식' },
+                        { value: 17, name: '오늘의 톡 > 금융상품' },
+                        { value: 8, name: '오늘의 톡 > 재테크' },
+                        { value: 7, name: '오늘의 톡 > 부동산' },
+                        { value: 6, name: '오늘의 톡 > ETF' },
+                        { value: 6, name: '오늘의 톡 > 세무' },
+                        { value: 5, name: '오늘의 톡 > 자산분배' },
                     ],
                     emphasis: {
                         itemStyle: itemStyle
@@ -685,7 +697,8 @@
             myChart2.setOption(option2);
         }
 
-        window.addEventListener('resize', myChart1.resize, myChart2.resize);
+        window.addEventListener('resize', myChart1.resize);
+        window.addEventListener('resize', myChart2.resize);
     </script>
 </body>
 

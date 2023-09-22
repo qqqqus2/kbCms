@@ -316,9 +316,9 @@
                                     <td colspan="3">
                                         <div class="form-item flex align-center">
                                             <div class="input w-200 inline-block">
-                                                <input type="text" title="상태" value="사용" readonly="readonly" />
+                                                <input type="text" title="상태" value="승인" readonly="readonly" />
                                             </div>
-                                            <span class="fc-gray-666">신청일시 : 2023-07-10 12:23</span>
+                                            <span class="fc-gray-666 pt-2">신청일시 : 2023-07-10 12:23</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -338,12 +338,42 @@
                                         <div class="form-item">
                                             <div class="select minW-250 custom-select">
                                                 <select class="">
+                                                    <!-- 2023-09-21 옵션명칭 변경 -->
                                                     <option value="" selected>반려사유 선택</option>
                                                     <option value="">'CMS관리자'와 협의 요청</option>
-                                                    <option value="">'CMS 사용신청'에서 'CMS 신청사유'에 대한 재확인 요청</option>
+                                                    <option value="">'CMS 신청사유'에 대한 재확인 요청</option>
                                                     <option value="">기타</option>
                                                 </select>
                                             </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- 권한 정보 -->
+                        <h3 class="content-tit mt-24">권한 정보</h3>
+                        <table class="table left-table">
+                            <colgroup>
+                                <col style="width: 15rem;" />
+                                <col />
+                            </colgroup>
+                        
+                            <tbody>
+                                <tr>
+                                    <th scope="col" class="t-left">권한</th>
+                                    <td>
+                                        <div class="form-item flex align-center">
+                                            <div class="select w-200 custom-select mr-6">
+                                                <select class="">
+                                                    <option value="" selected>권한 선택</option>
+                                                    <option value="">선택 1</option>
+                                                    <option value="">선택 2</option>
+                                                    <option value="">선택 3</option>
+                                                    <option value="">선택 4</option>
+                                                </select>
+                                            </div>
+                                            <span class="fc-gray-666">권한이 부여되지 않은 경우 ‘권한 미부여’로 보여집니다.</span>
                                         </div>
                                     </td>
                                 </tr>

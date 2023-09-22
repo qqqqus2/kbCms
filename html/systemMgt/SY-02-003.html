@@ -343,10 +343,14 @@
                                     <tbody>
                                         <tr>
                                             <td class="t-left" colspan="6">
-                                                <strong class="menu-1depth">홈</strong>
+                                                <!-- 2023-09-21 메뉴 권한 형태 변경 input name과 2뎁스의 data-menutoggle의 명칭 매치 -->
+                                                <label class="menu-1depth">
+                                                    <input type="checkbox" name="menu-home" />
+                                                    <i class="lbl">홈</i>
+                                                </label>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr data-menutoggle="menu-home">
                                             <td class="t-left">
                                                 <div class="menu-2depth">
                                                     <label class="checkbox sml">
@@ -388,13 +392,17 @@
                                                 </label>
                                             </td>
                                         </tr>
+
                                         <tr>
                                             <td class="t-left" colspan="6">
-                                                <strong class="menu-1depth">1 뎁스 메뉴</strong>
+                                                <label class="menu-1depth">
+                                                    <input type="checkbox" name="menu-monitoring" /><!-- 2023-09-21 메뉴 권한 형태 변경 input name과 2뎁스의 data-menutoggle의 명칭 매치 -->
+                                                    <i class="lbl">1 뎁스 메뉴</i>
+                                                </label>
                                             </td>
                                         </tr>
 
-                                        <tr>
+                                        <tr data-menutoggle="menu-monitoring">
                                             <td class="t-left">
                                                 <div class="menu-2depth">
                                                     <label class="checkbox sml">
@@ -435,7 +443,7 @@
                                                 </label>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr data-menutoggle="menu-monitoring">
                                             <td class="t-left">
                                                 <div class="menu-3depth">
                                                     <label class="checkbox sml">
@@ -555,7 +563,29 @@
 
             li.removeClass('active')
             $this.parent('li').addClass('active');
-        })
+        });
+
+        //2023-09-21 스크립트 추가
+        $(".menu-1depth input").change(function () {
+            // 체크된 체크박스의 name 가져오기
+            var checkedName = $(this).attr("name");
+
+            // 모든 tr 요소 가져오기
+            var $tableRows = $("table tr");
+
+            $(this).parents('tr').toggleClass('menu-hide');
+
+            $tableRows.each(function () {
+                var dataName = $(this).data("menutoggle");
+                console.log(checkedName)
+                if (dataName === checkedName) {
+                    // 체크된 체크박스와 data-name이 일치하는 경우
+                    $(this).toggle();
+                } 
+            });
+        });
+        
+        
     </script>
 </body>
 

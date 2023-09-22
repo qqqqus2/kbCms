@@ -464,6 +464,7 @@
             <button type="button" class="btn btn-popClose" onclick="popClose('#returnRequestPop')">팝업 닫기</button>
           </div>
           <div class="modal-body flex-column justify-start">
+            <!-- 2023-09-21 테이블 수정 -->
             <div class="table-wrap inner-scroll maxH-130">
               <table class="table">
                 <colgroup>
@@ -480,6 +481,7 @@
                     <th>사번</th>
                     <th>부서코드</th>
                     <th>부서명</th>
+                    <th>CMS 신청사유</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -489,6 +491,11 @@
                     <td>KB0008219</td>
                     <td>01010101</td>
                     <td>콘텐츠 전략 스쿼드</td>
+                    <td>
+                      <span class="block">콘텐츠 생성/배포</span>
+                      <span class="block">콘텐츠 속성 관리</span>
+                      <span class="block">콘텐츠 모니터링</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>2</td>
@@ -496,6 +503,11 @@
                     <td>KB0008219</td>
                     <td>01010101</td>
                     <td>콘텐츠 전략 스쿼드</td>
+                    <td>
+                      <span class="block">콘텐츠 생성/배포</span>
+                      <span class="block">콘텐츠 속성 관리</span>
+                      <span class="block">콘텐츠 모니터링</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>3</td>
@@ -503,6 +515,11 @@
                     <td>KB0008219</td>
                     <td>01010101</td>
                     <td>콘텐츠 전략 스쿼드</td>
+                    <td>
+                      <span class="block">콘텐츠 생성/배포</span>
+                      <span class="block">콘텐츠 속성 관리</span>
+                      <span class="block">콘텐츠 모니터링</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>4</td>
@@ -510,6 +527,11 @@
                     <td>KB0008219</td>
                     <td>01010101</td>
                     <td>콘텐츠 전략 스쿼드</td>
+                    <td>
+                      <span class="block">콘텐츠 생성/배포</span>
+                      <span class="block">콘텐츠 속성 관리</span>
+                      <span class="block">콘텐츠 모니터링</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>5</td>
@@ -517,6 +539,11 @@
                     <td>KB0008219</td>
                     <td>01010101</td>
                     <td>콘텐츠 전략 스쿼드</td>
+                    <td>
+                      <span class="block">콘텐츠 생성/배포</span>
+                      <span class="block">콘텐츠 속성 관리</span>
+                      <span class="block">콘텐츠 모니터링</span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -535,9 +562,10 @@
                       <div class="form-item">
                         <div class="select custom-select minW-250 fixed">
                           <select class="">
+                            <!-- 2023-09-21 옵션명칭 변경 -->
                             <option value="" selected>반려사유 선택</option>
                             <option value="">'CMS관리자'와 협의 요청</option>
-                            <option value="">'CMS 사용신청'에서 'CMS 신청사유'에 대한 재확인 요청</option>
+                            <option value="">'CMS 신청사유'에 대한 재확인 요청</option>
                             <option value="">기타</option>
                           </select>
                         </div>

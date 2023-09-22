@@ -1,4 +1,12 @@
 //공통 레이아웃
+body.hidden{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+}
 .kb-wrap{
   min-width: 128rem;
   width: 100%;
@@ -103,13 +111,13 @@
         position: relative;
         color: #666;
         &::before{
-          content:'<';
+          content:'>';
           text-align: center;
           display: block;
           position: absolute;
           left: 0;
           top: 50%;
-          margin-top:-1.2rem;
+          margin-top:-1.1rem;
           width: 2.4rem;
           line-height: 2.3rem;
           background-size: 100% auto;
@@ -319,16 +327,20 @@ h4.tit{
         width: 100%;
         border: 0.1rem solid #AEB6D0;
         text-align: center;
+        &.btn-gray{
+          border-color: #4A567E;
+        }
         &.btn-grpDel,
         &.btn-grpAdd{
-          text-align: left;
-          padding-left: 1.2rem;
+          // text-align: left;
+          // padding-left: 1.2rem;
           &::before{
             content:'';
             display: inline-block;
             width: 2rem;
             height: 2rem;
             top: 0.4rem;
+            margin-left: -2rem;
             vertical-align: top;
             position: relative;
             background-size: 1rem auto;

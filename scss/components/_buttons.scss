@@ -17,6 +17,46 @@
       transform: scale(0.95);
     }
   }
+  
+  // 버튼 크기
+  &.btn-full{
+    font-size:1.8rem;
+    line-height:2.8rem;
+    width: 100%;
+    padding: 1.3rem 1.2rem;
+    border-radius: 0.6rem;
+    font-weight: 700;
+  }
+  &.btn-mid{
+    font-size:1.5rem;
+    line-height: 2.2rem;
+    min-width: 8rem;
+    padding: 0.7rem 1.2rem 0.5rem;
+    border-radius: 0.4rem;
+    font-weight: 500;
+  }
+  &.btn-sml{
+    font-size:1.4rem;
+    line-height: 1.9rem;
+    min-width: 7.7rem;
+    padding: 0.7rem 1.6rem 0.4rem;
+    border-radius: 0.2rem;
+    font-weight: 300;
+    &.btn-round{
+      border-radius: 1.6rem;
+    } 
+  }
+  &.btn-tiny{
+    font-size:1.2rem;
+    line-height: 1.8rem;
+    min-width: 6rem;
+    padding: 0.4rem 1rem 0.2rem;
+    border-radius: 0.1rem;
+    font-weight: 300;
+    &.btn-round{
+      border-radius: 1.6rem;
+    } 
+  }
 
   // 버튼 색상
   &.btn-yellow{
@@ -98,6 +138,7 @@
   }
 
   &.btn-down{
+    padding-left: 1rem;
     &::before{
       content: '';
       display: inline-block;
@@ -111,6 +152,7 @@
     }
   }
   &.btn-up{
+    padding-left: 1rem;
     &::before{
       content: '';
       display: inline-block;
@@ -133,45 +175,6 @@
     }
   }
 
-  // 버튼 크기
-  &.btn-full{
-    font-size:1.8rem;
-    line-height:2.8rem;
-    width: 100%;
-    padding: 1.3rem 1.2rem;
-    border-radius: 0.6rem;
-    font-weight: 700;
-  }
-  &.btn-mid{
-    font-size:1.5rem;
-    line-height: 2.2rem;
-    min-width: 8rem;
-    padding: 0.7rem 1.2rem 0.5rem;
-    border-radius: 0.4rem;
-    font-weight: 500;
-  }
-  &.btn-sml{
-    font-size:1.4rem;
-    line-height: 1.9rem;
-    min-width: 7.7rem;
-    padding: 0.7rem 1.6rem 0.4rem;
-    border-radius: 0.2rem;
-    font-weight: 300;
-    &.btn-round{
-      border-radius: 1.6rem;
-    } 
-  }
-  &.btn-tiny{
-    font-size:1.2rem;
-    line-height: 1.8rem;
-    min-width: 6rem;
-    padding: 0.4rem 1rem 0.2rem;
-    border-radius: 0.1rem;
-    font-weight: 300;
-    &.btn-round{
-      border-radius: 1.6rem;
-    } 
-  }
 }
 // 삭제버튼
 .btn-del {

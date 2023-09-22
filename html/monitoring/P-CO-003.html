@@ -17,9 +17,10 @@
     <script src="/js/lib/datepicker/daterangepicker.js"></script>
     <script src="/js/lib/datepicker/datepickerCustom.js"></script>
     <script src="/js/pubCustom.js"></script>
-    
+
     <!-- echart -->
     <script src="/js/lib/echart.js"></script>
+
 </head>
 
 <body>
@@ -273,14 +274,14 @@
                                     <input type="text" id="monthpicker" autocomplete="off" readonly data-start-year="2023" />
                                     <button type="button" class="btn-dateMove next-date" title="다음"></button>
                                 </div>
-                                <!-- <div class="inline-flex">
+                                <div class="inline-flex">
                                     <button type="button"
                                         class="btn btn-today btn-tiny btn-round btn-line active">일간</button>
                                     <button type="button"
                                         class="btn btn-week btn-tiny ml-4 btn-round btn-line">주간</button>
                                     <button type="button"
                                         class="btn btn-month btn-tiny ml-4 btn-round btn-line">월간</button>
-                                </div> -->
+                                </div>
                             </div>
 
                             <!-- 확장 검색조건 -->
@@ -289,11 +290,11 @@
                                     <dt class="w-120 t-left">분석 구분</dt>
                                     <dd class="align-center">
                                         <label class="radio radio-custom">
-                                            <input type="radio" name="rdo1"  />
+                                            <input type="radio" name="rdo1" checked />
                                             <i class="lbl">모니터링</i>
                                         </label>
                                         <label class="radio radio-custom">
-                                            <input type="radio" name="rdo1" checked />
+                                            <input type="radio" name="rdo1" />
                                             <i class="lbl">예측</i>
                                         </label>
                                     </dd>
@@ -302,15 +303,15 @@
                                     <dt class="w-120 t-left">분석 기준</dt>
                                     <dd class="align-center">
                                         <label class="radio radio-custom">
-                                            <input type="radio" name="rdo2" disabled />
+                                            <input type="radio" name="rdo2" checked />
                                             <i class="lbl">일별</i>
                                         </label>
                                         <label class="radio radio-custom">
-                                            <input type="radio" name="rdo2" disabled />
+                                            <input type="radio" name="rdo2" />
                                             <i class="lbl">주별</i>
                                         </label>
                                         <label class="radio radio-custom">
-                                            <input type="radio" name="rdo2" checked />
+                                            <input type="radio" name="rdo2" />
                                             <i class="lbl">월별</i>
                                         </label>
                                     </dd>
@@ -319,7 +320,7 @@
                                     <dt class="w-120 t-left">분석 유형</dt>
                                     <dd class="align-center">
                                         <label class="radio radio-custom">
-                                            <input type="radio" name="rdo3" disabled />
+                                            <input type="radio" name="rdo3" checked />
                                             <i class="lbl">급상승</i>
                                         </label>
                                         <label class="radio radio-custom">
@@ -327,7 +328,7 @@
                                             <i class="lbl">지속상승</i>
                                         </label>
                                         <label class="radio radio-custom">
-                                            <input type="radio" name="rdo3" checked />
+                                            <input type="radio" name="rdo3" disabled />
                                             <i class="lbl">규칙성</i>
                                         </label>
                                     </dd>
@@ -349,12 +350,13 @@
                             <!-- 2023-09-21 위치변경 -->
                             <!-- 확장 닫기 후 선택된 조건 -->
                             <div class="selected-condition">
-                                <span>예측</span>
-                                <span>월별</span>
-                                <span>규칙성</span>
+                                <span>모니터링</span>
+                                <span>일별</span>
+                                <span>지속상승</span>
                                 <span>키워드 선택</span>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="common-search-btn mt-16 mb-32">
@@ -365,7 +367,7 @@
                     <div class="kb-box-inner">
                         <div class="common-table">
                             <div class="title-wrap flex align-center mb-24">
-                                <h4 class="fz-18">예측</h4>
+                                <h4 class="fz-18">모니터링</h4>
                                 <div class="ml-auto inline-flex justify-end">
                                     <button type="button" class="btn btn-sml btn-line btn-up ml-6" onclick="popOpen('#monitoringFileUpload')">파일업로드</button>
                                     <button type="button" class="btn btn-sml btn-line btn-down ml-6">파일다운로드</button>
@@ -381,7 +383,7 @@
                                             <colgroup>
                                                 <col style="width: 8rem;" />
                                                 <col style="width: auto;" />
-                                                <col style="width: 10rem;" />
+                                                <col style="width: auto;" />
                                                 <col style="width: auto;" />
                                             </colgroup>
                                             <thead>
@@ -400,7 +402,7 @@
                                                     </th>
                                                     <th>
                                                         <span class="list-align">
-                                                            상승전망
+                                                            상승률
                                                             <i role="button" class="btn-alignList"></i>
                                                         </span>
                                                     </th>
@@ -415,122 +417,122 @@
                                             <tbody>
                                                 <tr>
                                                     <td>1</td>
-                                                    <td class="t-left">고정금리</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">LA집값</a></td>
+                                                    <td class="t-right">280%</td>
                                                     <td class="t-right">73%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>2</td>
-                                                    <td class="t-left">미술품거래</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>3</td>
-                                                    <td class="t-left">미술품투자</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>4</td>
-                                                    <td class="t-left">미술품투자</td>
-                                                    <td>X</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>5</td>
-                                                    <td class="t-left">미술품투자</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>6</td>
-                                                    <td class="t-left">미술품투자</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>7</td>
-                                                    <td class="t-left">미술품투자</td>
-                                                    <td>X</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>8</td>
-                                                    <td class="t-left">미술품투자</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>9</td>
-                                                    <td class="t-left">미술품투자</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>10</td>
-                                                    <td class="t-left">미술품투자</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>11</td>
-                                                    <td class="t-left">밀선물</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>12</td>
-                                                    <td class="t-left">밀선물</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>13</td>
-                                                    <td class="t-left">밀선물</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>14</td>
-                                                    <td class="t-left">밀선물</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>15</td>
-                                                    <td class="t-left">정기적금</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>16</td>
-                                                    <td class="t-left">정기적금</td>
-                                                    <td>X</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>17</td>
-                                                    <td class="t-left">정기적금</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>18</td>
-                                                    <td class="t-left">정기적금</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>19</td>
-                                                    <td class="t-left">정기적금</td>
-                                                    <td>O</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>20</td>
-                                                    <td class="t-left">정기적금</td>
-                                                    <td>X</td><!-- t-right 클래스 없음 -->
+                                                    <td class="t-left"><a href="#" class="linked">건축가</a></td>
+                                                    <td class="t-right">140%</td>
                                                     <td class="t-right">51%</td>
                                                 </tr>
                                                 <!-- 검색결과가 없습니다 -->
@@ -572,7 +574,7 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </nav>
+                                    </nav>  
                                 </div>
 
                                 <div class="right-cont flex-11">
@@ -580,7 +582,7 @@
                                     <div class="chart-line-wrap h-222 bd-radius-8">
                                         <div id="line-chart" class="h-300 w-100p"></div>
                                     </div>
-
+                                    
                                     <h4 class="tit mt-32">관련뉴스</h4>
                                     <!-- 테이블 -->
                                     <div class="table-wrap">
@@ -604,8 +606,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -616,8 +617,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -628,8 +628,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -640,8 +639,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -652,8 +650,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -664,8 +661,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -676,8 +672,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -688,8 +683,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -700,8 +694,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -712,8 +705,7 @@
                                                         <span class="pre-line break-all">가계빚 불안한데…고정금리 주담대 감소세</span>
                                                     </td>
                                                     <td>
-                                                        <a href="#" title="새창열림" target="_blank"
-                                                            class="linked ellipsis block w-200">
+                                                        <a href="#" title="새창열림" target="_blank" class="linked ellipsis block w-200">
                                                             https://www.hankyung.com/economy/article/2023081373541
                                                         </a>
                                                     </td>
@@ -760,10 +752,13 @@
                                 </ul>
                             </div>
                         </div>
+
                     </div>
+
                 </div>
             </main>
             <!-- //컨텐츠 -->
+
             <!-- 2023-09-21 팝업 추가 -->
             <!-- Modal -->
             <article class="modal w-1000" id="monitoringFileUpload" tabindex="-1" aria-hidden="true">
@@ -790,7 +785,7 @@
                                                 <!-- 파일 첨부 -->
                                                 <p class="mt-12 fc-gray-666 fz-14">업로드 파일은 csv파일만 가능하며 10MB까지 등록할 수 있습니다.</p>
                                                 <div class="mt-12 file-drop">
-            
+                                
                                                 </div>
                                             </td>
                                         </tr>
@@ -834,12 +829,10 @@
                             <div class="info-contetns mt-20 mb-24">
                                 <p class="tit">유의사항</p>
                                 <ul>
-            
-                                    <li>업로드 파일은 업로드 파일 내용 예시를 참고하여 <strong class="fc-blue">형식에 맞게 작성</strong>하세요 (<strong
-                                            class="fc-blue">데이터 구분자 : ‘|’, 건마다 줄바꿈</strong>)</li>
+
+                                    <li>업로드 파일은 업로드 파일 내용 예시를 참고하여 <strong class="fc-blue">형식에 맞게 작성</strong>하세요 (<strong class="fc-blue">데이터 구분자 : ‘|’, 건마다 줄바꿈</strong>)</li>
                                     <li><strong class="fc-blue">문서 보안(DRM)을 해제한 영문파일명의 csv파일을 업로드하세요.</strong></li>
-                                    <li>업로드하는 csv파일 데이터는 기준일자 기준으로 <strong class="fc-blue">기존 데이터를 삭제</strong>하고, 업로드하는 데이터를 모두 신규
-                                        추가합니다.</li>
+                                    <li>업로드하는 csv파일 데이터는 기준일자 기준으로 <strong class="fc-blue">기존 데이터를 삭제</strong>하고, 업로드하는 데이터를 모두 신규 추가합니다.</li>
                                     <li>csv파일 업로드 후 [등록]버튼을 클릭하시고 반드시 자료 등록 결과(오류 발생 시, 해당 행/열 값 확인 가능)를 확인하세요.</li>
                                     <li>오류가 발생한 경우 업로드한 파일의 데이터 전체가 등록되지 않습니다.</li>
                                 </ul>
@@ -855,11 +848,12 @@
         </div>
         <!-- //container -->
 
-
     </section>
     <!-- //wrap -->
 
     <script>
+        // var echarts = require('echarts');
+
         var chartDom = document.getElementById('line-chart');
         var myChart = echarts.init(chartDom);
         var option;

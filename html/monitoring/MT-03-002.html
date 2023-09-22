@@ -251,9 +251,7 @@
                             <h2 class="page-tit">외부 트렌드 분석</h2>
                             <nav aria-label="breadcrumb" class="ml-auto">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">홈</a></li>
-                                    <li class="breadcrumb-item"><a href="#">모니터링</a></li><!-- 1뎁스 -->
-                                    <li class="breadcrumb-item"><a href="#">인사이트 분석</a></li><!-- 2뎁스 -->
+                                    <li class="breadcrumb-item">홈 > 모니터링 > 인사이트 > 분석</li><!-- 2뎁스 -->
                                     <li class="breadcrumb-item active" aria-current="page">외부 트렌드 분석</li><!-- 현재 페이지 -->
                                 </ol>
                             </nav>
@@ -271,23 +269,17 @@
                                 <div class="monitoring-date input input-date">
                                     <button type="button" class="btn-dateMove prev-date" title="이전"></button>
                                     <input type="text" id="datepicker" autocomplete="off" readonly>
+                                    <input type="text" id="monthpicker" autocomplete="off" readonly data-start-year="2023" />
                                     <button type="button" class="btn-dateMove next-date" title="다음"></button>
                                 </div>
-                                <div class="inline-flex">
+                                <!-- <div class="inline-flex">
                                     <button type="button"
                                         class="btn btn-today btn-tiny btn-round btn-line active">일간</button>
                                     <button type="button"
                                         class="btn btn-week btn-tiny ml-4 btn-round btn-line">주간</button>
                                     <button type="button"
                                         class="btn btn-month btn-tiny ml-4 btn-round btn-line">월간</button>
-                                </div>
-                            </div>
-
-                            <!-- 확장 닫기 후 선택된 조건 -->
-                            <div class="selected-condition">
-                                <span>모니터링</span>
-                                <span>키워드 선택</span>
-                                <span>지속상승</span>
+                                </div> -->
                             </div>
 
                             <!-- 확장 검색조건 -->
@@ -306,26 +298,60 @@
                                     </dd>
                                 </dl>
                                 <dl class="inner-tbl">
-                                    <dt class="w-120 t-left">분석 조건</dt>
+                                    <dt class="w-120 t-left">분석 기준</dt>
+                                    <dd class="align-center">
+                                        <label class="radio radio-custom">
+                                            <input type="radio" name="rdo2" checked />
+                                            <i class="lbl">일별</i>
+                                        </label>
+                                        <label class="radio radio-custom">
+                                            <input type="radio" name="rdo2" />
+                                            <i class="lbl">주별</i>
+                                        </label>
+                                        <label class="radio radio-custom">
+                                            <input type="radio" name="rdo2" />
+                                            <i class="lbl">월별</i>
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl class="inner-tbl">
+                                    <dt class="w-120 t-left">분석 유형</dt>
+                                    <dd class="align-center">
+                                        <label class="radio radio-custom">
+                                            <input type="radio" name="rdo3" checked />
+                                            <i class="lbl">급상승</i>
+                                        </label>
+                                        <label class="radio radio-custom">
+                                            <input type="radio" name="rdo3" disabled />
+                                            <i class="lbl">지속상승</i>
+                                        </label>
+                                        <label class="radio radio-custom">
+                                            <input type="radio" name="rdo3" disabled />
+                                            <i class="lbl">규칙성</i>
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl class="inner-tbl">
+                                    <dt class="w-120 t-left">검색 키워드</dt>
                                     <dd class="align-center">
                                         <div class="form-item flex">
-                                            <div class="select custom-select minW-160">
+                                            <div class="select custom-select minW-200">
                                                 <select class="">
                                                     <option value="">키워드 선택</option>
                                                     <option value="">선택</option>
                                                 </select>
                                             </div>
-                                            <div class="select custom-select minW-160">
-                                                <select class="">
-                                                    <option value="">유형 선택</option>
-                                                    <option value="">급상승</option>
-                                                    <option value="">지속상승</option>
-                                                    <option value="">규칙성</option>
-                                                </select>
-                                            </div>
                                         </div>
                                     </dd>
                                 </dl>
+                            </div>
+                            <!-- 2023-09-21 위치변경 -->
+                            <!-- 확장 닫기 후 선택된 조건 -->
+                            <div class="selected-condition">
+                                <span>모니터링</span>
+                                <span>일별</span>
+                                <span>지속상승</span>
+                                <span>키워드 선택</span>
                             </div>
                         </div>
 
@@ -338,9 +364,10 @@
 
                     <div class="kb-box-inner">
                         <div class="common-table">
-                            <div class="title-wrap flex align-center mb-12">
+                            <div class="title-wrap flex align-center mb-24">
+                                <h4 class="fz-18">모니터링</h4>
                                 <div class="ml-auto inline-flex justify-end">
-                                    <button type="button" class="btn btn-sml btn-line btn-up ml-6">파일업류드</button>
+                                    <button type="button" class="btn btn-sml btn-line btn-up ml-6" onclick="popOpen('#monitoringFileUpload')">파일업로드</button>
                                     <button type="button" class="btn btn-sml btn-line btn-down ml-6">파일다운로드</button>
                                 </div>
                             </div>
@@ -729,12 +756,96 @@
                 </div>
             </main>
             <!-- //컨텐츠 -->
+
+            <!-- 2023-09-21 팝업 추가 -->
+            <!-- Modal -->
+            <article class="modal w-1000" id="monitoringFileUpload" tabindex="-1" aria-hidden="true">
+                <i class="modal-bg"></i>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-head">
+                            <h5 class="tit">외부 트렌드 분석 파일 업로드</h5>
+                            <button type="button" class="btn btn-popClose" onclick="popClose('#monitoringFileUpload')">팝업
+                                닫기</button>
+                        </div>
+                        <div class="modal-body flex-column">
+                            <!-- 파일 업로드 -->
+                            <div class="table-wrap">
+                                <table class="table left-table">
+                                    <colgroup>
+                                        <col style="width: 18rem;" />
+                                        <col />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="col" class="t-left">검색어 및 뉴스 <i class="fc-red">*</i></th>
+                                            <td>
+                                                <!-- 파일 첨부 -->
+                                                <p class="mt-12 fc-gray-666 fz-14">업로드 파일은 csv파일만 가능하며 10MB까지 등록할 수 있습니다.</p>
+                                                <div class="mt-12 file-drop">
+                                
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col" class="t-left">업로드 파일 내용 예시</th>
+                                            <td>
+                                                # 업로드 파일 내용 예시 (업로드 하려는 파일에 따라 csv파일 내용의 형식 예 표출) #
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col" class="t-left">검색수 추이 <i class="fc-red">*</i></th>
+                                            <td>
+                                                <!-- 파일 첨부 -->
+                                                <p class="mt-12 fc-gray-666 fz-14">업로드 파일은 csv파일만 가능하며 10MB까지 등록할 수 있습니다.</p>
+                                                <!-- 첨부된 파일 -->
+                                                <div class="uploaded-file">
+                                                    <p>
+                                                        <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
+                                                        <button type="button" title="삭제" class="btn-del"></button>
+                                                    </p>
+                                                    <p>
+                                                        <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.jpg(1542byte)</a>
+                                                        <button type="button" title="삭제" class="btn-del"></button>
+                                                    </p>
+                                                    <p>
+                                                        <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.jpg(1542byte)</a>
+                                                        <button type="button" title="삭제" class="btn-del"></button>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col" class="t-left">업로드 파일 내용 예시</th>
+                                            <td>
+                                                # 업로드 파일 내용 예시 (업로드 하려는 파일에 따라 csv파일 내용의 형식 예 표출) #
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="info-contetns mt-20 mb-24">
+                                <p class="tit">유의사항</p>
+                                <ul>
+
+                                    <li>업로드 파일은 업로드 파일 내용 예시를 참고하여 <strong class="fc-blue">형식에 맞게 작성</strong>하세요 (<strong class="fc-blue">데이터 구분자 : ‘|’, 건마다 줄바꿈</strong>)</li>
+                                    <li><strong class="fc-blue">문서 보안(DRM)을 해제한 영문파일명의 csv파일을 업로드하세요.</strong></li>
+                                    <li>업로드하는 csv파일 데이터는 기준일자 기준으로 <strong class="fc-blue">기존 데이터를 삭제</strong>하고, 업로드하는 데이터를 모두 신규 추가합니다.</li>
+                                    <li>csv파일 업로드 후 [등록]버튼을 클릭하시고 반드시 자료 등록 결과(오류 발생 시, 해당 행/열 값 확인 가능)를 확인하세요.</li>
+                                    <li>오류가 발생한 경우 업로드한 파일의 데이터 전체가 등록되지 않습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn">취소</button>
+                            <button type="button" class="btn">등록</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
         <!-- //container -->
 
-        <style>
-            
-        </style>
     </section>
     <!-- //wrap -->
 
@@ -744,160 +855,104 @@
         var chartDom = document.getElementById('line-chart');
         var myChart = echarts.init(chartDom);
         var option;
+       
+        function randomData() {
+            now = new Date(+now + oneDay);
+            value = value + Math.random() * 21 - 10;
+            return {
+                name: now.toString(),
+                value: [
+                    [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+                    Math.round(value)
+                ]
+            };
+        }
+        let data = [];
+        let now = new Date(2023,0,0);
+        let oneDay = 24 * 3600 * 1000;
+        let oneWeek = 7 * 24 * 3600 * 1000;
 
-        // function randomData() {
-        //     now = new Date(+now + oneDay);
-        //     value = value + Math.random() * 21 - 10;
-        //     return {
-        //         name: now.toString(),
-        //         value: [
-        //         [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-        //         Math.round(value)
-        //         ]
-        //     };
-        // }
-        // let data = [];
-        // let now = new Date();
-        // let oneDay = 24 * 3600 * 1000;
-        // let value = Math.random() * 500;
-        // for (var i = 0; i < 1000; i++) {
-        //     data.push(randomData());
-        // }
+        let value = Math.random() * 10;
+        for (var i = 1; i <= 1095; i++) {
+            data.push(randomData());
+        }
         option = {
-        
+            title: {
+                text: ''
+            },
             tooltip: {
                 trigger: 'axis',
-                // formatter: function (params) {
-                //     params = params[0];
-                //     var date = new Date(params.name);
-                //     return (
-                //         date.getDate() +
-                //         '/' +
-                //         (date.getMonth() + 1) +
-                //         '/' +
-                //         date.getFullYear() +
-                //         ' : ' +
-                //         params.value[1]
-                //     );
-                // },
+                formatter: function (params) {
+                    params = params[0];
+                    var date = new Date(params.name);
+                    return (
+                        date.getDate() +
+                        '/' +
+                        (date.getMonth() + 1) +
+                        '/' +
+                        date.getFullYear() +
+                        ' : ' +
+                        params.value[1]
+                    );
+                },
                 axisPointer: {
                     animation: true
                 }
             },
+            dataZoom: {
+                start: 10,
+                type: "inside",
+                moveOnMouseMove: true
+            },
             xAxis: {
-                type: "category",
-                // 3년간 월간 36 개월
-                data: [
-                    "2020.10",
-                    "2020.11",
-                    "2020.12",
-                    "2021.01",
-                    "2021.02",
-                    "2021.03",
-                    "2021.04",
-                    "2021.05",
-                    "2021.06",
-                    "2021.07",
-                    "2021.08",
-                    "2021.09",
-                    "2021.10",
-                    "2021.11",
-                    "2021.12", 
-                    "2022.01",
-                    "2022.02",
-                    "2022.03",
-                    "2022.04",
-                    "2022.05",
-                    "2022.06",
-                    "2022.07",
-                    "2022.08",
-                    "2022.09",
-                    "2022.10",
-                    "2022.11",
-                    "2022.12",
-                    "2023.01",
-                    "2023.02",
-                    "2023.03",
-                    "2023.04",
-                    "2023.05",
-                    "2023.06",
-                    "2023.07",
-                    "2023.08",
-                    "2023.09", 
-                   
-                ]
+                type: 'time',
+                splitLine: {
+                    show: true
+                }
             },
             yAxis: {
                 type: 'value',
                 boundaryGap: [0, '100%'],
                 splitLine: {
-                show: true
+                    show: false
                 }
             },
-            grid: { containLabel: false },
             series: [
                 {
-                    name: '최근 3년간 데이터',
+                    name: 'Fake Data',
                     type: 'line',
                     showSymbol: false,
-                    data: [
-                        820, 
-                        932, 
-                        901, 
-                        934, 
-                        1290, 
-                        1330, 
-                        1320,
-                        820,
-                        932,
-                        901,
-                        934,
-                        1290,
-                        1330,
-                        1320,
-                        820,
-                        932,
-                        901,
-                        934,
-                        1290,
-                        1330,
-                        1320,
-                        820,
-                        932,
-                        901,
-                        934,
-                        1290,
-                        1330,
-                        1320,
-                        820,
-                        932,
-                        901,
-                        934,
-                        1290,
-                        1330,
-                        1320,
-                        20
-                    ],
-                    animationEasing: "quadraticIn",
+                    data: data,
                     lineStyle: {
                         color: "rgba(255, 207, 83, 1)"
                     }
                 }
             ]
         };
-        // setInterval(function () {
-        // for (var i = 0; i < 500; i++) {
+        // for (var i = 0; i < 3; i++) {
         //     data.shift();
         //     data.push(randomData());
         // }
-        // myChart.setOption({
-        //     series: [
-        //     {
-        //         data: data
+        myChart.setOption({
+            series: [
+                {
+                    data: data
+                }
+            ]
+        });
+        // setInterval(function () {
+        //     for (var i = 0; i < 3; i++) {
+        //         data.shift();
+        //         data.push(randomData());
         //     }
-        //     ]
-        // });
-        // }, 1000);
+        //     myChart.setOption({
+        //         series: [
+        //             {
+        //                 data: data
+        //             }
+        //         ]
+        //     });
+        // }, 500);
 
         option && myChart.setOption(option);
         window.addEventListener('resize', myChart.resize);

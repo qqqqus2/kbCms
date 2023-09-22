@@ -281,6 +281,7 @@ $today-color : #202020 !default;
   display: none;
   font-size: 15px;
   line-height: 1em;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.08);
 }
 
 .daterangepicker:before,
@@ -731,6 +732,7 @@ $today-color : #202020 !default;
         &:hover{
           color:#fff;
         }
+        border-color: var(--gray_02-darkBlue);
         background-color: var(--gray_02-darkBlue);
         color:#fff;
       }

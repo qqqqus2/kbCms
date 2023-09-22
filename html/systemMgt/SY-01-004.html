@@ -293,13 +293,23 @@
                                 <dt>상태</dt>
                                 <dd>
                                     <div class="form-item">
-                                        <div class="select custom-select">
-                                            <select class="">
-                                                <option value="" selected>전체</option>
-                                                <option value="">신청</option>
-                                                <option value="">승인</option>
-                                                <option value="">반려</option>
-                                            </select>
+                                        <div class="form-item">
+                                            <label class="radio sml">
+                                                <input type="radio" name="rdo1" checked class="" /><i aria-hidden="true" class="lbl"></i>
+                                                <span>전체</span>
+                                            </label>
+                                            <label class="radio sml ml-12">
+                                                <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                                                <span>신청</span>
+                                            </label>
+                                            <label class="radio sml ml-12">
+                                                <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                                                <span>승인</span>
+                                            </label>
+                                            <label class="radio sml ml-12">
+                                                <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                                                <span>반려</span>
+                                            </label>
                                         </div>
                                     </div>
                                 </dd>
@@ -354,9 +364,9 @@
                                 </div>
                             </div>
 
-                            <!-- -->
+                            <!-- 2023-09-21 테이블 변경 -->
                             <div class="table-wrap">
-                                <table class="table">
+                                <table class="table nowrap">
                                     <colgroup>
                                         <col style="width: 2rem;" />
                                         <col style="width: 3rem;" />
@@ -364,6 +374,7 @@
                                         <col style="width: 10rem;" />
                                         <col style="width: 10rem;" />
                                         <col style="width: auto;" />
+                                        <col style="width: 17rem;" />
                                         <col style="width: 17rem;" />
                                         <col style="width: 17rem;" />
                                         <col style="width: 10rem;" />
@@ -381,6 +392,7 @@
                                             <th>사번</th>
                                             <th>부서코드</th>
                                             <th>부서명</th>
+                                            <th>CMS 신청사유</th>
                                             <th>
                                                 <span class="list-align">
                                                     신청일시
@@ -409,6 +421,11 @@
                                             <td><a href="#" class="linked">KB0083720</a></td>
                                             <td><a href="#" class="linked">01010101</a></td>
                                             <td>콘텐츠 전략 스쿼드</td>
+                                            <td>
+                                                <span class="block">콘텐츠 생성/배포</span>
+                                                <span class="block">콘텐츠 속성 관리</span>
+                                                <span class="block">콘텐츠 모니터링</span>
+                                            </td>
                                             <td>2023-07-14 12:23</td>
                                             <td>2023-07-14 12:23</td>
                                             <td>반려</td>
@@ -425,6 +442,11 @@
                                             <td><a href="#" class="linked">KB0083720</a></td>
                                             <td><a href="#" class="linked">01010101</a></td>
                                             <td>콘텐츠 전략 스쿼드</td>
+                                            <td>
+                                                <span class="block">콘텐츠 생성/배포</span>
+                                                <span class="block">콘텐츠 속성 관리</span>
+                                                <span class="block">콘텐츠 모니터링</span>
+                                            </td>
                                             <td>2023-07-14 12:23</td>
                                             <td>-</td>
                                             <td>신청</td>

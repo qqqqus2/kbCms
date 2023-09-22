@@ -644,6 +644,12 @@ input[type=number] {
   flex-direction: column;
   p{
     display: inline-flex;
+    align-items: center;
+    text-decoration: underline;
+    color: var(--primary-blue-color);
+    strong{
+      font-weight: 400;
+    }
     + p{
       margin-top: 0.6rem;
     }
@@ -652,9 +658,11 @@ input[type=number] {
       font-size: 1.4rem;
       text-decoration: underline;
       display: block;
-      margin-right: 0.4rem;
+      // margin-right: 0.4rem;
     }
-
+    .btn-del{
+      margin-left: 0.4rem;
+    }
   }
   
 }
@@ -679,6 +687,11 @@ input[type=number] {
     color:#fff;
     background-color: var(--gray_02-darkBlue);
     border-color: var(--gray_02-darkBlue);
+  }
+  input:disabled + .lbl{
+    background-color: var(--background-color);
+    border-color: var(--line-color-ccc);
+    color: var(--gray_999);
   }
   & + .radio-custom{
     margin-left: 0;

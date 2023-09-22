@@ -10,7 +10,6 @@
 
         // 팝업
         popupUI();
-
     });
 
     const uiInit = function () {
@@ -109,8 +108,7 @@
             const $elements = $.find("*[data-include-html]");
             // const $fileName = location.pathname.split('/').pop();
             if ($elements.length) {
-                // const $url = location.href;
-                //if ($url.indexOf('http') >= 0) {
+                // const $url = location.href; if ($url.indexOf('http') >= 0) {
                 if (location.host) {
                     $.each($elements, function (i) {
                         const $this = $(this);
@@ -171,7 +169,10 @@
                     const title = $this.attr("title");
                     $this.parents(".common-search").toggleClass("active");
                     $this.siblings(".expand-condition").stop().slideToggle(300);
-                    $this.siblings(".selected-condition").stop().toggle();
+                    $this
+                        .siblings(".selected-condition")
+                        .stop()
+                        .slideToggle(300);
                     if (title == "닫힘") {
                         $this.attr("title", "열기");
                     } else {
@@ -182,74 +183,74 @@
         },
 
         sidebar: function () {
-          $(document).on("click", ".btn-expand", function (e) {
-              $(".kb-wrap").toggleClass("sidebar-off");
-          });
+            $(document).on("click", ".btn-expand", function (e) {
+                $(".kb-wrap").toggleClass("sidebar-off");
+            });
 
-          if (
-              !$(".kb-lnb .kb-lnb-dep1")
-                  .children(":first-child")
-                  .hasClass("active")
-          ) {
-              $(".kb-lnb .kb-lnb-link").removeClass("open");
-          }
+            if (
+                !$(".kb-lnb .kb-lnb-dep1")
+                    .children(":first-child")
+                    .hasClass("active")
+            ) {
+                $(".kb-lnb .kb-lnb-link").removeClass("open");
+            }
 
-          $(document).on(
-              "click",
-              ".kb-lnb .kb-lnb-dep1 .kb-lnb-link",
-              function (e) {
-                  if ($(this).hasClass("in-sub")) {
-                      e.preventDefault();
-                      const $this = $(this);
-                      const $subMenu = $this.next();
-                      if ($this.hasClass("open")) {
-                          $this.removeClass("open");
-                          $subMenu.stop(true, false).slideUp(300);
-                      } else {
-                          $this.addClass("open");
-                          $subMenu.stop(true, false).slideDown(300);
-                          $this
-                              .parent()
-                              .siblings()
-                              .find(">.open")
-                              .each(function () {
-                                  const $open = $(this);
-                                  $open.removeClass("open");
-                                  $open.next().stop(true, false).slideUp(300);
-                              });
-                      }
-                  }
-              }
-          );
-          $(document).on(
-              "click",
-              ".kb-lnb .kb-lnb-dep2 .kb-lnb-link",
-              function (e) {
-                if ($(this).hasClass("in-subDepth2")) {
-                    e.preventDefault();
-
-                    const $this = $(this);
-                    const $subMenu = $this.next();
-
-                    if ($this.hasClass("open")) {
-                        $this.removeClass("open");
-                        $subMenu.stop(true, false).slideUp(300);
-                    } else {
-                        $this.addClass("open");
-                        $subMenu.stop(true, false).slideDown(300);
-                        $this
-                            .parent()
-                            .siblings()
-                            .find(">.open")
-                            .each(function () {
-                                const $open = $(this);
-                                $open.removeClass("open");
-                                $open.next().stop(true, false).slideUp(300);
-                            });
+            $(document).on(
+                "click",
+                ".kb-lnb .kb-lnb-dep1 .kb-lnb-link",
+                function (e) {
+                    if ($(this).hasClass("in-sub")) {
+                        e.preventDefault();
+                        const $this = $(this);
+                        const $subMenu = $this.next();
+                        if ($this.hasClass("open")) {
+                            $this.removeClass("open");
+                            $subMenu.stop(true, false).slideUp(300);
+                        } else {
+                            $this.addClass("open");
+                            $subMenu.stop(true, false).slideDown(300);
+                            $this
+                                .parent()
+                                .siblings()
+                                .find(">.open")
+                                .each(function () {
+                                    const $open = $(this);
+                                    $open.removeClass("open");
+                                    $open.next().stop(true, false).slideUp(300);
+                                });
+                        }
                     }
                 }
-              }
-          );
+            );
+            $(document).on(
+                "click",
+                ".kb-lnb .kb-lnb-dep2 .kb-lnb-link",
+                function (e) {
+                    if ($(this).hasClass("in-subDepth2")) {
+                        e.preventDefault();
+
+                        const $this = $(this);
+                        const $subMenu = $this.next();
+
+                        if ($this.hasClass("open")) {
+                            $this.removeClass("open");
+                            $subMenu.stop(true, false).slideUp(300);
+                        } else {
+                            $this.addClass("open");
+                            $subMenu.stop(true, false).slideDown(300);
+                            $this
+                                .parent()
+                                .siblings()
+                                .find(">.open")
+                                .each(function () {
+                                    const $open = $(this);
+                                    $open.removeClass("open");
+                                    $open.next().stop(true, false).slideUp(300);
+                                });
+                        }
+                    }
+                }
+            );
         },
         menuActive: function () {
             if ($(".kb-sidebar").length) {
@@ -359,7 +360,8 @@
                     },
                 },
                 function (start, end, label) {
-                    // console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+                    // console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to '
+                    // + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
                 }
             );
 
@@ -427,8 +429,8 @@
                 }
             });
 
-            var start = moment();
-            var end = moment();
+            var start = moment().clone();
+            var end = moment().clone();
 
             function dateRange() {
                 $(".range input").daterangepicker({
@@ -536,9 +538,9 @@
 
             monitoringDate();
 
-            $(".monitoring-date input").val(start.format("YYYY.MM.DD"));
-            function monitoringDate() {
+            //$(".monitoring-date input").val(start.format("YYYY.MM.DD"));
 
+            function monitoringDate() {
                 $(".monitoring-date #datepicker").daterangepicker({
                     startDate: start,
                     endDate: end,
@@ -554,7 +556,7 @@
                         direction: "ltr",
                         applyLabel: "확인",
                         autoApply: true,
-                        customRangeLabel: "Custom",
+                        // customRangeLabel: "Custom",
                         daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
                         monthNames: [
                             "1월",
@@ -575,229 +577,259 @@
                 });
             }
             function monitoringWeek() {
-               $(".monitoring-date #datepicker").daterangepicker({
-                    startDate: moment().subtract(6, "days"),
-                    endDate: moment(),
-                    showDropdowns: true,
-                    minYear: 2023,
-                    timePicker: false,
-                    opens: "center",
-                    maxSpan: {
-                        days: 7,
-                    },
-                    autoUpdateInput: true,
-                    locale: {
-                        format: "YYYY.MM.DD",
+                $(".monitoring-date #datepicker")
+                    .daterangepicker({
+                        startDate: moment().isoWeekday(1),
+                        endDate: moment().isoWeekday(7),
+                        singleDatePicker: true,
+                        minYear: 2023,
+                        timePicker: false,
+                        // maxSpan: {
+                        //     days: 0,
+                        // },
+                        opens: "center",
                         showDropdowns: true,
-                        direction: "ltr",
-                        separator: " ~ ",
-                        applyLabel: "확인",
-                        cancelLabel: "다시 선택",
-                        fromLabel: "부터",
-                        toLabel: "까지",
-                        customRangeLabel: "Custom",
-                        daysOfWeek: [
-                            "일",
-                            "월",
-                            "화",
-                            "수",
-                            "목",
-                            "금",
-                            "토",
-                        ],
-                        monthNames: [
-                            "1월",
-                            "2월",
-                            "3월",
-                            "4월",
-                            "5월",
-                            "6월",
-                            "7월",
-                            "8월",
-                            "9월",
-                            "10월",
-                            "11월",
-                            "12월",
-                        ],
-                        firstDay: 0,
-                    },
-                })
-                .on("show.daterangepicker", function (ev, picker) {
-                    $(".daterangepicker").addClass("monitoring-week");
-                });
+                        autoUpdateInput: true,
+                        autoApply: true,
+                        locale: {
+                            format: "YYYY.MM.DD",
+                            direction: "ltr",
+                            separator: " ~ ",
+                            applyLabel: "확인",
+                            cancelLabel: "다시 선택",
+                            fromLabel: "부터",
+                            toLabel: "까지",
+                            customRangeLabel: "Custom",
+                            daysOfWeek: [
+                                "일",
+                                "월",
+                                "화",
+                                "수",
+                                "목",
+                                "금",
+                                "토",
+                            ],
+                            monthNames: [
+                                "1월",
+                                "2월",
+                                "3월",
+                                "4월",
+                                "5월",
+                                "6월",
+                                "7월",
+                                "8월",
+                                "9월",
+                                "10월",
+                                "11월",
+                                "12월",
+                            ],
+                            firstDay: 0,
+                        },
+                    })
+                    .on("apply.daterangepicker", function (ev, picker) {
+                        //picker.endDate.isSame(picker.startDate);
+                        picker.startDate.isoWeekday(1); // startDate를 월요일로 설정
+                        picker.endDate.isoWeekday(7); // endDate를 일요일로 설정
+                        // 선택한 날짜를 적용
+                        $(this).val(
+                            picker.startDate.format("YYYY.MM.DD") +
+                                " ~ " +
+                                picker.endDate.format("YYYY.MM.DD")
+                        );
+                        // console.log($(this).val());
+                    })
+                    .on("hide.daterangepicker", function (ev, picker) {
+                        //picker.endDate.isSame(picker.startDate);
+                        picker.startDate.isoWeekday(1); // startDate를 월요일로 설정
+                        picker.endDate.isoWeekday(7); // endDate를 일요일로 설정
+                        // 선택한 날짜를 적용
+                        $(this).val(
+                            picker.startDate.format("YYYY.MM.DD") +
+                                " ~ " +
+                                picker.endDate.format("YYYY.MM.DD")
+                        );
+                        
+                    });
+                    
             }
             function monitoringMonth() {
-                $(".monitoring-date #datepicker").daterangepicker({
-                    startDate: moment().startOf("month"),
-                    endDate: moment().endOf("month"),
-                    minYear: 2023,
-                    // "maxYear" : 2024,
-                    showDropdowns: true,
-                    singleDatePicker: true,
-                    maxSpan: {
-                        days: 30,
-                    },
-                    autoUpdateInput: true,
-                    timePicker: false,
-                    opens: "center",
-                    linkedCalendars: false,
-                    locale: {
-                        format: "YYYY.MM",
-                        direction: "ltr",
-                        applyLabel: "확인",
-                        fromLabel: "부터",
-                        toLabel: "까지",
-                        // customRangeLabel: "Custom",
-                        daysOfWeek: [
-                            "일",
-                            "월",
-                            "화",
-                            "수",
-                            "목",
-                            "금",
-                            "토",
-                        ],
-                        monthNames: [
-                            "1월",
-                            "2월",
-                            "3월",
-                            "4월",
-                            "5월",
-                            "6월",
-                            "7월",
-                            "8월",
-                            "9월",
-                            "10월",
-                            "11월",
-                            "12월",
-                        ],
-                        firstDay: 0,
-                    },
-                })
-                .on("show.daterangepicker", function (ev, picker) {
-                    $(".daterangepicker").addClass("monitoring-month");
+                var finalYear = moment().year() + 10;
+                // var startYear = moment().year() + 10;
+
+                $(".monitoring-date #monthpicker").monthpicker({
+                    pattern: "yyyy.mm",
+                    selectedYear : 2019,
+                    // finalYear: finalYear, // 최대 10년
                 });
             }
 
-            function monitorCalendar () {
-                let currentDate = moment();
-                const $monitorDate = $('.monitoring-date');
-
+            function monitorCalendar() {
+                
+                const $monitorDate = $(".monitoring-date");
+                
                 $(".prev-date").on("click", function () {
-                    
                     if ($monitorDate.hasClass("month")) {
-                        currentDate.subtract(1, "months");
+                        // 현재 선택된 월 값을 가져옴
+                        var currentMonth = $("#monthpicker").val();
 
-                        // 이전 달이 1월인 경우, 이전 년도로 이동
-                        if (currentDate.month() === 0) {
-                            currentDate.subtract(1, "years");
+                        // 현재 선택된 월을 "yyyy.mm" 형식에서 분해
+                        var parts = currentMonth.split(".");
+                        var currentYear = parseInt(parts[0]);
+                        var currentMonthNum = parseInt(parts[1]);
+                        // 다음 월로 이동
+                        if (currentMonthNum === 1) {
+                            // 1월인 경우 전년도 12월로 이동
+                            currentYear--;
+                            currentMonthNum = 12;
+                        } else {
+                            currentMonthNum--;
                         }
-                        $("#datepicker").val(currentDate.format("YYYY.MM"));
-
-                    } else if ($monitorDate.hasClass("week")) {
-                        currentDate.subtract(1, "weeks");
-
-                        const startOfWeek = currentDate
-                            .clone()
-                            .startOf("week")
-                            .format("YYYY.MM.DD");
-                        const endOfWeek = currentDate
-                            .clone()
-                            .endOf("week")
-                            .format("YYYY.MM.DD");
-
-                        $("#datepicker").val(
-                            currentDate.format(startOfWeek + " ~ " + endOfWeek)
+                        //리셋
+                        $("#monthpicker").monthpicker("destroy");
+                        $("#monthpicker").val(
+                            currentYear +
+                                "." +
+                                (currentMonthNum < 10 ? "0" : "") +
+                                currentMonthNum
                         );
 
+                        monitoringMonth();
+                    } else if ($monitorDate.hasClass("week")) {
+                        var dateRange =
+                            $("#datepicker").data("daterangepicker");
+                        
+                            dateRange.startDate.subtract(1, "weeks").isoWeekday(1);
+                            dateRange.endDate.subtract(1, "weeks").isoWeekday(7);
+
+                        $("#datepicker").val(
+                            dateRange.startDate.format("YYYY.MM.DD") +
+                                " ~ " +
+                                dateRange.endDate.format("YYYY.MM.DD")
+                        );
                     } else {
-                        currentDate.subtract(1, "days");
+                        var dateRange =
+                            $("#datepicker").data("daterangepicker");
 
-                        $("#datepicker").val(currentDate.format("YYYY.MM.DD"));
-                        //monitoringDate();
-                        $("#datepicker").on("apply.daterangepicker", this);
+                        dateRange.startDate.subtract(1, "days");
+                        dateRange.endDate.subtract(1, "days");
+
+                        $("#datepicker").val(
+                            dateRange.startDate.format("YYYY.MM.DD")
+                        );
                     }
-
                 });
 
                 $(".next-date").on("click", function () {
                     if ($monitorDate.hasClass("month")) {
-                        currentDate.add(1, "months");
+                        // 현재 선택된 월 값을 가져옴
+                        var currentMonth = $("#monthpicker").val();
 
-                        $(".monitoring-date label").html(
-                            currentDate.format("YYYY.MM")
+                        // 현재 선택된 월을 "yyyy.mm" 형식에서 분해
+                        var parts = currentMonth.split(".");
+                        var currentYear = parseInt(parts[0]);
+                        var currentMonthNum = parseInt(parts[1]);
+                        // 다음 월로 이동
+                        if (currentMonthNum === 12) {
+                            // 12월인 경우 다음년도 1월로 이동
+                            currentYear++;
+                            currentMonthNum = 1;
+                        } else {
+                            currentMonthNum++;
+                        }
+                        //리셋
+                        $("#monthpicker").monthpicker("destroy");
+
+                        $("#monthpicker").val(
+                            currentYear +
+                                "." +
+                                (currentMonthNum < 10 ? "0" : "") +
+                                currentMonthNum
                         );
-                        $("#datepicker").val(currentDate.format("YYYY.MM"));
+                        monitoringMonth();
+
                     } else if ($monitorDate.hasClass("week")) {
-                        currentDate.add(1, "weeks");
+                        var dateRange =
+                            $("#datepicker").data("daterangepicker");
+                        dateRange.startDate.add(1, "weeks").isoWeekday(1);
+                        dateRange.endDate.add(1, "weeks").isoWeekday(7);
 
-                        const startOfWeek = currentDate
-                            .clone()
-                            .startOf("week")
-                            .format("YYYY.MM.DD");
-                        const endOfWeek = currentDate
-                            .clone()
-                            .endOf("week")
-                            .format("YYYY.MM.DD");
-
-                        $(".monitoring-date label").html(
-                            `${startOfWeek} ~ ${endOfWeek}`
-                        );
                         $("#datepicker").val(
-                            currentDate.format(startOfWeek + " ~ " + endOfWeek)
+                            dateRange.startDate.format("YYYY.MM.DD") +
+                                " ~ " +
+                                dateRange.endDate.format("YYYY.MM.DD")
                         );
                     } else {
-                        currentDate.add(1, "days");
-                        $(".monitoring-date label").html(
-                            currentDate.format("YYYY.MM.DD")
+                        var dateRange =
+                            $("#datepicker").data("daterangepicker");
+
+                        dateRange.startDate.add(1, "days");
+                        dateRange.endDate.add(1, "days");
+
+                        $("#datepicker").val(
+                            dateRange.startDate.format("YYYY.MM.DD")
                         );
-                        $("#datepicker").val(currentDate.format("YYYY.MM.DD"));
                     }
                 });
-                $(".btn-today").on("click", function (ev, picker) {
-                $(".btn-today, .btn-week, .btn-month").removeClass("active");
-                $(this).addClass("active");
-                $(".daterangepicker").addClass("monitoring-day");
-                $(".monitoring-date").removeClass("week month").addClass("day");
 
-                monitoringDate();
+                //일단위
+                $(".btn-today").on("click", function () {
+                    $(".btn-today, .btn-week, .btn-month").removeClass(
+                        "active"
+                    );
+                    $(this).addClass("active");
+                    $(".daterangepicker").addClass("monitoring-day");
+                    $(".monitoring-date")
+                        .removeClass("week month")
+                        .addClass("day");
 
-                $(".monitoring-date labael").html(end.format("YYYY.MM.DD"));
-                $("#datepicker").val(end.format("YYYY.MM.DD"));
-            });
+                    $("#datepicker").val(end.format("YYYY.MM.DD"));
 
-            //주단위
-            $(".btn-week").on("click", function () {
-                $(".btn-today, .btn-week, .btn-month").removeClass("active");
-                $(this).addClass("active");
+                    monitoringDate();
+                });
 
-                $(".daterangepicker").addClass("monitoring-week");
+                //주단위
+                $(".btn-week").on("click", function () {
+                    $(".btn-today, .btn-week, .btn-month").removeClass(
+                        "active"
+                    );
+                    $(this).addClass("active");
 
-                var start = moment().subtract(6, "days");
-                var end = moment();
-                $(".monitoring-date label").html(start.format("YYYY.MM.DD") + " ~ " + end.format("YYYY.MM.DD"));
-                $("#datepicker").val(
-                    start.format("YYYY.MM.DD") +
-                        " ~ " +
-                        end.format("YYYY.MM.DD")
-                );
-                $(".monitoring-date").removeClass("day month").addClass("week");
+                    $(".daterangepicker").addClass("monitoring-week");
 
-                monitoringWeek();
-            });
+                    $(".monitoring-date")
+                        .removeClass("day month")
+                        .addClass("week");
 
-            //월단위
-            $(".btn-month").on("click", function () {
-                $(".btn-today, .btn-week, .btn-month").removeClass("active");
-                $(this).addClass("active");
-                
-                var end = moment();
-                $(".monitoring-date label").html(end.format("YYYY.MM"));
-                $("#datepicker").val(end.format("YYYY.MM"));
-                $(".monitoring-date").removeClass("day week").addClass("month");
+                    monitoringWeek();
 
-                monitoringMonth();
-            });
+                    var dateRange = $("#datepicker").data("daterangepicker");
+                    dateRange.startDate.isoWeekday(1);
+                    dateRange.endDate.isoWeekday(7);
+
+                    $("#datepicker").val(
+                        dateRange.startDate.format("YYYY.MM.DD") +
+                            " ~ " +
+                            dateRange.endDate.format("YYYY.MM.DD")
+                    );
+                });
+
+                //월단위
+                $(".btn-month").on("click", function () {
+                    $(".btn-today, .btn-week, .btn-month").removeClass(
+                        "active"
+                    );
+                    $(this).addClass("active");
+
+                    $(".monitoring-date")
+                        .removeClass("day week")
+                        .addClass("month");
+
+                    $("#monthpicker").monthpicker("destroy");
+                    
+                    $("#monthpicker").val(end.format("YYYY.MM"));
+
+                    monitoringMonth();
+                });
             }
             monitorCalendar();
         },
@@ -816,7 +848,8 @@
                 settings.button.substring(1) +
                 '" class="btn-scl-top" title="' +
                 settings.text +
-                '" role="button" aria-label="' +
+                '" role="butt' +
+                'on" aria-label="' +
                 settings.text +
                 '"><i class="bi bi-arrow-up-short"></i></a>';
             if (!$(settings.button).length) {
@@ -826,7 +859,9 @@
                     .on("click", settings.button, function (e) {
                         e.preventDefault();
                         $("html, body").animate(
-                            { scrollTop: 0 },
+                            {
+                                scrollTop: 0,
+                            },
                             settings.scrollSpeed
                         );
                     })
@@ -1079,7 +1114,10 @@ $(window).resize(function () {
                 nonEmulated +
                 " in IE" +
                 emulated +
-                " emulation mode.\nIE emulation modes can behave significantly differently from ACTUAL older versions of IE.\nPLEASE DON'T FILE BOOTSTRAP BUGS based on testing in IE emulation modes!"
+                " em" +
+                "ulation mode.\nIE emulation modes can behave significantly differently from AC" +
+                "TUAL older versions of IE.\nPLEASE DON'T FILE BOOTSTRAP BUGS based on testing " +
+                "in IE emulation modes!"
         );
     }
 })();
@@ -1168,8 +1206,8 @@ function customSelect() {
                         }
                         this.setAttribute("class", "same-as-selected");
 
-                        // 현재 선택된 select box의 값을 출력
-                        // console.log("Selected Value:", s.options[s.selectedIndex].value);
+                        // 현재 선택된 select box의 값을 출력 console.log("Selected Value:",
+                        // s.options[s.selectedIndex].value);
                         break;
                     }
                 }
@@ -1234,14 +1272,14 @@ function customSelect() {
 
         if ($this.parents(".custom-select").hasClass("fixed")) {
             $this.click(function () {
-              const customSelectWidth = $this.outerWidth();
-              const customSelectLeft = $this.offset().left;
-              const customSelectTop = $this.offset().top;
-              $this.siblings(".select-items").css({
-                  left: customSelectLeft + "px",
-                  top: customSelectTop + 32 + "px",
-                  "min-width": customSelectWidth,
-              });
+                const customSelectWidth = $this.outerWidth();
+                const customSelectLeft = $this.offset().left;
+                const customSelectTop = $this.offset().top;
+                $this.siblings(".select-items").css({
+                    left: customSelectLeft + "px",
+                    top: customSelectTop + 32 + "px",
+                    "min-width": customSelectWidth,
+                });
             });
         }
     });
