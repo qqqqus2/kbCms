@@ -28,6 +28,19 @@ body.hidden{
         }
       }
     }
+
+    .table{
+      thead{
+        th{
+          padding: 1.2rem 0.6rem 0.9rem;
+        }
+      }
+      tbody{
+        td{
+          padding: 1rem 1.2rem 0.7rem;
+        }
+      }
+    }
   }
 }
 // .no-sidebar{
