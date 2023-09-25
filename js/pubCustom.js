@@ -648,9 +648,7 @@
                                 " ~ " +
                                 picker.endDate.format("YYYY.MM.DD")
                         );
-                        
                     });
-                    
             }
             function monitoringMonth() {
                 var finalYear = moment().year() + 10;
@@ -666,7 +664,7 @@
             function monitorCalendar() {
                 
                 const $monitorDate = $(".monitoring-date");
-                
+        
                 $(".prev-date").on("click", function () {
                     if ($monitorDate.hasClass("month")) {
                         // 현재 선택된 월 값을 가져옴
@@ -689,33 +687,67 @@
                         $("#monthpicker").val(
                             currentYear +
                                 "." +
-                                (currentMonthNum < 10 ? "0" : "") +
-                                currentMonthNum
+                                (currentMonthNum < 10 ? "0" : "") + currentMonthNum
                         );
-
+                        
+                        let LastMonthhNum = currentMonthNum - 1;
+                            console.log(currentMonthNum);
+                        if (currentMonthNum === 1) {
+                            LastMonthhNum = 12;
+                        }
+                        
+                        $("#date-hidden").val(
+                            currentYear +
+                                "." +
+                                (LastMonthhNum < 10 ? "0" : "") + LastMonthhNum    
+                        );
+                        // console.log($("#date-hidden").val());
+                        
                         monitoringMonth();
+
                     } else if ($monitorDate.hasClass("week")) {
                         var dateRange =
                             $("#datepicker").data("daterangepicker");
                         
-                            dateRange.startDate.subtract(1, "weeks").isoWeekday(1);
-                            dateRange.endDate.subtract(1, "weeks").isoWeekday(7);
+                        var start = dateRange.startDate.subtract(1, "weeks").isoWeekday(1);
+                        var end = dateRange.endDate.subtract(1, "weeks").isoWeekday(7);
 
                         $("#datepicker").val(
                             dateRange.startDate.format("YYYY.MM.DD") +
                                 " ~ " +
                                 dateRange.endDate.format("YYYY.MM.DD")
                         );
+                        var weekrange =
+                            start.format("YYYY.MM.DD") +
+                            " ~ " +
+                            end.format("YYYY.MM.DD");
+                        $("#datepicker").val(weekrange);
+
+                        var lastStart = start.clone().subtract(1, "weeks");
+                        var lastEnd = end.clone().subtract(1, "weeks");
+
+                        $("#date-hidden").val(
+                            lastStart.format("YYYY.MM.DD") +
+                                " ~ " +
+                                lastEnd.format("YYYY.MM.DD")
+                        );
+
+                        // console.log($("#date-hidden").val());
                     } else {
                         var dateRange =
                             $("#datepicker").data("daterangepicker");
 
-                        dateRange.startDate.subtract(1, "days");
-                        dateRange.endDate.subtract(1, "days");
+                        var start = dateRange.startDate.subtract(1, "days");
+                        var end = dateRange.endDate.subtract(1, "days");
 
                         $("#datepicker").val(
-                            dateRange.startDate.format("YYYY.MM.DD")
+                            start.format("YYYY.MM.DD")
                         );
+
+                        var lastStart = start.clone().subtract(1, "days");
+
+                        $("#date-hidden").val(lastStart.format("YYYY.MM.DD"));
+                        // console.log($("#date-hidden").val());
                     }
                 });
 
@@ -746,28 +778,49 @@
                                 currentMonthNum
                         );
                         monitoringMonth();
+                        
+                        $("#date-hidden").val(currentMonth);
+                        // console.log($("#date-hidden").val());
 
                     } else if ($monitorDate.hasClass("week")) {
-                        var dateRange =
-                            $("#datepicker").data("daterangepicker");
-                        dateRange.startDate.add(1, "weeks").isoWeekday(1);
-                        dateRange.endDate.add(1, "weeks").isoWeekday(7);
+                        var dateRange = $("#datepicker").data("daterangepicker");
 
-                        $("#datepicker").val(
-                            dateRange.startDate.format("YYYY.MM.DD") +
-                                " ~ " +
-                                dateRange.endDate.format("YYYY.MM.DD")
+                        var start = dateRange.startDate.add(1, "weeks").isoWeekday(1);
+                        var end = dateRange.endDate.add(1, "weeks").isoWeekday(7);
+
+                        var weekrange =
+                            start.format("YYYY.MM.DD") +
+                            " ~ " +
+                            end.format("YYYY.MM.DD");
+                         $("#datepicker").val(weekrange);
+
+                        var lastStart = start.clone().subtract(1, "weeks")
+                        var lastEnd = end.clone().subtract(1, "weeks")
+
+                        $("#date-hidden").val(
+                            lastStart.format("YYYY.MM.DD") +
+                            " ~ " +
+                            lastEnd.format("YYYY.MM.DD")
                         );
+                        
+                        // console.log($("#date-hidden").val());
                     } else {
                         var dateRange =
                             $("#datepicker").data("daterangepicker");
 
-                        dateRange.startDate.add(1, "days");
-                        dateRange.endDate.add(1, "days");
+                        var start = dateRange.startDate.add(1, "days");
+                        var end = dateRange.endDate.add(1, "days");
 
                         $("#datepicker").val(
-                            dateRange.startDate.format("YYYY.MM.DD")
+                            start.format("YYYY.MM.DD")
                         );
+
+                        var lastStart = start.clone().subtract(1, "days");
+                        
+                        $("#date-hidden").val(
+                            lastStart.format("YYYY.MM.DD")
+                        );
+                        // console.log($("#date-hidden").val());
                     }
                 });
 
@@ -783,8 +836,11 @@
                         .addClass("day");
 
                     $("#datepicker").val(end.format("YYYY.MM.DD"));
-
+                    $("#date-hidden").val(end.subtract(1, 'days').format("YYYY.MM.DD"));
+                    //console.log($("#date-hidden").val());
+                    
                     monitoringDate();
+                    
                 });
 
                 //주단위
@@ -811,6 +867,13 @@
                             " ~ " +
                             dateRange.endDate.format("YYYY.MM.DD")
                     );
+                    
+                    $("#date-hidden").val(
+                        dateRange.startDate.clone().subtract(1, 'weeks').format("YYYY.MM.DD") +
+                            " ~ " +
+                            dateRange.endDate.clone().subtract(1, 'weeks').format("YYYY.MM.DD")
+                    );
+                    // console.log($("#date-hidden").val())
                 });
 
                 //월단위
@@ -827,7 +890,9 @@
                     $("#monthpicker").monthpicker("destroy");
                     
                     $("#monthpicker").val(end.format("YYYY.MM"));
-
+                    $("#date-hidden").val(end.subtract(1, 'months').format("YYYY.MM"));
+                        
+                    // console.log($("#date-hidden").val());
                     monitoringMonth();
                 });
             }
@@ -1227,6 +1292,9 @@ function customSelect() {
             if (!e.target.classList.contains("select-arrow")) {
                 closeAllSelect();
             }
+        });
+        $(window).on("resize", function () {
+            closeAllSelect();
         });
 
         a.addEventListener("click", function (e) {

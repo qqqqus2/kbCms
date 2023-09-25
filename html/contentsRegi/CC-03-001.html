@@ -310,7 +310,8 @@
                                         <td>
                                             <div class="form-item">
                                                 <div class="input w-full">
-                                                    <input type="text" title="콘텐츠 ID" value="c1030506" readonly="readonly" />
+                                                    <!-- 2023-09-25 placeholder 수정 -->
+                                                    <input type="text" title="콘텐츠 ID" value="c1030506" placeholder="찾아보기로(콘텐츠 ID) 입력해주세요. 미 입력시 (콘텐츠 ID)로 자동채번으로 됩니다." readonly="readonly" />
                                                 </div>
                                             </div>
                                         </td>
@@ -318,7 +319,8 @@
                                         <td>
                                             <div class="form-item inline-flex w-full align-center">
                                                 <div class="input w-full">
-                                                    <input type="text" title="콘텐츠 그룹 ID" value="c1030506" readonly="readonly" />
+                                                    <!-- 2023-09-25 placeholder 수정 -->
+                                                    <input type="text" title="콘텐츠 그룹 ID" value="c1030506" placeholder="저장시 (콘텐츠 ID)가 자동채번 됩니다." readonly="readonly" />
                                                 </div>
                                                 <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
                                             </div>
@@ -339,7 +341,8 @@
                                                                 </div>
                                                                 <div class="inline-flex w-full">
                                                                     <div class="input w-full">
-                                                                        <input type="text" title="콘텐츠 그룹 ID" value="c1030506" readonly="readonly" />
+                                                                        <!-- 2023-09-25 placeholder 수정 -->
+                                                                        <input type="text" title="콘텐츠 그룹 ID" value="c1030506"  placeholder="찾아보기로 (콘텐츠 제목)을 입력해주세요." readonly="readonly" />
                                                                     </div>
                                                                     <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
                                                                 </div>
@@ -351,7 +354,8 @@
                                                             <p class="tit">미리보기</p>
                                                             <div class="form-item inline-flex flex-column w-full align-center">
                                                                 <div class="textarea h-72">
-                                                                    <textarea placeholder="AEM 콘텐츠 정보를 출력합니다." readonly></textarea>
+                                                                    <!-- 2023-09-25 placeholder 수정 -->
+                                                                    <textarea placeholder="찾아보기로 (AEM 콘텐츠 정보)를 불러오세요." readonly></textarea>
                                                                 </div>
                                                                 <div class="inline-flex mt-2">
                                                                     <button type="button" class="btn btn-sml btn-line">HTML</button>
@@ -438,6 +442,7 @@
                                             </dl>
 
                                             <!-- 1줄씩 -->
+                                            <!--
                                             <dl class="inner-tbl">
                                                 <dd class="flex-none">
                                                     <div class="option">
@@ -456,6 +461,7 @@
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            -->
                                         </td>
                                     </tr>
                                     <tr>
@@ -763,17 +769,17 @@
                                             <!-- 첨부된 파일 -->
                                             <div class="uploaded-file">
                                                 <p>
-                                                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
+                                                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.pdf(1542byte)</a>
+                                                    <button type="button" title="삭제" class="btn-del"></button>
+                                                </p>
+                                                <!-- <p>
+                                                    <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.pdf(1542byte)</a>
                                                     <button type="button" title="삭제" class="btn-del"></button>
                                                 </p>
                                                 <p>
-                                                    <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.jpg(1542byte)</a>
+                                                    <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.pdf(1542byte)</a>
                                                     <button type="button" title="삭제" class="btn-del"></button>
-                                                </p>
-                                                <p>
-                                                    <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.jpg(1542byte)</a>
-                                                    <button type="button" title="삭제" class="btn-del"></button>
-                                                </p>
+                                                </p> -->
                                             </div>
                                         </td>
                                     </tr>
@@ -801,7 +807,8 @@
                                                             <p class="tit">심의필번호</p>
                                                             <div class="form-item inline-flex flex-01 w-auto">
                                                                 <div class="input w-232">
-                                                                    <input type="text" title="심의필번호" value=""  />
+                                                                    <!-- 2023-09-25 placeholder 추가 -->
+                                                                    <input type="text" placeholder="소비자보호포털에서 (광고심의 문구)를 입력해주세요." title="심의필번호" value=""  />
                                                                 </div>
                                                             </div>
                                                             <button type="button" class="btn btn-sml btn-gray ml-6" >소비자보호포털 열기</button>
@@ -826,7 +833,8 @@
                                                             <p class="tit">광고심의문구</p>
                                                             <div class="form-item">
                                                                 <div class="textarea h-72 flex-00">
-                                                                    <textarea placeholder="심의대상 문구를 입력해주세요."></textarea>
+                                                                    <!-- 2023-09-25 placeholder 수정 -->
+                                                                    <textarea placeholder="소비자보호포털에서 심의 받은 (광고심의 문구)를 입력해주세요."></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -857,11 +865,13 @@
                                         <td colspan="3">
                                             <div class="form-item inline-flex w-full align-center">
                                                 <div class="input w-200 mr-8">
-                                                    <input type="text" title="부서코드" value="" readonly="readonly">
+                                                    <!-- 2023-09-25 placeholder 수정 -->
+                                                    <input type="text" title="부서코드" placeholder="부서코드" value="" readonly="readonly">
                                                 </div>
                                                 <div class="inline-flex w-50p">
                                                     <div class="input w-full">
-                                                        <input type="text" title="부서정보를 선택하세요." value="" readonly="readonly">
+                                                        <!-- 2023-09-25 placeholder 수정 -->
+                                                        <input type="text" title="부서정보를 선택하세요." placeholder="부서명" value="" readonly="readonly">
                                                     </div>
                                                     <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
                                                 </div>

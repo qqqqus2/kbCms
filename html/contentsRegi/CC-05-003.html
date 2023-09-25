@@ -263,10 +263,11 @@
                     <div class="kb-box-inner">
                         <h3 class="content-tit">기본 정보</h3>
                         <table class="table left-table">
+                            <!-- 2023-09-25 width값 변경 -->
                             <colgroup>
-                                <col style="width: 15rem;" />
+                                <col style="width: 15%;" />
                                 <col />
-                                <col style="width: 15rem;" />
+                                <col style="width: 15%;" />
                                 <col />
                             </colgroup>
 
@@ -276,7 +277,8 @@
                                     <td>
                                         <div class="form-item">
                                             <div class="input w-200">
-                                                <input type="text" title="요청번호" value="" readonly="readonly" />
+                                                <!--2023-09-25 placeholder 추가 -->
+                                                <input type="text" title="요청번호" placeholder="(요청번호)는 자동채번 " value="" readonly="readonly" />
                                             </div>
                                         </div>
                                     </td>
@@ -322,10 +324,12 @@
                                         <div class="inline-flex">
                                             <div class="form-item inline-flex flex-01 w-auto">
                                                 <div class="input">
-                                                    <input type="text" title="AEM콘텐츠 ID" value="" placeholder="C100100" readonly="readonly">
+                                                    <!-- 2023-09-25 placeholder 수정 -->
+                                                    <input type="text" title="AEM콘텐츠 ID" value="" placeholder="(AEM ID)" readonly="readonly">
                                                 </div>
                                                 <div class="input w-240 ml-6">
-                                                    <input type="text" title="AEM콘텐츠 제목" value="AEM콘텐츠 제목이 출력됩니다" readonly="readonly">
+                                                    <!-- 2023-09-25 placeholder 수정 -->
+                                                    <input type="text" title="AEM콘텐츠 제목" value="(콘텐츠 제목)" readonly="readonly">
                                                 </div>
                                             </div>
                                             <button type="button" class="btn btn-sml btn-line ml-6">미리보기</button>
@@ -365,7 +369,8 @@
                                     <td colspan="3">
                                         <div class="form-item">
                                             <div class="textarea h-150">
-                                                <textarea placeholder="내용을 입력하세요"></textarea>
+                                                <!-- 2023-09-25 placeholder 수정 -->
+                                                <textarea placeholder="해당 원소스 파일에 대해 콘텐츠 제작요청 하시는 내용을 입력해주세요. &#13;&#10;&#13;&#10; (입력예시) &#13;&#10; 콘텐츠 제작요청 &#13;&#10; 사전형의일: 9999-12-31&#13;&#10; 완료희망일: 9999-12-31&#13;&#10; 요청내용:(상세 입력)"></textarea>
                                             </div>
                                         </div>
                                     </td>
@@ -376,10 +381,11 @@
                         <!-- 등록 및 수정 정보  -->
                         <h3 class="content-tit mt-32">제작 진행사항</h3>
                         <table class="table left-table">
+                            <!-- 2023-09-25 width값 변경 -->
                             <colgroup>
-                                <col style="width: 15rem;" />
+                                <col style="width: 15%;" />
                                 <col />
-                                <col style="width: 15rem;" />
+                                <col style="width: 15%;" />
                                 <col />
                             </colgroup>
                         

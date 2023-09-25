@@ -249,8 +249,9 @@
                             <div class="form-item">
                                 <div class="monitoring-date input input-date">
                                     <button type="button" class="btn-dateMove prev-date" title="이전"></button>
+                                    <input type="hidden" id="date-hidden" />
                                     <input type="text" id="datepicker" autocomplete="off" readonly />
-                                    <input type="text" id="monthpicker" autocomplete="off" readonly data-start-year="2023" />
+                                    <input type="text" id="monthpicker" autocomplete="off" readonly  />
                                     <button type="button" class="btn-dateMove next-date" title="다음"></button>
                                 </div>
                                 <div class="inline-flex">
@@ -387,7 +388,7 @@
                             </div>
 
                             <div class="flex">
-                                <div id="pie-chart1" class="chart-wrap h-400 flex-00 w-50p"></div>
+                                <div id="pie-chart1" class="chart-wrap h-400 flex-00 w-55p"></div>
 
                                 <div class="table-wrap flex-11">
                                     <!-- 2023-09-21 테이블 변경 -->
@@ -468,7 +469,7 @@
 
                             <!-- 카테고리별  -->
                             <div class="flex">
-                                <div id="pie-chart2" class="chart-wrap h-400 flex-00 w-50p"></div>
+                                <div id="pie-chart2" class="chart-wrap h-400 flex-00 w-55p"></div>
 
                                 <div class="table-wrap flex-11">
                                     <table class="table nowrap">
@@ -640,7 +641,7 @@
                 {
                     name: '콘텐츠 주제',
                     type: 'pie',
-                    height: "90%",
+                    height: "80%",
                     radius: ['40%', '70%'],
                     data: [
                         { value: 51, name: '오늘의 톡 > 주식' },
@@ -668,7 +669,7 @@
                 {
                     name: '카테고리',
                     type: 'pie',
-                    height: "90%",
+                    height: "80%",
                     radius: ['40%', '70%'],
                     data: [
                         { value: 20, name: '1분 브리핑' },
