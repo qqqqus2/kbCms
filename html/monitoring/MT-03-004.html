@@ -308,7 +308,7 @@
                         
                             <div class="monitoring-contentsBox flex">
                                 <div class="left-cont flex-11">
-                                    <div id="pie-chart1" class="chart-wrap h-400"></div>
+                                    <div id="pie-chart1" class="chart-wrap h-500"></div>
                                     <div id="bar-chart1" class="chart-wrap h-400"></div>
                                 </div>
                                 <div class="right-cont flex-11">
@@ -419,6 +419,17 @@
             shadowColor: 'rgba(0, 0, 0, 0)'
         }
 
+        var pieDataArray = []; // 빈 배열을 만듭니다.
+
+        for (var i = 0; i < 30; i++){
+            
+            var pieDataItem = {
+                value: i,
+                name: '토스증권' + i
+            };
+            pieDataArray.push(pieDataItem);
+        }
+        
         var app = {};
 
         var option1;
@@ -434,14 +445,7 @@
                     type: 'pie',
                     height: "90%",
                     radius: ['40%', '70%'],
-                    data: [
-                        { value: 10, name: '토스증권' },
-                        { value: 17, name: 'NH투자증권' },
-                        { value: 8, name: '삼성증권' },
-                        { value: 7, name: '미래에셋증권' },
-                        { value: 6, name: 'OO증권1' },
-                        { value: 5, name: 'OO증권2' },
-                    ],
+                    data: pieDataArray ,
                     emphasis: {
                         itemStyle: itemStyle
                     },

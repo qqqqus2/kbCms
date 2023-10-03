@@ -771,7 +771,7 @@ $bdTypes: (solid, dashed, dotted);
         z-index: 10;
         &:after {
           content: '';
-          bottom: 0;
+          bottom: -0.1rem;
           width: 100%;
           height: 0.1rem;
           background-color: #eee;

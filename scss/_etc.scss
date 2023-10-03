@@ -123,7 +123,7 @@
       bottom: 0;
       right: 0;
       background-color: var(--primary-blue-color);
-      opacity: 0.2;
+
     }
 
     &.disabled-menu {
@@ -656,18 +656,18 @@
       }
 
       .cate-depth2 {
-        padding-left: 2rem;
-
-        &::before {
-          left: 0.5rem;
-        }
-      }
-
-      .cate-depth3 {
         padding-left: 2.5rem;
 
         &::before {
           left: 1rem;
+        }
+      }
+
+      .cate-depth3 {
+        padding-left: 3.5rem;
+
+        &::before {
+          left: 2rem;
         }
       }
     }
