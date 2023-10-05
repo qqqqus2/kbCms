@@ -642,6 +642,8 @@ input[type=number] {
   display: flex;
   padding: 2rem;
   margin-top: 0.8rem;
+  max-height: 16rem;
+  overflow-y: auto;
   flex-direction: column;
   p{
     display: inline-flex;
