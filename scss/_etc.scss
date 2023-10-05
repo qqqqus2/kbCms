@@ -95,7 +95,7 @@
     }
 
     &.kb-menu-add-depth1 {
-      padding: 1rem;
+      padding: 1rem 0;
       margin: 0.5rem 0;
 
       span {
@@ -104,43 +104,39 @@
     }
 
     &.menu-tit {
-      padding: 1rem;
-      margin-bottom: 1rem;
+      padding: 1rem 0;
+      // margin-bottom: 1rem;
       font-weight: 700;
       color: var(--primary-blue-color);
-      border-bottom: 0.1rem solid var(--gray_01_black);
+      // border-bottom: 0.1rem solid var(--gray_01_black);
     }
 
     .lbl {
       position: relative;
+      border-radius: 0.4rem;
     }
 
     input:checked+.lbl {
       display: block;
       position: absolute;
-      left: 0;
+      left: -1.2rem;
       top: 0;
       bottom: 0;
-      right: 0;
-      background-color: var(--primary-blue-color);
+      right: -1.2rem;
+      background-color: #DFEAFF;
 
     }
 
     &.disabled-menu {
-      background: linear-gradient(45deg,
-          #eee 25%, transparent 0, transparent 50%,
-          #eee 0, #eee 75%, transparent 0);
-      -webkit-background-size: 1rem 1rem;
-      background-size: 1rem 1rem;
-
+      opacity: .3;
       input:checked+.lbl {
-        background-color: var(--primary-blue-color);
-        opacity: 0.1;
+        background-color: #c8c8c8;
       }
     }
 
     input:checked+.lbl+span {
-      font-weight: 700;
+      // font-weight: 700;
+      position: relative;
     }
 
     &.menu-tit input:checked+.lbl {
@@ -177,11 +173,6 @@
     }
   }
 
-  .disabled-menu {
-    .btn-toggle {
-      opacity: 0.5;
-    }
-  }
 }
 
 //사용중지 팝업 유의사항
@@ -235,7 +226,7 @@
     padding: 2.4rem;
     padding-left: 14rem;
     background-color: #FBFBFB;
-    border: 0.1rem solid #eee;
+    border: 0.1rem solid #ddd;
     border-radius: 0.8rem;
     margin-bottom: 2.4rem;
     position: relative;
@@ -263,7 +254,7 @@
 
   .grp-wrap {
     background-color: #FBFBFB;
-    border: 0.1rem solid #eee;
+    border: 0.1rem solid #ddd;
     border-radius: 0.8rem;
     margin-bottom: 2.4rem;
     padding: 1.5rem 0;
@@ -834,5 +825,6 @@
     top: 50%;
     left: 52%;
     transform: translate(-50%, -50%);
+    position: relative;
   }
 }

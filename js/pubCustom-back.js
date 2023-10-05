@@ -1058,9 +1058,12 @@ function uiTab() {
                     $($btnHref).removeClass("active");
                 });
             $($href).addClass("active");
-        }
+        } 
         tabLine($(this).closest(".ui_tab"));
     });
+    $(".ajax-tab li").on('click', function () {
+        
+    })
 }
 function tabLine(wrap) {
     const $active = $(wrap).find(".tab.active");

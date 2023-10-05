@@ -15,7 +15,7 @@
 <script src="/js/lib/jquery-3.6.0.min.js"></script>
 <script src="/js/lib/moment.min.js"></script>
 <script src="/js/lib/datepicker/daterangepicker.js"></script>
-<script src="/js/lib/datepicker/datepickerCustom.js"></script>
+
 <script src="/js/pubCustom.js"></script>
 
 </head>
@@ -339,17 +339,6 @@
               <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
             </div>
           
-            <div class="form-item mt-12">
-              <div class="select is-error"><!-- 잘못 입력시 is-error -->
-                <select class="" aria-placeholder="테스트">
-                  <option>선택 1</option>
-                  <option>선택 2</option>
-                  <option>선택 3</option>
-                  <option>선택 4</option>
-                </select>
-              </div>
-              <div class="validate-txt is-error">잘못 선택하셨습니다.</div>
-            </div>
           </div>
         </div>
 
@@ -408,7 +397,7 @@
                     <td>텍스트</td>
                     <td>텍스트</td>
                   </tr>
-                  <tr>
+                  <tr class="is-error">
                     <td>텍스트</td>
                     <td>텍스트</td>
                     <td>텍스트</td>
@@ -545,40 +534,6 @@
             </div>
             
             <hr class="hr-divide" />
-            
-            <div class="mt-20">
-              <h4 class="tit">달력 - 주선택</h4>
-              
-              <div class="form-item">
-                <div class="weekselect input input-date range">
-                  <input type="text">
-                </div>
-              </div>
-            </div>
-            
-            <hr class="hr-divide" />
-            
-            <div class="mt-20">
-              <h4 class="tit">달력 - 일선택</h4>
-            
-              <div class="form-item">
-                <div class="dayselect input input-date">
-                  <input type="text">
-                </div>
-              </div>
-            </div>
-
-            <hr class="hr-divide" />
-            
-            <div class="mt-20">
-              <h4 class="tit">달력 - 월선택</h4>
-            
-              <div class="form-item">
-                <div class="monthselect input input-date">
-                  <input type="text">
-                </div>
-              </div>
-            </div>
 
           </div>
         </div>

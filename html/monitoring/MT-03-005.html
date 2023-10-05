@@ -15,7 +15,7 @@
   <script src="/js/lib/jquery-3.6.0.min.js"></script>
   <script src="/js/lib/moment.min.js"></script>
   <script src="/js/lib/datepicker/daterangepicker.js"></script>
-  <script src="/js/lib/datepicker/datepickerCustom.js"></script>
+  
   <script src="/js/pubCustom.js"></script>
 
   <!-- echart -->
@@ -77,7 +77,7 @@
                     <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                   </li>
                   <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠 부가정보 관리</a>
+                    <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
                   </li>
 
                   <li>
@@ -281,13 +281,13 @@
               </div>
             </div>
 
-            <div class="ui_tab">
+            <div class="ui_tab ajax-tab">
               <div class="tab_inner">
                 <i class="tab_line" aria-hidden="true"></i>
-                <ul class="tab-list w-auto link-tab">
-                  <li class="tab"><a href="MT-03-004.html">블로그</a></li>
-                  <li class="tab active"><a href="#tab-2">뉴스레터</a></li>
-                  <li class="tab"><a href="MT-03-006.html">업권</a></li>
+                <ul class="tab-list w-auto">
+                  <li class="tab">블로그</li>
+                  <li class="tab active">뉴스레터</li>
+                  <li class="tab">업권</li>
                 </ul>
               </div>
             </div>
@@ -480,6 +480,7 @@
     }
 
     window.addEventListener('resize', pieChart1.resize, barChart1.resize);
+
   </script>
 </body>
 

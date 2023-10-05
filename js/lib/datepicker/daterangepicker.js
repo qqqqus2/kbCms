@@ -42,8 +42,8 @@
         this.autoApply = false;
         this.singleDatePicker = false;
         this.showDropdowns = false;
-        this.minYear = moment().subtract(100, 'year').format('YYYY');
-        this.maxYear = moment().add(10, 'year').format('YYYY');
+        this.minYear = moment().subtract(5, 'year').format('YYYY');
+        this.maxYear = moment().add(5, 'year').format('YYYY');
         this.showWeekNumbers = false;
         this.showISOWeekNumbers = false;
         this.showCustomRangeLabel = true;

@@ -86,6 +86,22 @@
     }
   }
 }
+.ajax-tab{
+  li {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--gray_999);
+    &.active {
+      color: var(--primary-blue-color);
+      font-weight: 700;
+    }
+  }
+}
 .tab_box {
   display: none;
   &.active {

@@ -325,6 +325,89 @@
             }
         },
         calendar: function () {
+            $('.rangeToggle').click(function () {
+                if ($(this).children('input').prop("checked")) {
+                    $('.posting-date').addClass('date-single').removeClass('range');
+                    $(".date-single input").daterangepicker({
+                    drops: "up",
+                    startDate: start,
+                    endDate: end,
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                    timePicker: false,
+                    locale: {
+                        format: "YYYY-MM-DD",
+                        direction: "rtl",
+                        separator: " ~ ",
+                        applyLabel: "확인",
+                        cancelLabel: "다시 선택",
+                        fromLabel: "부터",
+                        toLabel: "까지",
+                        customRangeLabel: "Custom",
+                        daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
+                        monthNames: [
+                            "1월",
+                            "2월",
+                            "3월",
+                            "4월",
+                            "5월",
+                            "6월",
+                            "7월",
+                            "8월",
+                            "9월",
+                            "10월",
+                            "11월",
+                            "12월",
+                        ],
+                        firstDay: 0,
+                    },
+                });
+                } else {
+                    $('.posting-date').addClass('range').removeClass('date-single')
+                    $(".range input").daterangepicker({
+                        drops: "up",
+                        showDropdowns: true,
+                        minYear: 2023,
+                        // maxYear: 2024,
+                        timePicker: false,
+                        locale: {
+                            format: "YYYY-MM-DD",
+                            showDropdowns: true,
+                            direction: "rtl",
+                            separator: " ~ ",
+                            applyLabel: "확인",
+                            cancelLabel: "다시 선택",
+                            fromLabel: "부터",
+                            toLabel: "까지",
+                            customRangeLabel: "Custom",
+                            daysOfWeek: [
+                                "일",
+                                "월",
+                                "화",
+                                "수",
+                                "목",
+                                "금",
+                                "토",
+                            ],
+                            monthNames: [
+                                "1월",
+                                "2월",
+                                "3월",
+                                "4월",
+                                "5월",
+                                "6월",
+                                "7월",
+                                "8월",
+                                "9월",
+                                "10월",
+                                "11월",
+                                "12월",
+                            ],
+                            firstDay: 0,
+                        },
+                    });
+                }
+            })
             $(".date-single input").daterangepicker(
                 {
                     startDate: start,
@@ -358,10 +441,6 @@
                         ],
                         firstDay: 0,
                     },
-                },
-                function (start, end, label) {
-                    // console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to '
-                    // + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
                 }
             );
 
@@ -436,7 +515,7 @@
                 $(".range input").daterangepicker({
                     showDropdowns: true,
                     minYear: 2023,
-                    maxYear: 2024,
+                    // maxYear: 2024,
                     timePicker: false,
                     locale: {
                         format: "YYYY-MM-DD",
@@ -691,7 +770,7 @@
                         );
                         
                         let LastMonthhNum = currentMonthNum - 1;
-                            console.log(currentMonthNum);
+                            //console.log(currentMonthNum);
                         if (currentMonthNum === 1) {
                             LastMonthhNum = 12;
                         }
@@ -1115,6 +1194,12 @@ function uiTab() {
                 });
             $($href).addClass("active");
         }
+        tabLine($(this).closest(".ui_tab"));
+    });
+    $(".ajax-tab li").on('click', function () {
+        $(this).addClass("active")
+            .siblings()
+            .removeClass("active");
         tabLine($(this).closest(".ui_tab"));
     });
 }

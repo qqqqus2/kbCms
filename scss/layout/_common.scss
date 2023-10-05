@@ -12,7 +12,7 @@
   --gray_999: #999999;
 
   --line-color-ccc:#ccc;
-  --line-color-eee: #eee;
+  --line-color-ddd: #ddd;
   --background-color: #F3F5F6;
 
   --error-color:#FF1C37;
@@ -792,7 +792,7 @@ $bdTypes: (solid, dashed, dotted);
 }
 .table{
   border-collapse: collapse;
-  border-bottom: 0.1rem solid #eee;
+  border-bottom: 0.1rem solid #ddd;
   position: relative;
   &.nowrap{
     white-space: nowrap;
@@ -839,7 +839,7 @@ $bdTypes: (solid, dashed, dotted);
     font-weight: 500;
     color: #202020;
     background-color: #FBFBFB;
-    border-bottom: 0.1rem solid #eee;
+    border-bottom: 0.1rem solid #ddd;
   }
   thead{
     th{
@@ -851,7 +851,7 @@ $bdTypes: (solid, dashed, dotted);
       }
     }
     th + th{
-      border-left: 0.1rem solid #eee;
+      border-left: 0.1rem solid #ddd;
     }
   }
   tbody{
@@ -860,14 +860,30 @@ $bdTypes: (solid, dashed, dotted);
       background-color: #fff;  
       padding: 1.5rem 1.6rem;
     }
+    thead{
+      th{
+        padding: 1.2rem 0.8rem 0.9rem;
+        height: 4.5rem;
+      }
+    }
     td{
-      border-top: 0.1rem solid #eee;
+      border-top: 0.1rem solid #ddd;
       padding: 1rem 1.6rem 0.7rem;
       height: 4rem;
-      border-right: 0.1rem solid #eee;
+      border-right: 0.1rem solid #ddd;
       font-size: 1.3rem;
       &:last-child{
         border-right: 0;
+      }
+    }
+    tr.is-error{
+      td{
+        background-color: #FFF4F6
+      }
+      &:hover{
+        td{
+          background-color: #FFF4F6
+        }
       }
     }
     tr:hover{
@@ -878,7 +894,7 @@ $bdTypes: (solid, dashed, dotted);
     tr:last-child{
       th,
       td{
-        border-bottom: 0.1rem solid #eee;
+        border-bottom: 0.1rem solid #ddd;
       }
     }
   }
@@ -888,9 +904,9 @@ $bdTypes: (solid, dashed, dotted);
       text-align: left;
       th{
         background-color: #FBFBFB;
-        border-top: 0.1rem solid #eee;
+        border-top: 0.1rem solid #ddd;
         & + td{
-          border-left: 0.1rem solid #eee;
+          border-left: 0.1rem solid #ddd;
         }
       }
       tr:hover{
@@ -907,7 +923,7 @@ $bdTypes: (solid, dashed, dotted);
         }
       }
       td + th{
-        border-left: 0.1rem solid #eee;
+        border-left: 0.1rem solid #ddd;
       }
     }
   }
@@ -953,7 +969,7 @@ $bdTypes: (solid, dashed, dotted);
     padding-top: 1.2rem;
     dl.inner-tbl{
       margin-top: 1.2rem;
-      border-top: 0.1rem var(--line-color-eee) solid;
+      border-top: 0.1rem var(--line-color-ddd) solid;
       padding: 1.2rem 0;
       padding-left: 0;
       padding-right: 5rem;
@@ -1040,9 +1056,9 @@ $bdTypes: (solid, dashed, dotted);
 
 // 추가 옵션 테이블
 dl.inner-tbl {
-  padding: 0.6rem 1.6rem;
+  padding: 1rem 1.6rem;
   & + .inner-tbl{
-    border-top: 0.1rem var(--line-color-eee) solid;
+    border-top: 0.1rem var(--line-color-ddd) solid;
   }
   &:nth-child(1){
     padding-top: 0;
@@ -1059,7 +1075,7 @@ dl.inner-tbl {
     align-items: center;
     gap: 1.6rem 0;
     & + .option {
-      margin-top: 1.2rem;
+      margin-top: 2rem;
       position: relative;
       &:before{
         content: '';
@@ -1067,9 +1083,9 @@ dl.inner-tbl {
         position: absolute;
         left: -1.6rem;
         right: -1.6rem;
-        top: -0.6rem;
+        top: -1rem;
         height: 0.1rem;
-        background:var(--line-color-eee);
+        background:var(--line-color-ddd);
       }
     }
 

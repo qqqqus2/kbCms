@@ -15,7 +15,7 @@
     <script src="/js/lib/jquery-3.6.0.min.js"></script>
     <script src="/js/lib/moment.min.js"></script>
     <script src="/js/lib/datepicker/daterangepicker.js"></script>
-    <script src="/js/lib/datepicker/datepickerCustom.js"></script>
+    
     <script src="/js/pubCustom.js"></script>
 
 </head>
@@ -281,12 +281,12 @@
                                         <th>콘텐츠 ID</th>
                                         <td>
                                             <div class="form-item inline-flex align-center">
-                                                <div class="input w-200">
+                                                <div class="input w-250">
                                                     <input type="text" title="콘텐츠 ID" value="" />
                                                 </div>
                                                 <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
-                                                <span class="fc-gray-666 fz-14 ml-8">권한이 부여되지 않은 경우 ‘권한 미부여’로
-                                                    보여집니다.</span>
+                                                <!-- 2023-10-04 문구 변경 -->
+                                                <span class="fc-gray-666 fz-14 ml-8">* 콘텐츠 ID를 직접 조회하여 상세/수정화면으로 이동할 수 있습니다.</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -321,7 +321,7 @@
                                             <div class="form-item inline-flex w-full align-center">
                                                 <div class="input w-full">
                                                     <input type="text" title="콘텐츠 그룹 ID" value=""
-                                                        readonly="readonly" placeholder="찾아보기로(콘텐츠 ID)를 입력해주세요." />
+                                                        readonly="readonly" placeholder="생성된 그룹에 연결할 수 있습니다." />
                                                 </div>
                                                 <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
                                             </div>
@@ -338,13 +338,15 @@
                                                             <p class="tit">콘텐츠 연결 <i class="fc-red">*</i></p>
                                                             <div class="form-item inline-flex w-full align-center">
                                                                 <div class="input w-200">
-                                                                    <input type="text" title="콘텐츠 그룹 ID"
-                                                                        value="" placeholder="콘텐츠 ID를 입력해주세요." readonly="readonly" />
+                                                                    <!-- 2023-10-04 title 및 placeholder 수정 -->
+                                                                    <input type="text" title="AEM ID"
+                                                                        value="" placeholder="AEM ID를 입력해주세요." readonly="readonly" />
                                                                 </div>
                                                                 <div class="inline-flex w-full">
                                                                     <div class="input w-full">
-                                                                        <input type="text" title="콘텐츠 그룹 ID"
-                                                                            value="" placeholder="찾아보기로(콘텐츠 ID)를 입력해주세요." readonly="readonly" />
+                                                                        <!-- 2023-10-04 title 및 placeholder 수정 -->
+                                                                        <input type="text" title="AEM ID"
+                                                                            value="" placeholder="찾아보기로 AEM 콘텐츠를 입력해주세요." readonly="readonly" />
                                                                     </div>
                                                                     <button type="button"
                                                                         class="btn btn-sml btn-line ml-8">찾아보기</button>
@@ -409,8 +411,8 @@
                                                             <div class="form-item">
                                                                 <div class="select custom-select">
                                                                     <select class="">
-                                                                        <!-- <option value="">영상 > 짧은 영상 > 숏츠</option>
-                                                                        <option value="">소분류중 선택</option> -->
+                                                                        <option value="">영상 > 짧은 영상 > 숏츠</option>
+                                                                        <option value="">소분류중 선택</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -638,11 +640,12 @@
                                                                 </div>
                                                             </div>
                                                             <button type="button" class="btn btn-sml btn-gray ml-6"
-                                                                disabled>추가하기</button>
+                                                                >추가하기</button>
                                                             <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개 등록 가능</span>
                                                             
                                                             <!-- 추가된 아이템 -->
-                                                            <div class="mt-8">
+                                                            <!-- 2023-10-04 w-full 클래스 추가-->
+                                                            <div class="mt-8 w-full">
                                                                 <div class="keyword-wrap">
                                                                     <span class="keyword-item">
                                                                         상품 대분류 > 상품 중분류 > 상품 소분류 : 경험여부
@@ -752,11 +755,12 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <button type="button" class="btn btn-sml btn-gray ml-6" disabled>추가하기</button>
+                                                            <button type="button" class="btn btn-sml btn-gray ml-6" >추가하기</button>
                                                             <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개 등록 가능</span>
 
                                                             <!-- 추가된 아이템 -->
-                                                            <div class="mt-8">
+                                                            <!-- 2023-10-04 w-full 클래스 추가-->
+                                                            <div class="mt-8 w-full">
                                                                 <div class="keyword-wrap">
                                                                     <span class="keyword-item">
                                                                         계좌 대분류 > 상품 중분류 > 상품 소분류 : 경험여부
@@ -866,11 +870,12 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <button type="button" class="btn btn-sml btn-gray ml-6" disabled>추가하기</button>
+                                                            <button type="button" class="btn btn-sml btn-gray ml-6">추가하기</button>
                                                             <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개 등록 가능</span>
 
                                                             <!-- 추가된 아이템 -->
-                                                            <div class="mt-8">
+                                                            <!-- 2023-10-04 w-full 클래스 추가-->
+                                                            <div class="mt-8 w-full">
                                                                 <div class="keyword-wrap">
                                                                     <span class="keyword-item">
                                                                         서비스 대분류 > 상품 중분류 > 상품 소분류 : 경험여부
@@ -1023,7 +1028,7 @@
                                         <th>파일첨부</th>
                                         <td colspan="3">
                                             <!-- 파일 첨부 -->
-                                            <p class="mt-12 fc-gray-666 fz-14">첨부파일은 최대 10MB * 1개로 pdf 파일만 등록할 수 있습니다.
+                                            <p class="fc-gray-666 fz-14">첨부파일은 최대 10MB * 1개로 pdf 파일만 등록할 수 있습니다.
                                             </p>
                                             <div class="mt-12 file-drop">
 
@@ -1058,6 +1063,55 @@
                                                     class="lbl"></i>
                                                 <span>대상아님</span>
                                             </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>심의 상세정보</th>
+                                        <td colspan="3" class="pl-0 pr-0">
+                                            <dl class="inner-tbl">
+                                                <dd class="flex-none">
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box w-full">
+                                                            <p class="tit">심의필번호</p>
+                                                            <div class="form-item inline-flex flex-01 w-auto">
+                                                                <!-- 2023-09-25 w-232 클래스 > w-320으로 변경 -->
+                                                                <div class="input w-320">
+                                                                    <!-- 2023-09-25 placeholder 추가 -->
+                                                                    <input type="text" placeholder="소비자보호포털에서 (광고심의 문구)를 입력해주세요." title="심의필번호" value="" />
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-sml btn-gray ml-6">소비자보호포털 열기</button>
+                                                        </div>
+                                                    </div>
+                                    
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box">
+                                                            <p class="tit">심의기간</p>
+                                                            <div class="form-item">
+                                                                <!-- 2023-09-25 w-232 클래스 > w-320으로 변경 -->
+                                                                <div class="input input-date range w-232">
+                                                                    <input type="text" id="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                    
+                                                    <!-- 1줄씩 -->
+                                                    <div class="option">
+                                                        <div class="box w-full">
+                                                            <p class="tit">광고심의문구</p>
+                                                            <div class="form-item">
+                                                                <div class="textarea h-72 flex-00">
+                                                                    <!-- 2023-09-25 placeholder 수정 -->
+                                                                    <textarea placeholder="소비자보호포털에서 심의 받은 (광고심의 문구)를 입력해주세요."></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1155,7 +1209,7 @@
                                     <!-- <li class="tab"><a href="#tab-5">탭 제목 제목 5번째 <span role="button" class="btn btn-itemDel">삭제 하기</span></a></li> -->
                                 </ul>
                                 <!-- 추가하기 & 복사 추가하기 || 5개 이상이면 hide (hide 클래스 추가 하셔도 됨)-->
-                                <div class="inline-flex">
+                                <div class="inline-flex va-middle">
                                     <button type="button" class="btn-addTab btn">추가하기</button>
                                     <button type="button" class="btn-addTab btn">복사 추가하기</button>
                                 </div>
@@ -1594,7 +1648,7 @@
                                         
                                         <tr>
                                             <th>배너 1</th>
-                                            <td>
+                                            <td class="pr-0 pl-0">
                                                 <dl class="inner-tbl">
                                                     <dd class="flex-none">
                                                         <!-- 1줄씩 -->
@@ -1642,7 +1696,7 @@
                                         </tr>
                                         <tr>
                                             <th>배너 2</th>
-                                            <td>
+                                            <td class="pr-0 pl-0">
                                                 <dl class="inner-tbl">
                                                     <dd class="flex-none">
                                                         <!-- 1줄씩 -->
