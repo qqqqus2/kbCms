@@ -551,27 +551,27 @@
             $(".range input").on(
                 "cancel.daterangepicker",
                 function (ev, picker) {
-                    $(
-                        ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                    ).removeClass("active");
-                    $(".btn-Reset").addClass("active");
+                    // $(
+                    //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
+                    // ).removeClass("active");
+                    //$(".btn-Reset").addClass("active");
                     $(".range input").val("");
                 }
             );
 
             $(".btn-Reset").on("click", function () {
-                $(
-                    ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                ).removeClass("active");
-                $(".btn-Reset").addClass("active");
+                // $(
+                //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
+                // ).removeClass("active");
+                //$(".btn-Reset").addClass("active");
                 $(".range input").val("");
             });
 
             $(".btn-currentDay").on("click", function () {
-                $(
-                    ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                ).removeClass("active");
-                $(this).addClass("active");
+                // $(
+                //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
+                // ).removeClass("active");
+                //$(this).addClass("active");
                 $(".range input").val(
                     start.format("YYYY-MM-DD") +
                         " ~ " +
@@ -583,10 +583,10 @@
             $(".btn-prevWeek").on("click", function () {
                 var start = moment().subtract(7, "days");
 
-                $(
-                    ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                ).removeClass("active");
-                $(this).addClass("active");
+                // $(
+                //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
+                // ).removeClass("active");
+                //$(this).addClass("active");
                 $(".range input").val(
                     start.format("YYYY-MM-DD") +
                         " ~ " +
@@ -603,10 +603,10 @@
             $(".btn-prevMonth").on("click", function () {
                 var start = moment().subtract(30, "days");
 
-                $(
-                    ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                ).removeClass("active");
-                $(this).addClass("active");
+                // $(
+                //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
+                // ).removeClass("active");
+                // $(this).addClass("active");
                 $(".range input").val(
                     start.format("YYYY-MM-DD") +
                         " ~ " +

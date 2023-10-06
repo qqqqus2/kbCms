@@ -257,7 +257,7 @@ $today-color : #202020 !default;
     & + .btn{
       margin-left: 0.4rem;
     }
-    &.active{
+    &:hover{
       background-color: var(--gray_02-darkBlue);
       border-color: var(--gray_02-darkBlue);
       color:#fff;
