@@ -74,7 +74,7 @@
                                         <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
                                     </li>
                                     <li>
                                         <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
@@ -314,7 +314,7 @@
                                             <div class="form-item">
                                                 <div class="input w-full">
                                                     <!-- 2023-09-25 placeholder 수정 -->
-                                                    <input type="text" title="콘텐츠 ID" value="c1030506" placeholder="찾아보기로(콘텐츠 ID)를 입력해주세요. 미 입력시 (콘텐츠 ID)로 자동채번으로 됩니다." readonly="readonly" />
+                                                    <input type="text" title="콘텐츠 ID" value="" placeholder="저장 시 자동채번 됩니다." readonly="readonly" />
                                                 </div>
                                             </div>
                                         </td>
@@ -324,7 +324,7 @@
                                                 <div class="input w-full">
                                                     <!-- 2023-09-25 placeholder 수정 -->
                                                     <!-- 2023-10-04 placeholder 수정 -->
-                                                    <input type="text" title="콘텐츠 그룹 ID" value="c1030506" placeholder="생성된 그룹에 연결할 수 있습니다." readonly="readonly" />
+                                                    <input type="text" title="콘텐츠 그룹 ID" value="" placeholder="미입력 시 자동채번되며,  기 생성된 ID를 선택할 수 있습니다." readonly="readonly" />
                                                 </div>
                                                 <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
                                             </div>
@@ -342,13 +342,13 @@
                                                             <div class="form-item inline-flex w-full align-center">
                                                                 <div class="input w-200">
                                                                     <!-- 2023-10-04 placeholder 수정 및 title 수정 -->
-                                                                    <input type="text" title="AEM ID" placeholder="자동채번 됩니다." value="c1030506" readonly="readonly" />
+                                                                    <input type="text" title="AEM ID" placeholder="AEM ID" value="" readonly="readonly" />
                                                                 </div>
                                                                 <div class="inline-flex w-full">
                                                                     <div class="input w-full">
                                                                         <!-- 2023-09-25 placeholder 수정 -->
                                                                         <!-- 2023-10-04 placeholder 수정 및 title 수정 -->
-                                                                        <input type="text" title="AEM ID" value="c1030506"  placeholder="찾아보기로 AEM 콘텐츠를 입력해주세요." readonly="readonly" />
+                                                                        <input type="text" title="AEM ID" value=""  placeholder="찾아보기로(AEM 콘텐츠 ID, 제목)을 입력해주세요." readonly="readonly" />
                                                                     </div>
                                                                     <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
                                                                 </div>
@@ -361,11 +361,11 @@
                                                             <div class="form-item inline-flex flex-column w-full align-center">
                                                                 <div class="textarea h-72">
                                                                     <!-- 2023-09-25 placeholder 수정 -->
-                                                                    <textarea placeholder="찾아보기로 (AEM 콘텐츠 정보)를 불러오세요." readonly></textarea>
+                                                                    <textarea placeholder="찾아보기로 (AEM 콘텐츠 정보)입력 시 자동 출력됩니다." readonly></textarea>
                                                                 </div>
                                                                 <div class="inline-flex mt-2">
-                                                                    <button type="button" class="btn btn-sml btn-line">HTML</button>
-                                                                    <button type="button" class="btn btn-sml btn-gray ml-6">미리보기</button>
+                                                                    <button type="button" class="btn btn-sml btn-gray ">HTML</button>
+                                                                    <button type="button" class="btn btn-sml btn-line ml-6">미리보기</button>
                                                                 </div>
                                                             </div>
                                                             
@@ -397,7 +397,7 @@
                                                                 <div class="select custom-select">
                                                                     <select class="">
                                                                         <option value="">전체</option>
-                                                                        <option value="">소분류중 선택</option>
+                                                                        <option value="">대분류 > 중분류 > 소분류중 선택</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -634,7 +634,7 @@
                                                                 </div>                                                          
                                                             </div>
                                                             <button type="button" class="btn btn-sml btn-gray ml-6" >추가하기</button>
-                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개 등록 가능</span>
+                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
                                                         </div>
                                                     </div>
 
@@ -669,7 +669,7 @@
                                                             </div>
                                                             <!-- 2023-09-13 버튼 & 문구 추가 -->
                                                             <button type="button" class="btn btn-sml btn-gray ml-6">추가하기</button>
-                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개 등록 가능</span>
+                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
                                                         </div>
                                                     </div>
 
@@ -704,7 +704,7 @@
                                                             </div>
                                                             <!-- 2023-09-13 버튼 & 문구 추가 -->
                                                             <button type="button" class="btn btn-sml btn-gray ml-6">추가하기</button>
-                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개 등록 가능</span>
+                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
                                                         </div>
                                                     </div>
                                                 </dd>
@@ -768,7 +768,7 @@
                                         <th>파일첨부</th>
                                         <td colspan="3">
                                             <!-- 파일 첨부 -->
-                                            <p class="fc-gray-666 fz-14">첨부파일은 최대 10MB * 1개로 pdf 파일만 등록할 수 있습니다.</p>
+                                            <p class="fc-gray-666 fz-14 mt-7">첨부파일은 최대 10MB * 1개로 pdf 파일만 등록할 수 있습니다.</p>
                                             <div class="mt-12 file-drop">
 
                                             </div>
@@ -815,7 +815,7 @@
                                                                 <!-- 2023-09-25 w-232 클래스 > w-320으로 변경 -->
                                                                 <div class="input w-320">
                                                                     <!-- 2023-09-25 placeholder 추가 -->
-                                                                    <input type="text" placeholder="소비자보호포털에서 (광고심의 문구)를 입력해주세요." title="심의필번호" value=""  />
+                                                                    <input type="text" placeholder="소비자보호포털에서 심의번호를 확인 후 입력해주세요." title="심의필번호" value=""  />
                                                                 </div>
                                                             </div>
                                                             <button type="button" class="btn btn-sml btn-gray ml-6" >소비자보호포털 열기</button>
@@ -842,7 +842,7 @@
                                                             <div class="form-item">
                                                                 <div class="textarea h-72 flex-00">
                                                                     <!-- 2023-09-25 placeholder 수정 -->
-                                                                    <textarea placeholder="소비자보호포털에서 심의 받은 (광고심의 문구)를 입력해주세요."></textarea>
+                                                                    <textarea placeholder="소비자보호포털에서 심의받은 (광고심의 문구)를 입력해주세요."></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -862,7 +862,7 @@
                                                 </div>
                                                 <label class="checkbox sml ml-12 rangeToggle">
                                                     <input type="checkbox" class="" /><i aria-hidden="true" class="lbl"></i>
-                                                    <span>게시기간 미지정</span>
+                                                    <span>종료일자 미지정</span>
                                                 </label>
                                             </div>
                                             
@@ -879,7 +879,7 @@
                                                 <div class="inline-flex w-50p">
                                                     <div class="input w-full">
                                                         <!-- 2023-09-25 placeholder 수정 -->
-                                                        <input type="text" title="부서정보를 선택하세요." placeholder="부서정보를 선택하세요." value="" readonly="readonly">
+                                                        <input type="text" title="부서정보를 선택하세요." placeholder="찾아보기로 (부서코드, 부서명)을 입력해주세요." value="" readonly="readonly">
                                                     </div>
                                                     <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
                                                 </div>

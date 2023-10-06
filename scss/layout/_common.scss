@@ -839,7 +839,7 @@ $bdTypes: (solid, dashed, dotted);
     font-weight: 500;
     color: #202020;
     background-color: #FBFBFB;
-    border-bottom: 0.1rem solid #ddd;
+    //border-bottom: 0.1rem solid #ddd;
   }
   thead{
     th{
@@ -1061,7 +1061,7 @@ $bdTypes: (solid, dashed, dotted);
 
 // 추가 옵션 테이블
 dl.inner-tbl {
-  padding: 1rem 1.6rem;
+  padding: 0.6rem 1.6rem;
   & + .inner-tbl{
     border-top: 0.1rem var(--line-color-ddd) solid;
   }
@@ -1080,7 +1080,7 @@ dl.inner-tbl {
     align-items: center;
     gap: 1.6rem 0;
     & + .option {
-      margin-top: 2rem;
+      margin-top: 1.3rem;
       position: relative;
       &:before{
         content: '';
@@ -1088,7 +1088,7 @@ dl.inner-tbl {
         position: absolute;
         left: -1.6rem;
         right: -1.6rem;
-        top: -0.9rem;
+        top: -0.74rem;
         height: 0.1rem;
         background:var(--line-color-ddd);
       }
@@ -1102,7 +1102,7 @@ dl.inner-tbl {
       padding-left: 15%;
       .tit {
         flex-shrink: 0;
-        width: 15%;
+        
         color: var(--gray_03-subText);
         font-size: 1.3rem;
         font-weight: 500;

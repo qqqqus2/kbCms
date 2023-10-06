@@ -587,11 +587,13 @@ input[type=number] {
     border:0.1rem solid var(--line-color-ccc);
     resize: none;
     padding: 0.6rem 1.2rem;
+    font-size: 1.4rem;
     height: 100%;
     white-space: pre-line;
     word-break: keep-all;
     &::placeholder{
       color:var(--gray_999);
+      font-weight: 300;
     }
     &:disabled,
     &:read-only{
