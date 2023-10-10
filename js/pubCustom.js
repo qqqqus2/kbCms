@@ -363,7 +363,7 @@
                     },
                 });
                 } else {
-                    $('.posting-date').addClass('range').removeClass('date-single')
+                    $('.posting-date').addClass('range').removeClass('date-single');
                     $(".range input").daterangepicker({
                         drops: "up",
                         showDropdowns: true,
@@ -1137,6 +1137,11 @@ function popOpen(tar) {
         // popPositin(tar,300);
     });
 }
+function popSeparated(tar) {
+    $("body").addClass("popOpen");
+    $(tar).addClass("opened");
+    $(tar).fadeIn(300);
+}
 function popupUI() {
     $(".pop-open").on("click", function (e) {
         e.preventDefault();
@@ -1390,7 +1395,12 @@ function customSelect() {
         });
 
         $(window).scroll(function () {
-            closeAllSelect();
+            $('.custom-select').each(function(){
+                if (!$(this).hasClass("noClose")) {
+                    closeAllSelect();
+                }
+            })
+            
         });
     }
 

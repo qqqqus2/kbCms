@@ -535,7 +535,8 @@ a,
 }
 
 // 글자 말줄임
-.ellipsis {
+.ellipsis,
+.ellipsis-1 {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -759,7 +760,7 @@ $bdTypes: (solid, dashed, dotted);
     height: 100%;
     overflow: auto;
     border-top: 0.1rem solid #AEB6D0;
-    border-bottom: 0.1rem solid #AEB6D0;
+    border-bottom: 0.1rem solid #ddd;
     .table{
       border-top: 0;
       border-bottom: 0;
@@ -785,6 +786,11 @@ $bdTypes: (solid, dashed, dotted);
       tr:nth-child(1){
         td{
           border-top:0;
+        }
+      }
+      tr:last-child{
+        td{
+          border-bottom: 0;
         }
       }
     }
@@ -838,6 +844,7 @@ $bdTypes: (solid, dashed, dotted);
     line-height: 2rem;
     font-weight: 500;
     color: #202020;
+    line-height: 1;
     background-color: #FBFBFB;
     //border-bottom: 0.1rem solid #ddd;
   }
@@ -1088,7 +1095,7 @@ dl.inner-tbl {
         position: absolute;
         left: -1.6rem;
         right: -1.6rem;
-        top: -0.74rem;
+        top: -0.745rem;
         height: 0.1rem;
         background:var(--line-color-ddd);
       }

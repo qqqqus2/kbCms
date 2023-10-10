@@ -310,7 +310,8 @@
                                     <th scope="col" class="t-left ">사전협의자 <i class="fc-red">*</i></th>
                                     <td colspan="3">
                                         <div class="form-item">
-                                            <div class="select custom-select w-auto">
+                                            <!-- 2023-10-10 w-auto > w-200 수정 -->
+                                            <div class="select custom-select w-200">
                                                 <select class="" disabled>
                                                     <option value="">이경미(콘텐츠전략 Squad)</option>
                                                 </select>
@@ -323,13 +324,15 @@
                                     <td colspan="3">
                                         <div class="inline-flex">
                                             <div class="form-item inline-flex flex-01 w-auto">
-                                                <div class="input">
+                                                <!-- 2023-10-10 w-200 클래스 추가 -->
+                                                <div class="input w-200">
                                                     <!-- 2023-09-25 placeholder 수정 -->
-                                                    <input type="text" title="AEM콘텐츠 ID" value="" placeholder="(AEM ID)" readonly="readonly">
+                                                    <input type="text" title="AEM콘텐츠 ID" value="" placeholder="" readonly="readonly">
                                                 </div>
-                                                <div class="input w-240 ml-6">
+                                                <!-- 2023-10-10 w-300 으로 수정 -->
+                                                <div class="input w-300 ml-6">
                                                     <!-- 2023-09-25 placeholder 수정 -->
-                                                    <input type="text" title="AEM콘텐츠 제목" value="(콘텐츠 제목)" readonly="readonly">
+                                                    <input type="text" title="AEM콘텐츠 제목" placeholder="" value="" readonly="readonly">
                                                 </div>
                                             </div>
                                             <button type="button" class="btn btn-sml btn-line ml-6">미리보기</button>
@@ -342,11 +345,12 @@
                                         <div class="form-item flex-column">
                                             <!-- 파일 첨부 -->
                                             <p class="mb-3 fc-gray-666 flex-none fz-14">첨부파일은 최대 10MB * 5개로 헝용된 파일(doc, docx, ppt, pptx, xls, pdf)만 등록할 수 있습니다.</p>
-                                            <div class="file-drop">
+                                            <!-- 2023-10-10 h-170 클래스 추가-->
+                                            <div class="file-drop h-170">
 
                                             </div>
                                             <!-- 첨부된 파일 -->
-                                            <div class="uploaded-file">
+                                            <div class="uploaded-file h-170">
                                                 <p>
                                                     <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
                                                     <button type="button" title="삭제" class="btn-del"></button>
@@ -430,11 +434,14 @@
                                     <td colspan="3">
                                         <div class="inline-flex">
                                             <div class="form-item inline-flex flex-01 w-auto">
-                                                <div class="input">
+                                                <!-- 2023-10-10 w-200 클래스 추가 -->
+                                                <div class="input w-200">
                                                     <input type="text" title="콘텐츠 선택 1" value="" placeholder="콘텐츠 ID" readonly="readonly">
                                                 </div>
-                                                <div class="input w-240 ml-6">
-                                                    <input type="text" title="콘텐츠 선택 2" value="" placeholder="콘텐츠를 선택하세요." readonly="readonly">
+                                                <!-- 2023-10-10 w-300 으로 수정 -->
+                                                <div class="input w-300 ml-6">
+                                                    <!-- 2023-10-10 placeholder 수정 -->
+                                                    <input type="text" title="콘텐츠 선택 2" value="" placeholder="찾아보기로 (콘텐츠 ID, 제목)을 입력해주세요." readonly="readonly">
                                                 </div>
                                             </div>
                                             <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>

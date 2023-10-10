@@ -174,7 +174,7 @@ body.hidden{
 h3.content-tit{
   font-size: 1.6rem;
   line-height: 2.4rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 1.2rem;
 }
 h4.tit{
@@ -553,13 +553,14 @@ h4.tit{
 
   //로딩 팝업
   &.loadingPop{
+ 
     .modal-dialog{
       width: 14rem;
       display: block;
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%);
+      transform: translate(-50%, -50%);
       height: 14rem;
       border-radius: 3.2rem;
       background-color: rgba(0,0,0,0.6);

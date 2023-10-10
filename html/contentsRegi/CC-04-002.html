@@ -278,7 +278,8 @@
                                         <div class="form-item">
                                             <div class="input w-200">
                                                 <!-- 2023-09-25 input 수정 -->
-                                                <input type="text" title="신청번호" value="" placeholder="자동채번 됩니다." readonly="readonly" />
+                                                <!-- 2023-10-10 placeholder 수정 -->
+                                                <input type="text" title="신청번호" value="" placeholder="저장 시 자동채번 됩니다." readonly="readonly" />
                                             </div>
                                         </div>
                                     </td>
@@ -306,15 +307,15 @@
                                     <th scope="col" class="t-left ">콘텐츠 선택 <i class="fc-red">*</i></th>
                                     <td colspan="3">
                                         <div class="form-item inline-flex flex-01 w-auto">
-                                            <div class="input">
+                                            <div class="input w-200">
                                                 <input type="text" title="콘텐츠 선택 1" value="" placeholder="콘텐츠 ID"
                                                     readonly="readonly" />
                                             </div>
-                                            <div class="input w-240 ml-6">
-                                                <input type="text" title="콘텐츠 선택 2" value="" placeholder="콘텐츠를 선택하세요."
+                                            <div class="input w-300 ml-6">
+                                                <input type="text" title="콘텐츠 선택 2" value="" placeholder="찾아보기로 (콘텐츠 ID, 제목, 매체)를 입력해주세요."
                                                     readonly="readonly" />
                                             </div>
-                                            <div class="input ml-6">
+                                            <div class="input ml-6 w-120">
                                                 <input type="text" title="콘텐츠 선택 3" value="" placeholder="매체"
                                                     readonly="readonly" />
                                             </div>
@@ -327,7 +328,7 @@
                                     <td colspan="3">
                                         <div class="form-item">
                                             <div class="select custom-select w-auto">
-                                                <select class="" disabled>
+                                                <select class="" >
                                                     <option value="">사용목적 선택</option>
                                                     <option value="">알림톡/LMS 발송</option>
                                                     <option value="">이벤트 제작</option>
@@ -344,9 +345,11 @@
                                     <th scope="col" class="t-left ">신청내용 <i class="fc-red">*</i></th>
                                     <td colspan="3">
                                         <div class="form-item">
-                                            <div class="textarea h-150">
+                                            <!-- 2023-10-10 h-170 클래스 수정 -->
+                                            <div class="textarea h-170">
                                                 <!-- 2023-09-25 placeholder 수정 -->
-                                                <textarea placeholder="해당 콘텐츠에 대해 사용 신청하는 내용 입력해주세요. &#13;&#10;&#13;&#10; (입력예시) &#13;&#10; 콘텐츠 사용신청 &#13;&#10; 사전협의일: 9999-12-31&#13;&#10; 완료희망일: 9999-12-31&#13;&#10; 신청내용:(상세 입력)"></textarea>
+                                                <!-- 2023-10-10 placeholder 수정 -->
+                                                <textarea placeholder="선택 콘텐츠에 대해 사용신청하는 내용을 입력해주세요. &#13;&#10;&#13;&#10; (입력예시) &#13;&#10; 콘텐츠 사용신청 &#13;&#10; 사전협의자: 홍길동&#13;&#10; 사전협의일: 9999-12-31&#13;&#10; 완료희망일: 9999-12-31&#13;&#10; 신청내용:(상세 입력)"></textarea>
                                             </div>
                                         </div>
                                     </td>

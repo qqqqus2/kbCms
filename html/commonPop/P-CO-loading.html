@@ -238,18 +238,21 @@
         
         <!-- 컨텐츠 박스 -->
         <div class="kb-box-inner">
-          <h3 class="content-tit">loading</h3>
+          <h3 class="content-tit" style="height: 1000px;">loading</h3>
 
         </div>
       </main>
       <!-- //컨텐츠 -->
 
       <!-- Modal -->
-      <article class="modal loadingPop" id="loadingProgress" tabindex="-1" aria-hidden="true">
+      <!-- 전체 아닌 화면 중간에 나오는 로딩 > separated -->
+      <article class="modal loadingPop separarted" id="loadingProgress" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
           <h2>로딩중 입니다.</h2>
         </div>
       </article>
+
+      
     </div>
     <!-- //container -->
 
@@ -259,7 +262,10 @@
 
   <script>
     $(function(){
-      popOpen('#loadingProgress');
+      setTimeout(() => {
+        popSeparated('#loadingProgress');
+      }, 1000);
+      
     })
   </script>
 </body>

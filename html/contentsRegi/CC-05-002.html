@@ -278,7 +278,8 @@
                                         <div class="form-item">
                                             <div class="input w-200">
                                                 <!-- 2023-09-25 placeholder 수정 -->
-                                                <input type="text" title="요청번호" placeholder="(요청번호)는 자동채번" value="" readonly="readonly" />
+                                                <!-- 2023-10-10 placeholder 수정 -->
+                                                <input type="text" title="요청번호" placeholder="저장 시 자동채번 됩니다." value="" readonly="readonly" />
                                             </div>
                                         </div>
                                     </td>
@@ -306,10 +307,11 @@
                                     <th scope="col" class="t-left">사전협의자 <i class="fc-red">*</i></th>
                                     <td colspan="3">
                                         <div class="form-item">
-                                            <div class="select custom-select w-auto">
-                                                <select class="" disabled>
+                                            <!-- 2023-10-10 w-auto > w-200 수정 -->
+                                            <div class="select custom-select w-200">
+                                                <select class="" >
                                                     <option value="">사전협의자 선택</option>
-                                                    <option value="">콘텐츠생성자(현업)’의 사용자 정보 노출</option>
+                                                    <option value="">홍길동 (콘텐츠전략 스쿼드)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -321,7 +323,7 @@
                                         <div class="form-item flex-column">
                                             <!-- 파일 첨부 -->
                                             <p class="mb-3 fc-gray-666 flex-none fz-14">첨부파일은 최대 10MB * 5개로 헝용된 파일(doc, docx, ppt, pptx, xls, pdf)만 등록할 수 있습니다.</p>
-                                            <div class="file-drop">
+                                            <div class="file-drop h-160">
                                         
                                             </div>
                                             <!-- 첨부된 파일 -->
@@ -332,6 +334,14 @@
                                                 </p>
                                                 <p>
                                                     <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.jpg(1542byte)</a>
+                                                    <button type="button" title="삭제" class="btn-del"></button>
+                                                </p>
+                                                <p>
+                                                    <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.jpg(1542byte)</a>
+                                                    <button type="button" title="삭제" class="btn-del"></button>
+                                                </p>
+                                                <p>
+                                                    <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.jpg(1542byte)</a>
                                                     <button type="button" title="삭제" class="btn-del"></button>
                                                 </p>
                                                 <p>
@@ -349,7 +359,7 @@
                                         <div class="form-item">
                                             <div class="textarea h-150">
                                                 <!-- 2023-09-25 placeholder수정 -->
-                                                <textarea placeholder="해당 원소스 파일에 대해 콘텐츠 제작요청 하시는 내용을 입력해주세요. &#13;&#10;&#13;&#10; (입력예시) &#13;&#10; 콘텐츠 제작요청 &#13;&#10; 사전협의일: 9999-12-31&#13;&#10; 완료희망일: 9999-12-31&#13;&#10; 요청내용:(상세 입력)"></textarea>
+                                                <textarea placeholder="첨부한 원소스 파일에 대해 콘텐츠 제작요청 하는 내용을 입력해주세요. &#13;&#10;&#13;&#10; (입력예시) &#13;&#10; 콘텐츠 제작요청 &#13;&#10; 사전협의일: 9999-12-31&#13;&#10; 완료희망일: 9999-12-31&#13;&#10; 요청내용:(상세 입력)"></textarea>
                                             </div>
                                         </div>
                                     </td>
