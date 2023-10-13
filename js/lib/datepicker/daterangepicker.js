@@ -1590,8 +1590,8 @@
                         selectedMonth: null,
                         selectedMonthName: '',
                         selectedYear: year,
-                        startYear: year - 10,
-                        finalYear: year + 10,
+                        startYear: year - 5,
+                        finalYear: year + 5,
                         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
                         id: "monthpicker_" + (Math.random() * Math.random()).toString().replace('.', ''),
                         openOnFocus: true,
@@ -1713,7 +1713,7 @@
                 combo = $('<select class="mtz-monthpicker mtz-monthpicker-year" />'),
                 table = $('<table class="mtz-monthpicker" />'),
                 tbody = $('<tbody class="mtz-monthpicker" />'),
-                tr = $('<tr class="mtz-monthpicker" />'),
+                tr = $('<tr class="mtz-monthpicker" />'),        
                 td = '',
                 selectedYear = settings.selectedYear,
                 option = null,
@@ -1791,7 +1791,7 @@
 
             table.append(tbody).appendTo(container);
 
-            container.appendTo('body');
+            container.append('<div class="drp-buttons"><button class="applyBtn btn btn-sm btn-primary" type="button">확인</button></div>').appendTo('body');
         },
 
         destroy: function () {

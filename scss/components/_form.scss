@@ -312,7 +312,7 @@ input[type=number] {
 .radio {
   position: relative;
   display: inline-block;
-  margin: 0;
+  margin: 0.4rem 0;
   cursor: pointer;
   vertical-align: middle;
   color: #3e3e3e;
@@ -325,6 +325,7 @@ input[type=number] {
   }
   &.sml{
     line-height: 2rem;
+    margin:0;
     span{
       line-height: 1.6rem;
     }
@@ -589,6 +590,7 @@ input[type=number] {
     resize: none;
     padding: 0.6rem 1.2rem;
     font-size: 1.4rem;
+    font-weight: 300;
     height: 100%;
     white-space: pre-line;
     word-break: keep-all;

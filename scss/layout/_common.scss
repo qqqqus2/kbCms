@@ -352,6 +352,9 @@ a,
 .h-auto {
   height: auto !important;
 }
+.h-600{
+  height: 60rem !important;
+}
 @for $i from 0 through 500 {
   .h-#{$i} {
     height: $i * 0.1rem !important;
@@ -775,7 +778,7 @@ $bdTypes: (solid, dashed, dotted);
           bottom: -0.1rem;
           width: 100%;
           height: 0.1rem;
-          background-color: #eee;
+          background-color: #ddd;
           position: absolute;
           left: 0;
         }
@@ -844,7 +847,6 @@ $bdTypes: (solid, dashed, dotted);
     line-height: 2rem;
     font-weight: 500;
     color: #202020;
-    line-height: 1;
     background-color: #FBFBFB;
     //border-bottom: 0.1rem solid #ddd;
   }
@@ -860,12 +862,19 @@ $bdTypes: (solid, dashed, dotted);
     th + th{
       border-left: 0.1rem solid #ddd;
     }
+    tr + tr{
+      th{
+        border-top: 0.1rem solid #ddd;
+      }
+    }
   }
   tbody{
     text-align: center;
     th{
       background-color: #fff;  
       padding: 1.2rem 1.6rem;
+      border-top: 0.1rem solid #ddd;
+      border-right: 0.1rem solid #ddd;
     }
     thead{
       th{
@@ -881,6 +890,12 @@ $bdTypes: (solid, dashed, dotted);
       font-size: 1.3rem;
       &:last-child{
         border-right: 0;
+      }
+      &.bg-green{
+        background:#EEF9F6;
+      }
+      &.bg-yellow{
+        background:#FFFBE5;
       }
     }
     tr.is-error{
@@ -946,7 +961,7 @@ $bdTypes: (solid, dashed, dotted);
       margin-top: 1.2rem;
     }
     dt{
-      min-width: 8rem;
+      min-width: 12rem;
       padding-right: 1rem;
       font-size:1.4rem;
       line-height: 2rem;

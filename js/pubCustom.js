@@ -702,7 +702,7 @@
                                 "11월",
                                 "12월",
                             ],
-                            firstDay: 0,
+                            firstDay: 2,
                         },
                     })
                     .on("apply.daterangepicker", function (ev, picker) {
@@ -730,12 +730,12 @@
                     });
             }
             function monitoringMonth() {
-                var finalYear = moment().year() + 10;
+                var finalYear = moment().year() + 5;
                 // var startYear = moment().year() + 10;
 
                 $(".monitoring-date #monthpicker").monthpicker({
                     pattern: "yyyy.mm",
-                    selectedYear : 2019,
+                    selectedYear : 2023,
                     // finalYear: finalYear, // 최대 10년
                 });
             }
@@ -969,9 +969,9 @@
                     $("#monthpicker").monthpicker("destroy");
                     
                     $("#monthpicker").val(end.format("YYYY.MM"));
-                    $("#date-hidden").val(end.subtract(1, 'months').format("YYYY.MM"));
+                    $("#date-hidden").val(end.clone().subtract(1, 'months').format("YYYY.MM"));
                         
-                    // console.log($("#date-hidden").val());
+                    console.log(end.clone().subtract(1, 'months').format("YYYY.MM"));
                     monitoringMonth();
                 });
             }

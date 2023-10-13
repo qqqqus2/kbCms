@@ -628,7 +628,26 @@
             shadowColor: 'rgba(0, 0, 0, 0)'
         }
 
-        var app = {};
+        //var app1 = {};
+        //var app2 = {};
+
+        var data1 = []
+        var data2 = []
+
+        function chartData() {
+            return {
+                value: Math.round(Math.random() * 20), 
+                name: '제목' + Math.round(Math.random() * 20)
+            };
+        }
+        console.log(chartData())
+        
+        for (var i = 1; i <= 15; i++) {
+            data1.push(chartData());
+        }
+        for (var i = 1; i <= 8; i++) {
+            data2.push(chartData());
+        }
 
         var option1;
         var option2;
@@ -643,16 +662,7 @@
                     type: 'pie',
                     height: "80%",
                     radius: ['40%', '70%'],
-                    data: [
-                        { value: 51, name: '오늘의 톡 > 주식' },
-                        { value: 40, name: '프라임클럽 > 주식' },
-                        { value: 17, name: '오늘의 톡 > 금융상품' },
-                        { value: 8, name: '오늘의 톡 > 재테크' },
-                        { value: 7, name: '오늘의 톡 > 부동산' },
-                        { value: 6, name: '오늘의 톡 > ETF' },
-                        { value: 6, name: '오늘의 톡 > 세무' },
-                        { value: 5, name: '오늘의 톡 > 자산분배' },
-                    ],
+                    data: data1,
                     emphasis: {
                         itemStyle: itemStyle
                     },
@@ -671,18 +681,7 @@
                     type: 'pie',
                     height: "80%",
                     radius: ['40%', '70%'],
-                    data: [
-                        { value: 20, name: '1분 브리핑' },
-                        { value: 20, name: '해외투자' },
-                        { value: 18, name: '투자상식' },
-                        { value: 16, name: '투자전략' },
-                        { value: 8, name: '내돈관리' },
-                        { value: 7, name: '부동산' },
-                        { value: 6, name: '절세전략' },
-                        { value: 4, name: '쇼미더수익' },
-                        { value: 1, name: '부자' },
-                        { value: 1, name: '용어사전' },
-                    ],
+                    data: data2,
                     emphasis: {
                         itemStyle: itemStyle
                     },
@@ -700,6 +699,8 @@
 
         window.addEventListener('resize', myChart1.resize);
         window.addEventListener('resize', myChart2.resize);
+
+        // $('#daterange').data('daterangepicker').setStartDate('10/09/2022');
     </script>
 </body>
 
