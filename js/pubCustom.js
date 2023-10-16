@@ -617,7 +617,7 @@
 
             monitoringDate();
 
-            //$(".monitoring-date input").val(start.format("YYYY.MM.DD"));
+            $(".monitoring-date input").val(start.format("YYYY.MM.DD"));
 
             function monitoringDate() {
                 $(".monitoring-date #datepicker").daterangepicker({
@@ -652,6 +652,11 @@
                             "12월",
                         ],
                         firstDay: 0,
+                        isInvalidDate: function (date) {
+                            if (date.format("YYYY-MM-DD") == "2023-10-01") {
+                                return true;
+                            }
+                        },
                     },
                 });
             }
@@ -702,7 +707,8 @@
                                 "11월",
                                 "12월",
                             ],
-                            firstDay: 2,
+                            firstDay: 0,
+                            
                         },
                     })
                     .on("apply.daterangepicker", function (ev, picker) {
@@ -730,14 +736,19 @@
                     });
             }
             function monitoringMonth() {
-                var finalYear = moment().year() + 5;
+                // var finalYear = moment().year() + 5;
                 // var startYear = moment().year() + 10;
 
-                $(".monitoring-date #monthpicker").monthpicker({
-                    pattern: "yyyy.mm",
-                    selectedYear : 2023,
-                    // finalYear: finalYear, // 최대 10년
-                });
+                $(".monitoring-date #monthpicker").monthpicker(
+                    {
+                        pattern: "yyyy.mm",
+                        selectedYear: 2023,
+                        //disableMonths : [1, 2, ,3 , 4, 5, 6, 7, 8, 9 ]
+                        // finalYear: finalYear, // 최대 10년
+                        "disableMonths": [1, 2,  3, 4, 5, 6, 7, 8, 9]
+                    },
+                    
+                );
             }
 
             function monitorCalendar() {
@@ -971,7 +982,7 @@
                     $("#monthpicker").val(end.format("YYYY.MM"));
                     $("#date-hidden").val(end.clone().subtract(1, 'months').format("YYYY.MM"));
                         
-                    console.log(end.clone().subtract(1, 'months').format("YYYY.MM"));
+                    // console.log(end.clone().subtract(1, 'months').format("YYYY.MM"));
                     monitoringMonth();
                 });
             }

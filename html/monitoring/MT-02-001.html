@@ -640,7 +640,7 @@
                 name: '제목' + Math.round(Math.random() * 20)
             };
         }
-        console.log(chartData())
+        // console.log(chartData())
         
         for (var i = 1; i <= 15; i++) {
             data1.push(chartData());
@@ -701,6 +701,29 @@
         window.addEventListener('resize', myChart2.resize);
 
         // $('#daterange').data('daterangepicker').setStartDate('10/09/2022');
+        $(function(){
+            // var disabledDate = new Date('2023-10-01');
+            // $('#datepicker').daterangepicker({
+            //     isInvalidDate: function (date) {
+            //         // 여기에 비활성화할 조건을 정의합니다.
+            //         var startDate = moment('2023-10-16');
+            //         return date.isBefore(startDate);
+            //     }
+            // });
+            
+            // $("#monthpicker").monthpicker({
+            //     beforeShowMonth: function (date) {
+            //         // 특정 날짜 이전의 월을 비활성화합니다.
+            //         var currentDate = disabledDate;
+            //         if (date < currentDate) {
+            //             return false;
+            //         }
+            //     }
+            // });
+            //monitoringDate()
+        })
+        
+        
     </script>
 </body>
 
