@@ -189,7 +189,7 @@
     li {
       position: relative;
       padding-left: 0.6rem;
-      color: var(--gray_03_subText);
+      color: var(--gray_03-subText);
       font-weight: 300;
       line-height: 2rem;
 
@@ -497,7 +497,7 @@
 
         span {
           position: relative;
-          color: var(--gray_03_subText);
+          color: var(--gray_03-subText);
 
           &::before {
             content: '';
@@ -539,7 +539,7 @@
   min-height: 4.4rem;
   font-size: 1.5rem;
   line-height: 2.2rem;
-  color: var(--gray_03_subText);
+  color: var(--gray_03-subText);
 
   .reply-idx {
     position: absolute;
@@ -821,6 +821,15 @@
       &:hover{
         background: var(--primary-yellow-color);
         color: var(--gray_01_black);
+      }
+      &.ui-state-disabled{
+        background: #fff;
+        color: var(--gray_999);
+        text-decoration: line-through;
+        &:hover{
+          background: #fff;
+          color: var(--gray_999);
+        }
       }
     }
   }

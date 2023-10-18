@@ -10,6 +10,7 @@
 
         // 팝업
         popupUI();
+        
     });
 
     const uiInit = function () {
@@ -144,12 +145,12 @@
             common.menuActive();
             common.btnTop();
 
+            
             if ($(".input-date").length > 0) {
                 common.calendar();
             }
             common.pageTitle();
             common.pagiNation();
-
             common.searchToggle();
             //탭
             uiTab();
@@ -324,46 +325,58 @@
                 });
             }
         },
-        calendar: function () {
-            $('.rangeToggle').click(function () {
-                if ($(this).children('input').prop("checked")) {
-                    $('.posting-date').addClass('date-single').removeClass('range');
+        calendar: function (test) {
+            $(".rangeToggle").click(function () {
+                if ($(this).children("input").prop("checked")) {
+                    $(".posting-date")
+                        .addClass("date-single")
+                        .removeClass("range");
                     $(".date-single input").daterangepicker({
-                    drops: "up",
-                    startDate: start,
-                    endDate: end,
-                    singleDatePicker: true,
-                    showDropdowns: true,
-                    timePicker: false,
-                    locale: {
-                        format: "YYYY-MM-DD",
-                        direction: "rtl",
-                        separator: " ~ ",
-                        applyLabel: "확인",
-                        cancelLabel: "다시 선택",
-                        fromLabel: "부터",
-                        toLabel: "까지",
-                        customRangeLabel: "Custom",
-                        daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
-                        monthNames: [
-                            "1월",
-                            "2월",
-                            "3월",
-                            "4월",
-                            "5월",
-                            "6월",
-                            "7월",
-                            "8월",
-                            "9월",
-                            "10월",
-                            "11월",
-                            "12월",
-                        ],
-                        firstDay: 0,
-                    },
-                });
+                        drops: "up",
+                        startDate: start,
+                        endDate: end,
+                        singleDatePicker: true,
+                        showDropdowns: true,
+                        timePicker: false,
+                        locale: {
+                            format: "YYYY-MM-DD",
+                            direction: "rtl",
+                            separator: " ~ ",
+                            applyLabel: "확인",
+                            cancelLabel: "다시 선택",
+                            fromLabel: "부터",
+                            toLabel: "까지",
+                            customRangeLabel: "Custom",
+                            daysOfWeek: [
+                                "일",
+                                "월",
+                                "화",
+                                "수",
+                                "목",
+                                "금",
+                                "토",
+                            ],
+                            monthNames: [
+                                "1월",
+                                "2월",
+                                "3월",
+                                "4월",
+                                "5월",
+                                "6월",
+                                "7월",
+                                "8월",
+                                "9월",
+                                "10월",
+                                "11월",
+                                "12월",
+                            ],
+                            firstDay: 0,
+                        },
+                    });
                 } else {
-                    $('.posting-date').addClass('range').removeClass('date-single');
+                    $(".posting-date")
+                        .addClass("range")
+                        .removeClass("date-single");
                     $(".range input").daterangepicker({
                         drops: "up",
                         showDropdowns: true,
@@ -407,42 +420,40 @@
                         },
                     });
                 }
-            })
-            $(".date-single input").daterangepicker(
-                {
-                    startDate: start,
-                    endDate: end,
-                    singleDatePicker: true,
-                    showDropdowns: true,
-                    timePicker: false,
-                    locale: {
-                        format: "YYYY-MM-DD",
-                        direction: "rtl",
-                        separator: " ~ ",
-                        applyLabel: "확인",
-                        cancelLabel: "다시 선택",
-                        fromLabel: "부터",
-                        toLabel: "까지",
-                        customRangeLabel: "Custom",
-                        daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
-                        monthNames: [
-                            "1월",
-                            "2월",
-                            "3월",
-                            "4월",
-                            "5월",
-                            "6월",
-                            "7월",
-                            "8월",
-                            "9월",
-                            "10월",
-                            "11월",
-                            "12월",
-                        ],
-                        firstDay: 0,
-                    },
-                }
-            );
+            });
+            $(".date-single input").daterangepicker({
+                startDate: start,
+                endDate: end,
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: false,
+                locale: {
+                    format: "YYYY-MM-DD",
+                    direction: "rtl",
+                    separator: " ~ ",
+                    applyLabel: "확인",
+                    cancelLabel: "다시 선택",
+                    fromLabel: "부터",
+                    toLabel: "까지",
+                    customRangeLabel: "Custom",
+                    daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
+                    monthNames: [
+                        "1월",
+                        "2월",
+                        "3월",
+                        "4월",
+                        "5월",
+                        "6월",
+                        "7월",
+                        "8월",
+                        "9월",
+                        "10월",
+                        "11월",
+                        "12월",
+                    ],
+                    firstDay: 0,
+                },
+            });
 
             if ($(".input-date").hasClass("showUp")) {
                 $(".date-single input").daterangepicker({
@@ -508,6 +519,7 @@
                 }
             });
 
+            var inValiDate = "2023-10-17";
             var start = moment().clone();
             var end = moment().clone();
 
@@ -615,11 +627,11 @@
                 dateRange();
             });
 
-            monitoringDate();
+            monitoringDate(inValiDate);
 
             $(".monitoring-date input").val(start.format("YYYY.MM.DD"));
 
-            function monitoringDate() {
+            function monitoringDate(inValiDate) {
                 $(".monitoring-date #datepicker").daterangepicker({
                     startDate: start,
                     endDate: end,
@@ -652,15 +664,16 @@
                             "12월",
                         ],
                         firstDay: 0,
-                        isInvalidDate: function (date) {
-                            if (date.format("YYYY-MM-DD") == "2023-10-01") {
-                                return true;
-                            }
-                        },
+                    },
+                    isInvalidDate: function (start) {
+                        console.log(inValiDate);
+                        if (start.format("YYYY-MM-DD") <= inValiDate) {
+                            return true;
+                        }
                     },
                 });
             }
-            function monitoringWeek() {
+            function monitoringWeek(inValiDate) {
                 $(".monitoring-date #datepicker")
                     .daterangepicker({
                         startDate: moment().isoWeekday(1),
@@ -708,7 +721,12 @@
                                 "12월",
                             ],
                             firstDay: 0,
-                            
+                        },
+                        isInvalidDate: function (start) {
+                            console.log(inValiDate);
+                            if (start.format("YYYY-MM-DD") <= inValiDate) {
+                                return true;
+                            }
                         },
                     })
                     .on("apply.daterangepicker", function (ev, picker) {
@@ -738,23 +756,19 @@
             function monitoringMonth() {
                 // var finalYear = moment().year() + 5;
                 // var startYear = moment().year() + 10;
+                var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-                $(".monitoring-date #monthpicker").monthpicker(
-                    {
-                        pattern: "yyyy.mm",
-                        selectedYear: 2023,
-                        //disableMonths : [1, 2, ,3 , 4, 5, 6, 7, 8, 9 ]
-                        // finalYear: finalYear, // 최대 10년
-                        "disableMonths": [1, 2,  3, 4, 5, 6, 7, 8, 9]
-                    },
-                    
-                );
+                $(".monitoring-date #monthpicker").monthpicker({
+                    pattern: "yyyy.mm",
+                    selectedYear: 2023,
+                });
+
+                $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths)
             }
 
             function monitorCalendar() {
-                
                 const $monitorDate = $(".monitoring-date");
-        
+
                 $(".prev-date").on("click", function () {
                     if ($monitorDate.hasClass("month")) {
                         // 현재 선택된 월 값을 가져옴
@@ -777,30 +791,35 @@
                         $("#monthpicker").val(
                             currentYear +
                                 "." +
-                                (currentMonthNum < 10 ? "0" : "") + currentMonthNum
+                                (currentMonthNum < 10 ? "0" : "") +
+                                currentMonthNum
                         );
-                        
+
                         let LastMonthhNum = currentMonthNum - 1;
-                            //console.log(currentMonthNum);
+                        //console.log(currentMonthNum);
                         if (currentMonthNum === 1) {
                             LastMonthhNum = 12;
                         }
-                        
+
                         $("#date-hidden").val(
                             currentYear +
                                 "." +
-                                (LastMonthhNum < 10 ? "0" : "") + LastMonthhNum    
+                                (LastMonthhNum < 10 ? "0" : "") +
+                                LastMonthhNum
                         );
                         // console.log($("#date-hidden").val());
-                        
-                        monitoringMonth();
 
+                        monitoringMonth();
                     } else if ($monitorDate.hasClass("week")) {
                         var dateRange =
                             $("#datepicker").data("daterangepicker");
-                        
-                        var start = dateRange.startDate.subtract(1, "weeks").isoWeekday(1);
-                        var end = dateRange.endDate.subtract(1, "weeks").isoWeekday(7);
+
+                        var start = dateRange.startDate
+                            .subtract(1, "weeks")
+                            .isoWeekday(1);
+                        var end = dateRange.endDate
+                            .subtract(1, "weeks")
+                            .isoWeekday(7);
 
                         $("#datepicker").val(
                             dateRange.startDate.format("YYYY.MM.DD") +
@@ -830,9 +849,7 @@
                         var start = dateRange.startDate.subtract(1, "days");
                         var end = dateRange.endDate.subtract(1, "days");
 
-                        $("#datepicker").val(
-                            start.format("YYYY.MM.DD")
-                        );
+                        $("#datepicker").val(start.format("YYYY.MM.DD"));
 
                         var lastStart = start.clone().subtract(1, "days");
 
@@ -868,31 +885,35 @@
                                 currentMonthNum
                         );
                         monitoringMonth();
-                        
+
                         $("#date-hidden").val(currentMonth);
                         // console.log($("#date-hidden").val());
-
                     } else if ($monitorDate.hasClass("week")) {
-                        var dateRange = $("#datepicker").data("daterangepicker");
+                        var dateRange =
+                            $("#datepicker").data("daterangepicker");
 
-                        var start = dateRange.startDate.add(1, "weeks").isoWeekday(1);
-                        var end = dateRange.endDate.add(1, "weeks").isoWeekday(7);
+                        var start = dateRange.startDate
+                            .add(1, "weeks")
+                            .isoWeekday(1);
+                        var end = dateRange.endDate
+                            .add(1, "weeks")
+                            .isoWeekday(7);
 
                         var weekrange =
                             start.format("YYYY.MM.DD") +
                             " ~ " +
                             end.format("YYYY.MM.DD");
-                         $("#datepicker").val(weekrange);
+                        $("#datepicker").val(weekrange);
 
-                        var lastStart = start.clone().subtract(1, "weeks")
-                        var lastEnd = end.clone().subtract(1, "weeks")
+                        var lastStart = start.clone().subtract(1, "weeks");
+                        var lastEnd = end.clone().subtract(1, "weeks");
 
                         $("#date-hidden").val(
                             lastStart.format("YYYY.MM.DD") +
-                            " ~ " +
-                            lastEnd.format("YYYY.MM.DD")
+                                " ~ " +
+                                lastEnd.format("YYYY.MM.DD")
                         );
-                        
+
                         // console.log($("#date-hidden").val());
                     } else {
                         var dateRange =
@@ -901,15 +922,11 @@
                         var start = dateRange.startDate.add(1, "days");
                         var end = dateRange.endDate.add(1, "days");
 
-                        $("#datepicker").val(
-                            start.format("YYYY.MM.DD")
-                        );
+                        $("#datepicker").val(start.format("YYYY.MM.DD"));
 
                         var lastStart = start.clone().subtract(1, "days");
-                        
-                        $("#date-hidden").val(
-                            lastStart.format("YYYY.MM.DD")
-                        );
+
+                        $("#date-hidden").val(lastStart.format("YYYY.MM.DD"));
                         // console.log($("#date-hidden").val());
                     }
                 });
@@ -926,11 +943,12 @@
                         .addClass("day");
 
                     $("#datepicker").val(end.format("YYYY.MM.DD"));
-                    $("#date-hidden").val(end.subtract(1, 'days').format("YYYY.MM.DD"));
+                    $("#date-hidden").val(
+                        end.subtract(1, "days").format("YYYY.MM.DD")
+                    );
                     //console.log($("#date-hidden").val());
-                    
-                    monitoringDate();
-                    
+
+                    monitoringDate(inValiDate);
                 });
 
                 //주단위
@@ -946,7 +964,7 @@
                         .removeClass("day month")
                         .addClass("week");
 
-                    monitoringWeek();
+                    monitoringWeek(inValiDate);
 
                     var dateRange = $("#datepicker").data("daterangepicker");
                     dateRange.startDate.isoWeekday(1);
@@ -957,11 +975,17 @@
                             " ~ " +
                             dateRange.endDate.format("YYYY.MM.DD")
                     );
-                    
+
                     $("#date-hidden").val(
-                        dateRange.startDate.clone().subtract(1, 'weeks').format("YYYY.MM.DD") +
+                        dateRange.startDate
+                            .clone()
+                            .subtract(1, "weeks")
+                            .format("YYYY.MM.DD") +
                             " ~ " +
-                            dateRange.endDate.clone().subtract(1, 'weeks').format("YYYY.MM.DD")
+                            dateRange.endDate
+                                .clone()
+                                .subtract(1, "weeks")
+                                .format("YYYY.MM.DD")
                     );
                     // console.log($("#date-hidden").val())
                 });
@@ -978,10 +1002,12 @@
                         .addClass("month");
 
                     $("#monthpicker").monthpicker("destroy");
-                    
+
                     $("#monthpicker").val(end.format("YYYY.MM"));
-                    $("#date-hidden").val(end.clone().subtract(1, 'months').format("YYYY.MM"));
-                        
+                    $("#date-hidden").val(
+                        end.clone().subtract(1, "months").format("YYYY.MM")
+                    );
+
                     // console.log(end.clone().subtract(1, 'months').format("YYYY.MM"));
                     monitoringMonth();
                 });
