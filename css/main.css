@@ -35219,6 +35219,7 @@ input[type=number] {
   background: #fff;
   color: var(--gray_999);
   text-decoration: line-through;
+  position: relative;
 }
 .ui-datepicker table td.ui-state-disabled:hover {
   background: #fff;
