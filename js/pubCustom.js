@@ -157,7 +157,6 @@
 
             //커스텀 셀렉트
             customSelect();
-            customSelectUI();
 
             //툴팁
             tooltips();
@@ -1374,6 +1373,8 @@ function tooltips() {
 
 // 커스텀 셀렉트
 function customSelect() {
+    select.init();
+    return;
     var x, i, j, l, ll, selElmnt, a, b, c;
 
     x = document.getElementsByClassName("custom-select");
@@ -1446,73 +1447,10 @@ function customSelect() {
         }
 
         x[i].appendChild(b);
-
-        a.addEventListener("click", function (e) {
-            e.stopPropagation();
-            closeAllSelect(this);
-            this.nextSibling.classList.toggle("select-hide");
-            this.classList.toggle("select-arrow-active");
-            customSelectFixedPosition();
-        });
     }
 
 }
-function customSelectFixedPosition(){
-    const customSelect = document.querySelectorAll('.custom-select');
-    if(customSelect.length){
-        customSelect.forEach(function(select){
-            if(select.classList.contains('fixed')){
-                const selectWidth = select.offsetWidth;
-                const selectHeight = select.offsetHeight;
-                const selectLeft = getOffset(select).left;
-                const selectTop = getOffset(select).top;
-                const items = select.querySelector('.select-items');
-                if(items){
-                    items.style.minWidth = selectWidth + 'px';
-                    items.style.left = selectLeft + 'px';
-                    items.style.top = selectTop + selectHeight + 'px';
-                }
-            }
-        });
-    }
-    
-}
-function customSelectUI() {
-    document.addEventListener("click", function (e) {
-        // 클릭된 요소가 a 요소가 아니면 closeAllSelect 함수를 호출합니다.
-        if (!e.target.classList.contains('select-arrow')) {
-            closeAllSelect();
-        }
-    });
-    window.addEventListener("resize", customSelectFixedPosition);
 
-    // $(window).scroll(function () {
-    //     $('.custom-select').each(function(){
-    //         if (!$(this).hasClass("noClose")) {
-    //             closeAllSelect();
-    //         }
-    //     })
-    // });
-}
-function closeAllSelect(elmnt) {
-    var arrNo = [];
-    var x = document.getElementsByClassName("select-items");
-    var y = document.getElementsByClassName("select-selected");
-    var xl = x.length;
-    var yl = y.length;
-    for (i = 0; i < yl; i++) {
-        if (elmnt === y[i]) {
-            arrNo.push(i);
-        } else {
-            y[i].classList.remove("select-arrow-active");
-        }
-    }
-    for (i = 0; i < xl; i++) {
-        if (arrNo.indexOf(i)) {
-            x[i].classList.add("select-hide");
-        }
-    }
-}
 const getOffset = function (element) {
     let $el = element;
     let $elX = 0;
@@ -1543,3 +1481,131 @@ const getOffset = function (element) {
     }
     return { left: $elX, top: $elY };
 };
+
+function isElementVisible(element) {
+    // 요소의 display 속성을 가져옵니다.
+    var computedStyle = getComputedStyle(element);
+    var displayValue = computedStyle.getPropertyValue("display");
+
+    // display: none 이면 요소가 화면에서 숨겨진 상태입니다.
+    if (displayValue === "none") {
+        return false;
+    }
+
+    // 부모 요소의 display 속성도 모두 확인합니다.
+    var parent = element.parentElement;
+    while (parent) {
+        var parentComputedStyle = getComputedStyle(parent);
+        var parentDisplayValue = parentComputedStyle.getPropertyValue("display");
+        if (parentDisplayValue === "none") {
+            return false; // 부모 요소 중 하나라도 숨겨진 경우
+        }
+        parent = parent.parentElement;
+    }
+
+    // 모든 요소 및 부모 요소가 화면에 보이는 경우
+    return true;
+}
+
+const select = {
+    init: function(){
+        select.ready();
+        select.UI();
+    },
+    class: {
+        wrap: 'custom-select',
+        btn: 'select-selected',
+        btnActive: 'select-arrow-active',
+        options: 'select-items',
+        optionsHide: 'select-hide',
+    },
+    ready: function(){
+        const customSelects = document.querySelectorAll('.'+select.class.wrap);
+        if(!customSelects.length) return;
+        customSelects.forEach(function(_select){
+            select.btn(_select);
+            select.options(_select);
+        });
+    },
+    btn: function(el){
+        const selElmnt = el.querySelector('select');
+        const seletedIndex = selElmnt.selectedIndex;
+        const selValue = selElmnt.value;
+        let btn = el.querySelector('.'+select.class.btn);
+        if(!btn){
+            const Html = document.createElement('button');
+            Html.className = select.class.btn;
+            el.appendChild(Html);
+            btn = Html;
+        }
+        const btnTxt = selElmnt.options[seletedIndex].innerHTML;
+        btn.innerHTML = btnTxt;
+        btn.dataset.value = selValue;
+    },
+    options: function(el){
+        const selElmnt = el.querySelector('select');
+        const seletedIndex = selElmnt.selectedIndex;
+        const selValue = selElmnt.value;
+        let options = el.querySelector('.'+select.class.options);
+        if(!options){
+            const Html = document.createElement('div');
+            Html.className = select.class.options + ' ' + select.class.optionsHide;
+            el.appendChild(Html);
+            options = Html;
+        }
+        let optionsHtml = '';
+        const selOptions = selElmnt.options
+        if(selOptions.length){
+            Array.from(selOptions).forEach(function(option, i) {
+                const selected = i === seletedIndex ? ' same-as-selected': '';
+                optionsHtml += '<button class="select-option'+selected+'" data-value="'+option.value+'">'+option.textContent+'</button>';
+            });
+            options.innerHTML = optionsHtml;
+        }
+    },
+    position: function(){
+        const customSelect = document.querySelectorAll('.'+select.class.wrap);
+        if(!customSelect.length) return;
+        customSelect.forEach(function(_select){
+            if(_select.classList.contains('fixed')){
+                const selectWidth = _select.offsetWidth;
+                const selectHeight = _select.offsetHeight;
+                const selectLeft = getOffset(_select).left;
+                const selectTop = getOffset(_select).top;
+                const items = _select.querySelector('.'+select.class.options);
+                if(items && isElementVisible(_select)){
+                    items.style.minWidth = selectWidth + 'px';
+                    items.style.left = selectLeft + 'px';
+                    items.style.top = selectTop + selectHeight + 'px';
+                }
+            }
+        });
+    },
+    close: function(el){
+        const customSelect = document.querySelectorAll('.'+select.class.wrap);
+        if(!customSelect.length) return;
+        customSelect.forEach(function(_select){
+            let btn = _select.querySelector('.'+select.class.btn);
+            if(btn !== el){
+                if(btn) btn.classList.remove(select.class.btnActive);
+                let options = _select.querySelector('.'+select.class.options);
+                if(options) options.classList.add(select.class.optionsHide);
+            }
+        })
+    },
+    UI: function(){
+        document.addEventListener("click", function (e) {
+            const $target = e.target;
+            if($target.classList.contains(select.class.btn)){
+                e.preventDefault();
+                select.close($target);
+                $target.nextSibling.classList.toggle(select.class.optionsHide);
+                $target.classList.toggle(select.class.btnActive);
+                select.position();
+            }else{
+                select.close();
+            }
+        });
+        window.addEventListener("resize", select.position);
+    }
+}
