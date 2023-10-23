@@ -325,8 +325,12 @@
                 });
             }
         },
-        calendar: function (test) {
-            $(".rangeToggle").click(function () {
+        calendar: function () {
+            var inValiDate = "2023-09-17"; // 이전 날짜는 전부 막음
+            var start = moment().clone();
+            var end = moment().clone();
+
+            $(".rangeToggle").on('click', function () {
                 if ($(this).children("input").prop("checked")) {
                     $(".posting-date")
                         .addClass("date-single")
@@ -492,10 +496,11 @@
                 });
             }
 
+            // 직접입력
             $(".range input").on("input", function () {
                 // 입력 필드의 값을 가져옵니다.
                 var inputValue = $(this).val();
-
+  
                 if (inputValue.length == 8) {
                     $(this).val(inputValue + " ");
                 }
@@ -504,7 +509,12 @@
                     var startDate = inputValue.substring(0, 8); // 앞부분 8자리
                     var endDate = inputValue.substring(8, 16); // 뒷부분 8자리
                     var formattedDate = startDate + " ~ " + endDate;
-                    $(this).val(formattedDate);
+                    if (startDate < inValiDate){
+                        $(this).val('');
+                        alert(inValiDate + " 이후로 입력해 주세요.");
+                    } else{
+                        $(this).val(formattedDate);
+                    } 
                 }
                 inputValue = inputValue.replace(/[^0-9]/g, "");
             });
@@ -519,11 +529,7 @@
                 }
             });
 
-            var inValiDate = "2023-10-17";
-            var start = moment().clone();
-            var end = moment().clone();
-
-            function dateRange() {
+            function dateRange(inValiDate) {
                 $(".range input").daterangepicker({
                     showDropdowns: true,
                     minYear: 2023,
@@ -556,55 +562,46 @@
                         ],
                         firstDay: 0,
                     },
+                    isInvalidDate: function (start) {
+                        // console.log(inValiDate);
+                        if (start.format("YYYY-MM-DD") <= inValiDate) {
+                            return true;
+                        }
+                    },
                 });
             }
-            dateRange();
+            dateRange(inValiDate);
 
             $(".range input").on(
                 "cancel.daterangepicker",
                 function (ev, picker) {
-                    // $(
-                    //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                    // ).removeClass("active");
-                    //$(".btn-Reset").addClass("active");
                     $(".range input").val("");
                 }
             );
 
             $(".btn-Reset").on("click", function () {
-                // $(
-                //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                // ).removeClass("active");
-                //$(".btn-Reset").addClass("active");
                 $(".range input").val("");
+                $(".range input").attr("placeholder", "예) 20230101 20230109");
             });
 
             $(".btn-currentDay").on("click", function () {
-                // $(
-                //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                // ).removeClass("active");
-                //$(this).addClass("active");
                 $(".range input").val(
                     start.format("YYYY-MM-DD") +
                         " ~ " +
                         end.format("YYYY-MM-DD")
                 );
-                dateRange();
+                dateRange(inValiDate);
             });
 
             $(".btn-prevWeek").on("click", function () {
                 var start = moment().subtract(7, "days");
 
-                // $(
-                //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                // ).removeClass("active");
-                //$(this).addClass("active");
                 $(".range input").val(
                     start.format("YYYY-MM-DD") +
                         " ~ " +
                         end.format("YYYY-MM-DD")
                 );
-                dateRange();
+                dateRange(inValiDate);
             });
 
             // 전체 먼저 활성화 될 시
@@ -615,16 +612,12 @@
             $(".btn-prevMonth").on("click", function () {
                 var start = moment().subtract(30, "days");
 
-                // $(
-                //     ".btn-currentDay , .btn-prevWeek, .btn-prevMonth, .btn-Reset"
-                // ).removeClass("active");
-                // $(this).addClass("active");
                 $(".range input").val(
                     start.format("YYYY-MM-DD") +
                         " ~ " +
                         end.format("YYYY-MM-DD")
                 );
-                dateRange();
+                dateRange(inValiDate);
             });
 
             monitoringDate(inValiDate);
@@ -666,7 +659,7 @@
                         firstDay: 0,
                     },
                     isInvalidDate: function (start) {
-                        console.log(inValiDate);
+                        // console.log(inValiDate);
                         if (start.format("YYYY-MM-DD") <= inValiDate) {
                             return true;
                         }
@@ -723,7 +716,7 @@
                             firstDay: 0,
                         },
                         isInvalidDate: function (start) {
-                            console.log(inValiDate);
+                            // console.log(inValiDate);
                             if (start.format("YYYY-MM-DD") <= inValiDate) {
                                 return true;
                             }
@@ -754,38 +747,66 @@
                     });
             }
             function monitoringMonth() {
-                // var finalYear = moment().year() + 5;
-                // var startYear = moment().year() + 10;
                 var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
                 $(".monitoring-date #monthpicker").monthpicker({
                     pattern: "yyyy.mm",
-                    selectedYear: 2023,
-                });
-
-                $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths)
+                    selectedYear: 2023, // 
+                }).bind('monthpicker-change-year',function (e, year) {
+                    // 2023년 이전에는 
+                    if(year !== 2023){
+                        // console.log('전월 활성화');
+                        var disabledMonths = [];
+                        $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths);
+                        // $(".ui-state-disabled").on("click", function () {
+                        //     return false;
+                        // });
+                    } 
+                    if(year == 2023){
+                        // console.log('10월 전달 비활성화');
+                        var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                        $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths);
+                    }
+                }); 
+                $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths);
             }
-
+            
             function monitorCalendar() {
                 const $monitorDate = $(".monitoring-date");
 
                 $(".prev-date").on("click", function () {
+                    const inValiDatePrev = new Date(inValiDate);
+                    const inValiDateYear = inValiDatePrev.getFullYear();
+
                     if ($monitorDate.hasClass("month")) {
                         // 현재 선택된 월 값을 가져옴
                         var currentMonth = $("#monthpicker").val();
+
+                        //월 가져오기
+                        const inValiMonth = inValiDatePrev.getMonth() + 1;
+
+                        //월과 년도 조합
+                        const formattedDate = `${inValiDateYear}.${inValiMonth < 10 ? '0' : ''}${inValiMonth}`;
+                        const currentMonthCompare = new Date(currentMonth);
+                        const compareMonth = `${currentMonthCompare.getFullYear()}.${currentMonthCompare.getMonth() +1  < 10 ? '0' : ''}${currentMonthCompare.getMonth() + 1}`;
 
                         // 현재 선택된 월을 "yyyy.mm" 형식에서 분해
                         var parts = currentMonth.split(".");
                         var currentYear = parseInt(parts[0]);
                         var currentMonthNum = parseInt(parts[1]);
-                        // 다음 월로 이동
-                        if (currentMonthNum === 1) {
-                            // 1월인 경우 전년도 12월로 이동
-                            currentYear--;
-                            currentMonthNum = 12;
+                        
+                        if (compareMonth === formattedDate) {  
+                            alert("이전 달로 검색할수 없습니다.");
                         } else {
-                            currentMonthNum--;
+                            if (currentMonthNum === 1) {
+                                // 1월인 경우 전년도 12월로 이동
+                                currentYear--;
+                                currentMonthNum = 12;
+                            } else {
+                                currentMonthNum--;
+                            }
                         }
+                        
                         //리셋
                         $("#monthpicker").monthpicker("destroy");
                         $("#monthpicker").val(
@@ -807,12 +828,30 @@
                                 (LastMonthhNum < 10 ? "0" : "") +
                                 LastMonthhNum
                         );
-                        // console.log($("#date-hidden").val());
 
                         monitoringMonth();
                     } else if ($monitorDate.hasClass("week")) {
-                        var dateRange =
-                            $("#datepicker").data("daterangepicker");
+
+                        const inValiDateMonth = (inValiDatePrev.getMonth() + 1).toString().padStart(2, '0'); // 월을 2자리 숫자로
+                        const inValiDateDay = (inValiDatePrev.getDate() + 1).toString().padStart(2, '0'); // 일을 2자리 숫자로
+
+                        // 시작 날짜
+                        const formattedStartDate = `${inValiDateYear}.${inValiDateMonth}.${inValiDateDay}`;
+
+                        // 7일 뒤의 날짜 계산
+                        const compareEndDate = new Date(inValiDatePrev);
+                        compareEndDate.setDate(inValiDatePrev.getDate() + 7);
+
+                        // 년도, 월, 일 가져오기
+                        const endYear = compareEndDate.getFullYear();
+                        const endMonth = (compareEndDate.getMonth() + 1).toString().padStart(2, '0'); // 월을 2자리 숫자로
+                        const endDay = compareEndDate.getDate().toString().padStart(2, '0'); // 일을 2자리 숫자로
+
+                        // 종료 날짜 포맷
+                        const formattedEndDate = `${endYear}.${endMonth}.${endDay}`;
+                        const compareRange = formattedStartDate + ' ~ ' + formattedEndDate;
+                        
+                        var dateRange = $("#datepicker").data("daterangepicker");
 
                         var start = dateRange.startDate
                             .subtract(1, "weeks")
@@ -820,31 +859,27 @@
                         var end = dateRange.endDate
                             .subtract(1, "weeks")
                             .isoWeekday(7);
-
-                        $("#datepicker").val(
-                            dateRange.startDate.format("YYYY.MM.DD") +
-                                " ~ " +
-                                dateRange.endDate.format("YYYY.MM.DD")
-                        );
-                        var weekrange =
-                            start.format("YYYY.MM.DD") +
-                            " ~ " +
-                            end.format("YYYY.MM.DD");
-                        $("#datepicker").val(weekrange);
-
+                        var weekrange = start.format("YYYY.MM.DD") + " ~ " + end.format("YYYY.MM.DD");
                         var lastStart = start.clone().subtract(1, "weeks");
                         var lastEnd = end.clone().subtract(1, "weeks");
 
-                        $("#date-hidden").val(
-                            lastStart.format("YYYY.MM.DD") +
-                                " ~ " +
-                                lastEnd.format("YYYY.MM.DD")
-                        );
+                        if (compareRange === weekrange) {
+                            alert("이전 주로는 검색할수 없습니다.");
+                            return false;
+                        } else {
+                            $("#datepicker").val(
+                                dateRange.startDate.format("YYYY.MM.DD") +
+                                    " ~ " +
+                                    dateRange.endDate.format("YYYY.MM.DD")
+                            );
+                            
+                            $("#datepicker").val(weekrange);
 
-                        // console.log($("#date-hidden").val());
+                            $("#date-hidden").val(lastStart.format("YYYY.MM.DD") + " ~ " + lastEnd.format("YYYY.MM.DD"));
+                        }
+
                     } else {
-                        var dateRange =
-                            $("#datepicker").data("daterangepicker");
+                        var dateRange = $("#datepicker").data("daterangepicker");
 
                         var start = dateRange.startDate.subtract(1, "days");
                         var end = dateRange.endDate.subtract(1, "days");
@@ -854,7 +889,7 @@
                         var lastStart = start.clone().subtract(1, "days");
 
                         $("#date-hidden").val(lastStart.format("YYYY.MM.DD"));
-                        // console.log($("#date-hidden").val());
+                        
                     }
                 });
 

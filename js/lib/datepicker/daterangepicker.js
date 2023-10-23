@@ -1701,11 +1701,13 @@
                 
                 var currentYear = new Date().getFullYear();
                 var currentMonth = new Date().getMonth() + 1;
-                console.log(m, y)
+
                 if ((y < currentYear || (y === currentYear && m < currentMonth)) && y !== settings.selectedYear) {
-                    $(this).addClass("ui-state-disabled"); // 이전 월 비활성화
+                    $(this).addClass("ui-state-disabled") // 이전 월 비활성화
+                    
                 } else if ($.inArray(m, months) >= 0 && y === settings.selectedYear) {
-                    $(this).addClass("ui-state-disabled"); // 현재 연도 내 비활성화할 월
+                    $(this).addClass("ui-state-disabled");
+                    
                 } else {
                     $(this).removeClass("ui-state-disabled"); // 활성화 월
                 }
