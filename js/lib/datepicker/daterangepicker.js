@@ -1595,7 +1595,7 @@
                         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
                         id: "monthpicker_" + (Math.random() * Math.random()).toString().replace('.', ''),
                         openOnFocus: true,
-                        disabledMonths: [1]
+                        disabledMonths: []
                     }, options);
 
                 settings.dateSeparator = settings.pattern.replace(/(mmm|mm|m|yyyy|yy|y)/ig,'');
@@ -1688,33 +1688,6 @@
             this.change();
         },
 
-        disableMonths: function (months) {
-            var 
-                settings = this.data('monthpicker').settings,
-                container = $('#' + settings.id);
-
-            settings.disabledMonths = months;
-
-            container.find('.mtz-monthpicker-month').each(function () {
-                var m = parseInt($(this).data('month'));
-                var y = parseInt($(this).closest('.ui-datepicker').find('.mtz-monthpicker-year').val());
-                
-                var currentYear = new Date().getFullYear();
-                var currentMonth = new Date().getMonth() + 1;
-
-                if ((y < currentYear || (y === currentYear && m < currentMonth)) && y !== settings.selectedYear) {
-                    $(this).addClass("ui-state-disabled") // 이전 월 비활성화
-                    
-                } else if ($.inArray(m, months) >= 0 && y === settings.selectedYear) {
-                    $(this).addClass("ui-state-disabled");
-                    
-                } else {
-                    $(this).removeClass("ui-state-disabled"); // 활성화 월
-                }
-
-            });
-        },
-
         mountWidget: function (settings) {
             var
                 monthpicker = this,
@@ -1777,11 +1750,14 @@
             // mount months table
             for (var i=1; i<=12; i++) {
                 td = $('<td class="ui-state-default mtz-monthpicker mtz-monthpicker-month" style="padding:5px;cursor:default;" />').attr('data-month',i);
+                
                 if (settings.selectedMonth == i) {
                    td.addClass('ui-state-active');
                 }
+
                 td.append(settings.monthNames[i-1]);
                 tr.append(td).appendTo(tbody);
+
                 if (i % 3 === 0) {
                     tr = $('<tr class="mtz-monthpicker" />'); 
                 }
@@ -1802,6 +1778,32 @@
             table.append(tbody).appendTo(container);
 
             container.append('<div class="drp-buttons"><button class="applyBtn btn btn-sm btn-primary" type="button">확인</button></div>').appendTo('body');
+        },
+
+        disableMonths: function (months) {
+            var settings = this.data('monthpicker').settings,
+                container = $('#' + settings.id);
+
+            settings.disabledMonths = months;
+
+            container.find('.mtz-monthpicker-month').each(function () {
+                var m = parseInt($(this).data('month'));
+                var y = parseInt($(this).closest('.ui-datepicker').find('.mtz-monthpicker-year').val());
+                
+                var currentYear = new Date().getFullYear();
+                var currentMonth = new Date().getMonth();
+                
+                console.log($.inArray(m, months))
+
+                if ((y < currentYear || (y === currentYear && m < currentMonth)) && y !== settings.selectedYear) {
+                    $(this).addClass("ui-state-disabled") // 이전 월 비활성화
+                } else if ($.inArray(m, months) >= 0 && y === settings.selectedYear) {
+                    $(this).addClass("ui-state-disabled");
+                } else {
+                    $(this).removeClass("ui-state-disabled"); // 활성화 월
+                }
+
+            });
         },
 
         destroy: function () {

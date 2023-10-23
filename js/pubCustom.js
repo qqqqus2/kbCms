@@ -626,6 +626,7 @@
             $(".monitoring-date input").val(start.format("YYYY.MM.DD"));
 
             function monitoringDate(inValiDate) {
+                $(".prev-date").attr("disabled", false);
                 $(".monitoring-date #datepicker").daterangepicker({
                     startDate: start,
                     endDate: end,
@@ -668,6 +669,7 @@
                 });
             }
             function monitoringWeek(inValiDate) {
+                $(".prev-date").attr("disabled", false);
                 $(".monitoring-date #datepicker")
                     .daterangepicker({
                         startDate: moment().isoWeekday(1),
@@ -745,27 +747,23 @@
                                 " ~ " +
                                 picker.endDate.format("YYYY.MM.DD")
                         );
+                        $(".prev-date").attr("disabled", false);
                     });
             }
             function monitoringMonth() {
-                var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8];
 
                 $(".monitoring-date #monthpicker").monthpicker({
                     pattern: "yyyy.mm",
                     selectedYear: 2023, // 
                 }).bind('monthpicker-change-year',function (e, year) {
-                    // 2023년 이전에는 
+                    // 2023년 이외의 년도 
                     if(year !== 2023){
-                        // console.log('전월 활성화');
                         var disabledMonths = [];
                         $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths);
-                        // $(".ui-state-disabled").on("click", function () {
-                        //     return false;
-                        // });
                     } 
                     if(year == 2023){
-                        // console.log('10월 전달 비활성화');
-                        var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                        var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8];
                         $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths);
                     }
                 }); 
@@ -774,10 +772,16 @@
             
             function monitorCalendar() {
                 const $monitorDate = $(".monitoring-date");
+                $(".prev-date").attr("disabled", false);
 
-                $(".prev-date").on("click", function () {
+                $(".prev-date").on("click", function (e) {
                     const inValiDatePrev = new Date(inValiDate);
                     const inValiDateYear = inValiDatePrev.getFullYear();
+                    const inValiDateMonth = (inValiDatePrev.getMonth() + 1).toString().padStart(2, '0'); // 월을 2자리 숫자로
+                    const inValiDateDay = (inValiDatePrev.getDate() + 1).toString().padStart(2, '0'); // 일을 2자리 숫자로
+
+                    // 시작 날짜
+                    const formattedStartDate = `${inValiDateYear}.${inValiDateMonth}.${inValiDateDay}`;
 
                     if ($monitorDate.hasClass("month")) {
                         // 현재 선택된 월 값을 가져옴
@@ -789,7 +793,7 @@
                         //월과 년도 조합
                         const formattedDate = `${inValiDateYear}.${inValiMonth < 10 ? '0' : ''}${inValiMonth}`;
                         const currentMonthCompare = new Date(currentMonth);
-                        const compareMonth = `${currentMonthCompare.getFullYear()}.${currentMonthCompare.getMonth() +1  < 10 ? '0' : ''}${currentMonthCompare.getMonth() + 1}`;
+                        const compareMonth = `${currentMonthCompare.getFullYear()}.${currentMonthCompare.getMonth() + 1  < 10 ? '0' : ''}${currentMonthCompare.getMonth() + 1}`;
 
                         // 현재 선택된 월을 "yyyy.mm" 형식에서 분해
                         var parts = currentMonth.split(".");
@@ -833,12 +837,6 @@
                         monitoringMonth();
                     } else if ($monitorDate.hasClass("week")) {
 
-                        const inValiDateMonth = (inValiDatePrev.getMonth() + 1).toString().padStart(2, '0'); // 월을 2자리 숫자로
-                        const inValiDateDay = (inValiDatePrev.getDate() + 1).toString().padStart(2, '0'); // 일을 2자리 숫자로
-
-                        // 시작 날짜
-                        const formattedStartDate = `${inValiDateYear}.${inValiDateMonth}.${inValiDateDay}`;
-
                         // 7일 뒤의 날짜 계산
                         const compareEndDate = new Date(inValiDatePrev);
                         compareEndDate.setDate(inValiDatePrev.getDate() + 7);
@@ -864,21 +862,15 @@
                         var lastStart = start.clone().subtract(1, "weeks");
                         var lastEnd = end.clone().subtract(1, "weeks");
 
-                        if (compareRange === weekrange) {
+                        $("#datepicker").val(dateRange.startDate.format("YYYY.MM.DD") + " ~ " + dateRange.endDate.format("YYYY.MM.DD"));
+                        // $("#datepicker").val(weekrange);
+                        $("#date-hidden").val(lastStart.format("YYYY.MM.DD") + " ~ " + lastEnd.format("YYYY.MM.DD"));
+
+                        if (compareRange === $("#datepicker").val()) {
                             alert("이전 주로는 검색할수 없습니다.");
-                            return false;
-                        } else {
-                            $("#datepicker").val(
-                                dateRange.startDate.format("YYYY.MM.DD") +
-                                    " ~ " +
-                                    dateRange.endDate.format("YYYY.MM.DD")
-                            );
-                            
-                            $("#datepicker").val(weekrange);
-
-                            $("#date-hidden").val(lastStart.format("YYYY.MM.DD") + " ~ " + lastEnd.format("YYYY.MM.DD"));
+                            $(this).attr("disabled", true);
                         }
-
+                        
                     } else {
                         var dateRange = $("#datepicker").data("daterangepicker");
 
@@ -890,11 +882,16 @@
                         var lastStart = start.clone().subtract(1, "days");
 
                         $("#date-hidden").val(lastStart.format("YYYY.MM.DD"));
-                        
+                     
+                        if (formattedStartDate === start.format("YYYY.MM.DD")) {
+                            alert("이전 일로는 검색할수 없습니다.")
+                            $(this).attr("disabled", true);
+                        }
                     }
                 });
 
                 $(".next-date").on("click", function () {
+                    $(".prev-date").attr("disabled", false);
                     if ($monitorDate.hasClass("month")) {
                         // 현재 선택된 월 값을 가져옴
                         var currentMonth = $("#monthpicker").val();
@@ -950,6 +947,7 @@
                                 lastEnd.format("YYYY.MM.DD")
                         );
 
+                        
                         // console.log($("#date-hidden").val());
                     } else {
                         var dateRange =
