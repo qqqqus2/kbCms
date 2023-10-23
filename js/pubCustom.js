@@ -157,6 +157,7 @@
 
             //커스텀 셀렉트
             customSelect();
+            customSelectUI();
 
             //툴팁
             tooltips();
@@ -1448,74 +1449,99 @@ function customSelect() {
 
         x[i].appendChild(b);
 
-        const bodyElement = document.body;
-        bodyElement.addEventListener("click", function (e) {
-            // 클릭된 요소가 a 요소가 아니면 closeAllSelect 함수를 호출합니다.
-            if (!e.target.classList.contains("select-arrow")) {
-                closeAllSelect();
-            }
-        });
-        $(window).on("resize", function () {
-            closeAllSelect();
-        });
-
         a.addEventListener("click", function (e) {
             e.stopPropagation();
             closeAllSelect(this);
             this.nextSibling.classList.toggle("select-hide");
             this.classList.toggle("select-arrow-active");
+            customSelectFixedPosition();
         });
+    }
 
-        $(window).scroll(function () {
-            $('.custom-select').each(function(){
-                if (!$(this).hasClass("noClose")) {
-                    closeAllSelect();
+}
+function customSelectFixedPosition(){
+    const customSelect = document.querySelectorAll('.custom-select');
+    if(customSelect.length){
+        customSelect.forEach(function(select){
+            if(select.classList.contains('fixed')){
+                const selectWidth = select.offsetWidth;
+                const selectHeight = select.offsetHeight;
+                const selectLeft = getOffset(select).left;
+                const selectTop = getOffset(select).top;
+                const items = select.querySelector('.select-items');
+                if(items){
+                    items.style.minWidth = selectWidth + 'px';
+                    items.style.left = selectLeft + 'px';
+                    items.style.top = selectTop + selectHeight + 'px';
                 }
-            })
-            
+            }
         });
     }
-
-    function closeAllSelect(elmnt) {
-        var x,
-            y,
-            i,
-            xl,
-            yl,
-            arrNo = [];
-        x = document.getElementsByClassName("select-items");
-        y = document.getElementsByClassName("select-selected");
-        xl = x.length;
-        yl = y.length;
-        for (i = 0; i < yl; i++) {
-            if (elmnt == y[i]) {
-                arrNo.push(i);
-            } else {
-                y[i].classList.remove("select-arrow-active");
-            }
-        }
-        for (i = 0; i < xl; i++) {
-            if (arrNo.indexOf(i)) {
-                x[i].classList.add("select-hide");
-            }
-        }
-    }
-
-    // 셀렉트 박스 옵션 fixed로 변경
-    $(".select-selected").each(function () {
-        const $this = $(this);
-
-        if ($this.parents(".custom-select").hasClass("fixed")) {
-            $this.click(function () {
-                const customSelectWidth = $this.outerWidth();
-                const customSelectLeft = $this.offset().left;
-                const customSelectTop = $this.offset().top;
-                $this.siblings(".select-items").css({
-                    left: customSelectLeft + "px",
-                    top: customSelectTop + 32 + "px",
-                    "min-width": customSelectWidth,
-                });
-            });
+    
+}
+function customSelectUI() {
+    document.addEventListener("click", function (e) {
+        // 클릭된 요소가 a 요소가 아니면 closeAllSelect 함수를 호출합니다.
+        if (!e.target.classList.contains('select-arrow')) {
+            closeAllSelect();
         }
     });
+    window.addEventListener("resize", customSelectFixedPosition);
+
+    // $(window).scroll(function () {
+    //     $('.custom-select').each(function(){
+    //         if (!$(this).hasClass("noClose")) {
+    //             closeAllSelect();
+    //         }
+    //     })
+    // });
 }
+function closeAllSelect(elmnt) {
+    var arrNo = [];
+    var x = document.getElementsByClassName("select-items");
+    var y = document.getElementsByClassName("select-selected");
+    var xl = x.length;
+    var yl = y.length;
+    for (i = 0; i < yl; i++) {
+        if (elmnt === y[i]) {
+            arrNo.push(i);
+        } else {
+            y[i].classList.remove("select-arrow-active");
+        }
+    }
+    for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+            x[i].classList.add("select-hide");
+        }
+    }
+}
+const getOffset = function (element) {
+    let $el = element;
+    let $elX = 0;
+    let $elY = 0;
+    let isSticky = false;
+    while ($el && !Number.isNaN($el.offsetLeft) && !Number.isNaN($el.offsetTop)) {
+        let $style = window.getComputedStyle($el);
+        // const $matrix = new WebKitCSSMatrix($style.transform);
+        if ($style.position === 'sticky') {
+            isSticky = true;
+            $el.style.position = 'static';
+        }
+        $elX += $el.offsetLeft;
+        // $elX += $matrix.m41; //translateX
+        $elY += $el.offsetTop;
+        // $elY += $matrix.m42;  //translateY
+        if (isSticky) {
+            isSticky = false;
+            $el.style.position = '';
+            if ($el.getAttribute('style') === '') $el.removeAttribute('style');
+        }
+        $el = $el.offsetParent;
+        if ($el !== null) {
+            $style = window.getComputedStyle($el);
+            $elX += parseInt($style.borderLeftWidth);
+            $elY += parseInt($style.borderTopWidth);
+        }
+    }
+    return { left: $elX, top: $elY };
+};
