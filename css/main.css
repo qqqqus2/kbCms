@@ -27833,7 +27833,9 @@ input::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 
 .form-item {
@@ -28130,10 +28132,8 @@ input[type=number] {
   background: none;
   top: 1.2rem;
   left: 0.6rem;
-  -webkit-transform-origin: left top;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform-origin: left top;
-  -moz-transform: rotate(-45deg);
+  transform-origin: left top;
+  transform: rotate(-45deg);
   animation-timing-function: ease-in-out;
   animation-duration: 0.5s;
   animation-name: checkmark;

@@ -66,10 +66,10 @@ $today-color : #202020 !default;
       border: 1px #2E74F2 solid;
     }
 
-    .pmu-button:hover {
+    //.pmu-button:hover {
       //	background : $background-hover;
       //	color      : $color-hover;
-    }
+    //}
 
     .pmu-not-in-month {
       color: $not-in-month;
@@ -91,9 +91,9 @@ $today-color : #202020 !default;
       border-radius: 50%;
     }
 
-    .pmu-not-in-month.pmu-selected {
+    //.pmu-not-in-month.pmu-selected {
       // background : $not-in-month-selected-background;
-    }
+    //}
 
     nav {
       color: $nav-color;
@@ -376,9 +376,9 @@ $today-color : #202020 !default;
   display: block;
 }
 
-.daterangepicker.auto-apply .drp-buttons {
+//.daterangepicker.auto-apply .drp-buttons {
   // display: none;
-}
+//}
 
 .daterangepicker .drp-calendar {
   display: none;
