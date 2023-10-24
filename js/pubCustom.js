@@ -1379,42 +1379,41 @@ function customSelect() {
 
 const uiSelect = {
     class: {
+        init: 'init',
         wrap: 'custom-select',
         disabled: 'disabled',
         btn: 'custom-select-btn',
         btnActive: 'open',
         options: 'custom-select-options',
-        optionsHide: 'select-hide',
         option: 'custom-select-option',
-        optionSelected: 'selected',
+        optionSelected: 'selected'
     },
-    ready: function(){
-        const customSelects = document.querySelectorAll('.'+uiSelect.class.wrap);
-        if(!customSelects.length) return;
-        
-        customSelects.forEach(function(_select){
-            const selElmnt = _select.querySelector('select')
-            function changeSelect(){
-                // console.log('change')
-                if(selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
+    ready: function () {
+        const customSelects = document.querySelectorAll('.' + uiSelect.class.wrap);
+        if (!customSelects.length) return;
+
+        customSelects.forEach(function (_select) {
+            const selElmnt = _select.querySelector('select');
+            function changeSelect() {
+                console.log('change')
+                if (selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
                 else _select.classList.remove(uiSelect.class.disabled);
                 uiSelect.btn(_select);
                 uiSelect.options(_select);
-                
             }
             changeSelect();
-            if(!selElmnt.classList.contains('_change')) {
+            if (!selElmnt.classList.contains(uiSelect.class.init)) {
                 selElmnt.addEventListener('change', changeSelect);
-                selElmnt.classList.add('_change');
+                selElmnt.classList.add(uiSelect.class.init);
             }
         });
     },
-    btn: function(el){
+    btn: function (el) {
         const selElmnt = el.querySelector('select');
         const seletedIndex = selElmnt.selectedIndex;
         const selValue = selElmnt.value;
-        let btn = el.querySelector('.'+uiSelect.class.btn);
-        if(!btn){
+        let btn = el.querySelector('.' + uiSelect.class.btn);
+        if (!btn) {
             const Html = document.createElement('button');
             Html.type = 'button';
             Html.className = uiSelect.class.btn;
@@ -1426,42 +1425,41 @@ const uiSelect = {
         btn.dataset.value = selValue;
         btn.dataset.index = seletedIndex;
 
-        if(selElmnt.disabled) btn.disabled = true;
+        if (selElmnt.disabled) btn.disabled = true;
         else btn.disabled = false;
     },
-    options: function(el){
+    options: function (el) {
         const selElmnt = el.querySelector('select');
         const seletedIndex = selElmnt.selectedIndex;
-        const selValue = selElmnt.value;
-        let options = el.querySelector('.'+uiSelect.class.options);
-        if(!options){
+        let options = el.querySelector('.' + uiSelect.class.options);
+        if (!options) {
             const Html = document.createElement('div');
-            Html.className = uiSelect.class.options + ' ' + uiSelect.class.optionsHide;
+            Html.className = uiSelect.class.options;
             el.appendChild(Html);
             options = Html;
         }
         let optionsHtml = '';
-        const selOptions = selElmnt.options
-        if(selOptions.length){
-            Array.from(selOptions).forEach(function(option, i) {
-                const selected = i === seletedIndex ? ' '+uiSelect.class.optionSelected: '';
-                const disabled = option.disabled ? ' disabled': '';
-                optionsHtml += '<button type="button" class="'+uiSelect.class.option+selected+'" data-value="'+option.value+'" data-index="'+i+'"'+disabled+'>'+option.textContent+'</button>';
+        const selOptions = selElmnt.options;
+        if (selOptions.length) {
+            Array.from(selOptions).forEach(function (option, i) {
+                const selected = i === seletedIndex ? ' ' + uiSelect.class.optionSelected : '';
+                const disabled = option.disabled ? ' disabled' : '';
+                optionsHtml += '<button type="button" class="' + uiSelect.class.option + selected + '" data-value="' + option.value + '" data-index="' + i + '"' + disabled + '>' + option.textContent + '</button>';
             });
             options.innerHTML = optionsHtml;
         }
     },
-    position: function(){
-        const customSelect = document.querySelectorAll('.'+uiSelect.class.wrap);
-        if(!customSelect.length) return;
-        customSelect.forEach(function(_select){
-            if(_select.classList.contains('fixed')){
+    position: function () {
+        const customSelect = document.querySelectorAll('.' + uiSelect.class.wrap);
+        if (!customSelect.length) return;
+        customSelect.forEach(function (_select) {
+            if (_select.classList.contains('fixed')) {
                 const selectWidth = _select.offsetWidth;
                 const selectHeight = _select.offsetHeight;
                 const selectLeft = getOffset(_select).left;
                 const selectTop = getOffset(_select).top;
-                const items = _select.querySelector('.'+uiSelect.class.options);
-                if(items && isElementVisible(_select)){
+                const items = _select.querySelector('.' + uiSelect.class.options);
+                if (items && isElementVisible(_select)) {
                     items.style.minWidth = selectWidth + 'px';
                     items.style.left = selectLeft + 'px';
                     items.style.top = selectTop + selectHeight + 'px';
@@ -1469,102 +1467,86 @@ const uiSelect = {
             }
         });
     },
-    close: function(el){
-        const customSelect = document.querySelectorAll('.'+uiSelect.class.wrap);
-        if(!customSelect.length) return;
-        customSelect.forEach(function(_select){
-            let btn = _select.querySelector('.'+uiSelect.class.btn);
-            if(btn !== el){
-                if(btn) btn.classList.remove(uiSelect.class.btnActive);
-                let options = _select.querySelector('.'+uiSelect.class.options);
-                if(options) options.classList.add(uiSelect.class.optionsHide);
-            }
-        })
+    close: function (el) {
+        const customSelect = document.querySelectorAll('.' + uiSelect.class.wrap);
+        if (!customSelect.length) return;
+        customSelect.forEach(function (_select) {
+            let btn = _select.querySelector('.' + uiSelect.class.btn);
+            if (btn && btn !== el) btn.classList.remove(uiSelect.class.btnActive);
+        });
     },
-    clickOption: function(el){
+    clickOption: function (el) {
         const $el = el;
         const $idx = $el.dataset.index;
-        const $wrap = $el.closest('.'+uiSelect.class.wrap);
+        const $wrap = $el.closest('.' + uiSelect.class.wrap);
         const selElmnt = $wrap.querySelector('select');
         if (selElmnt && $idx >= 0 && $idx < selElmnt.options.length) {
             selElmnt.selectedIndex = $idx;
-            selElmnt.dispatchEvent(new Event("change"));
+            selElmnt.dispatchEvent(new Event('change'));
         }
     },
-    UI: function(){
-        document.addEventListener("click", function (e) {
+    UI: function () {
+        document.addEventListener('click', function (e) {
             const $target = e.target;
-            if($target.classList.contains(uiSelect.class.btn)){
+            if ($target.classList.contains(uiSelect.class.btn)) {
                 e.preventDefault();
                 uiSelect.close($target);
-                $target.nextSibling.classList.toggle(uiSelect.class.optionsHide);
                 $target.classList.toggle(uiSelect.class.btnActive);
                 uiSelect.position();
-            }else {
+            } else {
                 uiSelect.close();
             }
 
-            if($target.classList.contains(uiSelect.class.option)){
+            if ($target.classList.contains(uiSelect.class.option)) {
                 e.preventDefault();
                 uiSelect.clickOption($target);
             }
         });
-        window.addEventListener("resize", uiSelect.position);
+        window.addEventListener('resize', uiSelect.position);
     }
-}
+};
 
-function getOffset (element) {
+function getOffset(element) {
     let $el = element;
     let $elX = 0;
     let $elY = 0;
     let isSticky = false;
     while ($el && !Number.isNaN($el.offsetLeft) && !Number.isNaN($el.offsetTop)) {
-        let $style = window.getComputedStyle($el);
-        // const $matrix = new WebKitCSSMatrix($style.transform);
-        if ($style.position === 'sticky') {
-            isSticky = true;
-            $el.style.position = 'static';
-        }
-        $elX += $el.offsetLeft;
-        // $elX += $matrix.m41; //translateX
-        $elY += $el.offsetTop;
-        // $elY += $matrix.m42;  //translateY
-        if (isSticky) {
-            isSticky = false;
-            $el.style.position = '';
-            if ($el.getAttribute('style') === '') $el.removeAttribute('style');
-        }
-        $el = $el.offsetParent;
-        if ($el !== null) {
-            $style = window.getComputedStyle($el);
-            $elX += parseInt($style.borderLeftWidth);
-            $elY += parseInt($style.borderTopWidth);
-        }
+    let $style = window.getComputedStyle($el);
+    if ($style.position === 'sticky') {
+        isSticky = true;
+        $el.style.position = 'static';
+    }
+    $elX += $el.offsetLeft;
+    $elY += $el.offsetTop;
+    if (isSticky) {
+        isSticky = false;
+        $el.style.position = '';
+        if ($el.getAttribute('style') === '') $el.removeAttribute('style');
+    }
+    $el = $el.offsetParent;
+    if ($el !== null) {
+        $style = window.getComputedStyle($el);
+        $elX += parseInt($style.borderLeftWidth);
+        $elY += parseInt($style.borderTopWidth);
+    }
     }
     return { left: $elX, top: $elY };
-};
+}
 
 function isElementVisible(element) {
-    // 요소의 display 속성을 가져옵니다.
     var computedStyle = getComputedStyle(element);
-    var displayValue = computedStyle.getPropertyValue("display");
+    var displayValue = computedStyle.getPropertyValue('display');
+    if (displayValue === 'none') return false;
 
-    // display: none 이면 요소가 화면에서 숨겨진 상태입니다.
-    if (displayValue === "none") {
-        return false;
-    }
-
-    // 부모 요소의 display 속성도 모두 확인합니다.
     var parent = element.parentElement;
     while (parent) {
+        console.log(parent)
         var parentComputedStyle = getComputedStyle(parent);
-        var parentDisplayValue = parentComputedStyle.getPropertyValue("display");
-        if (parentDisplayValue === "none") {
-            return false; // 부모 요소 중 하나라도 숨겨진 경우
-        }
+        var parentDisplayValue = parentComputedStyle.getPropertyValue('display');
+        if (parentDisplayValue === 'none') return false;
         parent = parent.parentElement;
     }
 
-    // 모든 요소 및 부모 요소가 화면에 보이는 경우
     return true;
 }

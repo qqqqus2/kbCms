@@ -28330,6 +28330,24 @@ input[type=number] {
   margin-left: 0;
 }
 
+.custom-select select,
+.custom-select-btn,
+.custom-select-option {
+  position: relative;
+  width: 100%;
+  height: 3.2rem;
+  padding: 0.6rem 1.1rem;
+  line-height: 1.8rem;
+  border: 0.1rem solid var(--line-color-ccc);
+  white-space: nowrap;
+  text-align: left;
+}
+.custom-select select:disabled,
+.custom-select-btn:disabled,
+.custom-select-option:disabled {
+  cursor: default;
+}
+
 .custom-select {
   position: relative;
   min-width: 15rem;
@@ -28339,10 +28357,17 @@ input[type=number] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: 2.4rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E");
+  padding-right: 2.4rem;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right center/2.4rem auto;
+}
+.custom-select select:hover:not(:disabled) {
+  border-color: var(--primary-blue-color);
+}
+.custom-select select:disabled {
+  background-color: var(--background-color);
+}
+.custom-select select.init {
+  display: none;
 }
 .custom-select.type-2 {
   font-size: 1.6rem;
@@ -28365,30 +28390,15 @@ input[type=number] {
   background: rgba(46, 116, 242, 0.05);
 }
 .custom-select.type-2 .custom-select-option.selected {
-  font-weight: 500;
+  font-weight: 700;
   background: none;
 }
 .custom-select.fixed .custom-select-options {
   position: fixed;
 }
 
-.custom-select-btn,
-.custom-select-option {
-  position: relative;
-  width: 100%;
-  height: 3.2rem;
-  padding: 0.6rem 1.1rem;
-  line-height: 1.8rem;
-  border: 0.1rem solid var(--line-color-ccc);
-  white-space: nowrap;
-  text-align: left;
-}
-.custom-select-btn:disabled,
-.custom-select-option:disabled {
-  cursor: default;
-}
-
 .custom-select-btn {
+  display: block;
   min-width: 10rem;
   border-radius: 0.3rem;
   padding-right: 2.4rem;
@@ -28414,7 +28424,13 @@ input[type=number] {
 .custom-select-btn.open::after {
   transform: translateY(-50%) rotate3d(1, 0, 0, 180deg);
 }
+.custom-select-btn.open ~ .custom-select-options {
+  display: block;
+}
 
+.custom-select-option {
+  display: block;
+}
 .custom-select-option:hover:not(:disabled), .custom-select-option.selected {
   background-color: rgba(0, 0, 0, 0.05);
 }
@@ -28426,6 +28442,7 @@ input[type=number] {
 }
 
 .custom-select-options {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -28436,10 +28453,6 @@ input[type=number] {
   z-index: 89;
   border-radius: 0.3rem;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.select-hide {
-  display: none;
 }
 
 @font-face {

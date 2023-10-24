@@ -533,20 +533,39 @@ input[type=number] {
 }
 
 // 커스텀 셀렉트
+.custom-select select,
+.custom-select-btn,
+.custom-select-option{
+  position: relative;
+  width: 100%;
+  height: 3.2rem;
+  padding: 0.6rem 1.1rem;
+  line-height: 1.8rem;
+  border: 0.1rem solid var(--line-color-ccc);
+  white-space: nowrap;
+  text-align: left;
+  &:disabled {
+    cursor: default;
+  }
+}
+
 .custom-select{
   position: relative;
   min-width: 15rem;
   text-align: left;  
   select{
-    // opacity: 0;
-    // height: 0;
-    // width: 0;
-    // position: absolute;
     appearance: none;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: 2.4rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E");
+    padding-right: 2.4rem;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right center / 2.4rem auto;
+    &:hover:not(:disabled){
+      border-color: var(--primary-blue-color);
+    }
+    &:disabled{
+      background-color: var(--background-color);
+    }
+    &.init{
+      display: none;
+    }
   }
   &.type-2{
     font-size: 1.6rem;
@@ -567,7 +586,7 @@ input[type=number] {
         background: rgba(46, 116, 242, 0.05);
       }
       &.selected{
-        font-weight: 500;
+        font-weight: 700;
         background: none;
       }
     }
@@ -578,22 +597,9 @@ input[type=number] {
     }
   }
 }
-.custom-select-btn,
-.custom-select-option{
-  position: relative;
-  width: 100%;
-  height: 3.2rem;
-  padding: 0.6rem 1.1rem;
-  line-height: 1.8rem;
-  border: 0.1rem solid var(--line-color-ccc);
-  white-space: nowrap;
-  text-align: left;
-  &:disabled {
-    cursor: default;
-  }
-}
 
 .custom-select-btn {
+  display: block;
   min-width: 10rem;
   border-radius: 0.3rem;
   padding-right: 2.4rem;
@@ -619,10 +625,14 @@ input[type=number] {
     &::after {
       transform: translateY(-50%) rotate3d(1, 0, 0, 180deg);
     }
+    ~ .custom-select-options {
+      display: block;
+    }
   }
 }
 
 .custom-select-option{
+  display: block;
   &:hover:not(:disabled), 
   &.selected {
     background-color: rgba(0, 0, 0, 0.05);
@@ -636,6 +646,7 @@ input[type=number] {
 }
 
 .custom-select-options {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -648,8 +659,3 @@ input[type=number] {
   box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.1);
 }
 
-
-
-.select-hide {
-  display: none;
-}
