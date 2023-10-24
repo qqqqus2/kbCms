@@ -1395,7 +1395,6 @@ const uiSelect = {
         customSelects.forEach(function (_select) {
             const selElmnt = _select.querySelector('select');
             function changeSelect() {
-                console.log('change')
                 if (selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
                 else _select.classList.remove(uiSelect.class.disabled);
                 uiSelect.btn(_select);
@@ -1403,7 +1402,8 @@ const uiSelect = {
             }
             changeSelect();
             if (!selElmnt.classList.contains(uiSelect.class.init)) {
-                selElmnt.addEventListener('change', changeSelect);
+                if (typeof jQuery != 'undefined')  $(selElmnt).change(changeSelect);
+                else selElmnt.addEventListener('change', changeSelect);
                 selElmnt.classList.add(uiSelect.class.init);
             }
         });
@@ -1482,7 +1482,9 @@ const uiSelect = {
         const selElmnt = $wrap.querySelector('select');
         if (selElmnt && $idx >= 0 && $idx < selElmnt.options.length) {
             selElmnt.selectedIndex = $idx;
-            selElmnt.dispatchEvent(new Event('change'));
+            if (typeof jQuery != 'undefined')  $(selElmnt).change();
+            else selElmnt.dispatchEvent(new Event('change'));
+            
         }
     },
     UI: function () {
