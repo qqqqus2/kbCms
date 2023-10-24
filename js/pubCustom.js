@@ -1446,8 +1446,8 @@ const uiSelect = {
                 const disabled = option.disabled ? ' disabled' : '';
                 optionsHtml += '<button type="button" class="' + uiSelect.class.option + selected + '" data-value="' + option.value + '" data-index="' + i + '"' + disabled + '>' + option.textContent + '</button>';
             });
-            options.innerHTML = optionsHtml;
         }
+        options.innerHTML = optionsHtml;
     },
     position: function () {
         const customSelect = document.querySelectorAll('.' + uiSelect.class.wrap);
@@ -1483,7 +1483,6 @@ const uiSelect = {
             selElmnt.selectedIndex = $idx;
             if (typeof jQuery != 'undefined')  $(selElmnt).change();
             else selElmnt.dispatchEvent(new Event('change'));
-            
         }
     },
     UI: function () {
