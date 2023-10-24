@@ -533,7 +533,7 @@ input[type=number] {
 }
 
 // 커스텀 셀렉트
-.custom-select select,
+.select select,
 .custom-select-btn,
 .custom-select-option{
   position: relative;
@@ -549,10 +549,9 @@ input[type=number] {
   }
 }
 
-.custom-select{
+.select {
   position: relative;
   min-width: 15rem;
-  text-align: left;  
   select{
     appearance: none;
     padding-right: 2.4rem;
@@ -563,6 +562,12 @@ input[type=number] {
     &:disabled{
       background-color: var(--background-color);
     }
+  }
+}
+
+.custom-select{
+  text-align: left;  
+  select{
     &.init{
       display: none;
     }
