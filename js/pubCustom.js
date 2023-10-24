@@ -1468,11 +1468,10 @@ const uiSelect = {
         });
     },
     close: function (el) {
-        const customSelect = document.querySelectorAll('.' + uiSelect.class.wrap);
-        if (!customSelect.length) return;
-        customSelect.forEach(function (_select) {
-            let btn = _select.querySelector('.' + uiSelect.class.btn);
-            if (btn && btn !== el) btn.classList.remove(uiSelect.class.btnActive);
+        const selectBtn = document.querySelectorAll('.' + uiSelect.class.btn + '.'+ uiSelect.class.btnActive);
+        if (!selectBtn.length) return;
+        selectBtn.forEach(function (_btn) {
+            if (_btn !== el) _btn.classList.remove(uiSelect.class.btnActive);
         });
     },
     clickOption: function (el) {
