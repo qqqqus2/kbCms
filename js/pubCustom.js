@@ -1541,7 +1541,6 @@ function isElementVisible(element) {
 
     var parent = element.parentElement;
     while (parent) {
-        console.log(parent)
         var parentComputedStyle = getComputedStyle(parent);
         var parentDisplayValue = parentComputedStyle.getPropertyValue('display');
         if (parentDisplayValue === 'none') return false;
