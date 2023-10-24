@@ -8,7 +8,7 @@
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
-  src: local("KBFGTextL"), local("KBFGTextL"), url("../font/KBFGTextL.eot") format("eot"), url("../font/KBFGTextL.woff") format("woff"), url("../font/KBFGTextL.otf") format("opentype");
+  src: local("KBFGTextL"), local("KBFGTextL"), url("../font/KBFGTextL.woff") format("woff"), url("../font/KBFGTextL.eot") format("eot"), url("../font/KBFGTextL.otf") format("opentype");
 }
 /* KBFGTextM : 500 */
 @font-face {
@@ -16,7 +16,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: fallback;
-  src: local("KBFGTextM"), local("KBFGTextM"), url("../font/KBFGTextM.eot") format("eot"), url("../font/KBFGTextM.woff") format("woff"), url("../font/KBFGTextM.otf") format("opentype");
+  src: local("KBFGTextM"), local("KBFGTextM"), url("../font/KBFGTextM.woff") format("woff"), url("../font/KBFGTextM.eot") format("eot"), url("../font/KBFGTextM.otf") format("opentype");
 }
 /* KBFGTextB : 700 */
 @font-face {
@@ -24,7 +24,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: local("KBFGTextB"), local("KBFGTextB"), url("../font/KBFGTextB.ttf") format("truetype");
+  src: local("KBFGTextB"), local("KBFGTextB"), url("../font/KBFGTextB.woff") format("woff"), url("../font/KBFGTextB.eot") format("eot"), url("../font/KBFGTextB.otf") format("opentype"), url("../font/KBFGTextB.ttf") format("truetype");
 }
 /* @mixin */
 :root {
@@ -28369,15 +28369,16 @@ input[type=number] {
 .custom-select select.init {
   display: none;
 }
-.custom-select.type-2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-}
+.custom-select.type-2 select,
 .custom-select.type-2 .custom-select-btn {
   border: 0;
   padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
   line-height: 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
+.custom-select.type-2 select::after,
 .custom-select.type-2 .custom-select-btn::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M18 9L12 15L6 9' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
