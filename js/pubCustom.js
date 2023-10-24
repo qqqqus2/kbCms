@@ -157,6 +157,7 @@
 
             //커스텀 셀렉트
             customSelect();
+            uiSelect.UI();
 
             //툴팁
             tooltips();
@@ -1373,85 +1374,146 @@ function tooltips() {
 
 // 커스텀 셀렉트
 function customSelect() {
-    select.init();
-    return;
-    var x, i, j, l, ll, selElmnt, a, b, c;
-
-    x = document.getElementsByClassName("custom-select");
-    l = x.length;
-
-    for (i = 0; i < l; i++) {
-        selElmnt = x[i].getElementsByTagName("select")[0];
-
-        if (selElmnt.selectedIndex >= 0) {
-            if (selElmnt.disabled) {
-                x[i].classList.add("disabledSelect");
-                continue;
-            }
-        } else {
-            x[i].classList.add("disabledSelect");
-            x[i].classList.add("nullOption");
-            // x[i].querySelector('select').disabled = true;
-            continue;
-        }
-
-        ll = selElmnt.length;
-        a = document.createElement("div");
-        a.setAttribute("class", "select-selected");
-        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-        x[i].appendChild(a);
-
-        // console.log(selElmnt.selectedIndex)
-
-        b = document.createElement("div");
-        b.setAttribute("class", "select-items select-hide");
-
-        for (j = 0; j < ll; j++) {
-            c = document.createElement("div");
-            c.innerHTML = selElmnt.options[j].innerHTML;
-            c.addEventListener("click", function (e) {
-                var y, i, k, s, h, sl, yl;
-                s =
-                    this.parentNode.parentNode.getElementsByTagName(
-                        "select"
-                    )[0];
-                sl = s.length;
-
-                h = this.parentNode.previousSibling;
-                for (i = 0; i < sl; i++) {
-                    if (s.options[i].innerHTML == this.innerHTML) {
-                        s.selectedIndex = i;
-                        h.innerHTML = this.innerHTML;
-                        y =
-                            this.parentNode.getElementsByClassName(
-                                "same-as-selected"
-                            );
-
-                        yl = y.length;
-                        for (k = 0; k < yl; k++) {
-                            y[k].removeAttribute("class");
-                        }
-                        this.setAttribute("class", "same-as-selected");
-
-                        // 현재 선택된 select box의 값을 출력 console.log("Selected Value:",
-                        // s.options[s.selectedIndex].value);
-                        break;
-                    }
-                }
-                h.click();
-
-                // select 값이 변경되면 selectedItem() 함수 실행
-                s.dispatchEvent(new Event("change"));
-            });
-            b.appendChild(c);
-        }
-
-        x[i].appendChild(b);
-    }
-
+    uiSelect.ready();
 }
 
-const getOffset = function (element) {
+const uiSelect = {
+    class: {
+        wrap: 'custom-select',
+        disabled: 'disabled',
+        btn: 'custom-select-btn',
+        btnActive: 'open',
+        options: 'custom-select-options',
+        optionsHide: 'select-hide',
+        option: 'custom-select-option',
+        optionSelected: 'selected',
+    },
+    ready: function(){
+        const customSelects = document.querySelectorAll('.'+uiSelect.class.wrap);
+        if(!customSelects.length) return;
+        
+        customSelects.forEach(function(_select){
+            const selElmnt = _select.querySelector('select')
+            function changeSelect(){
+                // console.log('change')
+                if(selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
+                else _select.classList.remove(uiSelect.class.disabled);
+                uiSelect.btn(_select);
+                uiSelect.options(_select);
+                
+            }
+            changeSelect();
+            if(!selElmnt.classList.contains('_change')) {
+                selElmnt.addEventListener('change', changeSelect);
+                selElmnt.classList.add('_change');
+            }
+        });
+    },
+    btn: function(el){
+        const selElmnt = el.querySelector('select');
+        const seletedIndex = selElmnt.selectedIndex;
+        const selValue = selElmnt.value;
+        let btn = el.querySelector('.'+uiSelect.class.btn);
+        if(!btn){
+            const Html = document.createElement('button');
+            Html.type = 'button';
+            Html.className = uiSelect.class.btn;
+            el.appendChild(Html);
+            btn = Html;
+        }
+        const btnTxt = selElmnt.options[seletedIndex].innerHTML;
+        btn.innerHTML = btnTxt;
+        btn.dataset.value = selValue;
+        btn.dataset.index = seletedIndex;
+
+        if(selElmnt.disabled) btn.disabled = true;
+        else btn.disabled = false;
+    },
+    options: function(el){
+        const selElmnt = el.querySelector('select');
+        const seletedIndex = selElmnt.selectedIndex;
+        const selValue = selElmnt.value;
+        let options = el.querySelector('.'+uiSelect.class.options);
+        if(!options){
+            const Html = document.createElement('div');
+            Html.className = uiSelect.class.options + ' ' + uiSelect.class.optionsHide;
+            el.appendChild(Html);
+            options = Html;
+        }
+        let optionsHtml = '';
+        const selOptions = selElmnt.options
+        if(selOptions.length){
+            Array.from(selOptions).forEach(function(option, i) {
+                const selected = i === seletedIndex ? ' '+uiSelect.class.optionSelected: '';
+                const disabled = option.disabled ? ' disabled': '';
+                optionsHtml += '<button type="button" class="'+uiSelect.class.option+selected+'" data-value="'+option.value+'" data-index="'+i+'"'+disabled+'>'+option.textContent+'</button>';
+            });
+            options.innerHTML = optionsHtml;
+        }
+    },
+    position: function(){
+        const customSelect = document.querySelectorAll('.'+uiSelect.class.wrap);
+        if(!customSelect.length) return;
+        customSelect.forEach(function(_select){
+            if(_select.classList.contains('fixed')){
+                const selectWidth = _select.offsetWidth;
+                const selectHeight = _select.offsetHeight;
+                const selectLeft = getOffset(_select).left;
+                const selectTop = getOffset(_select).top;
+                const items = _select.querySelector('.'+uiSelect.class.options);
+                if(items && isElementVisible(_select)){
+                    items.style.minWidth = selectWidth + 'px';
+                    items.style.left = selectLeft + 'px';
+                    items.style.top = selectTop + selectHeight + 'px';
+                }
+            }
+        });
+    },
+    close: function(el){
+        const customSelect = document.querySelectorAll('.'+uiSelect.class.wrap);
+        if(!customSelect.length) return;
+        customSelect.forEach(function(_select){
+            let btn = _select.querySelector('.'+uiSelect.class.btn);
+            if(btn !== el){
+                if(btn) btn.classList.remove(uiSelect.class.btnActive);
+                let options = _select.querySelector('.'+uiSelect.class.options);
+                if(options) options.classList.add(uiSelect.class.optionsHide);
+            }
+        })
+    },
+    clickOption: function(el){
+        const $el = el;
+        const $idx = $el.dataset.index;
+        const $wrap = $el.closest('.'+uiSelect.class.wrap);
+        const selElmnt = $wrap.querySelector('select');
+        if (selElmnt && $idx >= 0 && $idx < selElmnt.options.length) {
+            selElmnt.selectedIndex = $idx;
+            selElmnt.dispatchEvent(new Event("change"));
+        }
+    },
+    UI: function(){
+        document.addEventListener("click", function (e) {
+            const $target = e.target;
+            if($target.classList.contains(uiSelect.class.btn)){
+                e.preventDefault();
+                uiSelect.close($target);
+                $target.nextSibling.classList.toggle(uiSelect.class.optionsHide);
+                $target.classList.toggle(uiSelect.class.btnActive);
+                uiSelect.position();
+            }else {
+                uiSelect.close();
+            }
+
+            if($target.classList.contains(uiSelect.class.option)){
+                e.preventDefault();
+                uiSelect.clickOption($target);
+            }
+        });
+        window.addEventListener("resize", uiSelect.position);
+    }
+}
+
+function getOffset (element) {
     let $el = element;
     let $elX = 0;
     let $elY = 0;
@@ -1505,107 +1567,4 @@ function isElementVisible(element) {
 
     // 모든 요소 및 부모 요소가 화면에 보이는 경우
     return true;
-}
-
-const select = {
-    init: function(){
-        select.ready();
-        select.UI();
-    },
-    class: {
-        wrap: 'custom-select',
-        btn: 'select-selected',
-        btnActive: 'select-arrow-active',
-        options: 'select-items',
-        optionsHide: 'select-hide',
-    },
-    ready: function(){
-        const customSelects = document.querySelectorAll('.'+select.class.wrap);
-        if(!customSelects.length) return;
-        customSelects.forEach(function(_select){
-            select.btn(_select);
-            select.options(_select);
-        });
-    },
-    btn: function(el){
-        const selElmnt = el.querySelector('select');
-        const seletedIndex = selElmnt.selectedIndex;
-        const selValue = selElmnt.value;
-        let btn = el.querySelector('.'+select.class.btn);
-        if(!btn){
-            const Html = document.createElement('button');
-            Html.className = select.class.btn;
-            el.appendChild(Html);
-            btn = Html;
-        }
-        const btnTxt = selElmnt.options[seletedIndex].innerHTML;
-        btn.innerHTML = btnTxt;
-        btn.dataset.value = selValue;
-    },
-    options: function(el){
-        const selElmnt = el.querySelector('select');
-        const seletedIndex = selElmnt.selectedIndex;
-        const selValue = selElmnt.value;
-        let options = el.querySelector('.'+select.class.options);
-        if(!options){
-            const Html = document.createElement('div');
-            Html.className = select.class.options + ' ' + select.class.optionsHide;
-            el.appendChild(Html);
-            options = Html;
-        }
-        let optionsHtml = '';
-        const selOptions = selElmnt.options
-        if(selOptions.length){
-            Array.from(selOptions).forEach(function(option, i) {
-                const selected = i === seletedIndex ? ' same-as-selected': '';
-                optionsHtml += '<button class="select-option'+selected+'" data-value="'+option.value+'">'+option.textContent+'</button>';
-            });
-            options.innerHTML = optionsHtml;
-        }
-    },
-    position: function(){
-        const customSelect = document.querySelectorAll('.'+select.class.wrap);
-        if(!customSelect.length) return;
-        customSelect.forEach(function(_select){
-            if(_select.classList.contains('fixed')){
-                const selectWidth = _select.offsetWidth;
-                const selectHeight = _select.offsetHeight;
-                const selectLeft = getOffset(_select).left;
-                const selectTop = getOffset(_select).top;
-                const items = _select.querySelector('.'+select.class.options);
-                if(items && isElementVisible(_select)){
-                    items.style.minWidth = selectWidth + 'px';
-                    items.style.left = selectLeft + 'px';
-                    items.style.top = selectTop + selectHeight + 'px';
-                }
-            }
-        });
-    },
-    close: function(el){
-        const customSelect = document.querySelectorAll('.'+select.class.wrap);
-        if(!customSelect.length) return;
-        customSelect.forEach(function(_select){
-            let btn = _select.querySelector('.'+select.class.btn);
-            if(btn !== el){
-                if(btn) btn.classList.remove(select.class.btnActive);
-                let options = _select.querySelector('.'+select.class.options);
-                if(options) options.classList.add(select.class.optionsHide);
-            }
-        })
-    },
-    UI: function(){
-        document.addEventListener("click", function (e) {
-            const $target = e.target;
-            if($target.classList.contains(select.class.btn)){
-                e.preventDefault();
-                select.close($target);
-                $target.nextSibling.classList.toggle(select.class.optionsHide);
-                $target.classList.toggle(select.class.btnActive);
-                select.position();
-            }else{
-                select.close();
-            }
-        });
-        window.addEventListener("resize", select.position);
-    }
 }
