@@ -1535,17 +1535,25 @@ function getOffset(element) {
 }
 
 function isElementVisible(element) {
-    var computedStyle = getComputedStyle(element);
-    var displayValue = computedStyle.getPropertyValue('display');
+    const computedStyle = getComputedStyle(element);
+    const displayValue = computedStyle.getPropertyValue('display');
     if (displayValue === 'none') return false;
-
-    var parent = element.parentElement;
+    let parent = element.parentElement;
     while (parent) {
-        var parentComputedStyle = getComputedStyle(parent);
-        var parentDisplayValue = parentComputedStyle.getPropertyValue('display');
+        const parentDisplayValue = window.getComputedStyle(parent).getPropertyValue('display');
         if (parentDisplayValue === 'none') return false;
         parent = parent.parentElement;
     }
-
     return true;
+}
+
+function findScrollableClosest(element) {
+    let parent = element.parentElement;
+    while (parent) {
+        const isScrollable = parent.scrollHeight > parent.clientHeight;
+        const position = window.getComputedStyle(parent).getPropertyValue('position');
+        if (isScrollable && position !== 'static') return parent;
+        parent = parent.parentElement;
+    }
+    return null;
 }
