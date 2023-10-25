@@ -28433,6 +28433,7 @@ input[type=number] {
   min-width: 10rem;
   border-radius: 0.3rem;
   padding-right: 2.4rem;
+  background-color: #fff;
 }
 .custom-select-btn:hover:not(:disabled) {
   border-color: var(--primary-blue-color);
