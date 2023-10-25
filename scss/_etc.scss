@@ -5,7 +5,7 @@
     line-height: 2.9rem;
     cursor: pointer;
     width: 100%;
-    .lbl{
+    .lbl {
       display: block;
       position: relative;
       &:after {
@@ -22,15 +22,15 @@
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 12H12M12 12H18M12 12V6M12 12V18' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       }
     }
-    
-    input{
+
+    input {
       overflow: hidden;
       width: 0;
       height: 0;
       position: absolute;
     }
-    .lbl{
-      font-weight: 700;
+    .lbl {
+      font-weight: 500;
     }
   }
   tr.menu-hide {
@@ -114,34 +114,33 @@
       border-radius: 0.4rem;
     }
 
-    input:checked+.lbl {
+    input:checked + .lbl {
       display: block;
       position: absolute;
       left: -1.2rem;
       top: 0;
       bottom: 0;
       right: -1.2rem;
-      background-color: #DFEAFF;
-
+      background-color: #dfeaff;
     }
 
     &.disabled-menu {
-      opacity: .3;
-      input:checked+.lbl {
+      opacity: 0.3;
+      input:checked + .lbl {
         background-color: #c8c8c8;
       }
     }
 
-    input:checked+.lbl+span {
+    input:checked + .lbl + span {
       // font-weight: 700;
       position: relative;
     }
 
-    &.menu-tit input:checked+.lbl {
+    &.menu-tit input:checked + .lbl {
       color: #fff;
     }
 
-    &.menu-tit input:checked+.lbl+span {
+    &.menu-tit input:checked + .lbl + span {
       font-weight: 700;
     }
   }
@@ -170,7 +169,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 12H12H18' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     }
   }
-
 }
 
 //사용중지 팝업 유의사항
@@ -193,7 +191,7 @@
       font-weight: 300;
       line-height: 2rem;
 
-      &+li {
+      & + li {
         margin-top: 0.4rem;
       }
 
@@ -223,7 +221,7 @@
   dl {
     padding: 2.4rem;
     padding-left: 14rem;
-    background-color: #FBFBFB;
+    background-color: #fbfbfb;
     border: 0.1rem solid #ddd;
     border-radius: 0.8rem;
     margin-bottom: 2.4rem;
@@ -251,7 +249,7 @@
   }
 
   .grp-wrap {
-    background-color: #FBFBFB;
+    background-color: #fbfbfb;
     border: 0.1rem solid #ddd;
     border-radius: 0.8rem;
     margin-bottom: 2.4rem;
@@ -269,13 +267,12 @@
   }
 }
 
-
 // 권한그룹 계정추가 팝업
 #grpRightAdd {
   .tit {
     font-size: 1.6rem;
     line-height: 2.4rem;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--gray_01_black);
   }
 
@@ -290,7 +287,7 @@
         }
       }
 
-      background-color: rgba(66, 68, 78, .04);
+      background-color: rgba(66, 68, 78, 0.04);
 
       td {
         color: var(--gray_999);
@@ -314,7 +311,7 @@
     .btn {
       width: 100%;
       font-size: 0;
-      border: 0.1rem #AEB6D0 solid;
+      border: 0.1rem #aeb6d0 solid;
       border-radius: 0.2rem;
       height: 100%;
       background-size: 2rem;
@@ -331,7 +328,7 @@
 
       &:active {
         transform: none;
-        background-color: #AEB6D0;
+        background-color: #aeb6d0;
       }
     }
   }
@@ -347,14 +344,14 @@
     display: inline-block;
     padding: 0.3rem;
 
-    &+.keyword-wrap {
+    & + .keyword-wrap {
       margin-top: 0;
     }
   }
 }
 
 .keyword-wrap {
-  &+.keyword-wrap {
+  & + .keyword-wrap {
     margin-top: 0.6rem;
   }
 
@@ -445,7 +442,7 @@
         padding-left: 0;
       }
 
-      &+li {
+      & + li {
         &::before {
           content: '';
           display: block;
@@ -455,7 +452,7 @@
           height: 1.6rem;
           top: 50%;
           transform: translateY(-50%);
-          background: #D9D9D9;
+          background: #d9d9d9;
           top: 50%;
         }
       }
@@ -475,7 +472,7 @@
 
 .reply-list {
   li {
-    &+li {
+    & + li {
       padding-top: 2.4rem;
       margin-top: 2.4rem;
       border-top: 0.1rem dashed var(--line-color-ccc);
@@ -508,7 +505,7 @@
             height: 1.6rem;
             top: 50%;
             transform: translateY(-50%);
-            background: #D9D9D9;
+            background: #d9d9d9;
             top: 50%;
           }
         }
@@ -524,7 +521,7 @@
         .btn {
           min-width: 5.7rem;
 
-          &+.btn {
+          & + .btn {
             margin-left: 0.6rem;
           }
         }
@@ -573,7 +570,7 @@
 
   .file-list {
     li {
-      &+li {
+      & + li {
         margin-top: 0.6rem;
       }
 
@@ -614,10 +611,10 @@
         display: inline-block;
       }
 
-      .inline-block{
-        & + .inline-block{
-          &::before{
-            content:',';
+      .inline-block {
+        & + .inline-block {
+          &::before {
+            content: ',';
             display: inline-block;
             margin-right: 0.5rem;
           }
@@ -733,34 +730,42 @@
     }
   }
 }
-.monitoring-contentsBox{
-  & + .monitoring-contentsBox{
+.monitoring-contentsBox {
+  & + .monitoring-contentsBox {
     margin-top: 4.8rem;
     padding-top: 1.6rem;
     border-top: 0.1rem solid var(--line-color-ccc);
   }
-  .tit{
+  .tit {
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 500;
   }
-  &.flex{
-    gap:2.4rem;
+  &.flex {
+    gap: 2.4rem;
   }
 }
-.common-table{
-  .title-wrap{
+.common-table {
+  .title-wrap {
     .tit {
       margin-bottom: 0;
       font-size: 1.6rem;
-      font-weight: 700;
+      font-weight: 500;
+    }
+    &.flex {
+      .left {
+        span {
+          font-size: 1.6rem;
+          font-weight: 500;
+        }
+      }
     }
   }
 }
 
-.form-item .monitoring-date{
+.form-item .monitoring-date {
   align-items: center;
   display: inline-flex;
-  #monthpicker{
+  #monthpicker {
     display: none;
     position: relative;
     border: 0;
@@ -772,17 +777,17 @@
     font-weight: 700;
     cursor: pointer;
   }
-  &.month{
-    #monthpicker{
+  &.month {
+    #monthpicker {
       display: block;
     }
-    #datepicker{
+    #datepicker {
       display: none;
     }
   }
 }
 
-.ui-datepicker{
+.ui-datepicker {
   position: absolute;
   color: inherit;
   background-color: #fff;
@@ -800,7 +805,7 @@
   font-size: 1.5rem;
   line-height: 1em;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.08);
-  .mtz-monthpicker-year{
+  .mtz-monthpicker-year {
     border-color: var(--line-color-ccc);
     padding: 0.6rem;
     height: 2.2rem;
@@ -811,23 +816,23 @@
     font-size: 1.3rem;
     font-weight: 700;
   }
-  table{
+  table {
     margin-top: 1rem;
-    td{
+    td {
       padding: 0.5rem !important;
       line-height: 1.2 !important;
       cursor: pointer !important;
       &.ui-state-active,
-      &:hover{
+      &:hover {
         background: var(--primary-yellow-color);
         color: var(--gray_01_black);
       }
-      &.ui-state-disabled{
+      &.ui-state-disabled {
         background: #fff;
         color: var(--gray_999);
         text-decoration: line-through;
         position: relative;
-        &:hover{
+        &:hover {
           background: #fff;
           color: var(--gray_999);
         }
@@ -836,10 +841,10 @@
   }
 }
 
-.chart-line-wrap{
+.chart-line-wrap {
   border: 0.1rem solid var(--line-color-ccc);
   position: relative;
-  #line-chart{
+  #line-chart {
     top: 50%;
     left: 52%;
     transform: translate(-50%, -50%);

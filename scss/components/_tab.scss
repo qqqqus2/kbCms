@@ -24,7 +24,7 @@
   white-space: nowrap;
   text-align: center;
   padding: 0 1.5rem;
-  &.w-minauto{
+  &.w-minauto {
     min-width: auto;
   }
   &::before {
@@ -38,17 +38,17 @@
     height: 0.1rem;
     background: #fff;
   }
-  &.w-auto{
+  &.w-auto {
     margin: 0 -0.8rem;
-    li{
+    li {
       width: auto;
       margin: 0 0.8rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-    & + li{
-      // margin-left:1.6rem
-    }
+      & + li {
+        // margin-left:1.6rem
+      }
     }
   }
   li {
@@ -61,9 +61,12 @@
       font-size: 1.5rem;
       font-weight: 500;
       color: var(--gray_999);
+      &:hover {
+        color: var(--gray_01_black);
+      }
     }
     // 탭 아이템 삭제 버튼
-    .btn-itemDel{
+    .btn-itemDel {
       font-size: 0;
       display: inline-block;
       cursor: pointer;
@@ -86,7 +89,7 @@
     }
   }
 }
-.ajax-tab{
+.ajax-tab {
   li {
     display: flex;
     cursor: pointer;
@@ -109,8 +112,8 @@
   }
 }
 
-//탭 아이템 추가 및 복사 추가하기 버튼 
-.btn-addTab{
+//탭 아이템 추가 및 복사 추가하기 버튼
+.btn-addTab {
   font-size: 1.3rem;
   line-height: 2rem;
   display: inline-flex;
@@ -118,12 +121,14 @@
   justify-content: center;
   padding: 0.2rem 1.2rem 0.1rem 0.8rem;
   border: 0.1rem dashed var(--line-color-ccc);
+  color: #999;
+  font-weight: 300;
   border-radius: 1.2rem;
-  & + .btn-addTab{
+  & + .btn-addTab {
     margin-left: 1.6rem;
   }
-  &::before{
-    content:'';
+  &::before {
+    content: '';
     width: 1.6rem;
     height: 1.6rem;
     display: inline-block;
