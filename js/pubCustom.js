@@ -1482,12 +1482,14 @@ const uiSelect = {
         const $el = el;
         const $idx = $el.dataset.index;
         const $wrap = $el.closest('.' + uiSelect.class.wrap);
+        const $options = $el.closest('.' + uiSelect.class.options);
         const selElmnt = $wrap.querySelector('select');
         if (selElmnt && $idx >= 0 && $idx < selElmnt.options.length) {
             selElmnt.selectedIndex = $idx;
             if (typeof jQuery != 'undefined')  $(selElmnt).change();
             else selElmnt.dispatchEvent(new Event('change'));
-            uiSelect.options($wrap);
+            $options.remove();
+            // uiSelect.options($wrap);
         }
     },
     UI: function () {
