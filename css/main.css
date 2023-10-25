@@ -26175,7 +26175,7 @@ dl.inner-tbl:nth-child(1) {
 dl.inner-tbl:last-child {
   padding-bottom: 0;
 }
-dl.inner-tbl .custom-select {
+dl.inner-tbl .select {
   min-width: 0;
 }
 dl.inner-tbl .option {
