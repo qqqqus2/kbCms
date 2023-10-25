@@ -354,6 +354,9 @@
 }
 
 .keyword-wrap {
+  &:first-child{
+    margin-top: 0.8rem;
+  }
   &+.keyword-wrap {
     margin-top: 0.6rem;
   }

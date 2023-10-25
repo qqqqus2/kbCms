@@ -327,7 +327,7 @@
             }
         },
         calendar: function () {
-            var inValiDate = "2023-09-17"; // 이전 날짜는 전부 막음
+            var inValiDate = "2023-10-17"; // 이전 날짜는 전부 막음
             var start = moment().clone();
             var end = moment().clone();
 
@@ -751,7 +751,7 @@
                     });
             }
             function monitoringMonth() {
-                var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8];
+                var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
                 $(".monitoring-date #monthpicker").monthpicker({
                     pattern: "yyyy.mm",
@@ -763,7 +763,7 @@
                         $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths);
                     } 
                     if(year == 2023){
-                        var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8];
+                        var disabledMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9]
                         $(".monitoring-date #monthpicker").monthpicker("disableMonths", disabledMonths);
                     }
                 }); 
@@ -801,7 +801,8 @@
                         var currentMonthNum = parseInt(parts[1]);
                         
                         if (compareMonth === formattedDate) {  
-                            alert("이전 달로 검색할수 없습니다.");
+                            //alert("이전 달로 검색할수 없습니다.");
+                            
                         } else {
                             if (currentMonthNum === 1) {
                                 // 1월인 경우 전년도 12월로 이동
@@ -867,7 +868,7 @@
                         $("#date-hidden").val(lastStart.format("YYYY.MM.DD") + " ~ " + lastEnd.format("YYYY.MM.DD"));
 
                         if (compareRange === $("#datepicker").val()) {
-                            alert("이전 주로는 검색할수 없습니다.");
+                            // alert("이전 주로는 검색할수 없습니다.");
                             $(this).attr("disabled", true);
                         }
                         
@@ -884,7 +885,7 @@
                         $("#date-hidden").val(lastStart.format("YYYY.MM.DD"));
                      
                         if (formattedStartDate === start.format("YYYY.MM.DD")) {
-                            alert("이전 일로는 검색할수 없습니다.")
+                            // alert("이전 일로는 검색할수 없습니다.")
                             $(this).attr("disabled", true);
                         }
                     }
