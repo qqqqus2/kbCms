@@ -10,7 +10,6 @@
 
         // 팝업
         popupUI();
-        
     });
 
     const uiInit = function () {
@@ -145,7 +144,6 @@
             common.menuActive();
             common.btnTop();
 
-            
             if ($(".input-date").length > 0) {
                 common.calendar();
             }
@@ -1246,7 +1244,9 @@ function popClose(tar) {
     if ($(".opened").length < 2) {
         $("body").removeClass("hidden popOpen");
     }
-    $(tar).fadeOut(500).removeClass("opened");
+    $(tar).fadeOut(500, function(){
+        $('#_modalConfirm_').removeClass('w-500');
+    }).removeClass("opened");
 }
 
 // Tab

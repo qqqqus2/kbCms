@@ -27930,143 +27930,6 @@ input[type=number] {
 .form-item .monitoring-date.week input#datepicker {
   width: 22rem;
 }
-.form-item .custom-select {
-  position: relative;
-  min-width: 15rem;
-  text-align: left;
-}
-.form-item .custom-select.fixed .select-items {
-  position: fixed;
-  right: auto;
-}
-.form-item .custom-select.disabledSelect select {
-  opacity: 1;
-  width: 100%;
-  height: auto;
-  position: relative;
-  display: block;
-  padding: 0.6rem 2.4rem 0.6rem 1.1rem;
-  min-width: 10rem;
-  height: 3.2rem;
-  border-radius: 0.3rem;
-}
-.form-item .custom-select.disabledSelect:hover {
-  border-color: var(--line-color-ccc);
-}
-.form-item .custom-select select {
-  opacity: 0;
-  height: 0;
-  width: 0;
-  position: absolute;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: 2.4rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E");
-}
-.form-item .custom-select select:focus {
-  outline: none;
-  border-color: var(--gray_02-darkBlue);
-}
-.form-item .custom-select select:disabled {
-  background-color: var(--background-color);
-}
-.form-item .custom-select select:disabled + .select-selected,
-.form-item .custom-select select:disabled + .select-items {
-  display: none;
-}
-.form-item .custom-select.type-2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-.form-item .custom-select.type-2 .select-selected {
-  border: 0;
-  padding-top: 0.4rem;
-  line-height: 2.4rem;
-}
-.form-item .custom-select.type-2 .select-selected::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M18 9L12 15L6 9' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-.form-item .custom-select.type-2 .select-items div {
-  font-weight: 300;
-  font-size: 1.4rem;
-  border: 0;
-}
-.form-item .custom-select.type-2 .select-items div:hover {
-  background: rgba(46, 116, 242, 0.05);
-}
-.form-item .custom-select.type-2 .select-items div.same-as-selected {
-  font-weight: 500;
-  background: none;
-}
-.form-item .select-selected {
-  border-radius: 0.3rem;
-  height: 3.2rem;
-  background-color: #fff;
-  white-space: nowrap;
-  min-width: 10rem;
-  border-color: var(--line-color-ccc);
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: 2.4rem;
-  position: relative;
-}
-.form-item .select-selected:hover {
-  border-color: var(--primary-blue-color);
-}
-.form-item .select-selected::after {
-  content: "";
-  display: block;
-  position: absolute;
-  right: 0;
-  transition: 0.3s transform;
-  top: 50%;
-  width: 2.4rem;
-  height: 2.4rem;
-  transform: translateY(-50%) rotate3d(1, 0, 0, 0deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E");
-}
-.form-item .select-selected.select-arrow-active::after {
-  transform: translateY(-50%) rotate3d(1, 0, 0, 180deg);
-}
-.form-item .select-items div,
-.form-item .select-selected {
-  padding: 0.6rem 2.4rem 0.6rem 1.1rem;
-  border: 0.1rem solid transparent;
-  line-height: 1.6;
-  border-color: var(--line-color-ccc);
-  cursor: pointer;
-}
-.form-item .select-items {
-  position: absolute;
-  background-color: #fff;
-  border-top: 0.1rem solid var(--line-color-ccc);
-  border-bottom-left-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  top: 100%;
-  left: 0;
-  margin-top: 0.3rem;
-  width: auto;
-  min-width: 100%;
-  z-index: 89;
-  border-radius: 0.3rem;
-}
-.form-item .select-items div {
-  border-top: 0;
-  height: 3.2rem;
-  white-space: nowrap;
-  padding-right: 2.4rem;
-}
-.form-item .select-hide {
-  display: none;
-}
-.form-item .select-items div:hover,
-.form-item .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.05);
-}
 .form-item .is-error input[type=text],
 .form-item .is-error input[type=password],
 .form-item .is-error select {
@@ -28492,6 +28355,137 @@ input[type=number] {
 }
 .radio-custom + .radio-custom {
   margin-left: 0;
+}
+
+.select select,
+.custom-select-btn,
+.custom-select-option {
+  position: relative;
+  width: 100%;
+  height: 3.2rem;
+  padding: 0.6rem 1.1rem;
+  line-height: 1.8rem;
+  border: 0.1rem solid var(--line-color-ccc);
+  white-space: nowrap;
+  text-align: left;
+}
+.select select:disabled,
+.custom-select-btn:disabled,
+.custom-select-option:disabled {
+  cursor: default;
+}
+
+.select {
+  position: relative;
+  min-width: 15rem;
+}
+.select select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-right: 2.4rem;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right center/2.4rem auto;
+}
+.select select:hover:not(:disabled) {
+  border-color: var(--primary-blue-color);
+}
+.select select:disabled {
+  background-color: var(--background-color);
+}
+
+.custom-select {
+  text-align: left;
+}
+.custom-select select.init {
+  display: none;
+}
+.custom-select.type-2 select,
+.custom-select.type-2 .custom-select-btn {
+  border: 0;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.custom-select.type-2 select::after,
+.custom-select.type-2 .custom-select-btn::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M18 9L12 15L6 9' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.custom-select.type-2 .custom-select-option {
+  font-weight: 300;
+  font-size: 1.4rem;
+  border: 0;
+}
+.custom-select.type-2 .custom-select-option:hover {
+  background: rgba(46, 116, 242, 0.05);
+}
+.custom-select.type-2 .custom-select-option.selected {
+  font-weight: 700;
+  background: none;
+}
+.custom-select.fixed .custom-select-options {
+  position: fixed;
+}
+
+.custom-select-btn {
+  display: block;
+  min-width: 10rem;
+  border-radius: 0.3rem;
+  padding-right: 2.4rem;
+}
+.custom-select-btn:hover:not(:disabled) {
+  border-color: var(--primary-blue-color);
+}
+.custom-select-btn:disabled {
+  background-color: var(--background-color);
+}
+.custom-select-btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  transition: 0.3s transform;
+  top: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  transform: translateY(-50%) rotate3d(1, 0, 0, 0deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.custom-select-btn.open::after {
+  transform: translateY(-50%) rotate3d(1, 0, 0, 180deg);
+}
+.custom-select-btn.open ~ .custom-select-options {
+  display: block;
+}
+
+.custom-select-option {
+  display: block;
+}
+.custom-select-option:hover:not(:disabled), .custom-select-option.selected {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.custom-select-option:disabled {
+  color: #ccc;
+}
+.custom-select-option + .custom-select-option {
+  border-top-width: 0;
+}
+
+.custom-select-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: auto;
+  min-width: 100%;
+  max-height: 32rem;
+  margin-top: 0.3rem;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  overflow-y: auto;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  z-index: 89;
 }
 
 @font-face {
