@@ -1420,13 +1420,15 @@ const uiSelect = {
             el.appendChild(Html);
             btn = Html;
         }
-        const btnTxt = selElmnt.options[seletedIndex].innerHTML;
-        btn.innerHTML = btnTxt;
-        btn.dataset.value = selValue;
-        btn.dataset.index = seletedIndex;
-
         if (selElmnt.disabled) btn.disabled = true;
         else btn.disabled = false;
+
+        if(seletedIndex >= 0){
+            const btnTxt = selElmnt.options[seletedIndex].innerHTML;
+            btn.innerHTML = btnTxt;
+            btn.dataset.value = selValue;
+            btn.dataset.index = seletedIndex;
+        }
     },
     options: function (el) {
         const selElmnt = el.querySelector('select');
