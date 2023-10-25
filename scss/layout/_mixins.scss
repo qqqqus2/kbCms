@@ -46,15 +46,11 @@
 
 @mixin class-begins($class, $mark: false) {
   @if ($mark) {
-
     #{$mark}[class^='#{$class}'],
     #{$mark}[class*=' #{$class}'] {
       @content;
     }
-  }
-
-  @else {
-
+  } @else {
     [class^='#{$class}'],
     [class*=' #{$class}'] {
       @content;
@@ -75,9 +71,7 @@
   @if ($line ==0) {
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  @else {
+  } @else {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: $line;
@@ -139,7 +133,6 @@
 }
 
 @mixin scroll-padding($padding: null) {
-
   &:before,
   &:after {
     content: '';
@@ -148,9 +141,7 @@
 
     @if $padding {
       width: #{$padding}rem;
-    }
-
-    @else {
+    } @else {
       width: var(--base-padding);
     }
   }
@@ -165,9 +156,7 @@
 @mixin web-center($isInner: false) {
   @if ($isInner) {
     max-width: calc(102.4rem - (var(--base-padding) * 2));
-  }
-
-  @else {
+  } @else {
     max-width: 102.4rem;
   }
 
@@ -197,28 +186,22 @@
 }
 
 @mixin ios-top($key, $value: 0, $miuns: false) {
-
   // #{$key}: $value;
   @if ($miuns) {
     #{$key}: -iosConstant($value, true, true);
     #{$key}: -iosEnv($value, true, true);
-  }
-
-  @else {
+  } @else {
     #{$key}: -iosConstant($value, true, false);
     #{$key}: -iosEnv($value, true, false);
   }
 }
 
 @mixin ios-bottom($key, $value: 0, $miuns: false) {
-
   // #{$key}: $value;
   @if ($miuns) {
     #{$key}: -iosConstant($value, false, true);
     #{$key}: -iosEnv($value, false, true);
-  }
-
-  @else {
+  } @else {
     #{$key}: -iosConstant($value, false, false);
     #{$key}: -iosEnv($value, false, false);
   }

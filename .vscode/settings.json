@@ -16,20 +16,20 @@
   "files.eol": "\n",
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": false,
+  //"editor.formatOnSave": false,
   // "[html]": {
   //   "editor.formatOnSave": true
   // },
-  // "[scss]": {
-  //   "editor.formatOnSave": true
-  // },
+  "[scss]": {
+    "editor.formatOnSave": true
+  },
   // "[javascript]": {
   //   "editor.formatOnSave": true
   // },
-  // "prettier.tabWidth": 2,
-  // "prettier.singleQuote": true,
-  // "prettier.printWidth": 9999,
-  // "prettier.trailingComma":"none",
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 9999,
+  "prettier.trailingComma":"none",
   "htmlhint.options":{
     "tagname-lowercase": true,
     "attr-lowercase":["viewBox"],
