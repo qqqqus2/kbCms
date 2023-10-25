@@ -1398,7 +1398,7 @@ const uiSelect = {
                 if (selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
                 else _select.classList.remove(uiSelect.class.disabled);
                 uiSelect.btn(_select);
-                uiSelect.options(_select);
+                // uiSelect.options(_select);
             }
             changeSelect();
             if (!selElmnt.classList.contains(uiSelect.class.init)) {
@@ -1485,6 +1485,7 @@ const uiSelect = {
             selElmnt.selectedIndex = $idx;
             if (typeof jQuery != 'undefined')  $(selElmnt).change();
             else selElmnt.dispatchEvent(new Event('change'));
+            uiSelect.options($wrap);
         }
     },
     UI: function () {
@@ -1494,6 +1495,8 @@ const uiSelect = {
                 e.preventDefault();
                 uiSelect.close($target);
                 $target.classList.toggle(uiSelect.class.btnActive);
+                const $select = $target.closest('.' + uiSelect.class.wrap);
+                uiSelect.options($select);
                 uiSelect.position();
             } else {
                 uiSelect.close();
