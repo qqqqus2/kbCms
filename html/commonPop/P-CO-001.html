@@ -73,7 +73,7 @@
                     <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                   </li>
                   <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
+                    <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
                   </li>
 
                   <li>
@@ -323,6 +323,7 @@
                           </select>
                         </div>
                         <div class="input w-full ml-8 flex-11">
+                          <!-- 2023-10-25 placeholder 변경-->
                           <input type="text" title="키워드 입력" value="" placeholder="키워드를 직접입력하세요." />
                         </div>
                       </div>
@@ -338,9 +339,11 @@
 
               <!-- 테이블  -->
               <div class="title-wrap flex align-center mb-12 mt-32 w-full">
-                <div class="left">검색결과 <strong class="fc-blue">999</strong> / 9999</div>
+                <!-- 2023-10-10 검색결과에 span 태그 추가 -->
+                <div class="left"><span>검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
               </div>
-              <div class="table-wrap inner-scroll h-270">
+              <!-- 2023-10-10 h-270 > maxH-280 으로 변경 -->
+              <div class="table-wrap inner-scroll maxH-280">
                 <table class="table">
                   <colgroup>
                     <col style="width: 2rem;" />

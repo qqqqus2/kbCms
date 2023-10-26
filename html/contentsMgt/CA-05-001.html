@@ -72,7 +72,7 @@
                     <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                   </li>
                   <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
+                    <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
                   </li>
       
                   <li>
@@ -288,6 +288,15 @@
               <dl>
                 <dt class="w-150">콘텐츠 내용분류</dt>
                 <dd>
+                  <!-- 2023-10-10 상품기준정보 셀렉트박스 추가 -->
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="">
+                        <option value="">상품기준정보</option>
+                        <option value="">상품기준정보 메뉴</option>
+                      </select>
+                    </div>
+                  </div>
                   <div class="form-item">
                     <div class="select custom-select">
                       <select class="">
@@ -343,7 +352,8 @@
           <div class="kb-box-inner mt-32">
             <div class="common-search-table">
               <div class="title-wrap flex align-center mb-12">
-                <div class="left">검색결과 <strong class="fc-blue">999</strong> / 9999</div>
+                <!-- 2023-10-10 검색결과 span 태그 추가 -->
+                <div class="left"><span>검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
                 <div class="ml-auto inline-flex justify-end">
                   <div class="form-item">
                     <div class="select custom-select">
@@ -361,7 +371,8 @@
         
               <!-- 테이블 -->
               <div class="table-wrap">
-                <table class="table">
+                <!-- 2023-10-10 nowrap 클래스 추가 -->
+                <table class="table nowrap">
                   <colgroup>
                     <col style="width: 2rem;" />
                     <col style="width: 8rem;" />

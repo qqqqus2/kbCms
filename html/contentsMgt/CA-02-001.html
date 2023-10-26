@@ -74,7 +74,7 @@
                                         <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
                                     </li>
 
                                     <li>
@@ -342,7 +342,8 @@
 
                     <div class="kb-box-inner mt-32">
                         <div class="title-wrap flex align-center mb-12">
-                            <div class="left flex-00 w-auto">검색결과 <strong class="fc-blue">999</strong> / 9999</div>
+                            <!-- 2023-10-10 검색결과에 span 태그 추가 -->
+                            <div class="left flex-00 w-auto"><span>검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
                             <div class="ml-auto inline-flex justify-end">
                                 <!-- 2023-09-13 ml-6 클래스 수정 (ml-6 > ml-4, ml-8) -->
                                 <button type="button" class="btn btn-sml btn-line btn-o">선택 사용</button>
@@ -359,7 +360,7 @@
                                     <col style="width: auto;" />
                                     <col style="width: auto;" />
                                     <col style="width: auto;" />
-                                    <col style="width: auto;" />
+                                    <col style="width: 10rem;" />
                                     <col style="width: auto;" />
                                     <col style="width: auto;" />
                                     <col style="width: auto;" />
@@ -521,7 +522,8 @@
                                         <td>
                                             <span class="ellipsis-1 w-200 inblock t-left">영상위주에 웹툰 추가</span>
                                         </td>
-                                        <td>-</td>
+                                        <!--2023-10-10 t-left 클래스 추가 -->
+                                        <td class="t-left">-</td>
                                         <td>사용</td>
                                         <td>2023-08-01 00:00</td>
                                         <td>홍길동</td>

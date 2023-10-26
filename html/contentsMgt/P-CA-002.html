@@ -74,7 +74,7 @@
                     <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                   </li>
                   <li>
-                    <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
+                    <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
                   </li>
 
                   <li>
@@ -281,7 +281,29 @@
             <div class="modal-body flex-column">
               <div class="regist-grp">
                 <div class="grp-wrap mb-0">
-
+                  <!-- 2023-10-25 매핑 조건 추가-->
+                  <dl>
+                      <dt>상품 연결여부</dt>
+                      <dd>
+                          <div class="form-item">
+                              <label class="radio">
+                                  <input type="radio" name="rdo1" class="" checked /><i aria-hidden="true"
+                                      class="lbl"></i>
+                                  <span>전체</span>
+                              </label>
+                              <label class="radio">
+                                  <input type="radio" name="rdo1" class="" /><i aria-hidden="true"
+                                      class="lbl"></i>
+                                  <span>매핑</span>
+                              </label>
+                              <label class="radio">
+                                  <input type="radio" name="rdo1" class="" /><i aria-hidden="true"
+                                      class="lbl"></i>
+                                  <span>미매핑</span>
+                              </label>
+                          </div>
+                      </dd>
+                  </dl>
                   <dl>
                     <dt>키워드</dt>
                     <dd>
@@ -311,7 +333,8 @@
               </div>
 
               <!-- 테이블  -->
-              <div class="table-wrap inner-scroll h-270 mb-20">
+              <!-- 2023-10-10 h-270 > maxH-270 클래스 수정 -->
+              <div class="table-wrap inner-scroll maxH-270 mb-20">
                 <table class="table">
                   <colgroup>
                     <col style="width: 2rem;" />
@@ -354,10 +377,11 @@
                       <td>&nbsp;</td>
                       <td>&nbsp;</td>
                       <td>&nbsp;</td>
-                      <td>중계형 ISA</td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>CA01</td>
+                      <!-- 2023-10-10 CMS 컬럼 bg-yellow 추가 -->
+                      <td class="bg-yellow">중계형 ISA</td>
+                      <td class="bg-yellow">-</td>
+                      <td class="bg-yellow">-</td>
+                      <td class="bg-yellow">CA01</td>
                     </tr>
                     
 

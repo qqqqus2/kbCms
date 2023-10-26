@@ -75,7 +75,7 @@
                                         <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
+                                        <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
                                     </li>
 
                                     <li>
@@ -310,7 +310,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="col" class="t-left">대분류 명 <i class="fc-red">*</i></th>
+                                    <!-- 2023-10-10 대분류 명 > 중분류 명 명칭 변경 -->
+                                    <th scope="col" class="t-left">중분류 명 <i class="fc-red">*</i></th>
                                     <td>
                                         <div class="form-item">
                                             <div class="input w-full">
@@ -439,6 +440,7 @@
                                             <div class="etc-section inline-flex">
                                                 <div class="form-item ml-16">
                                                     <div class="input">
+                                                        <!-- 2023-10-10 '세' 텍스트 추가 -->
                                                         <input type="number" class="minW-80 w-80" title="숫자" value=""
                                                             placeholder="숫자" readonly /> 세
                                                     </div>
@@ -529,9 +531,10 @@
                     </div>
 
                     <!-- 하위분류 목록(연령) | 검색결과 테이블 -->
-                    <div class="kb-box-inner">
+                    < class="kb-box-inner">
                         <div class="title-wrap flex align-center mb-12">
-                            <div class="left flex-00 w-auto">하위분류 목록(연령) | 검색결과 <strong class="fc-blue">999</strong> / 9999</div>
+                            <!-- 2023-10-10 하위분류 목록(연령) 검색결과에 span 태그 추가 -->
+                            <div class="left flex-00 w-auto"><span>하위분류 목록(연령) | 검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
                             <div class="ml-auto inline-flex justify-end">
                                 <div class="form-item">
                                     <div class="select custom-select">
@@ -544,8 +547,9 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 2023-10-10 paging 없을 때 mb-20 -->
                         <div class="table-wrap">
-                            <table class="table mb-20 nowrap">
+                            <table class="table mb-20">
                                 <colgroup>
                                     <col style="width: 8rem;" />
                                     <col style="width: auto;" />
@@ -554,8 +558,10 @@
                                     <col style="width: auto;" />
                                     <col style="width: auto;" />
                                     <col style="width: auto;" />
+                                    <!-- 2023-10-10 width값 수정 -->
+                                    <col style="width: 15rem;" />
                                     <col style="width: auto;" />
-                                    <col style="width: auto;" />
+                                    <!-- 2023-10-10 width값 수정 -->
                                     <col style="width: auto;" />
                                 </colgroup>
                                 <thead>

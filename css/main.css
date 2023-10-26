@@ -25911,6 +25911,15 @@ strong {
   position: absolute;
   left: 0;
 }
+.table-wrap.inner-scroll thead th + th:before {
+  content: "";
+  width: 0.1rem;
+  background-color: #ddd;
+  position: absolute;
+  left: -0.1rem;
+  top: 0;
+  height: 100%;
+}
 .table-wrap.inner-scroll tbody tr:nth-child(1) td {
   border-top: 0;
 }

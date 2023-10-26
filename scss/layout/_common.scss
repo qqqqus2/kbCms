@@ -809,6 +809,17 @@ $bdTypes: (solid, dashed, dotted);
           left: 0;
         }
       }
+      th + th {
+        &:before {
+          content: '';
+          width: 0.1rem;
+          background-color: #ddd;
+          position: absolute;
+          left: -0.1rem;
+          top: 0;
+          height: 100%;
+        }
+      }
     }
     tbody {
       tr:nth-child(1) {

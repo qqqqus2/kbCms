@@ -326,7 +326,7 @@
         },
         calendar: function () {
           var inValiDate = '2023-08-17'; // 이전 날짜는 전부 막음
-          var monthInVali = [1,2,3,4,5,6,7,8]; // 이전 월 막음
+          var monthInVali = [1,2,3,4,5,6,7]; // 이전 월 막음
 
           var start = moment().clone();
           var end = moment().clone();
@@ -839,6 +839,7 @@
 
               // console.log(end.clone().subtract(1, 'months').format("YYYY.MM"));
               monitoringMonth(monthInVali);
+              
             });
           }
           monitorCalendar();
@@ -1042,9 +1043,8 @@ function popClose(tar) {
     if ($(".opened").length < 2) {
         $("body").removeClass("hidden popOpen");
     }
-    $(tar).fadeOut(500, function(){
-        $('#_modalConfirm_').removeClass('w-500');
-    }).removeClass("opened");
+    $(tar).fadeOut(500).removeClass("opened");
+    $('#_modalConfirm_').removeClass('w-500');
 }
 
 // Tab
@@ -1191,6 +1191,7 @@ const uiSelect = {
         if (!customSelects.length) return;
 
         customSelects.forEach(function (_select) {
+            if(_select.closest('#__selectBoxTemp')) return; // 예외처리
             const selElmnt = _select.querySelector('select');
             function changeSelect() {
                 if (selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
