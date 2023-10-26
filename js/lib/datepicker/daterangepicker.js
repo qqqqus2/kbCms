@@ -1793,7 +1793,7 @@
                 var currentYear = new Date().getFullYear();
                 var currentMonth = new Date().getMonth();
                 
-                console.log($.inArray(m, months))
+                // console.log($.inArray(m, months))
 
                 if ((y < currentYear || (y === currentYear && m < currentMonth)) && y !== settings.selectedYear) {
                     $(this).addClass("ui-state-disabled") // 이전 월 비활성화
