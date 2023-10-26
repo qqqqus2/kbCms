@@ -603,7 +603,8 @@
                                                 <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
                                                 <p class="msg">
                                                     <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>
-                                                    <span>콘텐츠 속성관리 &#62; 타겟분류 관리에서 생성되는 정보로 콘텐츠 분석(모니터링)을 위해 지정해주세요.</span>
+                                                    <!-- 2023-10-04 툴팁 내용변경 -->
+                                                    <span>콘텐츠 속성관리 &#62; 내용분류 관리에서 생성되는 정보로 콘텐츠 분석(모니터링)을 위해 지정해주세요.</span>
                                                 </p>
                                             </div>
                                         </th>
@@ -638,6 +639,7 @@
                                                                 </div>                                                          
                                                             </div>
                                                             <button type="button" class="btn btn-sml btn-gray ml-6" >추가하기</button>
+                                                            <!-- 2023-10-05 문구변경 -->
                                                             <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
                                                         </div>
                                                     </div>
@@ -673,6 +675,7 @@
                                                             </div>
                                                             <!-- 2023-09-13 버튼 & 문구 추가 -->
                                                             <button type="button" class="btn btn-sml btn-gray ml-6">추가하기</button>
+                                                            <!-- 2023-10-05 문구변경 -->
                                                             <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
                                                         </div>
                                                     </div>
@@ -708,6 +711,7 @@
                                                             </div>
                                                             <!-- 2023-09-13 버튼 & 문구 추가 -->
                                                             <button type="button" class="btn btn-sml btn-gray ml-6">추가하기</button>
+                                                            <!-- 2023-10-05 문구변경 -->
                                                             <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
                                                         </div>
                                                     </div>
@@ -768,11 +772,48 @@
                                             <p class="mt-8 fc-gray-666 fz-14">분류 미선택 후 직접입력 시 해당 콘텐츠에만 연관키워드로 등록됩니다.(연관키워드 내 관리안함)</p>
                                         </td>
                                     </tr>
+                                    <!-- 2023-10-10 통합키워드 검색 -->
+                                    <!-- 2023-10-25 통합검색 키워드로 명칭 변경 -->
+                                    <tr>
+                                        <th>통합검색 키워드</th>
+                                        <td colspan="3">
+                                            <div class="form-item inline-flex align-center">
+                                                
+                                                <div class="input w-250">
+                                                    <!-- 2023-10-25 placeholder 수정 -->
+                                                    <input type="text" title="키워드 검색 입력" placeholder="키워드를 직접 입력하세요." value="" />
+                                                </div>
+                                                <!-- 2023-10-25 추가하기 > 입력하기로 명칭 변경 -->
+                                                <button type="button" class="btn btn-sml btn-gray ml-8">입력하기</button>
+
+                                                <span class="fc-gray-666 fz-14 ml-8">최대 5개</span>
+                                            </div>
+                                            <div class="keyword-list">
+                                                <div class="keyword-wrap">
+                                                    <span class="keyword-item">#주식 <button type="button" title="삭제" class="btn-del"></button></span>
+                                                </div>
+                                                <div class="keyword-wrap">
+                                                    <span class="keyword-item">#해외주식 <button type="button" title="삭제" class="btn-del"></button></span>
+                                                </div>
+                                                <div class="keyword-wrap">
+                                                    <span class="keyword-item">#해외주식해외주식 <button type="button" title="삭제" class="btn-del"></button></span>
+                                                </div>
+                                                <div class="keyword-wrap">
+                                                    <span class="keyword-item">#해외주식1 <button type="button" title="삭제" class="btn-del"></button></span>
+                                                </div>
+                                                <div class="keyword-wrap">
+                                                    <span class="keyword-item">#해외주식2 <button type="button" title="삭제" class="btn-del"></button></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <th>파일첨부</th>
                                         <td colspan="3">
                                             <!-- 파일 첨부 -->
-                                            <p class="fc-gray-666 fz-14 mt-7">첨부파일은 최대 10MB * 1개로 pdf 파일만 등록할 수 있습니다.</p>
+                                            <!-- 2023-10-04 mt-12 클래스 삭제 -->
+                                            <!-- 2023-10-10 mt-7 > mt-6 클래스 삭제 -->
+                                            <p class="fc-gray-666 fz-14 mt-6">첨부파일은 최대 10MB * 1개로 pdf 파일만 등록할 수 있습니다.</p>
                                             <div class="mt-12 file-drop">
 
                                             </div>
@@ -817,7 +858,8 @@
                                                             <p class="tit">심의필번호</p>
                                                             <div class="form-item inline-flex flex-01 w-auto">
                                                                 <!-- 2023-09-25 w-232 클래스 > w-320으로 변경 -->
-                                                                <div class="input w-320">
+                                                                <!-- 2023-10-10 w-320 클래스 > w-232으로 변경 -->
+                                                                <div class="input w-232">
                                                                     <!-- 2023-09-25 placeholder 추가 -->
                                                                     <input type="text" placeholder="소비자보호포털에서 심의번호를 확인 후 입력해주세요." title="심의필번호" value=""  />
                                                                 </div>
@@ -846,7 +888,7 @@
                                                             <div class="form-item">
                                                                 <div class="textarea h-72 flex-00">
                                                                     <!-- 2023-09-25 placeholder 수정 -->
-                                                                    <textarea placeholder="소비자보호포털에서 심의받은 (광고심의 문구)를 입력해주세요."></textarea>
+                                                                    <textarea placeholder="소비자보호포털에서 심의 받은 (광고심의 문구)를 입력해주세요."></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -860,12 +902,14 @@
                                         <td colspan="3">
                                             <div class="inline-flex align-center">
                                                 <div class="form-item">
+                                                    <!-- 2023-10-04 게시기간 미지정 기능 추가 -->
                                                     <div class="input input-date posting-date range">
                                                         <input type="text" id="">
                                                     </div>
                                                 </div>
                                                 <label class="checkbox sml ml-12 rangeToggle">
                                                     <input type="checkbox" class="" /><i aria-hidden="true" class="lbl"></i>
+                                                    <!-- 2023-10-05 게시기간 미지정 > 종료일자 미지정으로 수정 -->
                                                     <span>종료일자 미지정</span>
                                                 </label>
                                             </div>
@@ -883,6 +927,7 @@
                                                 <div class="inline-flex w-50p">
                                                     <div class="input w-full">
                                                         <!-- 2023-09-25 placeholder 수정 -->
+                                                        <!-- 2023-10-04 placeholder 수정 -->
                                                         <input type="text" title="부서정보를 선택하세요." placeholder="찾아보기로 (부서코드, 부서명)을 입력해주세요." value="" readonly="readonly">
                                                     </div>
                                                     <button type="button" class="btn btn-sml btn-line ml-8">찾아보기</button>
