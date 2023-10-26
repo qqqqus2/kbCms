@@ -1193,19 +1193,24 @@ const uiSelect = {
         customSelects.forEach(function (_select) {
             if(_select.closest('#__selectBoxTemp')) return; // 예외처리
             const selElmnt = _select.querySelector('select');
-            function changeSelect() {
-                if (selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
-                else _select.classList.remove(uiSelect.class.disabled);
-                uiSelect.btn(_select);
-                // uiSelect.options(_select);
-            }
-            changeSelect();
-            if (!selElmnt.classList.contains(uiSelect.class.init)) {
-                if (typeof jQuery != 'undefined')  $(selElmnt).change(changeSelect);
-                else selElmnt.addEventListener('change', changeSelect);
-                selElmnt.classList.add(uiSelect.class.init);
+            uiSelect.changeEvt(selElmnt);
+            selElmnt.classList.add(uiSelect.class.init);
+            if (typeof jQuery != 'undefined') {
+                $(selElmnt).off('change',uiSelect.changeEvt);
+                $(selElmnt).on('change',uiSelect.changeEvt);
+            } else {
+                selElmnt.removeEventListener('change', uiSelect.changeEvt);
+                selElmnt.addEventListener('change', uiSelect.changeEvt);
             }
         });
+    },
+    changeEvt: function(e){
+        const selElmnt = e.type === 'change' ? e.target : e;
+        if(!selElmnt) return;
+        const _select = selElmnt.closest('.' + uiSelect.class.wrap);
+        if (selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
+        else _select.classList.remove(uiSelect.class.disabled);
+        uiSelect.btn(_select);
     },
     btn: function (el) {
         const selElmnt = el.querySelector('select');
