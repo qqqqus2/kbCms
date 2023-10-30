@@ -1793,16 +1793,13 @@
                 var currentYear = new Date().getFullYear();
                 var currentMonth = new Date().getMonth();
                 
-                console.log($.inArray(m, months))
-
                 if ((y < currentYear || (y === currentYear && m < currentMonth)) && y !== settings.selectedYear) {
-                    $(this).addClass("ui-state-disabled") // 이전 월 비활성화
-                } else if ($.inArray(m, months) < 0 && y === settings.selectedYear) {
-                    $(this).addClass("ui-state-disabled");
+                    $(this).addClass("ui-state-disabled test"); // 이전 월 비활성화
+                } else if ($.inArray(m, months) >= 0 || y === settings.selectedYear) {
+                    $(this).addClass("ui-state-disabled test");
                 } else {
-                    $(this).removeClass("ui-state-disabled"); // 활성화 월
+                    $(this).removeClass("ui-state-disabled test"); // 활성화 월
                 }
-
             });
         },
 

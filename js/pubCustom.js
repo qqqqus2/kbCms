@@ -325,8 +325,8 @@
             }
         },
         calendar: function () {
-          var inValiDate = '2023-08-17'; // 이전 날짜는 전부 막음
-          var monthInVali = [1,2,3,4,5,6,7]; // 이전 월 막음
+          var inValiDate = '2023-09-17'; // 이전 날짜는 전부 막음
+          var monthInVali = [1, 2, 3, 4, 5, 6, 7, 8]; // 이전 월 막음
 
           var start = moment().clone();
           var end = moment().clone();
