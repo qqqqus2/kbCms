@@ -414,7 +414,9 @@ strong {
 .h-100vh {
   height: 100vh !important;
 }
-
+.maxH-100p {
+  max-height: 100%;
+}
 // margin
 .mg-autox {
   margin-left: auto !important;

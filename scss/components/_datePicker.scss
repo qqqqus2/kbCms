@@ -67,8 +67,8 @@ $today-color: #202020 !default;
     }
 
     //.pmu-button:hover {
-      //	background : $background-hover;
-      //	color      : $color-hover;
+    //	background : $background-hover;
+    //	color      : $color-hover;
     //}
 
     .pmu-not-in-month {
@@ -91,7 +91,7 @@ $today-color: #202020 !default;
     }
 
     //.pmu-not-in-month.pmu-selected {
-      // background : $not-in-month-selected-background;
+    // background : $not-in-month-selected-background;
     //}
 
     nav {
@@ -371,7 +371,7 @@ $today-color: #202020 !default;
 }
 
 //.daterangepicker.auto-apply .drp-buttons {
-  // display: none;
+// display: none;
 //}
 
 .daterangepicker .drp-calendar {
@@ -587,6 +587,9 @@ $today-color: #202020 !default;
   border-radius: 10px;
   color: #fff;
   background-color: var(--gray_02-darkBlue);
+}
+.daterangepicker .drp-buttons .btn:disabled {
+  opacity: 0.2;
 }
 
 .daterangepicker.show-ranges.single.rtl .drp-calendar.left {
