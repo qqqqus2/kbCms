@@ -35218,6 +35218,8 @@ input[type=number] {
 .common-search-table .title-wrap .left span {
   font-size: 1.6rem;
   font-weight: 500;
+  display: inline-block;
+  margin-right: 1.2rem;
 }
 
 .form-item .monitoring-date {
