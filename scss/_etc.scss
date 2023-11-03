@@ -791,6 +791,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     cursor: pointer;
+    color: #42444e;
   }
   &.month {
     #monthpicker {
@@ -856,13 +857,51 @@
   }
 }
 
+.chart-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
 .chart-line-wrap {
   border: 0.1rem solid var(--line-color-ccc);
   position: relative;
+  overflow: hidden;
   #line-chart {
     top: 50%;
     left: 52%;
     transform: translate(-50%, -50%);
     position: relative;
+  }
+}
+
+.chart-wrap {
+  &.noData {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      z-index: 10;
+    }
+    &::after {
+      content: '데이터가 없습니다';
+      position: absolute;
+      z-index: 10;
+      padding-top: 7.6rem;
+      left: 50%;
+      top: 50%;
+      color: var(--gray_999);
+      font-size: 1.3rem;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background-size: 6rem;
+      background-position: top center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60' fill='none'%3E%3Ccircle cx='30' cy='30' r='30' fill='%23FBFBFB'/%3E%3Crect x='28.5' y='17' width='3' height='16' rx='1.5' fill='%2342444E'/%3E%3Ccircle cx='30' cy='41' r='2' fill='%2342444E'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+    }
   }
 }

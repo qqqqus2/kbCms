@@ -485,7 +485,11 @@
                 }
               }
             });
+            $('.range input').on('showCalendar.daterangepicker', function (ev, picker) {
+              $('.daterangepicker .right select').prop('disabled', true);
+            });
           }
+          
           dateRange(inValiDate);
 
           $('.range input').on('cancel.daterangepicker', function (ev, picker) {
@@ -515,7 +519,18 @@
           }
 
           $('.btn-prevMonth').on('click', function () {
-            var start = moment().subtract(29, 'days');
+
+            var month = moment().format('MM');
+
+            if (month === '2') { // 2월은 30일 미만인 경우
+                var monthDate = 32
+            } else if (month === '4' || month === '6' || month === '9' || month === '11') { // 4, 6, 9, 11월은 30일인 경우
+                 var monthDate = 30;
+            } else { // 나머지 월은 31일인 경우
+                 var monthDate = 29;
+            }
+
+            var start = moment().subtract(monthDate, 'days');
 
             $('.range input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
             dateRange(inValiDate);

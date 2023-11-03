@@ -414,6 +414,9 @@ strong {
 .h-100vh {
   height: 100vh !important;
 }
+.maxW-100p {
+  max-width: 100% !important;
+}
 .maxH-100p {
   max-height: 100%;
 }
@@ -718,7 +721,7 @@ $bdTypes: (solid, dashed, dotted);
       font-size: 1.4rem;
       line-height: 2.2rem;
       font-weight: 300;
-      color: #999;
+      color: var(--gray_03-subText);
       text-align: center;
       margin: 0 0.6rem;
       &.disabled {
@@ -1094,10 +1097,12 @@ $bdTypes: (solid, dashed, dotted);
     padding: 3rem 0 0;
     display: flex;
     gap: 0.6rem;
+    flex-wrap: wrap;
     span {
       display: inline-block;
       font-size: 1.4rem;
       line-height: 2rem;
+      flex-shrink: 0;
       padding: 0.6rem 1.2rem;
       border-radius: 0.8rem;
       background-color: var(--background-color);

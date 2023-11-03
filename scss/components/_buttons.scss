@@ -130,6 +130,11 @@
       background-size: 100% auto;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5.63167 14.3692L10.0008 10L14.37 14.3692M14.37 5.63086L10 10L5.63167 5.63086' stroke='black' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     }
+    &:disabled {
+      &::before {
+        opacity: 0.4;
+      }
+    }
     &.btn-o {
       &::before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Ccircle cx='10' cy='10' r='5' stroke='black'/%3E%3C/svg%3E");

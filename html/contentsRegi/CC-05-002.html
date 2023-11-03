@@ -309,6 +309,7 @@
                                         <div class="form-item">
                                             <!-- 2023-10-10 w-auto > w-200 수정 -->
                                             <div class="select custom-select w-200">
+                                                <!-- 2023-10-10 옵션값 수정 -->
                                                 <select class="" >
                                                     <option value="">사전협의자 선택</option>
                                                     <option value="">홍길동 (콘텐츠전략 스쿼드)</option>
@@ -322,12 +323,15 @@
                                     <td colspan="3">
                                         <div class="form-item flex-column">
                                             <!-- 파일 첨부 -->
-                                            <p class="mb-3 fc-gray-666 flex-none fz-14">첨부파일은 최대 10MB * 5개로 헝용된 파일(doc, docx, ppt, pptx, xls, pdf)만 등록할 수 있습니다.</p>
-                                            <div class="file-drop h-160">
+                                            <!-- 2023-10-10 mb-12 mt-6 클래스 추가 -->
+                                            <p class="mb-12 mt-6 fc-gray-666 flex-none fz-14">첨부파일은 최대 10MB * 5개로 헝용된 파일(doc, docx, ppt, pptx, xls, pdf)만 등록할 수 있습니다.</p>
+                                            <!-- 2023-10-10 h-170 클래스 추가 (최대 5개 업로드 영역은 추가됨) -->
+                                            <div class="file-drop h-170">
                                         
                                             </div>
                                             <!-- 첨부된 파일 -->
-                                            <div class="uploaded-file">
+                                            <!-- 2023-10-10 h-170 클래스 추가 (최대 5개 업로드 영역은 추가됨) -->
+                                            <div class="uploaded-file h-170">
                                                 <p>
                                                     <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
                                                     <button type="button" title="삭제" class="btn-del"></button>

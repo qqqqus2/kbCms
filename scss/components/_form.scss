@@ -25,6 +25,7 @@ input[type='number'] {
   &:disabled,
   &:read-only {
     background-color: var(--background-color);
+    color: var(--gray_999);
     &:focus {
       border-color: var(--line-color-ccc);
     }
@@ -106,6 +107,7 @@ input[type='number'] {
       font-size: 1.8rem;
       font-weight: 700;
       cursor: pointer;
+      color: #42444e;
     }
     &.week {
       input#datepicker {
@@ -287,6 +289,11 @@ input[type='number'] {
 .checkbox input:checked:disabled + .lbl:before {
   border: 0.1rem solid var(--line-color-ccc);
   background-color: var(--line-color-ccc);
+}
+
+.radio input:disabled + .lbl + span,
+.checkbox input:disabled + .lbl + span {
+  color: var(--gray_999);
 }
 
 .checkbox input:disabled + .lbl:after {
@@ -548,6 +555,7 @@ input[type='number'] {
   min-width: 15rem;
   select {
     appearance: none;
+    color: var(--base-txt-color);
     padding-right: 2.4rem;
     background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10L11.7879 14.7879C11.905 14.905 12.095 14.905 12.2121 14.7879L17 10' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right center / 2.4rem auto;
     &:hover:not(:disabled) {
@@ -610,6 +618,7 @@ input[type='number'] {
   }
   &:disabled {
     background-color: var(--background-color);
+    color: var(--gray_999);
   }
   &::after {
     content: '';
@@ -640,7 +649,7 @@ input[type='number'] {
     background-color: rgba(0, 0, 0, 0.05);
   }
   &:disabled {
-    color: #ccc; //컬러 미정의
+    color: #999; //컬러 미정의
   }
   + .custom-select-option {
     border-top-width: 0;
