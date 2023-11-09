@@ -162,7 +162,7 @@ body.hidden {
   background-color: #fff;
   border-radius: 0.8rem;
   box-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.05);
-  padding: 2.4rem;
+  padding: 2.4rem 2.4rem 3.6rem;
   position: relative;
   & + .kb-box-inner {
     margin-top: 1.6rem;
@@ -459,21 +459,25 @@ h4.tit {
   &.w-1200 {
     .modal-dialog .modal-content {
       width: 120rem;
+      max-width: 120rem;
     }
   }
   &.w-1000 {
     .modal-dialog .modal-content {
       width: 100rem;
+      max-width: 100rem;
     }
   }
   &.w-800 {
     .modal-dialog .modal-content {
       width: 80rem;
+      max-width: 80rem;
     }
   }
   &.w-600 {
     .modal-dialog .modal-content {
       width: 60rem;
+      max-width: 60rem;
     }
   }
   &.w-500 {
@@ -491,7 +495,8 @@ h4.tit {
     background-color: #fff;
     box-shadow: 0 0.4rem 0.8rem 0.4rem rgba(0, 0, 0, 0.2);
     min-height: 17rem;
-    width: 28rem;
+    min-width: 28rem;
+    max-width: 60rem;
     top: -5rem;
     overflow: hidden;
     transition: 0.5s top;
@@ -552,6 +557,10 @@ h4.tit {
         font-weight: 700;
         position: relative;
         color: #666;
+        &:focus {
+          outline: none;
+          background-color: rgba(226, 226, 226, 0.5);
+        }
         &:hover {
           background-color: rgba(46, 116, 242, 0.2);
         }

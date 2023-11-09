@@ -392,8 +392,14 @@ $today-color: #202020 !default;
   -moz-appearance: none; /* 파이어폭스 화살표 없애기 */
   appearance: none; /* 화살표 없애기 */
   height: 3.3rem;
+  border: 0;
+  text-align: center;
+  float: none;
+  width: auto;
+  margin: 0;
   &:disabled {
     color: var(--base-txt-color);
+    border: 0;
   }
 }
 

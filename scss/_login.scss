@@ -1,14 +1,14 @@
 // 로그인
 .login-wrap,
 .login-result {
-  background-color: var(--gray_02-darkBlue);
+  background-color: #42444e;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   .kb-wrap {
-    background-color: var(--gray_02-darkBlue);
+    background-color: #42444e;
     height: 100%;
     padding-top: 6.4rem;
   }
@@ -37,12 +37,13 @@
     }
   }
   .kb-content {
-    max-width: 48rem;
+    max-width: 480px;
     position: relative;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
+    box-sizing: content-box;
     .form-item {
       .input {
         input {
@@ -55,18 +56,18 @@
       }
     }
     .kb-box-inner {
-      padding: 4rem;
+      padding: 40px;
       background-color: transparent;
     }
     .login-info {
-      color: var(--line-color-ccc);
+      color: #ccc;
       margin: auto;
       max-width: 40rem;
       h4 {
         font-size: 1.5rem;
         line-height: 2.2rem;
         font-weight: 500;
-        color: var(--line-color-ccc);
+        color: #ccc;
         margin-bottom: 1.2rem;
       }
       ul {
@@ -84,7 +85,7 @@
             display: block;
             width: 0.2rem;
             height: 0.2rem;
-            background-color: var(--line-color-ccc);
+            background-color: #ccc;
             left: 0;
             top: 0.8rem;
             position: absolute;
@@ -97,9 +98,9 @@
 
 //로그인 결과 화면
 .login-result {
-  background-color: var(--background-color);
+  background-color: #f3f5f6;
   .kb-wrap {
-    background-color: var(--background-color);
+    background-color: #f3f5f6;
   }
   .kb-page-title {
     font-size: 0;

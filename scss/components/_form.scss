@@ -429,6 +429,7 @@ input[type='number'] {
     &:read-only {
       outline: none;
       background-color: var(--background-color);
+      color: var(--gray_999);
       &:focus {
         border-color: var(--line-color-ccc);
       }
@@ -475,7 +476,7 @@ input[type='number'] {
   display: flex;
   padding: 2rem;
   margin-top: 0.8rem;
-  max-height: 16rem;
+  max-height: 17rem;
   overflow-y: auto;
   flex-direction: column;
   p {
@@ -495,6 +496,10 @@ input[type='number'] {
       text-decoration: underline;
       display: block;
       // margin-right: 0.4rem;
+      &.disabled {
+        text-decoration: none;
+        color: var(--gray_03-subText);
+      }
     }
     .btn-del {
       margin-left: 0.4rem;

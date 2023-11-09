@@ -292,9 +292,10 @@
                                 </nav>
                             </div>
                             <div class="bottom-menu">
-                                <button type="button" class="btn btn-grpDel" onclick="popOpen('#grpDelPop')">그룹
+                                <!-- 2023-10-10 btn-line 클래스 추가 -->
+                                <button type="button" class="btn btn-grpDel btn-line" disabled onclick="popOpen('#grpDelPop')">그룹
                                     삭제</button>
-                                <button type="button" class="btn btn-grpAdd" onclick="popOpen('#grpRegiPop')">그룹
+                                <button type="button" class="btn btn-grpAdd btn-line" onclick="popOpen('#grpRegiPop')">그룹
                                     추가</button>
                             </div>
                         </div>
@@ -952,106 +953,199 @@
                                 <div class="search-list pr-36 w-full">
                                     <p class="tit mb-12">검색결과 <strong class="fc-blue">999</strong></p>
                                     <div class="table-wrap inner-scroll h-270">
-                                        <div class="fixed-head">
-                                            <table class="table">
-                                                <colgroup>
-                                                    <col style="width: auto;" />
-                                                    <col style="width: auto;" />
-                                                    <col style="width: auto;" />
-                                                    <col style="width: 30rem;" />
-                                                    <col style="width: 30rem;" />
-                                                </colgroup>
-                                                <thead>
-                                                    <tr>
-                                                        <th>
-                                                            <label class="checkbox sml only">
-                                                                <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
-                                                            </label>
-                                                        </th>
-                                                        <th>
-                                                            <span class="list-align">
-                                                                사번
-                                                                <i role="button" class="btn-alignList"></i>
-                                                            </span>
-                                                        </th>
-                                                        <th>
-                                                            <span class="list-align">
-                                                                이름
-                                                                <i role="button" class="btn-alignList"></i>
-                                                            </span>
-                                                        </th>
-                                                        <th>
-                                                            <span class="list-align">
-                                                                부서명
-                                                                <i role="button" class="btn-alignList"></i>
-                                                            </span>
-                                                        </th>
-                                                        <th>
-                                                            CMS 신청사유
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="checkbox sml only">
-                                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                                            </label>
-                                                        </td>
-                                                        <td>KB0083720</td>
-                                                        <td>한서진</td>
-                                                        <td>콘텐츠 전략 스쿼드</td>
-                                                        <td>
-                                                            <p class="minH-40 flex flex-column align-center justify-center">
-                                                                <span>콘텐츠 모니터링</span>
-                                                                <span>콘텐츠 모니터링</span>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="checkbox sml only">
-                                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                                            </label>
-                                                        </td>
-                                                        <td>KB0083720</td>
-                                                        <td>한서진</td>
-                                                        <td>콘텐츠 전략 스쿼드</td>
-                                                        <td>
-                                                            <p class="minH-40 flex flex-column align-center justify-center">
-                                                                <span>콘텐츠 모니터링</span>
-                                                                <span>콘텐츠 모니터링</span>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="checkbox sml only">
-                                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                                            </label>
-                                                        </td>
-                                                        <td>KB0083720</td>
-                                                        <td>한서진</td>
-                                                        <td>콘텐츠 전략 스쿼드</td>
-                                                        <td>
-                                                            <p class="minH-40 flex flex-column align-center justify-center">
-                                                                <span>콘텐츠 모니터링</span>
-                                                                <span>콘텐츠 모니터링</span>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <!-- 검색결과가 없습니다 -->
-                                                    <tr>
-                                                        <td colspan="9">
-                                                            <div class="search-notFound">
-                                                                검색결과가 없습니다.
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        
+                                        <table class="table">
+                                            <colgroup>
+                                                <col style="width: auto;" />
+                                                <col style="width: auto;" />
+                                                <col style="width: auto;" />
+                                                <col style="width: 30rem;" />
+                                                <col style="width: 30rem;" />
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </th>
+                                                    <th>
+                                                        <span class="list-align">
+                                                            사번
+                                                            <i role="button" class="btn-alignList"></i>
+                                                        </span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="list-align">
+                                                            이름
+                                                            <i role="button" class="btn-alignList"></i>
+                                                        </span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="list-align">
+                                                            부서명
+                                                            <i role="button" class="btn-alignList"></i>
+                                                        </span>
+                                                    </th>
+                                                    <th>
+                                                        CMS 신청사유
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="checkbox sml only">
+                                                            <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                                                        </label>
+                                                    </td>
+                                                    <td>KB0083720</td>
+                                                    <td>한서진</td>
+                                                    <td>콘텐츠 전략 스쿼드</td>
+                                                    <td>
+                                                        <p class="minH-40 flex flex-column align-center justify-center">
+                                                            <span>콘텐츠 모니터링</span>
+                                                            <span>콘텐츠 모니터링</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <!-- 검색결과가 없습니다 -->
+                                                <tr>
+                                                    <td colspan="9">
+                                                        <div class="search-notFound">
+                                                            검색결과가 없습니다.
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                                 <!-- 계정 이동 버튼 -->
@@ -1109,7 +1203,7 @@
                                                         </label>
                                                     </td>
                                                     <td>KB0083720</td>
-                                                    <td>한서진</td>
+                                                    <td>한서진1</td>
                                                     <td>콘텐츠 전략 스쿼드</td>
                                                     <td>
                                                         <p class="minH-40 flex flex-column align-center justify-center">

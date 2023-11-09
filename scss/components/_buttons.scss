@@ -60,11 +60,11 @@
 
   // 버튼 색상
   &.btn-yellow {
-    background-color: var(--primary-yellow-color);
-    color: var(--gray_01_black);
+    background-color: #ffdc00;
+    color: #202020;
     &:not(:disabled):not(.disabled) {
       &:hover {
-        background-color: var(--yellow-color);
+        background-color: #ffc700;
       }
     }
     &.disabled,
@@ -188,6 +188,10 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M9.99984 18.3337C14.6022 18.3337 18.3332 14.6027 18.3332 10.0003C18.3332 5.39795 14.6022 1.66699 9.99984 1.66699C5.39746 1.66699 1.6665 5.39795 1.6665 10.0003C1.6665 14.6027 5.39746 18.3337 9.99984 18.3337Z' fill='%23CCCCCC'/%3E%3Cpath d='M7.5 7.5L12.4998 12.4998' stroke='white' stroke-width='1.5' stroke-linecap='square'/%3E%3Cpath d='M12.5 7.5L7.50017 12.4998' stroke='white' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+  &:disabled {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M9.99984 18.3337C14.6022 18.3337 18.3332 14.6027 18.3332 10.0003C18.3332 5.39795 14.6022 1.66699 9.99984 1.66699C5.39746 1.66699 1.6665 5.39795 1.6665 10.0003C1.6665 14.6027 5.39746 18.3337 9.99984 18.3337Z' fill='%23CCCCCC'/%3E%3Cpath d='M7.5 7.5L12.4998 12.4998' stroke='white' stroke-width='1.5' stroke-linecap='square'/%3E%3Cpath d='M12.5 7.5L7.50017 12.4998' stroke='white' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
 }
 
 // TOP 버튼
@@ -254,5 +258,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='12' viewBox='0 0 6 12' fill='none'%3E%3Cpath d='M5.5 3.5L3 1L0.5 3.5M5.5 8.5L3 11L0.5 8.5' stroke='%23666666' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  &.disabled {
+    opacity: 0.5;
   }
 }
