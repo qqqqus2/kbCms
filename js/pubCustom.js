@@ -1062,6 +1062,10 @@ function popClose(tar) {
     $('#_modalConfirm_').removeClass('w-500');
 }
 
+function windPop(url){
+    window.open(url, '_blank');
+}
+
 // Tab
 function uiTab() {
     $(".ui_tab a").click(function (e) {
