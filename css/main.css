@@ -28507,6 +28507,24 @@ input[type=number] {
 
 .custom-select {
   text-align: left;
+  /* disabled가 아닌 추가로 요청한 readOnlyCase */
+}
+.custom-select.readOnlyCase {
+  position: relative;
+}
+.custom-select.readOnlyCase select {
+  background-color: var(--background-color);
+  color: var(--gray_999);
+}
+.custom-select.readOnlyCase::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .custom-select select.init {
   display: none;

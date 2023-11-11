@@ -1210,17 +1210,19 @@ const uiSelect = {
         if (!customSelects.length) return;
 
         customSelects.forEach(function (_select) {
-            if(_select.closest('#__selectBoxTemp')) return; // 예외처리
-            const selElmnt = _select.querySelector('select');
-            uiSelect.changeEvt(selElmnt);
-            selElmnt.classList.add(uiSelect.class.init);
-            if (typeof jQuery != 'undefined') {
-                $(selElmnt).off('change',uiSelect.changeEvt);
-                $(selElmnt).on('change',uiSelect.changeEvt);
-            } else {
-                selElmnt.removeEventListener('change', uiSelect.changeEvt);
-                selElmnt.addEventListener('change', uiSelect.changeEvt);
-            }
+          if (_select.closest('#__selectBoxTemp')) return; // 예외처리
+          if (_select.closest('.readOnlyCase')) return; // 예외처리 2
+          
+          const selElmnt = _select.querySelector('select');
+          uiSelect.changeEvt(selElmnt);
+          selElmnt.classList.add(uiSelect.class.init);
+          if (typeof jQuery != 'undefined') {
+            $(selElmnt).off('change', uiSelect.changeEvt);
+            $(selElmnt).on('change', uiSelect.changeEvt);
+          } else {
+            selElmnt.removeEventListener('change', uiSelect.changeEvt);
+            selElmnt.addEventListener('change', uiSelect.changeEvt);
+          }
         });
     },
     changeEvt: function(e){
