@@ -1011,8 +1011,8 @@
 })(jQuery);
 
 function popOpen(tar) {
-    //$("body").addClass("hidden popOpen");
-    $('body').addClass('popOpen');
+    $("body").addClass("hidden popOpen");
+    //$('body').addClass('popOpen');
     $(tar).addClass("opened");
     $(tar).fadeIn(300);
     // popPositin(tar,300);
