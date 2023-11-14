@@ -1021,7 +1021,7 @@ function popOpen(tar) {
     });
 }
 function popSeparated(tar) {
-    $("body").addClass("popOpen");
+    $('body').addClass('hidden popOpen');
     $(tar).addClass("opened");
     $(tar).fadeIn(300);
 }
