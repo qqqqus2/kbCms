@@ -1012,7 +1012,9 @@
 
 function popOpen(tar) {
     //$("body").addClass("hidden popOpen");
-    $('body').addClass('popOpen');
+    $('body').addClass('popOpen' ,function(){
+        setTimeout($('body').addClass('hidden'), 200);
+    });
     $(tar).addClass("opened");
     $(tar).fadeIn(300);
     // popPositin(tar,300);
