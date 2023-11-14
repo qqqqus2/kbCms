@@ -836,7 +836,8 @@ $bdTypes: (solid, dashed, dotted);
       }
       th + th {
         &:before {
-          content: '';
+          // 2023-11-14 before 삭제
+          // content: '';
           width: 0.1rem;
           background-color: #ddd;
           position: absolute;
@@ -1315,7 +1316,4 @@ dl.inner-tbl {
     padding: 2rem 4rem 2rem 2rem;
     box-shadow: 4px 4px 8px 0px #00000014;
   }
-}
-.scrollLock {
-  overflow: hidden;
 }
