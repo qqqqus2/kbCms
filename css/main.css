@@ -26660,7 +26660,6 @@ html ::-webkit-scrollbar {
 }
 
 body.hidden {
-  position: fixed;
   left: 0;
   bottom: 0;
   top: 0;
