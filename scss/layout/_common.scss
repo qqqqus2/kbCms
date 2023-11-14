@@ -812,7 +812,8 @@ $bdTypes: (solid, dashed, dotted);
     height: 100%;
     overflow: auto;
     border-top: 0.1rem solid #aeb6d0;
-    border-bottom: 0.1rem solid #ddd;
+    // 2023-11-14
+    // border-bottom: 0.1rem solid #ddd;
     position: relative;
     .table {
       border-top: 0;
@@ -853,7 +854,8 @@ $bdTypes: (solid, dashed, dotted);
       }
       tr:last-child {
         td {
-          border-bottom: 0;
+          // 2023-11-14
+          // border-bottom: 0;
         }
       }
     }
@@ -1313,4 +1315,7 @@ dl.inner-tbl {
     padding: 2rem 4rem 2rem 2rem;
     box-shadow: 4px 4px 8px 0px #00000014;
   }
+}
+.scrollLock {
+  overflow: hidden;
 }

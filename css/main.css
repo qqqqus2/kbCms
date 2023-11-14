@@ -25920,7 +25920,6 @@ strong {
   height: 100%;
   overflow: auto;
   border-top: 0.1rem solid #aeb6d0;
-  border-bottom: 0.1rem solid #ddd;
   position: relative;
 }
 .table-wrap.inner-scroll .table {
@@ -25952,9 +25951,6 @@ strong {
 }
 .table-wrap.inner-scroll tbody tr:nth-child(1) td {
   border-top: 0;
-}
-.table-wrap.inner-scroll tbody tr:last-child td {
-  border-bottom: 0;
 }
 .table-wrap.inner-scroll::after {
   display: block;
@@ -26346,6 +26342,10 @@ dl.inner-tbl .option > .box .form-item > * {
   border: 0.1rem solid var(--line-color-ccc);
   padding: 2rem 4rem 2rem 2rem;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.0784313725);
+}
+
+.scrollLock {
+  overflow: hidden;
 }
 
 h1,
