@@ -513,6 +513,14 @@
             dateRange(inValiDate);
           });
 
+          // 1년 기간 선택 추가
+          $('.btn-prevYear').on('click', function () {
+            var start = moment().subtract(364, 'days');
+
+            $('.range input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+            dateRange(inValiDate);
+          });
+
           // 전체 먼저 활성화 될 시
           if ($('.range').hasClass('allFirst')) {
             $('.range input').val('');
