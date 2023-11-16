@@ -25941,7 +25941,6 @@ strong {
   left: 0;
 }
 .table-wrap.inner-scroll thead th + th:before {
-  content: "";
   width: 0.1rem;
   background-color: #ddd;
   position: absolute;
@@ -26342,10 +26341,6 @@ dl.inner-tbl .option > .box .form-item > * {
   border: 0.1rem solid var(--line-color-ccc);
   padding: 2rem 4rem 2rem 2rem;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.0784313725);
-}
-
-.scrollLock {
-  overflow: hidden;
 }
 
 h1,
@@ -30083,6 +30078,8 @@ input[type=number] {
   font-size: 1.5rem;
   line-height: 2.2rem;
   color: var(--gray_03-subText);
+  display: flex;
+  align-items: center;
 }
 .reply-txt .reply-idx {
   position: absolute;
@@ -30098,6 +30095,9 @@ input[type=number] {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
+}
+.reply-txt span {
+  white-space: pre-line;
 }
 
 .download-wrap {

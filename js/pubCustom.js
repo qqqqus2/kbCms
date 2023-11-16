@@ -380,6 +380,7 @@
               });
             }
           });
+          
           $('.date-single input').daterangepicker({
             startDate: start,
             endDate: end,
@@ -399,6 +400,36 @@
               monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
               firstDay: 0
             }
+          });
+
+          //디폴트 초기값 빈값
+          $('.date-empty-single input').daterangepicker({
+            autoUpdateInput: false,
+            startDate: start,
+            endDate: end,
+            singleDatePicker: true,
+            showDropdowns: true,
+            timePicker: false,
+            locale: {
+              format: 'YYYY-MM-DD',
+              direction: 'rtl',
+              separator: ' ~ ',
+              applyLabel: '확인',
+              cancelLabel: '다시 선택',
+              fromLabel: '부터',
+              toLabel: '까지',
+              customRangeLabel: 'Custom',
+              daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+              monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+              firstDay: 0
+            }
+          });
+          $('.date-empty-single input').on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.endDate.format('YYYY-MM-DD'));
+          });
+
+          $('.date-empty-single input').on('cancel.daterangepicker', function (ev, picker) {
+            $(this).val('');
           });
 
           if ($('.input-date').hasClass('showUp')) {
@@ -463,6 +494,9 @@
               showDropdowns: true,
               minYear: 2023,
               // maxYear: 2024,
+              ranges: {
+                'Last year': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')]
+              },
               timePicker: false,
               locale: {
                 format: 'YYYY-MM-DD',
@@ -516,9 +550,10 @@
           // 1년 기간 선택 추가
           $('.btn-prevYear').on('click', function () {
             var start = moment().subtract(364, 'days');
-
+           
             $('.range input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
-            dateRange(inValiDate);
+            
+            // 현재 작업중
           });
 
           // 전체 먼저 활성화 될 시

@@ -540,7 +540,8 @@
   font-size: 1.5rem;
   line-height: 2.2rem;
   color: var(--gray_03-subText);
-
+  display: flex;
+  align-items: center;
   .reply-idx {
     position: absolute;
     height: 4.4rem;
@@ -555,6 +556,9 @@
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
+  }
+  span {
+    white-space: pre-line;
   }
 }
 
