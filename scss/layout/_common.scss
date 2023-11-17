@@ -813,7 +813,8 @@ $bdTypes: (solid, dashed, dotted);
     overflow: auto;
     border-top: 0.1rem solid #aeb6d0;
     // 2023-11-14
-    // border-bottom: 0.1rem solid #ddd;
+    // 2023-11-17 다시살림
+    border-bottom: 0.1rem solid #ddd;
     position: relative;
     .table {
       border-top: 0;
@@ -861,6 +862,7 @@ $bdTypes: (solid, dashed, dotted);
       }
     }
     &::after {
+      // 2023-11-14
       // content: '';
       display: block;
       width: 100%;

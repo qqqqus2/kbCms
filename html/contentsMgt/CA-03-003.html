@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,836 +14,811 @@
     <script src="/js/lib/jquery-3.6.0.min.js"></script>
     <script src="/js/lib/moment.min.js"></script>
     <script src="/js/lib/datepicker/daterangepicker.js"></script>
-    
+
     <script src="/js/pubCustom.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <!-- wrap -->
     <section class="kb-wrap">
-        <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
-        <header class="kb-navbar">
-            <div class="navbar-top">
-                <!-- 메뉴 열림 -->
-                <button id="btnExpand" type="button" class="btn-expand">
-                    <span class="sr-only">사이드 바 펼치기</span>
-                </button>
-                <div class="navbar-brand-wrap">
-                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong
-                            class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
-                </div>
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand">
+            <span class="sr-only">사이드 바 펼치기</span>
+          </button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
 
-
-                <ul class="navbar-nav kb-navbar-util">
-                    <li class="nav-item">
-                        <div class="btn-group" role="group">
-                            <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <strong>김국민국민국민</strong>(KB123456)님
-                            </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
             <a class="dropdown-item" href="#">비밀번호 변경</a>
           </div> -->
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="nav-link log-out">로그아웃</button>
-                    </li>
-                </ul>
-            </div>
-        </header>
-        <!-- //헤더 -->
-
-        <!-- container -->
-        <div class="kb-container">
-            <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
-            <div class="kb-sidebar">
-                <div class="kb-sidebar-inner" id="kb-lnb-nav">
-                    <nav class="kb-lnb" aria-label="Main navigation">
-                        <ul class="kb-lnb-dep1">
-                            <li>
-                                <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">타겟분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">특성분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">내용분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">연관키워드 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">인사이트 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
-                                            <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
-                                            <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">조회통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">조회수</a></li>
-                                            <li><a class="kb-lnb-link" href="#">체류시간</a></li>
-                                            <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">순위통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">고객통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
-                                            <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">시간대별</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">경로 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">유입경로</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">모델 현황 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">분석 모델 운영</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">계정 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
-                                            <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">권한 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
-                                            <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <!-- //사이드바 -->
-
-            <!-- 컨텐츠 -->
-            <main class="kb-content" role="main">
-                <!-- 컨텐츠헤더 -->
-                <div class="kb-page-title">
-                    <div>
-                        <div class="kb-title">
-                            <h2 class="page-tit">내용분류 상세/수정</h2>
-                            <nav aria-label="breadcrumb" class="ml-auto">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">홈</a></li>
-                                    <li class="breadcrumb-item"><a href="#">콘텐츠속성 관리</a></li><!-- 1뎁스 -->
-                                    <li class="breadcrumb-item active" aria-current="page">내용분류 관리</li><!-- 현재 페이지 -->
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <!-- //컨텐츠헤더 -->
-
-                <!-- 컨텐츠 박스 -->
-                <div class="kb-content-box">
-                    <div class="kb-box-inner">
-                        <h3 class="content-tit">기본 정보</h3>
-                        <table class="table left-table">
-                            <colgroup>
-                                <!-- 2023-09-25 width값 수정 -->
-                                <col style="width: 15%;" />
-                                <col />
-                                <col style="width: 15%;" />
-                                <col />
-                            </colgroup>
-
-                            <tbody>
-                                <tr>
-                                    <th scope="col" class="t-left">분류 단계 <i class="fc-red">*</i></th>
-                                    <td colspan="3">
-                                        <div class="form-item inline-flex align-center">
-                                            최상위분류
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col" class="t-left">최상위분류 <i class="fc-red">*</i></th>
-                                    <td colspan="3">
-                                        <div class="form-item inline-flex align-center">
-                                            <div class="select custom-select">
-                                                <select class="" disabled>
-                                                    <option value="">상품기준정보</option>
-                                                    <option value="">선택 1</option>
-                                                </select>
-                                            </div>
-                                            <span class="fc-gray-666 fz-14 ml-8">선택한 분류의 하위분류로 등록됩니다.</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col" class="t-left">대분류 <i class="fc-red">*</i></th>
-                                    <td colspan="3">
-                                        <div class="form-item inline-flex align-center">
-                                            <div class="select custom-select">
-                                                <select class="" disabled>
-                                                    <option value="">연령</option>
-                                                    <option value="">선택 1</option>
-                                                </select>
-                                            </div>
-                                            <span class="fc-gray-666 fz-14 ml-8">선택한 분류의 하위분류로 등록됩니다.</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col" class="t-left">대분류 명 <i class="fc-red">*</i></th>
-                                    <td>
-                                        <div class="form-item">
-                                            <div class="input w-full">
-                                                <input type="text" title="대분류 명" value=""
-                                                    placeholder="타켓 분류명을 입력해주세요." />
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <th scope="col" class="t-left">관리코드</th>
-                                    <td>
-                                        <div class="form-item">
-                                            <div class="input w-full">
-                                                <input type="text" title="관리코드" value="TG0105" placeholder="자동채번됩니다."
-                                                    readonly="readonly" />
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col" class="t-left">분류 정의</th>
-                                    <td colspan="3">
-                                        <div class="form-item">
-                                            <div class="textarea h-150">
-                                                <textarea placeholder="설명정보를 입력해주세요." value="">19세 이상 34세 이하
-                  </textarea>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col" class="t-left">사용여부 <i class="fc-red">*</i></th>
-                                    <td colspan="3">
-                                        <div class="form-item">
-                                            <label class="radio sml">
-                                                <input type="radio" class="" name="rdo2" />
-                                                <i aria-hidden="true" class="lbl"></i>
-                                                <span>사용</span>
-                                            </label>
-                                            <label class="radio sml">
-                                                <input type="radio" class="" name="rdo2" />
-                                                <i aria-hidden="true" class="lbl"></i>
-                                                <span>사용안함</span>
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="table-wrap mt-16">
-                            <table class="table left-table">
-                                <colgroup>
-                                    <col style="width: 15%;" />
-                                    <col style="width: 35%;" />
-                                    <col style="width: 15%;" />
-                                    <col style="width: 35%;" />
-                                </colgroup>
-
-                                <tbody>
-                                    <tr>
-                                        <th>등록일시</th>
-                                        <td>2023-07-15 23:14:17</td>
-                                        <th>등록자</th>
-                                        <td> 김증권</td>
-                                    </tr>
-                                    <tr>
-                                        <th>최종 수정일시</th>
-                                        <td>2023-07-15 23:14:17
-                                        </td>
-                                        <th>최종 수정자</th>
-                                        <td>김증권</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- 버튼 영역-->
-                        <div class="flex flex-01 mt-15">
-                            <button type="button" class="btn btn-mid btn-line">목록</button>
-
-                            <div class="ml-auto t-right">
-                                <div class="common-btn-wrap">
-                                    <button type="button" class="btn btn-mid btn-line">초기화</button>
-                                    <button type="button" class="btn btn-mid btn-yellow">저장</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 하위분류 목록 | 검색결과 테이블 -->
-                    <div class="kb-box-inner" >
-                        <div class="title-wrap flex align-center mb-12">
-                            <!-- 2023-10-10 하위분류 목록(상품기준정보 > 선물옵션 > 선물) | 검색결과 span 태그 추가 -->
-                            <div class="left flex-00 w-auto"><span>하위분류 목록(상품기준정보 > 선물옵션 > 선물) | 검색결과</span> <strong class="fc-blue">999</strong>
-                                / 9999</div>
-                            <div class="ml-auto inline-flex justify-end">
-                                <div class="form-item">
-                                    <div class="select custom-select">
-                                        <select class="">
-                                            <option value="">사용여부 전체</option>
-                                            <option value="">사용</option>
-                                            <option value="">사용안함</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-wrap">
-                            <table class="table nowrap">
-                                <colgroup>
-                                    <col style="width: 8rem;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: 10rem;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: 10rem;" />
-                                    <col style="width: auto;" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>NO</th>
-                                        <th>분류 명</th>
-                                        <th>관리코드</th>
-                                        <th>분류단계</th>
-                                        <th>정의</th>
-                                        <th>사용여부</th>
-                                        <th>
-                                            <span class="list-align">
-                                                등록일시
-                                                <i role="button" class="btn-alignList"></i>
-                                            </span>
-                                        </th>
-                                        <th>등록자</th>
-                                        <th>
-                                            <span class="list-align">
-                                                최종 수정일시
-                                                <i role="button" class="btn-alignList"></i>
-                                            </span>
-                                        </th>
-                                        <th>최종 수정자</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>999</td>
-                                        <td class="t-left"><a href="#" class="linked">영상(★)+텍스트</a></td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <td>소분류</td>
-                                        <td class="t-left">분류정의 정보 노출</td>
-                                        <td>사용</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-                                    <tr>
-                                        <td>998</td>
-                                        <td class="t-left"><a href="#" class="linked">선물 1</a></td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <td>소분류</td>
-                                        <td class="t-left">분류정의 정보 노출</td>
-                                        <td>사용</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-                                    <tr>
-                                        <td>998</td>
-                                        <td class="t-left"><a href="#" class="linked">선물 1</a></td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <td>소분류</td>
-                                        <td class="t-left">분류정의 정보 노출</td>
-                                        <td>사용</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-                                    <tr>
-                                        <td>998</td>
-                                        <td class="t-left"><a href="#" class="linked">선물 1</a></td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <td>소분류</td>
-                                        <td class="t-left">분류정의 정보 노출</td>
-                                        <td>사용</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-                                    <tr>
-                                        <td>998</td>
-                                        <td class="t-left"><a href="#" class="linked">선물 1</a></td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <td>소분류</td>
-                                        <td class="t-left">분류정의 정보 노출</td>
-                                        <td>사용</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-
-                                    <!-- 검색결과가 없습니다 -->
-                                    <tr>
-                                        <td colspan="10">
-                                            <div class="search-notFound">
-                                                하위 분류 정보가 없습니다.
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- 2023-09-13 페이징 추가 -->
-                        <!-- 페이징 -->
-                        <nav aria-label="Page navigation" class="mb-20">
-                            <ul class="pagination justify-center mt-16">
-                                <li class="page-item">
-                                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
-                                        <span aria-hidden="true">&#60;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
-                                        <span aria-hidden="true">&#62;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link next-last" href="#" aria-label="마지막으로">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                    <!-- 하위분류 목록 미보유시 | 검색결과 테이블 -->
-                    <div class="kb-box-inner">
-                        <div class="title-wrap flex align-center mb-12">
-                            <!-- 2023-10-10 상품데이터 목록 span 태그 추가 -->
-                            <div class="left flex-00 w-auto"><span>상품데이터 목록</span> <strong class="fc-blue">999</strong>
-                                / 9999</div>
-                            <div class="ml-auto inline-flex justify-end">
-                                <div class="form-item">
-                                    <div class="select custom-select">
-                                        <select class="">
-                                            <option value="">20개씩 보기</option>
-                                            <option value="">50개씩 보기</option>
-                                            <option value="">100개씩 보기</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-sml btn-line btn-x ml-6">선택삭제</button>
-                                <button type="button" class="btn btn-sml btn-gray ml-6">데이터 연결하기</button>
-                            </div>
-                        </div>
-                        <div class="table-wrap">
-                            <table class="table nowrap">
-                                <colgroup>
-                                    <col style="width: 5rem;" />
-                                    <col style="width: 8rem;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </th>
-                                        <th>NO</th>
-                                        <th>신고객상품<br />중분류</th>
-                                        <th>신고객상품<br />소분류</th>
-                                        <th>자산군1</th>
-                                        <th>자산군2</th>
-                                        <th>자산군3</th>
-                                        <th>종목유형</th>
-                                        <th>종목<br />세부유형</th>
-                                        <th>통화</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>해외채권</td>
-                                        <td>해외채권기타</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>채권</td>
-                                        <td>금융채</td>
-                                        <td>미국</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>해외채권</td>
-                                        <td>해외채권기타</td>
-                                        <td>채권형</td>
-                                        <td>국내채권형</td>
-                                        <td>한국크레딧</td>
-                                        <td>채권</td>
-                                        <td>금융채</td>
-                                        <td>미국</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>해외채권</td>
-                                        <td>해외채권기타</td>
-                                        <td>채권형</td>
-                                        <td>국내채권형</td>
-                                        <td>한국크레딧</td>
-                                        <td>채권</td>
-                                        <td>금융채</td>
-                                        <td>미국</td>
-                                    </tr>
-
-                                    <!-- 검색결과가 없습니다 -->
-                                    <tr>
-                                        <td colspan="10">
-                                            <div class="search-notFound">
-                                                연결된 데이터가 없습니다.
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- 페이징 -->
-                        <nav aria-label="Page navigation" class="mb-20">
-                            <ul class="pagination justify-center mt-16">
-                                <li class="page-item">
-                                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
-                                        <span aria-hidden="true">&#60;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
-                                        <span aria-hidden="true">&#62;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link next-last" href="#" aria-label="마지막으로">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                    </div>
-
-                    <!-- 2023-09-13 계좌데이터 목록 검색결과 테이블 추가 -->
-                    <div class="kb-box-inner">
-                        <div class="title-wrap flex align-center mb-12">
-                            <!-- 2023-10-10 계좌데이터 목록 span 태그 추가 -->
-                            <div class="left flex-00 w-auto"><span>계좌데이터 목록</span> <strong class="fc-blue">999</strong>
-                                / 9999</div>
-                            <div class="ml-auto inline-flex justify-end">
-                                <div class="form-item">
-                                    <div class="select custom-select">
-                                        <select class="">
-                                            <option value="">20개씩 보기</option>
-                                            <option value="">50개씩 보기</option>
-                                            <option value="">100개씩 보기</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-sml btn-line btn-x ml-6">선택삭제</button>
-                                <button type="button" class="btn btn-sml btn-gray ml-6">데이터 연결하기</button>
-                            </div>
-                        </div>
-                        <div class="table-wrap">
-                            <table class="table nowrap">
-                                <colgroup>
-                                    <col style="width: 5rem;" />
-                                    <col style="width: 8rem;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </th>
-                                        <th>NO</th>
-                                        <th>상품유형명</th>
-                                        <th>계좌상품구분명</th>
-                                        <th>신탁전용구분명</th>
-                                        <th>가상계좌종류명</th>
-                                        <th>WRAP계좌구분명</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>개인종합자산관리계좌</td>
-                                        <td>중개형 ISA</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>퇴직연금운용</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>퇴직연금DB가입자계좌</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>CMA</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>WRAP가입계좌</td>
-                                    </tr>
-                    
-                                    <!-- 검색결과가 없습니다 -->
-                                    <tr>
-                                        <td colspan="10">
-                                            <div class="search-notFound">
-                                                연결된 데이터가 없습니다.
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    
-                        <!-- 페이징 -->
-                        <nav aria-label="Page navigation" class="mb-20">
-                            <ul class="pagination justify-center mt-16">
-                                <li class="page-item">
-                                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
-                                        <span aria-hidden="true">&#60;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
-                                        <span aria-hidden="true">&#62;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link next-last" href="#" aria-label="마지막으로">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    
-                    </div>
-                </div>
-            </main>
-            <!-- //컨텐츠 -->
+              </div>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link log-out">로그아웃</button>
+            </li>
+          </ul>
         </div>
-        <!-- //container -->
+      </header>
+      <!-- //헤더 -->
 
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
 
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">타겟분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">특성분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">내용분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">연관키워드 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">분석 모델 운영</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">계정 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">권한 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">내용분류 상세/수정</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">콘텐츠속성 관리</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">내용분류 관리</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <h3 class="content-tit">기본 정보</h3>
+              <table class="table left-table">
+                <colgroup>
+                  <!-- 2023-09-25 width값 수정 -->
+                  <col style="width: 15%" />
+                  <col />
+                  <col style="width: 15%" />
+                  <col />
+                </colgroup>
+
+                <tbody>
+                  <tr>
+                    <th scope="col" class="t-left">분류 단계 <i class="fc-red">*</i></th>
+                    <td colspan="3">
+                      <div class="form-item inline-flex align-center">최상위분류</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col" class="t-left">최상위분류 <i class="fc-red">*</i></th>
+                    <td colspan="3">
+                      <div class="form-item inline-flex align-center">
+                        <div class="select custom-select">
+                          <select class="" disabled>
+                            <option value="">상품기준정보</option>
+                            <option value="">선택 1</option>
+                          </select>
+                        </div>
+                        <span class="fc-gray-666 fz-14 ml-8">선택한 분류의 하위분류로 등록됩니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col" class="t-left">대분류 <i class="fc-red">*</i></th>
+                    <td colspan="3">
+                      <div class="form-item inline-flex align-center">
+                        <div class="select custom-select">
+                          <select class="" disabled>
+                            <option value="">연령</option>
+                            <option value="">선택 1</option>
+                          </select>
+                        </div>
+                        <span class="fc-gray-666 fz-14 ml-8">선택한 분류의 하위분류로 등록됩니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col" class="t-left">대분류 명 <i class="fc-red">*</i></th>
+                    <td>
+                      <div class="form-item">
+                        <div class="input w-full">
+                          <input type="text" title="대분류 명" value="" placeholder="타켓 분류명을 입력해주세요." />
+                        </div>
+                      </div>
+                    </td>
+                    <th scope="col" class="t-left">관리코드</th>
+                    <td>
+                      <div class="form-item">
+                        <div class="input w-full">
+                          <input type="text" title="관리코드" value="TG0105" placeholder="자동채번됩니다." readonly="readonly" />
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col" class="t-left">분류 정의</th>
+                    <td colspan="3">
+                      <div class="form-item">
+                        <div class="textarea h-150">
+                          <textarea placeholder="설명정보를 입력해주세요." value="">
+19세 이상 34세 이하
+                  </textarea
+                          >
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col" class="t-left">사용여부 <i class="fc-red">*</i></th>
+                    <td colspan="3">
+                      <div class="form-item">
+                        <label class="radio sml">
+                          <input type="radio" class="" name="rdo2" />
+                          <i aria-hidden="true" class="lbl"></i>
+                          <span>사용</span>
+                        </label>
+                        <label class="radio sml">
+                          <input type="radio" class="" name="rdo2" />
+                          <i aria-hidden="true" class="lbl"></i>
+                          <span>사용안함</span>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="table-wrap mt-16">
+                <table class="table left-table">
+                  <colgroup>
+                    <col style="width: 15%" />
+                    <col style="width: 35%" />
+                    <col style="width: 15%" />
+                    <col style="width: 35%" />
+                  </colgroup>
+
+                  <tbody>
+                    <tr>
+                      <th>등록일시</th>
+                      <td>2023-07-15 23:14:17</td>
+                      <th>등록자</th>
+                      <td>김증권</td>
+                    </tr>
+                    <tr>
+                      <th>최종 수정일시</th>
+                      <td>2023-07-15 23:14:17</td>
+                      <th>최종 수정자</th>
+                      <td>김증권</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- 버튼 영역-->
+              <div class="flex flex-01 mt-15">
+                <button type="button" class="btn btn-mid btn-line">목록</button>
+
+                <div class="ml-auto t-right">
+                  <div class="common-btn-wrap">
+                    <button type="button" class="btn btn-mid btn-line">초기화</button>
+                    <button type="button" class="btn btn-mid btn-yellow">저장</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 하위분류 목록 | 검색결과 테이블 -->
+            <div class="kb-box-inner">
+              <div class="title-wrap flex align-center mb-12">
+                <!-- 2023-10-10 하위분류 목록(상품기준정보 > 선물옵션 > 선물) | 검색결과 span 태그 추가 -->
+                <div class="left flex-00 w-auto"><span>하위분류 목록(상품기준정보 > 선물옵션 > 선물) | 검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
+                <div class="ml-auto inline-flex justify-end">
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="">
+                        <option value="">사용여부 전체</option>
+                        <option value="">사용</option>
+                        <option value="">사용안함</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="table nowrap">
+                  <colgroup>
+                    <col style="width: 8rem" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: 10rem" />
+                    <col style="width: auto" />
+                    <col style="width: 10rem" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>NO</th>
+                      <th>분류 명</th>
+                      <th>관리코드</th>
+                      <th>분류단계</th>
+                      <th>정의</th>
+                      <th>사용여부</th>
+                      <th>
+                        <span class="list-align">
+                          등록일시
+                          <i role="button" class="btn-alignList"></i>
+                        </span>
+                      </th>
+                      <th>등록자</th>
+                      <th>
+                        <span class="list-align">
+                          최종 수정일시
+                          <i role="button" class="btn-alignList"></i>
+                        </span>
+                      </th>
+                      <th>최종 수정자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>999</td>
+                      <td class="t-left"><a href="#" class="linked">영상(★)+텍스트</a></td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <td>소분류</td>
+                      <td class="t-left">분류정의 정보 노출</td>
+                      <td>사용</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>998</td>
+                      <td class="t-left"><a href="#" class="linked">선물 1</a></td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <td>소분류</td>
+                      <td class="t-left">분류정의 정보 노출</td>
+                      <td>사용</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>998</td>
+                      <td class="t-left"><a href="#" class="linked">선물 1</a></td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <td>소분류</td>
+                      <td class="t-left">분류정의 정보 노출</td>
+                      <td>사용</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>998</td>
+                      <td class="t-left"><a href="#" class="linked">선물 1</a></td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <td>소분류</td>
+                      <td class="t-left">분류정의 정보 노출</td>
+                      <td>사용</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>998</td>
+                      <td class="t-left"><a href="#" class="linked">선물 1</a></td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <td>소분류</td>
+                      <td class="t-left">분류정의 정보 노출</td>
+                      <td>사용</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+
+                    <!-- 검색결과가 없습니다 -->
+                    <tr>
+                      <td colspan="10">
+                        <div class="search-notFound">하위 분류 정보가 없습니다.</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- 2023-09-13 페이징 추가 -->
+              <!-- 페이징 -->
+              <nav aria-label="Page navigation" class="mb-20">
+                <ul class="pagination justify-center mt-16">
+                  <li class="page-item">
+                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                      <span aria-hidden="true">&#60;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                      <span aria-hidden="true">&#62;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- 하위분류 목록 미보유시 | 검색결과 테이블 -->
+            <div class="kb-box-inner">
+              <div class="title-wrap flex align-center mb-12">
+                <!-- 2023-10-10 상품데이터 목록 span 태그 추가 -->
+                <div class="left flex-00 w-auto">
+                  <span>상품데이터 목록</span>
+
+                  <strong class="fc-blue">999</strong>
+                  / 9999
+                  <!-- 툴팁 -->
+                  <div class="tooltips">
+                    <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
+                    <p class="msg w-350">
+                      <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>
+                      <span
+                        >연계 대상인 상품정보가 미사용 처리된 경우<br />
+                        취소선으로 표기됩니다.</span
+                      >
+                    </p>
+                  </div>
+                </div>
+                <div class="ml-auto inline-flex justify-end">
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="">
+                        <option value="">20개씩 보기</option>
+                        <option value="">50개씩 보기</option>
+                        <option value="">100개씩 보기</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sml btn-line btn-x ml-6">선택삭제</button>
+                  <button type="button" class="btn btn-sml btn-gray ml-6">데이터 연결하기</button>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="table nowrap">
+                  <colgroup>
+                    <col style="width: 5rem" />
+                    <col style="width: 8rem" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </th>
+                      <th>NO</th>
+                      <th>신고객상품<br />중분류</th>
+                      <th>신고객상품<br />소분류</th>
+                      <th>자산군1</th>
+                      <th>자산군2</th>
+                      <th>자산군3</th>
+                      <th>종목유형</th>
+                      <th>종목<br />세부유형</th>
+                      <th>통화</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="fc-gray-999 line-through">
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>해외채권</td>
+                      <td>해외채권기타</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>채권</td>
+                      <td>금융채</td>
+                      <td>미국</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>해외채권</td>
+                      <td>해외채권기타</td>
+                      <td>채권형</td>
+                      <td>국내채권형</td>
+                      <td>한국크레딧</td>
+                      <td>채권</td>
+                      <td>금융채</td>
+                      <td>미국</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>해외채권</td>
+                      <td>해외채권기타</td>
+                      <td>채권형</td>
+                      <td>국내채권형</td>
+                      <td>한국크레딧</td>
+                      <td>채권</td>
+                      <td>금융채</td>
+                      <td>미국</td>
+                    </tr>
+
+                    <!-- 검색결과가 없습니다 -->
+                    <tr>
+                      <td colspan="10">
+                        <div class="search-notFound">연결된 데이터가 없습니다.</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 페이징 -->
+              <nav aria-label="Page navigation" class="mb-20">
+                <ul class="pagination justify-center mt-16">
+                  <li class="page-item">
+                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                      <span aria-hidden="true">&#60;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                      <span aria-hidden="true">&#62;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- 2023-09-13 계좌데이터 목록 검색결과 테이블 추가 -->
+            <div class="kb-box-inner">
+              <div class="title-wrap flex align-center mb-12">
+                <!-- 2023-10-10 계좌데이터 목록 span 태그 추가 -->
+                <div class="left flex-00 w-auto"><span>계좌데이터 목록</span> <strong class="fc-blue">999</strong> / 9999</div>
+                <div class="ml-auto inline-flex justify-end">
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select class="">
+                        <option value="">20개씩 보기</option>
+                        <option value="">50개씩 보기</option>
+                        <option value="">100개씩 보기</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sml btn-line btn-x ml-6">선택삭제</button>
+                  <button type="button" class="btn btn-sml btn-gray ml-6">데이터 연결하기</button>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="table nowrap">
+                  <colgroup>
+                    <col style="width: 5rem" />
+                    <col style="width: 8rem" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </th>
+                      <th>NO</th>
+                      <th>상품유형명</th>
+                      <th>계좌상품구분명</th>
+                      <th>신탁전용구분명</th>
+                      <th>가상계좌종류명</th>
+                      <th>WRAP계좌구분명</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>개인종합자산관리계좌</td>
+                      <td>중개형 ISA</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>퇴직연금운용</td>
+                      <td></td>
+                      <td></td>
+                      <td>퇴직연금DB가입자계좌</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>CMA</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>WRAP가입계좌</td>
+                    </tr>
+
+                    <!-- 검색결과가 없습니다 -->
+                    <tr>
+                      <td colspan="10">
+                        <div class="search-notFound">연결된 데이터가 없습니다.</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 페이징 -->
+              <nav aria-label="Page navigation" class="mb-20">
+                <ul class="pagination justify-center mt-16">
+                  <li class="page-item">
+                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                      <span aria-hidden="true">&#60;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                      <span aria-hidden="true">&#62;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
     </section>
     <!-- //wrap -->
 
-    <script>
-
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>
