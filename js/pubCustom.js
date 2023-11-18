@@ -383,7 +383,7 @@
 
         $('.rangeToggleEmpty').on('click', function () {
             if ($(this).children('input').prop('checked')) {
-                $('.posting-date').addClass('date-empty-single').removeClass('date-empty-range');
+                $('.posting-date').addClass('date-empty-single').removeClass('date-empty-range date-single range');
                 $('.date-empty-single input').val();
                 $('.date-empty-single input').daterangepicker({
                   drops: 'up',
@@ -415,7 +415,7 @@
                   $(this).val('');
                 });
             } else {
-                $('.posting-date').addClass('date-empty-range').removeClass('date-empty-single');
+                $('.posting-date').addClass('date-empty-range').removeClass('date-empty-single date-single range');
                 $('.date-empty-range input').val();
                 $('.date-empty-range input').daterangepicker({
                   drops: 'up',

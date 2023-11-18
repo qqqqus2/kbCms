@@ -26074,6 +26074,16 @@ strong {
 .table tbody td.bg-yellow {
   background: #fffbe5;
 }
+.table tbody td.copyUrl div {
+  position: relative;
+  overflow: hidden;
+}
+.table tbody td.copyUrl div input {
+  position: absolute;
+  width: 1px;
+  top: -5px;
+  left: -5px;
+}
 .table tbody tr.is-error td {
   background-color: #fff4f6;
 }

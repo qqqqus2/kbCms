@@ -1011,6 +1011,18 @@ $bdTypes: (solid, dashed, dotted);
       &.bg-yellow {
         background: #fffbe5;
       }
+      &.copyUrl {
+        div {
+          position: relative;
+          overflow: hidden;
+          input {
+            position: absolute;
+            width: 1px;
+            top: -5px;
+            left: -5px;
+          }
+        }
+      }
     }
     tr.is-error {
       td {
