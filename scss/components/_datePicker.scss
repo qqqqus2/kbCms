@@ -619,7 +619,18 @@ $today-color: #202020 !default;
 .daterangepicker.show-ranges.rtl .drp-calendar.right {
   border-right: 1px solid #ddd;
 }
-
+.daterangepicker.show-ranges.rtl .drp-calendar.right thead th.month {
+  position: relative;
+}
+.daterangepicker.show-ranges.rtl .drp-calendar.right thead th.month:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
 .daterangepicker.show-ranges.ltr .drp-calendar.left {
   border-left: 1px solid #ddd;
 }
