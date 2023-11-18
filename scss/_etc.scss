@@ -476,12 +476,15 @@
 
 .reply-list {
   li {
-    & + li {
-      padding-top: 2.4rem;
-      margin-top: 2.4rem;
-      border-top: 0.1rem dashed var(--line-color-ccc);
+    padding-top: 2.4rem;
+    margin-top: 2.4rem;
+    border-top: 0.1rem dashed var(--line-color-ccc);
+    &:first-child,
+    &.noBorder {
+      padding-top: 0;
+      border-top: 0;
+      margin-top: 0;
     }
-
     .reply-top {
       display: flex;
       align-items: center;
@@ -559,7 +562,8 @@
     text-align: center;
   }
   span {
-    white-space: pre-line;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 }
 

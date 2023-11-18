@@ -625,6 +625,7 @@ $today-color: #202020 !default;
 }
 
 .daterangepicker .ranges {
+  display: none;
   float: none;
   text-align: left;
   margin: 0;

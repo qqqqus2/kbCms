@@ -283,7 +283,7 @@
 
               <!-- 댓글 리스트 -->
               <ul class="reply-list">
-                <li>
+                <li style="display: none;">
                   <div class="reply-top">
                     <div class="user-info">
                       <strong class="writer-name">김증권(WM상품부)</strong>
@@ -388,6 +388,10 @@
     </section>
     <!-- //wrap -->
 
-    <script></script>
+    <script>
+      $(function(){
+        $('.').addClass('noBorder');
+      })
+    </script>
   </body>
 </html>

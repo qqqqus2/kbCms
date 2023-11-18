@@ -380,6 +380,75 @@
               });
             }
           });
+
+        $('.rangeToggleEmpty').on('click', function () {
+            if ($(this).children('input').prop('checked')) {
+                $('.posting-date').addClass('date-empty-single').removeClass('date-empty-range');
+                $('.date-empty-single input').val();
+                $('.date-empty-single input').daterangepicker({
+                  drops: 'up',
+                  autoUpdateInput: false,
+                  startDate: start,
+                  endDate: end,
+                  singleDatePicker: true,
+                  showDropdowns: true,
+                  timePicker: false,
+                  locale: {
+                    format: 'YYYY-MM-DD',
+                    direction: 'rtl',
+                    separator: ' ~ ',
+                    applyLabel: '확인',
+                    cancelLabel: '다시 선택',
+                    fromLabel: '부터',
+                    toLabel: '까지',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+                    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                    firstDay: 0
+                  }
+                });
+                $('.date-empty-single input').on('apply.daterangepicker', function (ev, picker) {
+                  $(this).val(picker.endDate.format('YYYY-MM-DD'));
+                });
+
+                $('.date-empty-single input').on('cancel.daterangepicker', function () {
+                  $(this).val('');
+                });
+            } else {
+                $('.posting-date').addClass('date-empty-range').removeClass('date-empty-single');
+                $('.date-empty-range input').val();
+                $('.date-empty-range input').daterangepicker({
+                  drops: 'up',
+                  autoUpdateInput: false,
+                  startDate: start,
+                  endDate: end,
+                  singleDatePicker: false,
+                  showDropdowns: true,
+                  timePicker: false,
+                  locale: {
+                    format: 'YYYY-MM-DD',
+                    direction: 'rtl',
+                    separator: ' ~ ',
+                    applyLabel: '확인',
+                    cancelLabel: '다시 선택',
+                    fromLabel: '부터',
+                    toLabel: '까지',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+                    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                    firstDay: 0
+                  }
+                });
+                $('.date-empty-range input').on('apply.daterangepicker', function (ev, picker) {
+                  $(this).val(picker.endDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
+                });
+
+                $('.date-empty-range input').on('cancel.daterangepicker', function () {
+                  $(this).val('');
+                });
+
+            }
+          });
           
           $('.date-single input').daterangepicker({
             startDate: start,
@@ -402,15 +471,10 @@
             }
           });
 
-          //디폴트 초기값 빈값
-          $('.date-empty-single input').on('apply.daterangepicker', function (ev, picker) {
-            $(this).val(picker.endDate.format('YYYY-MM-DD'));
-          });
-
-          $('.date-empty-single input').on('cancel.daterangepicker', function () {
-            $(this).val('');
-          });
+          //디폴트 초기값 빈값(월)
+          $('.date-empty-single input').val();
           $('.date-empty-single input').daterangepicker({
+            drops: 'up',
             autoUpdateInput: false,
             startDate: start,
             endDate: end,
@@ -431,7 +495,44 @@
               firstDay: 0
             }
           });
-          
+          $('.date-empty-single input').on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.endDate.format('YYYY-MM-DD'));
+          });
+
+          $('.date-empty-single input').on('cancel.daterangepicker', function () {
+            $(this).val('');
+          });
+          $('.date-empty-range input').val();
+          $('.date-empty-range input').daterangepicker({
+            drops: 'up',
+            autoUpdateInput: false,
+            startDate: start,
+            endDate: end,
+            singleDatePicker: false,
+            showDropdowns: true,
+            timePicker: false,
+            locale: {
+              format: 'YYYY-MM-DD',
+              direction: 'rtl',
+              separator: ' ~ ',
+              applyLabel: '확인',
+              cancelLabel: '다시 선택',
+              fromLabel: '부터',
+              toLabel: '까지',
+              customRangeLabel: 'Custom',
+              daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+              monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+              firstDay: 0
+            }
+          });
+          $('.date-empty-range input').on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.endDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
+          });
+
+          $('.date-empty-range input').on('cancel.daterangepicker', function () {
+            $(this).val('');
+          });
+
 
           if ($('.input-date').hasClass('showUp')) {
             $('.date-single input').daterangepicker({
@@ -553,8 +654,19 @@
             var start = moment().subtract(364, 'days');
            
             $('.range input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
-            
-            // 현재 작업중
+
+            $('.range input').daterangepicker({
+              startDate: moment().subtract(364, 'day'), // 오늘 날짜에서 1년 전
+              endDate: moment(), // 오늘 날짜
+              locale: {
+                format: 'YYYY-MM-DD',
+                showDropdowns: false,
+                separator: ' ~ ',
+              },
+              ranges: {
+                '1년': [moment().subtract(364, 'day'), moment()]
+              }
+            });
           });
 
           // 전체 먼저 활성화 될 시
@@ -1063,6 +1175,10 @@ function popOpen(tar) {
     $(window).on("resizeEnd", function () {
         // popPositin(tar,300);
     });
+    // 팝업창 열리면 팝업내에 스크롤 상단으로
+    $('.modal-body .inner-scroll').each(function(){
+        $(this).scrollTop(0);
+    })
 }
 function popSeparated(tar) {
     $('body').addClass('hidden popOpen');
