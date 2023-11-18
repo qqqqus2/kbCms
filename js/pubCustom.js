@@ -403,6 +403,13 @@
           });
 
           //디폴트 초기값 빈값
+          $('.date-empty-single input').on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.endDate.format('YYYY-MM-DD'));
+          });
+
+          $('.date-empty-single input').on('cancel.daterangepicker', function () {
+            $(this).val('');
+          });
           $('.date-empty-single input').daterangepicker({
             autoUpdateInput: false,
             startDate: start,
@@ -424,13 +431,7 @@
               firstDay: 0
             }
           });
-          $('.date-empty-single input').on('apply.daterangepicker', function (ev, picker) {
-            $(this).val(picker.endDate.format('YYYY-MM-DD'));
-          });
-
-          $('.date-empty-single input').on('cancel.daterangepicker', function (ev, picker) {
-            $(this).val('');
-          });
+          
 
           if ($('.input-date').hasClass('showUp')) {
             $('.date-single input').daterangepicker({
