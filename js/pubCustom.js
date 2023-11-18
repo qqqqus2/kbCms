@@ -334,119 +334,8 @@
           $('.rangeToggle').on('click', function () {
             if ($(this).children('input').prop('checked')) {
               $('.posting-date').addClass('date-single').removeClass('range');
-              $('.date-single input').daterangepicker({
-                drops: 'up',
-                startDate: start,
-                endDate: end,
-                singleDatePicker: true,
-                showDropdowns: true,
-                timePicker: false,
-                locale: {
-                  format: 'YYYY-MM-DD',
-                  direction: 'rtl',
-                  separator: ' ~ ',
-                  applyLabel: '확인',
-                  cancelLabel: '다시 선택',
-                  fromLabel: '부터',
-                  toLabel: '까지',
-                  customRangeLabel: 'Custom',
-                  daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
-                  monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                  firstDay: 0
-                }
-              });
             } else {
               $('.posting-date').addClass('range').removeClass('date-single');
-              $('.range input').daterangepicker({
-                drops: 'up',
-                showDropdowns: true,
-                minYear: 2023,
-                // maxYear: 2024,
-                timePicker: false,
-                locale: {
-                  format: 'YYYY-MM-DD',
-                  showDropdowns: true,
-                  direction: 'rtl',
-                  separator: ' ~ ',
-                  applyLabel: '확인',
-                  cancelLabel: '다시 선택',
-                  fromLabel: '부터',
-                  toLabel: '까지',
-                  customRangeLabel: 'Custom',
-                  daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
-                  monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                  firstDay: 0
-                }
-              });
-            }
-          });
-
-        $('.rangeToggleEmpty').on('click', function () {
-            if ($(this).children('input').prop('checked')) {
-                $('.posting-date').addClass('date-empty-single').removeClass('date-empty-range date-single range');
-                $('.date-empty-single input').val();
-                $('.date-empty-single input').daterangepicker({
-                  drops: 'up',
-                  autoUpdateInput: false,
-                  startDate: start,
-                  endDate: end,
-                  singleDatePicker: true,
-                  showDropdowns: true,
-                  timePicker: false,
-                  locale: {
-                    format: 'YYYY-MM-DD',
-                    direction: 'rtl',
-                    separator: ' ~ ',
-                    applyLabel: '확인',
-                    cancelLabel: '다시 선택',
-                    fromLabel: '부터',
-                    toLabel: '까지',
-                    customRangeLabel: 'Custom',
-                    daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
-                    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                    firstDay: 0
-                  }
-                });
-                $('.date-empty-single input').on('apply.daterangepicker', function (ev, picker) {
-                  $(this).val(picker.endDate.format('YYYY-MM-DD'));
-                });
-
-                $('.date-empty-single input').on('cancel.daterangepicker', function () {
-                  $(this).val('');
-                });
-            } else {
-                $('.posting-date').addClass('date-empty-range').removeClass('date-empty-single date-single range');
-                $('.date-empty-range input').val();
-                $('.date-empty-range input').daterangepicker({
-                  drops: 'up',
-                  autoUpdateInput: false,
-                  startDate: start,
-                  endDate: end,
-                  singleDatePicker: false,
-                  showDropdowns: true,
-                  timePicker: false,
-                  locale: {
-                    format: 'YYYY-MM-DD',
-                    direction: 'rtl',
-                    separator: ' ~ ',
-                    applyLabel: '확인',
-                    cancelLabel: '다시 선택',
-                    fromLabel: '부터',
-                    toLabel: '까지',
-                    customRangeLabel: 'Custom',
-                    daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
-                    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                    firstDay: 0
-                  }
-                });
-                $('.date-empty-range input').on('apply.daterangepicker', function (ev, picker) {
-                  $(this).val(picker.endDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
-                });
-
-                $('.date-empty-range input').on('cancel.daterangepicker', function () {
-                  $(this).val('');
-                });
-
             }
           });
           
@@ -472,10 +361,8 @@
           });
 
           //디폴트 초기값 빈값(월)
-          $('.date-empty-single input').val();
           $('.date-empty-single input').daterangepicker({
-            drops: 'up',
-            autoUpdateInput: false,
+            // autoUpdateInput: false,
             startDate: start,
             endDate: end,
             singleDatePicker: true,
@@ -502,12 +389,10 @@
           $('.date-empty-single input').on('cancel.daterangepicker', function () {
             $(this).val('');
           });
-          $('.date-empty-range input').val();
           $('.date-empty-range input').daterangepicker({
-            drops: 'up',
-            autoUpdateInput: false,
+            // autoUpdateInput: false,
             startDate: start,
-            endDate: end,
+            endDate: moment().add(1, 'month'),
             singleDatePicker: false,
             showDropdowns: true,
             timePicker: false,
@@ -526,13 +411,12 @@
             }
           });
           $('.date-empty-range input').on('apply.daterangepicker', function (ev, picker) {
-            $(this).val(picker.endDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
+            $(this).val(picker.startDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
           });
 
           $('.date-empty-range input').on('cancel.daterangepicker', function () {
             $(this).val('');
           });
-
 
           if ($('.input-date').hasClass('showUp')) {
             $('.date-single input').daterangepicker({
