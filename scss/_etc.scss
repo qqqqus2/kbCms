@@ -337,7 +337,8 @@
 //키워드 리스트
 .keyword-list {
   position: relative;
-  margin: 0.6rem -0.3rem 0;
+  // 2023-11-17 margin top 수정
+  margin: 0 -0.3rem 0;
   font-size: 0;
 
   .keyword-wrap {
