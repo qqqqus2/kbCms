@@ -30070,7 +30070,7 @@ input[type=number] {
   margin-top: 2.4rem;
   border-top: 0.1rem dashed var(--line-color-ccc);
 }
-.reply-list li:first-child, .reply-list li.noBorder {
+.reply-list li.bindTr:nth-child(2), .reply-list li:first-child, .reply-list li.noBorder {
   padding-top: 0;
   border-top: 0;
   margin-top: 0;

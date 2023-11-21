@@ -479,6 +479,7 @@
     padding-top: 2.4rem;
     margin-top: 2.4rem;
     border-top: 0.1rem dashed var(--line-color-ccc);
+    &.bindTr:nth-child(2),
     &:first-child,
     &.noBorder {
       padding-top: 0;
