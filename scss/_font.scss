@@ -7,10 +7,12 @@
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
-  src: local('KBFGTextL'), local('KBFGTextL'),
+  src: local('KBFGTextL'), local('KBFGText-Light'),
+    url('../font/KBFGTextL.woff2') format('woff2'),
     url('../font/KBFGTextL.woff') format('woff'),
     url('../font/KBFGTextL.eot') format('eot'),
-    url('../font/KBFGTextL.otf') format('opentype');
+    url('../font/KBFGTextL.otf') format('opentype'),
+    url('../font/KBFGTextL.ttf') format('truetype');
 }
 
 /* KBFGTextM : 500 */
@@ -19,10 +21,12 @@
   font-style: normal;
   font-weight: 500;
   font-display: fallback;
-  src: local('KBFGTextM'), local('KBFGTextM'),
+  src: local('KBFGTextM'), local('KBFGText-Medium'),
+    url('../font/KBFGTextM.woff2') format('woff2'),
     url('../font/KBFGTextM.woff') format('woff'),
     url('../font/KBFGTextM.eot') format('eot'),
-    url('../font/KBFGTextM.otf') format('opentype');
+    url('../font/KBFGTextM.otf') format('opentype'),
+    url('../font/KBFGTextM.ttf') format('truetype');
 }
 
 /* KBFGTextB : 700 */
@@ -31,7 +35,8 @@
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: local('KBFGTextB'), local('KBFGTextB'),
+  src: local('KBFGTextB'), local('KBFGText-Bold'),
+    url('../font/KBFGTextB.woff2') format('woff2'),
     url('../font/KBFGTextB.woff') format('woff'),
     url('../font/KBFGTextB.eot') format('eot'),
     url('../font/KBFGTextB.otf') format('opentype'),
