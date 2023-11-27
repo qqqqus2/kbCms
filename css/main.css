@@ -28838,7 +28838,7 @@ input[type=number] {
   margin-top: 7px;
   top: 100px;
   left: 20px;
-  z-index: 3001;
+  z-index: 3000;
   display: none;
   font-size: 15px;
   line-height: 1em;
@@ -29184,11 +29184,11 @@ input[type=number] {
   border-right: 1px solid #ddd;
 }
 
-.daterangepicker.show-ranges.rtl .drp-calendar.right thead th.month {
+.daterangepicker .drp-calendar.right thead th.month {
   position: relative;
 }
 
-.daterangepicker.show-ranges.rtl .drp-calendar.right thead th.month:after {
+.daterangepicker .drp-calendar.right thead th.month:after {
   content: "";
   display: block;
   position: absolute;
@@ -29619,7 +29619,7 @@ input[type=number] {
 .login-result .kb-content .kb-box-inner .result-img.bg6 {
   width: 37.8rem;
   height: 3.5rem;
-  background-image: url("../img/common/ie_notice.png");
+  background-image: url("https://dcms.kbsec.com/img/common/ie_notice.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

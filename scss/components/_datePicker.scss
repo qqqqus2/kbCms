@@ -271,7 +271,7 @@ $today-color: #202020 !default;
   margin-top: 7px;
   top: 100px;
   left: 20px;
-  z-index: 3001;
+  z-index: 3000;
   display: none;
   font-size: 15px;
   line-height: 1em;
@@ -619,10 +619,10 @@ $today-color: #202020 !default;
 .daterangepicker.show-ranges.rtl .drp-calendar.right {
   border-right: 1px solid #ddd;
 }
-.daterangepicker.show-ranges.rtl .drp-calendar.right thead th.month {
+.daterangepicker .drp-calendar.right thead th.month {
   position: relative;
 }
-.daterangepicker.show-ranges.rtl .drp-calendar.right thead th.month:after {
+.daterangepicker .drp-calendar.right thead th.month:after {
   content: '';
   display: block;
   position: absolute;
