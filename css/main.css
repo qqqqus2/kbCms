@@ -29700,7 +29700,7 @@ input[type=number] {
 }
 .login-result .kb-content .login-result-notice > ul.sub-list {
   font-size: 1.3rem;
-  color: var(--gray_999);
+  color: var(--gray_03-subText);
 }
 .login-result .kb-content .login-result-notice > ul.sub-list > li {
   margin-top: 0.3rem;
@@ -29709,7 +29709,7 @@ input[type=number] {
 .login-result .kb-content .login-result-notice > ul.sub-list > li:before {
   width: 0.5rem;
   height: 0.1rem;
-  background: var(--gray_999);
+  background: var(--gray_03-subText);
 }
 
 .table-wrap .menu-1depth {
@@ -29890,7 +29890,7 @@ input[type=number] {
 }
 .info-contetns ul.sub-list {
   font-size: 1.3rem;
-  color: var(--gray_999);
+  color: var(--gray_03-subText);
 }
 .info-contetns ul.sub-list > li {
   margin-top: 0.3rem;
@@ -29899,7 +29899,7 @@ input[type=number] {
 .info-contetns ul.sub-list > li:before {
   width: 0.5rem;
   height: 0.1rem;
-  background: var(--gray_999);
+  background: var(--gray_03-subText);
 }
 
 .regist-grp {

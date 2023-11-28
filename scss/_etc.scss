@@ -212,14 +212,14 @@
     }
     &.sub-list {
       font-size: 1.3rem;
-      color: var(--gray_999);
+      color: var(--gray_03-subText);
       > li {
         margin-top: 0.3rem;
         padding-left: 0.8rem;
         &:before {
           width: 0.5rem;
           height: 0.1rem;
-          background: var(--gray_999);
+          background: var(--gray_03-subText);
         }
       }
     }
