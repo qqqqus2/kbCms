@@ -67,7 +67,7 @@
                       <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                     </li>
                     <li>
-                      <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
+                      <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
                     </li>
 
                     <li>
@@ -272,89 +272,90 @@
                   <button type="button" class="btn btn-mid btn-line">초기화</button>
                   <button type="button" class="btn btn-mid btn-yellow">검색</button>
                 </div>
-
-                <!-- 테이블  -->
-                <!-- 2023-11-17 minH-280 추가 -->
-                <div class="table-wrap inner-scroll minH-280 minH-280 mb-20">
-                  <table class="table">
-                    <colgroup>
-                      <col style="width: 2rem" />
-                      <col style="width: 20rem" />
-                      <col style="width: auto" />
-                    </colgroup>
-                    <thead>
-                      <tr>
-                        <th>
-                          <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i> </label>
-                        </th>
-                        <th>
-                          <span class="list-align">
-                            화면번호
-                            <i role="button" class="btn-alignList"></i>
-                          </span>
-                        </th>
-                        <th>
-                          <span class="list-align">
-                            화면명
-                            <i role="button" class="btn-alignList"></i>
-                          </span>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
-                        </td>
-                        <td>4156</td>
-                        <td>
-                          <div>발행어음 알아보기</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
-                        </td>
-                        <td>4156</td>
-                        <td>
-                          <div>발행어음 매수</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
-                        </td>
-                        <td>5271</td>
-                        <td>
-                          <div>중계형 ISA 투자하기</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
-                        </td>
-                        <td>5006</td>
-                        <td>
-                          <div>CMA 알아보기</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
-                        </td>
-                        <td>1234</td>
-                        <td>
-                          <div>마블 화면명</div>
-                        </td>
-                      </tr>
-                      <!-- 검색결과가 없습니다 -->
-                      <tr>
-                        <td colspan="3">
-                          <div class="search-notFound">검색 결과가 없습니다.</div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div id="result_list_area" class="w-full">
+                  <!-- 테이블  -->
+                  <!-- 2023-11-17 h-280 으로 클래스 변경 -->
+                  <div class="table-wrap inner-scroll h-280 mb-20">
+                    <table class="table">
+                      <colgroup>
+                        <col style="width: 2rem" />
+                        <col style="width: 20rem" />
+                        <col style="width: auto" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>
+                            <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i> </label>
+                          </th>
+                          <th>
+                            <span class="list-align">
+                              화면번호
+                              <i role="button" class="btn-alignList"></i>
+                            </span>
+                          </th>
+                          <th>
+                            <span class="list-align">
+                              화면명
+                              <i role="button" class="btn-alignList"></i>
+                            </span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                          </td>
+                          <td>4156</td>
+                          <td>
+                            <div>발행어음 알아보기</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                          </td>
+                          <td>4156</td>
+                          <td>
+                            <div>발행어음 매수</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                          </td>
+                          <td>5271</td>
+                          <td>
+                            <div>중계형 ISA 투자하기</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                          </td>
+                          <td>5006</td>
+                          <td>
+                            <div>CMA 알아보기</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                          </td>
+                          <td>1234</td>
+                          <td>
+                            <div>마블 화면명</div>
+                          </td>
+                        </tr>
+                        <!-- 검색결과가 없습니다 -->
+                        <tr>
+                          <td colspan="3">
+                            <div class="search-notFound">검색 결과가 없습니다.</div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
               <div class="modal-footer">

@@ -67,7 +67,7 @@
                       <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                     </li>
                     <li>
-                      <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
+                      <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
                     </li>
 
                     <li>
@@ -320,11 +320,15 @@
                   <button type="button" class="btn btn-mid btn-line">초기화</button>
                   <button type="button" class="btn btn-mid btn-yellow">검색</button>
                 </div>
+                <!-- 2023-11-17 w-full, mb-20, h-385 클래스 추가 -->
                 <div id="result_list_content" class="w-full mb-20 h-385">
                   <!-- 테이블  -->
                   <div class="title-wrap flex align-center mb-12 mt-32 w-full">
-                    <div class="left">검색결과 <strong class="fc-blue">999</strong> / 9999</div>
+                    <!-- 2023-10-10 검색결과 span 태그 추가 -->
+                    <div class="left"><span>검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
                   </div>
+                  <!-- 2023-10-10 h-279 > maxH-280으로 변경 -->
+                  <!-- 2023-11-17 h-280으로 변경 -->
                   <div class="table-wrap inner-scroll h-280">
                     <table class="table">
                       <colgroup>

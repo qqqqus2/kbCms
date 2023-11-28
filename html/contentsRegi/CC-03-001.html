@@ -67,7 +67,7 @@
                       <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                     </li>
                     <li>
-                      <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
+                      <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
                     </li>
                     <li>
                       <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
@@ -446,25 +446,24 @@
 
                         <!-- 1줄씩 -->
                         <!--
-                                            <dl class="inner-tbl">
-                                                <dd class="flex-none">
-                                                    <div class="option">
-                                                        <div class="box">
-                                                            <p class="tit">추가옵션 테스트 <i class="fc-red">*</i></p>
-                                                            <div class="form-item">
-                                                                <div class="select custom-select">
-                                                                    <select class="">
-                                                                        <option value="">전체</option>
-                                                                        <option value="">소분류중 선택</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                            
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                            -->
+                        <dl class="inner-tbl">
+                          <dd class="flex-none">
+                            <div class="option">
+                              <div class="box">
+                                <p class="tit">추가옵션 테스트 <i class="fc-red">*</i></p>
+                                <div class="form-item">
+                                  <div class="select custom-select">
+                                    <select class="">
+                                      <option value="">전체</option>
+                                      <option value="">소분류중 선택</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </dd>
+                        </dl>
+                        -->
                       </td>
                     </tr>
                     <tr>
@@ -805,7 +804,7 @@
                       <td colspan="3">
                         <!-- 파일 첨부 -->
                         <!-- 2023-10-04 mt-12 클래스 삭제 -->
-                        <!-- 2023-10-10 mt-7 > mt-6 클래스 삭제 -->
+                        <!-- 2023-10-10 mt-7 > mt-6 클래스 변경 -->
                         <p class="fc-gray-666 fz-14 mt-6">첨부파일은 최대 10MB * 1개로 pdf 파일만 등록할 수 있습니다.</p>
                         <div class="mt-12 file-drop"></div>
                         <!-- 첨부된 파일 -->
@@ -815,13 +814,13 @@
                             <button type="button" title="삭제" class="btn-del"></button>
                           </p>
                           <!-- <p>
-                                                    <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.pdf(1542byte)</a>
-                                                    <button type="button" title="삭제" class="btn-del"></button>
-                                                </p>
-                                                <p>
-                                                    <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.pdf(1542byte)</a>
-                                                    <button type="button" title="삭제" class="btn-del"></button>
-                                                </p> -->
+                            <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.pdf(1542byte)</a>
+                            <button type="button" title="삭제" class="btn-del"></button>
+                          </p>
+                          <p>
+                            <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.pdf(1542byte)</a>
+                            <button type="button" title="삭제" class="btn-del"></button>
+                          </p> -->
                         </div>
                       </td>
                     </tr>
@@ -849,8 +848,7 @@
                                 <p class="tit">심의필번호</p>
                                 <div class="form-item inline-flex flex-01 w-auto">
                                   <!-- 2023-09-25 w-232 클래스 > w-320으로 변경 -->
-                                  <!-- 2023-10-10 w-320 클래스 > w-232으로 변경 -->
-                                  <div class="input w-232">
+                                  <div class="input w-320">
                                     <!-- 2023-09-25 placeholder 추가 -->
                                     <input type="text" placeholder="소비자보호포털에서 심의번호를 확인 후 입력해주세요." title="심의필번호" value="" />
                                   </div>
@@ -865,6 +863,7 @@
                                 <p class="tit">심의기간</p>
                                 <div class="form-item">
                                   <!-- 2023-09-25 w-232 클래스 > w-320으로 변경 -->
+                                  <!-- 2023-10-10 w-320 클래스 > w-232으로 변경 -->
                                   <div class="input input-date range w-232">
                                     <input type="text" id="" />
                                   </div>

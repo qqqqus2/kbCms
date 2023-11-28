@@ -1,164 +1,155 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
 
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<title>KB 증권 CMS</title>
-<link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
 
-<!-- css -->
-<link href="/css/main.css" rel="stylesheet" />
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
 
-<!-- js -->
-<script src="/js/lib/jquery-3.6.0.min.js"></script>
-<script src="/js/pubCustom.js"></script>
-
-</head>
-
-<body class="cms-request">
+  <body class="cms-request">
     <!-- wrap -->
     <section class="kb-wrap">
-        <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
-        <header class="kb-navbar">
-            <div class="navbar-top">
-                <div class="navbar-brand-wrap">
-                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠
-                            관리 시스템</strong></a>
-                </div>
-            </div>
-        </header>
-        <!-- //헤더 -->
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+        </div>
+      </header>
+      <!-- //헤더 -->
 
-        <!-- container -->
-        <div class="kb-container">
-        
+      <!-- container -->
+      <div class="kb-container">
         <!-- 컨텐츠 -->
-        <main class="kb-content" role="main" style="margin-left: 0;">
-            <!-- 컨텐츠헤더 -->
-            <div class="kb-page-title">
-                <div style="left: 0;">
-                    <div class="kb-title">
-                        <h2 class="page-tit">CMS 사용신청</h2>
+        <main class="kb-content" role="main" style="margin-left: 0">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div style="left: 0">
+              <div class="kb-title">
+                <h2 class="page-tit">CMS 사용신청</h2>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-box-inner">
+            <h3 class="content-tit">기본 정보</h3>
+            <table class="table left-table">
+              <colgroup>
+                <col style="width: 13%" />
+                <col style="width: 37%" />
+                <col style="width: 13%" />
+                <col style="width: 37%" />
+              </colgroup>
+
+              <tbody>
+                <tr>
+                  <th scope="col" class="t-left">이름</th>
+                  <td>
+                    <div class="form-item">
+                      <div class="input w-200">
+                        <input type="text" title="이름" value="한서진" readonly="readonly" />
+                      </div>
                     </div>
-                </div>
+                  </td>
+                  <th scope="col" class="t-left">사번</th>
+                  <td>
+                    <div class="form-item">
+                      <div class="input w-200">
+                        <input type="text" title="이름" value="KB0008219" readonly="readonly" />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="col" class="t-left">부서코드</th>
+                  <td>
+                    <div class="form-item">
+                      <div class="input w-200">
+                        <input type="text" title="부서코드" value="01010101" readonly="readonly" />
+                      </div>
+                    </div>
+                  </td>
+                  <th scope="col" class="t-left">부서명</th>
+                  <td>
+                    <div class="form-item">
+                      <div class="input w-200">
+                        <input type="text" title="부서명" value="콘텐츠 전략 스쿼드" readonly="readonly" />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="col" class="t-left">CMS 신청사유 <i class="fc-red mr-1">*</i></th>
+                  <td colspan="3">
+                    <label class="checkbox">
+                      <input type="checkbox" class="" />
+                      <i aria-hidden="true" class="lbl"></i>
+                      <span>콘텐츠 생성/배포</span>
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" class="" />
+                      <i aria-hidden="true" class="lbl"></i>
+                      <span>콘텐츠 속성 관리</span>
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" class="" />
+                      <i aria-hidden="true" class="lbl"></i>
+                      <span>콘텐츠 모니터링</span>
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" class="" />
+                      <i aria-hidden="true" class="lbl"></i>
+                      <span>콘텐츠 사용 신청</span>
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" class="" />
+                      <i aria-hidden="true" class="lbl"></i>
+                      <span>콘텐츠 제작 요청</span>
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" class="" />
+                      <i aria-hidden="true" class="lbl"></i>
+                      <span>기타</span>
+                    </label>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- 버튼영역 -->
+            <div class="mt-16 common-btn-wrap justify-end">
+              <button type="button" class="btn btn-mid btn-line">취소</button>
+              <button type="button" class="btn btn-mid btn-yellow">신청</button>
             </div>
-            <!-- //컨텐츠헤더 -->
 
-            <!-- 컨텐츠 박스 -->
-            <div class="kb-box-inner">
-                <h3 class="content-tit">기본 정보</h3>
-                <table class="table left-table">
-                    <colgroup>
-                        <col style="width: 13%;" />
-                        <col style="width: 37%;" />
-                        <col style="width: 13%;" />
-                        <col style="width: 37%;"/>
-                    </colgroup>
-
-                    <tbody>
-                        <tr>
-                            <th scope="col" class="t-left">이름</th>
-                            <td>
-                                <div class="form-item">
-                                    <div class="input w-200">
-                                        <input type="text" title="이름" value="한서진" readonly="readonly" />
-                                    </div>
-                                </div>
-                            </td>
-                            <th scope="col" class="t-left">사번</th>
-                            <td>
-                                <div class="form-item">
-                                    <div class="input w-200">
-                                        <input type="text" title="이름" value="KB0008219" readonly="readonly" />
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="col" class="t-left">부서코드</th>
-                            <td>
-                                <div class="form-item">
-                                    <div class="input w-200">
-                                        <input type="text" title="부서코드" value="01010101" readonly="readonly" />
-                                    </div>
-                                </div>
-                            </td>
-                            <th scope="col" class="t-left">부서명</th>
-                            <td>
-                                <div class="form-item">
-                                    <div class="input w-200">
-                                        <input type="text" title="부서명" value="콘텐츠 전략 스쿼드" readonly="readonly" />
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="t-left ">CMS 신청사유 <i class="fc-red mr-1">*</i></th>
-                            <td colspan="3">
-                                <label class="checkbox">
-                                    <input type="checkbox" class="" />
-                                    <i aria-hidden="true" class="lbl"></i>
-                                    <span>콘텐츠 생성/배포</span>
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" class="" />
-                                    <i aria-hidden="true" class="lbl"></i>
-                                    <span>콘텐츠 속성 관리</span>
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" class="" />
-                                    <i aria-hidden="true" class="lbl"></i>
-                                    <span>콘텐츠 모니터링</span>
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" class="" />
-                                    <i aria-hidden="true" class="lbl"></i>
-                                    <span>콘텐츠 사용 신청</span>
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" class="" />
-                                    <i aria-hidden="true" class="lbl"></i>
-                                    <span>콘텐츠 제작 요청</span>
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" class="" />
-                                    <i aria-hidden="true" class="lbl"></i>
-                                    <span>기타</span>
-                                </label>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- 버튼영역 -->
-                <div class="mt-16 common-btn-wrap justify-end">
-                    <button type="button" class="btn btn-mid btn-line">취소</button>
-                    <button type="button" class="btn btn-mid btn-yellow">신청</button>
-                </div>
-
-                <!-- 2023-11-01 유의사항 추가 -->
-                <div class="info-contetns mt-20 mb-24">
-                    <p class="tit">유의사항</p>
-                    <ul>
-                        <li>CMS 신청사유는 최대 3개까지 선택할 수 있습니다.</li>
-                        <li>관리자 승인 이후 콘텐츠관리시스템(CMS)을 사용할 수 있습니다.</li>
-                    </ul>
-                </div>
+            <!-- 2023-11-01 유의사항 추가 -->
+            <div class="info-contetns mt-20 mb-24">
+              <p class="tit">유의사항</p>
+              <ul>
+                <li>CMS 신청사유는 최대 3개까지 선택할 수 있습니다.</li>
+                <li>관리자 승인 이후 콘텐츠관리시스템(CMS)을 사용할 수 있습니다.</li>
+              </ul>
             </div>
-            
+          </div>
         </main>
         <!-- //컨텐츠 -->
-        </div>
-        <!-- //container -->
-
+      </div>
+      <!-- //container -->
     </section>
     <!-- //wrap -->
 
-    <script>
-        
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>

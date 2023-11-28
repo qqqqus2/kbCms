@@ -69,7 +69,7 @@
                       <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                     </li>
                     <li>
-                      <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
+                      <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
                     </li>
 
                     <li>
@@ -239,6 +239,7 @@
             <div class="kb-box-inner">
               <div class="common-search monitoring-search">
                 <button type="button" class="btn-searchToggle" title="열기"></button>
+                <!-- 2023-10-10 mb-24 추가 -->
                 <div class="form-item mb-24">
                   <div class="monitoring-date input input-date">
                     <button type="button" class="btn-dateMove prev-date" title="이전"></button>
@@ -642,28 +643,6 @@
 
       window.addEventListener('resize', myChart1.resize);
       window.addEventListener('resize', myChart2.resize);
-
-      // $('#daterange').data('daterangepicker').setStartDate('10/09/2022');
-      $(function () {
-        // var disabledDate = new Date('2023-10-01');
-        // $('#datepicker').daterangepicker({
-        //     isInvalidDate: function (date) {
-        //         // 여기에 비활성화할 조건을 정의합니다.
-        //         var startDate = moment('2023-10-16');
-        //         return date.isBefore(startDate);
-        //     }
-        // });
-        // $("#monthpicker").monthpicker({
-        //     beforeShowMonth: function (date) {
-        //         // 특정 날짜 이전의 월을 비활성화합니다.
-        //         var currentDate = disabledDate;
-        //         if (date < currentDate) {
-        //             return false;
-        //         }
-        //     }
-        // });
-        //monitoringDate()
-      });
     </script>
   </body>
 </html>

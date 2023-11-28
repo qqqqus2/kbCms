@@ -67,7 +67,7 @@
                       <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
                     </li>
                     <li>
-                      <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
+                      <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
                     </li>
 
                     <li>
@@ -318,12 +318,13 @@
                           <!-- 2023-10-10 w-200 클래스 추가 -->
                           <div class="input w-200">
                             <!-- 2023-09-25 placeholder 수정 -->
+                            <!-- 2023-10-10 placeholder 삭제 -->
                             <input type="text" title="AEM콘텐츠 ID" value="" placeholder="" readonly="readonly" />
                           </div>
                           <!-- 2023-10-10 w-240 > w-305 으로 수정 -->
                           <div class="input w-305 ml-6">
                             <!-- 2023-09-25 placeholder 수정 -->
-                            <input type="text" title="AEM콘텐츠 제목" placeholder="" value="" readonly="readonly" />
+                            <input type="text" title="AEM콘텐츠 제목" value="" readonly="readonly" />
                           </div>
                         </div>
                         <button type="button" class="btn btn-sml btn-line ml-6">미리보기</button>
@@ -335,10 +336,12 @@
                     <td colspan="3">
                       <div class="form-item flex-column">
                         <!-- 파일 첨부 -->
-                        <p class="mb-3 fc-gray-666 flex-none fz-14">첨부파일은 최대 10MB * 5개로 헝용된 파일(doc, docx, ppt, pptx, xls, pdf)만 등록할 수 있습니다.</p>
+                        <!-- 2023-10-10 mb-12 mt-6 -->
+                        <p class="mb-12 mt-6 fc-gray-666 flex-none fz-14">첨부파일은 최대 10MB * 5개로 헝용된 파일(doc, docx, ppt, pptx, xls, pdf)만 등록할 수 있습니다.</p>
                         <!-- 2023-10-10 h-170 클래스 추가-->
                         <div class="file-drop h-170"></div>
                         <!-- 첨부된 파일 -->
+                        <!-- 2023-10-10 h-170 클래스 추가-->
                         <div class="uploaded-file h-170">
                           <p>
                             <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
@@ -387,7 +390,7 @@
                     <th scope="col" class="t-left">제작 완료(예정)일 <i class="fc-red">*</i></th>
                     <td>
                       <div class="form-item">
-                        <div class="input input-date date-empty-range">
+                        <div class="input input-date date-empty-single">
                           <input type="text" id="" />
                         </div>
                       </div>

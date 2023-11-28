@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,573 +14,538 @@
     <script src="/js/lib/jquery-3.6.0.min.js"></script>
     <script src="/js/lib/moment.min.js"></script>
     <script src="/js/lib/datepicker/daterangepicker.js"></script>
-    
+
     <script src="/js/pubCustom.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <!-- wrap -->
     <section class="kb-wrap">
-        <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
-        <header class="kb-navbar">
-            <div class="navbar-top">
-                <!-- 메뉴 열림 -->
-                <button id="btnExpand" type="button" class="btn-expand">
-                    <span class="sr-only">사이드 바 펼치기</span>
-                </button>
-                <div class="navbar-brand-wrap">
-                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong
-                            class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
-                </div>
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand">
+            <span class="sr-only">사이드 바 펼치기</span>
+          </button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
 
-
-                <ul class="navbar-nav kb-navbar-util">
-                    <li class="nav-item">
-                        <div class="btn-group" role="group">
-                            <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <strong>김국민국민국민</strong>(KB123456)님
-                            </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
             <a class="dropdown-item" href="#">비밀번호 변경</a>
           </div> -->
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="nav-link log-out">로그아웃</button>
-                    </li>
-                </ul>
-            </div>
-        </header>
-        <!-- //헤더 -->
-
-        <!-- container -->
-        <div class="kb-container">
-            <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
-            <div class="kb-sidebar">
-                <div class="kb-sidebar-inner" id="kb-lnb-nav">
-                    <nav class="kb-lnb" aria-label="Main navigation">
-                        <ul class="kb-lnb-dep1">
-                            <li>
-                                <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">타겟분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">특성분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">내용분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">연관키워드 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">인사이트 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
-                                            <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
-                                            <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">조회통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">조회수</a></li>
-                                            <li><a class="kb-lnb-link" href="#">체류시간</a></li>
-                                            <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">순위통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">고객통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
-                                            <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">시간대별</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">경로 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">유입경로</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">모델 현황 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">분석 모델 운영</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">계정 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
-                                            <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">권한 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
-                                            <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <!-- //사이드바 -->
-
-            <!-- 컨텐츠 -->
-            <main class="kb-content" role="main">
-                <!-- 컨텐츠헤더 -->
-                <div class="kb-page-title">
-                    <div>
-                        <div class="kb-title">
-                            <h2 class="page-tit">타겟분류 관리</h2>
-                            <nav aria-label="breadcrumb" class="ml-auto">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">홈</a></li>
-                                    <li class="breadcrumb-item"><a href="#">콘텐츠속성 관리</a></li><!-- 1뎁스 -->
-                                    <li class="breadcrumb-item active" aria-current="page">타겟분류 관리</li><!-- 현재 페이지 -->
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <!-- //컨텐츠헤더 -->
-
-                <!-- 컨텐츠 박스 -->
-                <div class="kb-content-box">
-                    <div class="kb-box-inner">
-                        <div class="common-search">
-                            <dl>
-                                <dt class="w-120">타겟분류</dt>
-                                <dd class="inline-flex align-center">
-                                    <div class="form-item">
-                                        <div class="select custom-select">
-                                            <select id="">
-                                                <option value="">최상위분류 전체</option>
-                                                <option value="">선택 1</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-item">
-                                        <div class="select custom-select" disabled>
-                                            <select class="">
-                                                <option value="">대분류 전체</option>
-                                                <option value="">선택 1</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-item">
-                                        <div class="select custom-select" disabled>
-                                            <select class="" disabled>
-                                                <option value="">중분류 전체</option>
-                                                <option value="">선택 1</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <!-- 2023-09-13  ml-16 추가 -->
-                                    <label class="checkbox sml ml-16">
-                                        <input type="checkbox" class="" name="" />
-                                        <i aria-hidden="true" class="lbl"></i>
-                                        <span>하위분류 포함</span>
-                                    </label>
-
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt class="w-120">사용여부</dt>
-                                <dd>
-                                    <div class="form-item">
-                                        <label class="radio">
-                                            <input type="radio" name="rdo1" class="" checked /><i aria-hidden="true"
-                                                class="lbl"></i>
-                                            <span>전체</span>
-                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" name="rdo1" class="" /><i aria-hidden="true"
-                                                class="lbl"></i>
-                                            <span>사용</span>
-                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" name="rdo1" class="" /><i aria-hidden="true"
-                                                class="lbl"></i>
-                                            <span>사용안함</span>
-                                        </label>
-                                    </div>
-                                </dd>
-                            </dl>
-
-                        </div>
-                    </div>
-
-                    <div class="common-search-btn mt-16">
-                        <button type="button" class="btn btn-mid btn-line">초기화</button>
-                        <button type="button" class="btn btn-mid btn-yellow">검색</button>
-                    </div>
-
-                    <div class="kb-box-inner mt-32">
-                        <div class="title-wrap flex align-center mb-12">
-                            <!-- 2023-10-10 검색결과에 span 태그 추가 -->
-                            <div class="left flex-00 w-auto"><span>검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
-                            <div class="ml-auto inline-flex justify-end">
-                                <!-- 2023-09-13 ml-6 클래스 수정 (ml-6 > ml-4, ml-8) -->
-                                <button type="button" class="btn btn-sml btn-line btn-o" disabled>선택 사용</button>
-                                <button type="button" class="btn btn-sml btn-line btn-x ml-4">선택 사용안함</button>
-                                <button type="button" class="btn btn-sml btn-gray ml-8">신규등록</button>
-                            </div>
-                        </div>
-                        <div class="table-wrap">
-                            <!-- 2023-09-13 nowrap 클래스 추가 -->
-                            <table class="table nowrap">
-                                <colgroup>
-                                    <col style="width: 2rem;" />
-                                    <col style="width: 8rem;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <col style="width: auto;" />
-                                    <!-- 2023-10-10 width값 추천 -->
-                                    <col style="width: 15rem;" />
-                                    <col style="width: auto;" />
-                                    <!-- 2023-10-10 width값 추천 -->
-                                    <col style="width: 15rem;" />
-                                    <col style="width: auto;" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </th>
-                                        <th>NO</th>
-                                        <th>분류단계</th>
-                                        <th>분류 명</th>
-                                        <th>관리코드</th>
-                                        <!-- 2023-09-13 minW-150 클래스 추가 -->
-                                        <th class="minW-150">정의/조건</th>
-                                        <th>상위분류</th>
-                                        <th>사용여부</th>
-                                        <th>
-                                            <span class="list-align">
-                                                등록일시
-                                                <i role="button" class="btn-alignList"></i>
-                                            </span>
-                                        </th>
-                                        <th>등록자</th>
-                                        <th>
-                                            <span class="list-align">
-                                                최종 수정일시
-                                                <i role="button" class="btn-alignList"></i>
-                                            </span>
-                                        </th>
-                                        <th>최종 수정자</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>대분류</td>
-                                        <td>
-                                            <a href="#" class="linked t-left">
-                                                <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
-                                                <span class="cate-depth1">
-                                                    세대 기준
-                                                </span>
-                                            </a>
-                                        </td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <!-- 2023-09-13 t-left 클래스 추가 -->
-                                        <td class="t-left">세대 별 기준</td>
-                                        <td>연령</td>
-                                        <td>사용</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>중분류</td>
-                                        <td>
-                                            <a href="#" class="linked t-left">
-                                                <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
-                                                <span class="cate-depth2">청년세대</span>
-                                            </a>
-                                        </td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <!-- 2023-09-13 t-left 클래스 추가 -->
-                                        <td class="t-left">-</td>
-                                        <td>연령</td>
-                                        <td>사용안함</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>중분류</td>
-                                        <td>
-                                            <a href="#" class="linked t-left">
-                                                <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
-                                                <span class="cate-depth2">시니어세대</span>
-                                            </a>
-                                        </td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <!-- 2023-09-13 t-left 클래스 추가 -->
-                                        <td class="t-left">-</td>
-                                        <td>연령</td>
-                                        <td>사용안함</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>대분류</td>
-                                        <td>
-                                            <a href="#" class="linked t-left">
-                                                <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
-                                                <span class="cate-depth2">연령대 기준</span>
-                                            </a>
-                                        </td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <!-- 2023-09-13 t-left 클래스 추가 -->
-                                        <td class="t-left">-</td>
-                                        <td>연령</td>
-                                        <td>사용안함</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox sml only">
-                                                <input type="checkbox" disabled class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
-                                            </label>
-                                        </td>
-                                        <td>999</td>
-                                        <td>
-                                           중분류
-                                        </td>
-                                        <td>
-                                            <a href="#" class="linked t-left">
-                                                <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
-                                                <span class="cate-depth2">10대</span>
-                                            </a>
-                                        </td>
-                                        <td><a href="#" class="linked">TP010105</a></td>
-                                        <!-- 2023-09-13 t-left 클래스 추가 -->
-                                        <td class="t-left">-</td>
-                                        <td>연령</td>
-                                        <td>사용안함</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                        <td>2023-08-01 00:00</td>
-                                        <td>홍길동</td>
-                                    </tr>
-
-                                    <!-- 검색결과가 없습니다 -->
-                                    <tr>
-                                        <td colspan="12">
-                                            <div class="search-notFound">
-                                                검색결과가 없습니다.
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- 2023-09-13 페이징 추가 -->
-                        <!-- 페이징 -->
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-center mt-16">
-                                <li class="page-item">
-                                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
-                                        <span aria-hidden="true">&#60;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
-                                        <span aria-hidden="true">&#62;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link next-last" href="#" aria-label="마지막으로">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                        <!-- 2023-09-13 유의사항 추가 -->
-                        <div class="info-contetns mt-24">
-                            <p class="tit">유의사항</p>
-                            <ul>
-                                <li>최상위분류 및 조건기준 정보는 CMS 내 추가/변경 할 수 없습니다. 필요 시 시스템 관리자에게 문의해주세요.</li>
-                                <li>상위분류의 사용여부가 ‘사용안함’ 상태인 경우 하위분류 모두 콘텐츠 부가정보 등록 시 사용할 수 없습니다.</li>
-                                <li>콘텐츠 부가정보에 이미 사용하고 있는 타겟분류의 조건정보를 변경할 경우, 기존 배포된 콘텐츠의 타겟조건이 변경됩니다.</li>
-                                <li>부가정보에 적용된 타겟분류의 사용상태를 ‘사용안함’으로 변경할 수 없습니다.</li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <!-- //컨텐츠 -->
+              </div>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link log-out">로그아웃</button>
+            </li>
+          </ul>
         </div>
-        <!-- //container -->
+      </header>
+      <!-- //헤더 -->
 
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
 
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">타겟분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">특성분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">내용분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">연관키워드 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">분석 모델 운영</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">계정 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">권한 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">타겟분류 관리</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">콘텐츠속성 관리</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">타겟분류 관리</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <div class="common-search">
+                <dl>
+                  <dt class="w-120">타겟분류</dt>
+                  <dd class="inline-flex align-center">
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select id="">
+                          <option value="">최상위분류 전체</option>
+                          <option value="">선택 1</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select class="" disabled>
+                          <option value="">대분류 전체</option>
+                          <option value="">선택 1</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select class="" disabled>
+                          <option value="">중분류 전체</option>
+                          <option value="">선택 1</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- 2023-09-13  ml-16 추가 -->
+                    <label class="checkbox sml ml-16">
+                      <input type="checkbox" class="" name="" />
+                      <i aria-hidden="true" class="lbl"></i>
+                      <span>하위분류 포함</span>
+                    </label>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt class="w-120">사용여부</dt>
+                  <dd>
+                    <div class="form-item">
+                      <label class="radio">
+                        <input type="radio" name="rdo1" class="" checked /><i aria-hidden="true" class="lbl"></i>
+                        <span>전체</span>
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                        <span>사용</span>
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="rdo1" class="" /><i aria-hidden="true" class="lbl"></i>
+                        <span>사용안함</span>
+                      </label>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+
+            <div class="common-search-btn mt-16">
+              <button type="button" class="btn btn-mid btn-line">초기화</button>
+              <button type="button" class="btn btn-mid btn-yellow">검색</button>
+            </div>
+
+            <div class="kb-box-inner mt-32">
+              <div class="title-wrap flex align-center mb-12">
+                <!-- 2023-10-10 검색결과에 span 태그 추가 -->
+                <div class="left flex-00 w-auto"><span>검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
+                <div class="ml-auto inline-flex justify-end">
+                  <!-- 2023-09-13 ml-6 클래스 수정 (ml-6 > ml-4, ml-8) -->
+                  <button type="button" class="btn btn-sml btn-line btn-o" disabled>선택 사용</button>
+                  <button type="button" class="btn btn-sml btn-line btn-x ml-4">선택 사용안함</button>
+                  <button type="button" class="btn btn-sml btn-gray ml-8">신규등록</button>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <!-- 2023-09-13 nowrap 클래스 추가 -->
+                <table class="table nowrap">
+                  <colgroup>
+                    <col style="width: 2rem" />
+                    <col style="width: 8rem" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <!-- 2023-10-10 width값 추천 -->
+                    <col style="width: 15rem" />
+                    <col style="width: auto" />
+                    <!-- 2023-10-10 width값 추천 -->
+                    <col style="width: 15rem" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk-all" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </th>
+                      <th>NO</th>
+                      <th>분류단계</th>
+                      <th>분류 명</th>
+                      <th>관리코드</th>
+                      <!-- 2023-09-13 minW-150 클래스 추가 -->
+                      <th class="minW-150">정의/조건</th>
+                      <th>상위분류</th>
+                      <th>사용여부</th>
+                      <th>
+                        <span class="list-align">
+                          등록일시
+                          <i role="button" class="btn-alignList"></i>
+                        </span>
+                      </th>
+                      <th>등록자</th>
+                      <th>
+                        <span class="list-align">
+                          최종 수정일시
+                          <i role="button" class="btn-alignList"></i>
+                        </span>
+                      </th>
+                      <th>최종 수정자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>대분류</td>
+                      <td>
+                        <a href="#" class="linked t-left">
+                          <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
+                          <span class="cate-depth1"> 세대 기준 </span>
+                        </a>
+                      </td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <!-- 2023-09-13 t-left 클래스 추가 -->
+                      <td class="t-left">세대 별 기준</td>
+                      <td>연령</td>
+                      <td>사용</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>중분류</td>
+                      <td>
+                        <a href="#" class="linked t-left">
+                          <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
+                          <span class="cate-depth2">청년세대</span>
+                        </a>
+                      </td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <!-- 2023-09-13 t-left 클래스 추가 -->
+                      <td class="t-left">-</td>
+                      <td>연령</td>
+                      <td>사용안함</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>중분류</td>
+                      <td>
+                        <a href="#" class="linked t-left">
+                          <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
+                          <span class="cate-depth2">시니어세대</span>
+                        </a>
+                      </td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <!-- 2023-09-13 t-left 클래스 추가 -->
+                      <td class="t-left">-</td>
+                      <td>연령</td>
+                      <td>사용안함</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>대분류</td>
+                      <td>
+                        <a href="#" class="linked t-left">
+                          <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
+                          <span class="cate-depth2">연령대 기준</span>
+                        </a>
+                      </td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <!-- 2023-09-13 t-left 클래스 추가 -->
+                      <td class="t-left">-</td>
+                      <td>연령</td>
+                      <td>사용안함</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="checkbox sml only"> <input type="checkbox" disabled class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i> </label>
+                      </td>
+                      <td>999</td>
+                      <td>중분류</td>
+                      <td>
+                        <a href="#" class="linked t-left">
+                          <!-- 대분류 일경우 : cate-depth1 || 중분류 일경우 cate-depth2 -->
+                          <span class="cate-depth2">10대</span>
+                        </a>
+                      </td>
+                      <td><a href="#" class="linked">TP010105</a></td>
+                      <!-- 2023-09-13 t-left 클래스 추가 -->
+                      <td class="t-left">-</td>
+                      <td>연령</td>
+                      <td>사용안함</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                      <td>2023-08-01 00:00</td>
+                      <td>홍길동</td>
+                    </tr>
+
+                    <!-- 검색결과가 없습니다 -->
+                    <tr>
+                      <td colspan="12">
+                        <div class="search-notFound">검색결과가 없습니다.</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- 2023-09-13 페이징 추가 -->
+              <!-- 페이징 -->
+              <nav aria-label="Page navigation">
+                <ul class="pagination justify-center mt-16">
+                  <li class="page-item">
+                    <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                      <span aria-hidden="true">&#60;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                      <span aria-hidden="true">&#62;</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link next-last" href="#" aria-label="마지막으로">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+              <!-- 2023-09-13 유의사항 추가 -->
+              <div class="info-contetns mt-24">
+                <p class="tit">유의사항</p>
+                <ul>
+                  <li>최상위분류 및 조건기준 정보는 CMS 내 추가/변경 할 수 없습니다. 필요 시 시스템 관리자에게 문의해주세요.</li>
+                  <li>상위분류의 사용여부가 ‘사용안함’ 상태인 경우 하위분류 모두 콘텐츠 부가정보 등록 시 사용할 수 없습니다.</li>
+                  <li>콘텐츠 부가정보에 이미 사용하고 있는 타겟분류의 조건정보를 변경할 경우, 기존 배포된 콘텐츠의 타겟조건이 변경됩니다.</li>
+                  <li>부가정보에 적용된 타겟분류의 사용상태를 ‘사용안함’으로 변경할 수 없습니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
     </section>
     <!-- //wrap -->
 
-    <script>
-
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>

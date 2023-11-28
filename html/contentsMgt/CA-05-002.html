@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,566 +14,557 @@
     <script src="/js/lib/jquery-3.6.0.min.js"></script>
     <script src="/js/lib/moment.min.js"></script>
     <script src="/js/lib/datepicker/daterangepicker.js"></script>
-    
+
     <script src="/js/pubCustom.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <!-- wrap -->
     <section class="kb-wrap">
-        <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
-        <header class="kb-navbar">
-            <div class="navbar-top">
-                <!-- 메뉴 열림 -->
-                <button id="btnExpand" type="button" class="btn-expand">
-                    <span class="sr-only">사이드 바 펼치기</span>
-                </button>
-                <div class="navbar-brand-wrap">
-                    <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong
-                            class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
-                </div>
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand">
+            <span class="sr-only">사이드 바 펼치기</span>
+          </button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
 
-
-                <ul class="navbar-nav kb-navbar-util">
-                    <li class="nav-item">
-                        <div class="btn-group" role="group">
-                            <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <strong>김국민국민국민</strong>(KB123456)님
-                            </button>
-                            <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
             <a class="dropdown-item" href="#">비밀번호 변경</a>
           </div> -->
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="nav-link log-out">로그아웃</button>
-                    </li>
-                </ul>
-            </div>
-        </header>
-        <!-- //헤더 -->
-
-        <!-- container -->
-        <div class="kb-container">
-            <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
-            <div class="kb-sidebar">
-                <div class="kb-sidebar-inner" id="kb-lnb-nav">
-                    <nav class="kb-lnb" aria-label="Main navigation">
-                        <ul class="kb-lnb-dep1">
-                            <li>
-                                <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 목록</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">타겟분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">특성분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">내용분류 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">연관키워드 관리</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
-                                            <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">인사이트 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
-                                            <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
-                                            <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">조회통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">조회수</a></li>
-                                            <li><a class="kb-lnb-link" href="#">체류시간</a></li>
-                                            <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">순위통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
-                                            <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">고객통계 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
-                                            <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
-                                            <li><a class="kb-lnb-link" href="#">시간대별</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">경로 분석</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">유입경로</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
-                                            <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">모델 현황 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">분석 모델 운영</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
-                                <ul class="kb-lnb-dep2">
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">계정 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
-                                            <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="kb-lnb-link">권한 관리</a>
-                                        <ul class="kb-lnb-dep3">
-                                            <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
-                                            <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <!-- //사이드바 -->
-
-            <!-- 컨텐츠 -->
-            <main class="kb-content" role="main">
-                <!-- 컨텐츠헤더 -->
-                <div class="kb-page-title">
-                    <div>
-                        <div class="kb-title">
-                            <h2 class="page-tit">언어가이드 등록</h2>
-                            <nav aria-label="breadcrumb" class="ml-auto">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">홈</a></li>
-                                    <li class="breadcrumb-item"><a href="#">콘텐츠속성 관리</a></li><!-- 1뎁스 -->
-                                    <li class="breadcrumb-item active" aria-current="page">언어가이드 게시판</li><!-- 현재 페이지 -->
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <!-- //컨텐츠헤더 -->
-
-                <!-- 컨텐츠 박스 -->
-                <div class="kb-content-box">
-                    <div class="kb-box-inner">
-                        <h3 class="content-tit">기본 정보</h3>
-                        <div class="table-wrap">
-                            <table class="table left-table">
-                                <colgroup>
-                                    <!-- 2023-09-25 width값 수정  -->
-                                    <col style="width: 15%;" />
-                                    <col />
-                                </colgroup>
-                            
-                                <tbody>
-                                    <tr>
-                                        <th scope="col" class="t-left">제목 <i class="fc-red">*</i></th>
-                                        <td>
-                                            <div class="form-item">
-                                                <div class="input w-full">
-                                                    <!-- 2023-09-13 placeholder 수정 -->
-                                                    <input type="text" title="제목" placeholder="제목을 입력해주세요." aria-label="제목" />
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col" class="t-left">콘텐츠 내용분류</th>
-                                        <td class="pl-0 pr-0">
-                                            <!-- 1줄씩 -->
-                                            <dl class="inner-tbl">
-                                                <dd class="flex-none">
-                                                    <div class="option">
-                                                        <div class="box w-full block">
-                                                            <p class="tit">상품 기준정보</p>
-                                                            <div class="form-item inline-flex flex-01 w-auto">
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="">
-                                                                        <option value="">대분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="" disabled>
-                                                                        <option value="">중분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="" disabled>
-                                                                        <option value="">소분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <button type="button" class="btn btn-sml btn-gray ml-6" >추가하기</button>
-                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
-                            
-                                                            <!-- 추가된 아이템 -->
-                                                            <div class="mt-8">
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        상품 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">퇴직연금 &gt; 국내주식 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        퇴직연금 &gt; 국내주식 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="option">
-                                                        <div class="box w-full block">
-                                                            <p class="tit">계좌 기준정보</p>
-                                                            <div class="form-item inline-flex flex-01 w-auto">
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="">
-                                                                        <option value="">대분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="" disabled>
-                                                                        <option value="">중분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="" disabled>
-                                                                        <option value="">소분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <button type="button" class="btn btn-sml btn-gray ml-6" >추가하기</button>
-                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
-                            
-                                                            <!-- 추가된 아이템 -->
-                                                            <div class="mt-8">
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        상품 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">퇴직연금 &gt; 국내주식 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        퇴직연금 &gt; 국내주식 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="option">
-                                                        <div class="box w-full block">
-                                                            <p class="tit">서비스 기준정보</p>
-                                                            <div class="form-item inline-flex flex-01 w-auto">
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="">
-                                                                        <option value="">대분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="" disabled>
-                                                                        <option value="">중분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- 2023-09-13 minW-150 추가-->
-                                                                <div class="select custom-select w-auto minW-150">
-                                                                    <select class="" disabled>
-                                                                        <option value="">소분류 선택</option>
-                                                                        <option value="">선택</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <button type="button" class="btn btn-sml btn-gray ml-6" >추가하기</button>
-                                                            <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
-                            
-                                                            <!-- 추가된 아이템 -->
-                                                            <div class="mt-8">
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        상품 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">퇴직연금 &gt; 국내주식 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        퇴직연금 &gt; 국내주식 : 경험여부
-                                                                        <button type="button" class="btn-del"></button>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="keyword-wrap">
-                                                                    <span class="keyword-item">
-                                                                        계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
-                                                                        <button type="button" class="btn-del"></button></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col" class="t-left">내용 <i class="fc-red">*</i></th>
-                                        <td>
-                                            <div class="form-item ">
-                                                <div class="textarea w-full h-250">
-                                                    <textarea placeholder="내용을 입력하세요."></textarea>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col" class="t-left">파일첨부 <i class="fc-red">*</i></th>
-                                        <td>
-                                            <!-- 파일 첨부 -->
-                                            <!-- 2023-09-13 안내문구 수정 -->
-                                            <!-- 2023-10-10 mt-12 > mt-6 수정 -->
-                                            <p class="mt-6 fc-gray-666 fz-14">첨부파일은 최대 10MB * 5개로 허용된 파일(doc, docx, ppt, pptx, xls, xlxs, pdf)만 등록할 수 있습니다.</p>
-                                            <!-- 2023-10-10 h-170 클래스 추가(최대 5개 업로드 영역은 추가됨) -->
-                                            <div class="mt-12 file-drop h-170">
-                            
-                                            </div>
-                                            <!-- 첨부된 파일 -->
-                                            <!-- 2023-10-10 h-170 클래스 추가(최대 5개 업로드 영역은 추가됨) -->
-                                            <div class="uploaded-file h-170">
-                                                <p>
-                                                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
-                                                    <button type="button" title="삭제" class="btn-del"></button>
-                                                </p>
-                                                <p>
-                                                    <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.jpg(1542byte)</a>
-                                                    <button type="button" title="삭제" class="btn-del"></button>
-                                                </p>
-                                                <p>
-                                                    <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.jpg(1542byte)</a>
-                                                    <button type="button" title="삭제" class="btn-del"></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-
-                        <div class="table-wrap mt-16">
-                            <table class="table left-table">
-                                <colgroup>
-                                    <col style="width: 15%;" />
-                                    <col style="width: 35%;" />
-                                    <col style="width: 15%;" />
-                                    <col style="width: 35%;" />
-                                </colgroup>
-                        
-                                <tbody>
-                                    <tr>
-                                        <th>등록일시</th>
-                                        <td>2023-07-15 23:14:17</td>
-                                        <th>등록자</th>
-                                        <td> 김증권</td>
-                                    </tr>
-                                    <tr>
-                                        <th>최종 수정일시</th>
-                                        <td>2023-07-15 23:14:17
-                                        </td>
-                                        <th>최종 수정자</th>
-                                        <td>김증권</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <!-- 버튼 영역-->
-                        <div class="flex flex-01 mt-15">
-                            <button type="button" class="btn btn-mid btn-line">목록</button>
-                        
-                            <div class="ml-auto t-right">
-                                <div class="common-btn-wrap">
-                                    <button type="button" class="btn btn-mid btn-line">초기화</button>
-                                    <button type="button" class="btn btn-mid btn-yellow">저장</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </main>
-            <!-- //컨텐츠 -->
+              </div>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link log-out">로그아웃</button>
+            </li>
+          </ul>
         </div>
-        <!-- //container -->
+      </header>
+      <!-- //헤더 -->
 
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
 
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 사용신청</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠 제작요청</a>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">타겟분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">특성분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">내용분류 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">연관키워드 관리</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">언어가이드 게시판</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">금지어/대체어 관리</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타겟고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#" class="kb-lnb-link">분석 모델 운영</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">계정 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">권한 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">언어가이드 등록</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">콘텐츠속성 관리</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">언어가이드 게시판</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <h3 class="content-tit">기본 정보</h3>
+              <div class="table-wrap">
+                <table class="table left-table">
+                  <colgroup>
+                    <!-- 2023-09-25 width값 수정  -->
+                    <col style="width: 15%" />
+                    <col />
+                  </colgroup>
+
+                  <tbody>
+                    <tr>
+                      <th scope="col" class="t-left">제목 <i class="fc-red">*</i></th>
+                      <td>
+                        <div class="form-item">
+                          <div class="input w-full">
+                            <!-- 2023-09-13 placeholder 수정 -->
+                            <input type="text" title="제목" placeholder="제목을 입력해주세요." aria-label="제목" />
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="col" class="t-left">콘텐츠 내용분류</th>
+                      <td class="pl-0 pr-0">
+                        <!-- 1줄씩 -->
+                        <dl class="inner-tbl">
+                          <dd class="flex-none">
+                            <div class="option">
+                              <div class="box w-full block">
+                                <p class="tit">상품 기준정보</p>
+                                <div class="form-item inline-flex flex-01 w-auto">
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="">
+                                      <option value="">대분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="" disabled>
+                                      <option value="">중분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="" disabled>
+                                      <option value="">소분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <button type="button" class="btn btn-sml btn-gray ml-6">추가하기</button>
+                                <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
+
+                                <!-- 추가된 아이템 -->
+                                <div class="mt-8">
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      상품 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item"
+                                      >퇴직연금 &gt; 국내주식 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      퇴직연금 &gt; 국내주식 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button
+                                    ></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="option">
+                              <div class="box w-full block">
+                                <p class="tit">계좌 기준정보</p>
+                                <div class="form-item inline-flex flex-01 w-auto">
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="">
+                                      <option value="">대분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="" disabled>
+                                      <option value="">중분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="" disabled>
+                                      <option value="">소분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <button type="button" class="btn btn-sml btn-gray ml-6">추가하기</button>
+                                <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
+
+                                <!-- 추가된 아이템 -->
+                                <div class="mt-8">
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      상품 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item"
+                                      >퇴직연금 &gt; 국내주식 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      퇴직연금 &gt; 국내주식 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button
+                                    ></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="option">
+                              <div class="box w-full block">
+                                <p class="tit">서비스 기준정보</p>
+                                <div class="form-item inline-flex flex-01 w-auto">
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="">
+                                      <option value="">대분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="" disabled>
+                                      <option value="">중분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                  <!-- 2023-09-13 minW-150 추가-->
+                                  <div class="select custom-select w-auto minW-150">
+                                    <select class="" disabled>
+                                      <option value="">소분류 선택</option>
+                                      <option value="">선택</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <button type="button" class="btn btn-sml btn-gray ml-6">추가하기</button>
+                                <!-- 2023-10-10 최대 5개 명칭 변경 -->
+                                <span class="fc-gray-666 nowrap ml-12 fz-14">최대 5개</span>
+
+                                <!-- 추가된 아이템 -->
+                                <div class="mt-8">
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      상품 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item"
+                                      >퇴직연금 &gt; 국내주식 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      퇴직연금 &gt; 국내주식 : 경험여부
+                                      <button type="button" class="btn-del"></button>
+                                    </span>
+                                  </div>
+                                  <div class="keyword-wrap">
+                                    <span class="keyword-item">
+                                      계좌 대분류 &gt; 상품 중분류 &gt; 상품 소분류 : 경험여부
+                                      <button type="button" class="btn-del"></button
+                                    ></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </dd>
+                        </dl>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="col" class="t-left">내용 <i class="fc-red">*</i></th>
+                      <td>
+                        <div class="form-item">
+                          <div class="textarea w-full h-250">
+                            <textarea placeholder="내용을 입력하세요."></textarea>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="col" class="t-left">파일첨부 <i class="fc-red">*</i></th>
+                      <td>
+                        <!-- 파일 첨부 -->
+                        <!-- 2023-09-13 안내문구 수정 -->
+                        <!-- 2023-10-10 mt-12 > mt-6 수정 -->
+                        <p class="mt-6 fc-gray-666 fz-14">첨부파일은 최대 10MB * 5개로 허용된 파일(doc, docx, ppt, pptx, xls, xlxs, pdf)만 등록할 수 있습니다.</p>
+                        <!-- 2023-10-10 h-170 클래스 추가(최대 5개 업로드 영역은 추가됨) -->
+                        <div class="mt-12 file-drop h-170"></div>
+                        <!-- 첨부된 파일 -->
+                        <!-- 2023-10-10 h-170 클래스 추가(최대 5개 업로드 영역은 추가됨) -->
+                        <div class="uploaded-file h-170">
+                          <p>
+                            <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.jpg(1542byte)</a>
+                            <button type="button" title="삭제" class="btn-del"></button>
+                          </p>
+                          <p>
+                            <a href="#none">다른 업로드한 파일명123이 출력됩니다(다운로드 가능)2.jpg(1542byte)</a>
+                            <button type="button" title="삭제" class="btn-del"></button>
+                          </p>
+                          <p>
+                            <a href="#none">또 다른 업로드한 파일명123이 출력됩니다(다운로드 가능)3.jpg(1542byte)</a>
+                            <button type="button" title="삭제" class="btn-del"></button>
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-wrap mt-16">
+                <table class="table left-table">
+                  <colgroup>
+                    <col style="width: 15%" />
+                    <col style="width: 35%" />
+                    <col style="width: 15%" />
+                    <col style="width: 35%" />
+                  </colgroup>
+
+                  <tbody>
+                    <tr>
+                      <th>등록일시</th>
+                      <td>2023-07-15 23:14:17</td>
+                      <th>등록자</th>
+                      <td>김증권</td>
+                    </tr>
+                    <tr>
+                      <th>최종 수정일시</th>
+                      <td>2023-07-15 23:14:17</td>
+                      <th>최종 수정자</th>
+                      <td>김증권</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 버튼 영역-->
+              <div class="flex flex-01 mt-15">
+                <button type="button" class="btn btn-mid btn-line">목록</button>
+
+                <div class="ml-auto t-right">
+                  <div class="common-btn-wrap">
+                    <button type="button" class="btn btn-mid btn-line">초기화</button>
+                    <button type="button" class="btn btn-mid btn-yellow">저장</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
     </section>
     <!-- //wrap -->
 
-    <script>
-
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>
