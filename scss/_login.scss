@@ -187,7 +187,7 @@
         margin-bottom: 1.2rem;
         color: var(--gray_01_black);
       }
-      p {
+      > p {
         font-size: 1.4rem;
         line-height: 2rem;
         font-weight: 300;
@@ -203,6 +203,48 @@
           left: 0;
           display: block;
           top: 50%;
+        }
+      }
+
+      > ul {
+        font-size: 1.4rem;
+        color: var(--gray_03-subText);
+        > li {
+          position: relative;
+          padding-left: 1rem;
+          font-weight: 300;
+          line-height: 2rem;
+
+          & + li {
+            margin-top: 0.4rem;
+          }
+
+          strong {
+            font-weight: 500;
+          }
+
+          &:before {
+            content: '';
+            display: block;
+            width: 0.2rem;
+            height: 0.2rem;
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+          }
+        }
+        &.sub-list {
+          font-size: 1.3rem;
+          color: var(--gray_999);
+          > li {
+            margin-top: 0.3rem;
+            padding-left: 0.8rem;
+            &:before {
+              width: 0.5rem;
+              height: 0.1rem;
+              background: var(--gray_999);
+            }
+          }
         }
       }
     }

@@ -174,7 +174,7 @@
 //사용중지 팝업 유의사항
 .info-contetns {
   width: 100%;
-
+  text-align: left;
   .tit {
     font-size: 1.5rem;
     line-height: 2.2rem;
@@ -184,10 +184,10 @@
   }
 
   ul {
-    li {
+    color: var(--gray_03-subText);
+    > li {
       position: relative;
       padding-left: 0.6rem;
-      color: var(--gray_03-subText);
       font-weight: 300;
       line-height: 2rem;
 
@@ -208,6 +208,19 @@
         left: 0;
         top: 0.8rem;
         background: var(--gray_01_black);
+      }
+    }
+    &.sub-list {
+      font-size: 1.3rem;
+      color: var(--gray_999);
+      > li {
+        margin-top: 0.3rem;
+        padding-left: 0.8rem;
+        &:before {
+          width: 0.5rem;
+          height: 0.1rem;
+          background: var(--gray_999);
+        }
       }
     }
   }

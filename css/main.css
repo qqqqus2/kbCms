@@ -29655,7 +29655,7 @@ input[type=number] {
   margin-bottom: 1.2rem;
   color: var(--gray_01_black);
 }
-.login-result .kb-content .login-result-notice p {
+.login-result .kb-content .login-result-notice > p {
   font-size: 1.4rem;
   line-height: 2rem;
   font-weight: 300;
@@ -29663,7 +29663,7 @@ input[type=number] {
   padding-left: 1rem;
   color: var(--gray_03-subText);
 }
-.login-result .kb-content .login-result-notice p::before {
+.login-result .kb-content .login-result-notice > p::before {
   content: "";
   width: 0.2rem;
   height: 0.2rem;
@@ -29672,6 +29672,44 @@ input[type=number] {
   left: 0;
   display: block;
   top: 50%;
+}
+.login-result .kb-content .login-result-notice > ul {
+  font-size: 1.4rem;
+  color: var(--gray_03-subText);
+}
+.login-result .kb-content .login-result-notice > ul > li {
+  position: relative;
+  padding-left: 1rem;
+  font-weight: 300;
+  line-height: 2rem;
+}
+.login-result .kb-content .login-result-notice > ul > li + li {
+  margin-top: 0.4rem;
+}
+.login-result .kb-content .login-result-notice > ul > li strong {
+  font-weight: 500;
+}
+.login-result .kb-content .login-result-notice > ul > li:before {
+  content: "";
+  display: block;
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+}
+.login-result .kb-content .login-result-notice > ul.sub-list {
+  font-size: 1.3rem;
+  color: var(--gray_999);
+}
+.login-result .kb-content .login-result-notice > ul.sub-list > li {
+  margin-top: 0.3rem;
+  padding-left: 0.8rem;
+}
+.login-result .kb-content .login-result-notice > ul.sub-list > li:before {
+  width: 0.5rem;
+  height: 0.1rem;
+  background: var(--gray_999);
 }
 
 .table-wrap .menu-1depth {
@@ -29816,6 +29854,7 @@ input[type=number] {
 
 .info-contetns {
   width: 100%;
+  text-align: left;
 }
 .info-contetns .tit {
   font-size: 1.5rem;
@@ -29824,20 +29863,22 @@ input[type=number] {
   color: var(--gray_01_black);
   margin-bottom: 0.8rem;
 }
-.info-contetns ul li {
+.info-contetns ul {
+  color: var(--gray_03-subText);
+}
+.info-contetns ul > li {
   position: relative;
   padding-left: 0.6rem;
-  color: var(--gray_03-subText);
   font-weight: 300;
   line-height: 2rem;
 }
-.info-contetns ul li + li {
+.info-contetns ul > li + li {
   margin-top: 0.4rem;
 }
-.info-contetns ul li strong {
+.info-contetns ul > li strong {
   font-weight: 500;
 }
-.info-contetns ul li:before {
+.info-contetns ul > li:before {
   content: "";
   display: block;
   width: 0.2rem;
@@ -29846,6 +29887,19 @@ input[type=number] {
   left: 0;
   top: 0.8rem;
   background: var(--gray_01_black);
+}
+.info-contetns ul.sub-list {
+  font-size: 1.3rem;
+  color: var(--gray_999);
+}
+.info-contetns ul.sub-list > li {
+  margin-top: 0.3rem;
+  padding-left: 0.8rem;
+}
+.info-contetns ul.sub-list > li:before {
+  width: 0.5rem;
+  height: 0.1rem;
+  background: var(--gray_999);
 }
 
 .regist-grp {
