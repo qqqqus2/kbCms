@@ -120,7 +120,8 @@ input[type='number'] {
   .is-error {
     input[type='text'],
     input[type='password'],
-    select {
+    select,
+    .custom-select-btn {
       border-color: var(--error-color);
       &:focus {
         border-color: var(--error-color);

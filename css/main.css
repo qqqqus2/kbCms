@@ -28042,12 +28042,14 @@ input[type=number] {
 }
 .form-item .is-error input[type=text],
 .form-item .is-error input[type=password],
-.form-item .is-error select {
+.form-item .is-error select,
+.form-item .is-error .custom-select-btn {
   border-color: var(--error-color);
 }
 .form-item .is-error input[type=text]:focus,
 .form-item .is-error input[type=password]:focus,
-.form-item .is-error select:focus {
+.form-item .is-error select:focus,
+.form-item .is-error .custom-select-btn:focus {
   border-color: var(--error-color);
 }
 
