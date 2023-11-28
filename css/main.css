@@ -29697,19 +29697,19 @@ input[type=number] {
   position: absolute;
   left: 0;
   top: 0.8rem;
+  background: var(--gray_03-subText);
 }
 .login-result .kb-content .login-result-notice > ul.sub-list {
   font-size: 1.3rem;
-  color: var(--gray_03-subText);
+  margin-top: 0.1rem;
 }
 .login-result .kb-content .login-result-notice > ul.sub-list > li {
   margin-top: 0.3rem;
-  padding-left: 0.8rem;
+  padding-left: 1.3rem;
 }
 .login-result .kb-content .login-result-notice > ul.sub-list > li:before {
   width: 0.5rem;
   height: 0.1rem;
-  background: var(--gray_03-subText);
 }
 
 .table-wrap .menu-1depth {
@@ -29868,7 +29868,7 @@ input[type=number] {
 }
 .info-contetns ul > li {
   position: relative;
-  padding-left: 0.6rem;
+  padding-left: 1rem;
   font-weight: 300;
   line-height: 2rem;
 }
@@ -29890,16 +29890,15 @@ input[type=number] {
 }
 .info-contetns ul.sub-list {
   font-size: 1.3rem;
-  color: var(--gray_03-subText);
+  margin-top: 0.1rem;
 }
 .info-contetns ul.sub-list > li {
   margin-top: 0.3rem;
-  padding-left: 0.8rem;
+  padding-left: 1.3rem;
 }
 .info-contetns ul.sub-list > li:before {
   width: 0.5rem;
   height: 0.1rem;
-  background: var(--gray_03-subText);
 }
 
 .regist-grp {

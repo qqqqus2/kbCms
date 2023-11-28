@@ -231,18 +231,18 @@
             position: absolute;
             left: 0;
             top: 0.8rem;
+            background: var(--gray_03-subText);
           }
         }
         &.sub-list {
           font-size: 1.3rem;
-          color: var(--gray_03-subText);
+          margin-top: 0.1rem;
           > li {
             margin-top: 0.3rem;
-            padding-left: 0.8rem;
+            padding-left: 1.3rem;
             &:before {
               width: 0.5rem;
               height: 0.1rem;
-              background: var(--gray_03-subText);
             }
           }
         }
