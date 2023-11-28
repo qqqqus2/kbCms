@@ -29621,10 +29621,6 @@ input[type=number] {
 .login-result .kb-content .kb-box-inner .result-img.bg6 {
   width: 37.8rem;
   height: 3.5rem;
-  background-image: url("https://dcms.kbsec.com/img/common/ie_notice.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 .login-result .kb-content .kb-box-inner h4.result-tit {
   font-size: 2.2rem;
