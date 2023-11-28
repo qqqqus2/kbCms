@@ -29886,7 +29886,7 @@ input[type=number] {
   position: absolute;
   left: 0;
   top: 0.8rem;
-  background: var(--gray_01_black);
+  background: var(--gray_03-subTextk);
 }
 .info-contetns ul.sub-list {
   font-size: 1.3rem;
