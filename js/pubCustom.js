@@ -238,7 +238,7 @@ let pubCommon;
         const $breadcrumbAvtive = $('.breadcrumb-item.active').text();
 
         $('.kb-lnb .kb-lnb-dep2').hide();
-
+        let activeIng = true;
         $linkDepth1.each(function () {
           const $this = $(this);
           const $text = $this.text();
@@ -248,20 +248,22 @@ let pubCommon;
 
           let isActive = false;
 
-          if ($title && $text === $title) {
-            isActive = true;
-          } else if ($breadcrumbAvtive && $text === $breadcrumbAvtive) {
-            isActive = true;
+          if (activeIng) {
+            if ($title && $text === $title) {
+              isActive = true;
+            } else if ($breadcrumbAvtive && $text === $breadcrumbAvtive) {
+              isActive = true;
+            }
           }
 
           if (isActive) {
+            activeIng = false;
             $this.parents('li').addClass('active');
             $this.parents('li').children('.kb-lnb-dep2').show();
             $this.parent().addClass('active');
-            if ($this.parents('li').hasClass('active')) {
-              $this.parents('li.active').children('a:first-child').addClass('open');
-            }
-            return false;
+          }
+          if ($this.parents('li').hasClass('active')) {
+            $this.parents('li.active').children('a:first-child').addClass('open');
           }
         });
 
