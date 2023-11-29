@@ -1301,6 +1301,23 @@ const uiSelect = {
       }
     });
     window.addEventListener('resize', uiSelect.position);
+
+    // 추가
+    $(document).on('focusin', '.custom-select', function (e) {
+      const $this = $(this);
+      $this.addClass('focus');
+    });
+    $(document).on('focusout', '.custom-select', function (e) {
+      const $this = $(this);
+      $this.removeClass('focus');
+    });
+    $(document)
+      .on('click', function (e) {
+        $('.custom-select').removeClass('focus');
+      })
+      .on('click', '.custom-select', function (e) {
+        e.stopPropagation();
+      });
   }
 };
 

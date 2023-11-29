@@ -28174,6 +28174,11 @@ input[type=number] {
   border: 0.1rem solid var(--line-color-ccc);
 }
 
+.radio input:focus + .lbl:before,
+.checkbox input:focus + .lbl:before {
+  border-color: var(--gray_02-darkBlue);
+}
+
 .checkbox input:checked + .lbl:before {
   background-color: var(--line-color-ccc);
 }
@@ -28518,6 +28523,10 @@ input[type=number] {
 .select select:disabled {
   background-color: var(--background-color);
 }
+.select.focus select,
+.select.focus .custom-select-btn {
+  border-color: var(--gray_02-darkBlue);
+}
 
 .custom-select {
   text-align: left;
@@ -28541,7 +28550,14 @@ input[type=number] {
   top: 0;
 }
 .custom-select select.init {
-  display: none;
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  border-width: 0;
+  z-index: -999;
 }
 .custom-select.type-2 select,
 .custom-select.type-2 .custom-select-btn {
