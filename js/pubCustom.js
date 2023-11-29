@@ -1,3 +1,4 @@
+let pubCommon;
 (function ($) {
   'use strict';
   $(function () {
@@ -227,6 +228,8 @@
     },
     menuActive: function () {
       if ($('.kb-sidebar').length) {
+        $('.kb-sidebar li').removeClass('active');
+        $('.kb-sidebar a').removeClass('open');
         const $linkDepth1 = $('.kb-lnb-dep1 .kb-lnb-link');
         const $lnbDepth2 = $('.kb-lnb-dep2 .kb-lnb-link');
         const $lnbDepth3 = $('.kb-lnb-dep3');
@@ -935,7 +938,7 @@
       });
     }
   };
-
+  pubCommon = common;
   const table = {
     init: function () {
       table.checkbox();
