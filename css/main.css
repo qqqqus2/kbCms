@@ -28512,6 +28512,9 @@ input[type=number] {
 .select select:hover:not(:disabled) {
   border-color: var(--primary-blue-color);
 }
+.select select:focus {
+  border-color: var(--gray_02-darkBlue);
+}
 .select select:disabled {
   background-color: var(--background-color);
 }
@@ -28578,6 +28581,9 @@ input[type=number] {
 }
 .custom-select-btn:hover:not(:disabled) {
   border-color: var(--primary-blue-color);
+}
+.custom-select-btn:focus, select:focus ~ .custom-select-btn {
+  border-color: var(--gray_02-darkBlue);
 }
 .custom-select-btn:disabled {
   background-color: var(--background-color);

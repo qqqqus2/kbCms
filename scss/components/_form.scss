@@ -568,6 +568,9 @@ input[type='number'] {
     &:hover:not(:disabled) {
       border-color: var(--primary-blue-color);
     }
+    &:focus {
+      border-color: var(--gray_02-darkBlue);
+    }
     &:disabled {
       background-color: var(--background-color);
     }
@@ -640,6 +643,10 @@ input[type='number'] {
   background-color: #fff;
   &:hover:not(:disabled) {
     border-color: var(--primary-blue-color);
+  }
+  &:focus,
+  select:focus ~ & {
+    border-color: var(--gray_02-darkBlue);
   }
   &:disabled {
     background-color: var(--background-color);

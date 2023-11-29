@@ -231,37 +231,34 @@
         const $lnbDepth2 = $('.kb-lnb-dep2 .kb-lnb-link');
         const $lnbDepth3 = $('.kb-lnb-dep3');
         const $path = location.pathname;
-        const $title = $('.breadcrumb-item.active').length ? $('.breadcrumb-item.active').text() : $('.kb-title h1').text();
+        const $title = $('.kb-title .page-tit').text();
+        const $breadcrumbAvtive = $('.breadcrumb-item.active').text();
 
         $('.kb-lnb .kb-lnb-dep2').hide();
 
         $linkDepth1.each(function () {
           const $this = $(this);
           const $text = $this.text();
-          const $href = $this.attr('href').split('/').pop();
-
-          // $('.kb-lnb-dep2 .kb-lnb-link').removeClass('open');
           if ($this.next('.kb-lnb-dep2').length) {
             $this.addClass('in-sub');
           }
 
           let isActive = false;
 
-          if ($path.indexOf($href) > -1) {
-            // isActive = true;
-          } else if ($text === $title) {
+          if ($title && $text === $title) {
+            isActive = true;
+          } else if ($breadcrumbAvtive && $text === $breadcrumbAvtive) {
             isActive = true;
           }
 
           if (isActive) {
-            // isActiveOn = true;
-
             $this.parents('li').addClass('active');
             $this.parents('li').children('.kb-lnb-dep2').show();
             $this.parent().addClass('active');
-          }
-          if ($this.parents('li').hasClass('active')) {
-            $this.parents('li.active').children('a:first-child').addClass('open');
+            if ($this.parents('li').hasClass('active')) {
+              $this.parents('li.active').children('a:first-child').addClass('open');
+            }
+            return false;
           }
         });
 
