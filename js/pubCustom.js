@@ -1336,22 +1336,23 @@ const uiSelect = {
       const isUp = $keyCode === 38;
       const isDown = $keyCode === 40;
       if (isUp || isDown) {
-        e.preventDefault();
+        let focusEl;
+        
         // 버튼일때
-        if ($this.hasClass(uiSelect.class.btn)) {
-          let focusEl;
+        if ($this.hasClass(uiSelect.class.btn) && $this.hasClass(uiSelect.class.btnActive)) {
+          e.preventDefault();
           if (isUp) focusEl = $item.last();
           else if (isDown) focusEl = $item.first();
-          if (focusEl) focusEl.focus();
         }
 
         //옵션일때
         if ($this.hasClass(uiSelect.class.option)) {
-          let focusEl;
+          e.preventDefault();
           if (isUp) focusEl = $this.prev().length ? $this.prev() : $btn;
           else if (isDown) focusEl = $this.next().length ? $this.next() : $btn;
-          if (focusEl) focusEl.focus();
         }
+
+        if (focusEl) focusEl.focus();
       }
     });
   }
