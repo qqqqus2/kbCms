@@ -28553,6 +28553,7 @@ input[type=number] {
   padding: 0;
   border-width: 0;
   z-index: -999;
+  overflow: hidden;
 }
 .custom-select.type-2 select,
 .custom-select.type-2 .custom-select-btn {

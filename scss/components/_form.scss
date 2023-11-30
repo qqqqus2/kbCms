@@ -612,6 +612,7 @@ input[type='number'] {
       padding: 0;
       border-width: 0;
       z-index: -999;
+      overflow: hidden;
     }
   }
   &.type-2 {
