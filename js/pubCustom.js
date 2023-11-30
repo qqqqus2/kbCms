@@ -1323,7 +1323,7 @@ const uiSelect = {
     window.addEventListener('resize', uiSelect.position);
 
     // 추가 키보드 move 이벤트
-    $(document).on('keyup', '.' + uiSelect.class.wrap + ' .' + uiSelect.class.btn + ', .' + uiSelect.class.wrap + ' .' + uiSelect.class.option, function (e) {
+    $(document).on('keydown keypress', '.' + uiSelect.class.wrap + ' .' + uiSelect.class.btn + ', .' + uiSelect.class.wrap + ' .' + uiSelect.class.option, function (e) {
       const $this = $(this);
       const $wrap = $this.closest('.' + uiSelect.class.wrap);
       const $btn = $wrap.find('.' + uiSelect.class.btn);
