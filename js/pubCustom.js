@@ -1206,14 +1206,9 @@ const uiSelect = {
   },
   focusEvt: function (e) {
     const $target = e.target;
-    $target.focus();
     const $wrap = $target.closest('.' + uiSelect.class.wrap);
-    setTimeout(function () {
-      var $btn = $wrap.querySelector('.' + uiSelect.class.btn);
-      if ($btn) {
-        $btn.focus();
-      }
-    }, 0);
+    const $btn = $wrap.querySelector('.' + uiSelect.class.btn);
+    if ($btn) $btn.focus();
   },
   btn: function (el) {
     const selElmnt = el.querySelector('select');
