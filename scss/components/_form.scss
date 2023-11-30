@@ -579,12 +579,6 @@ input[type='number'] {
       background-color: var(--background-color);
     }
   }
-  &.focus {
-    select,
-    .custom-select-btn {
-      border-color: var(--gray_02-darkBlue);
-    }
-  }
 }
 
 .custom-select {
@@ -610,8 +604,7 @@ input[type='number'] {
   select {
     &.init {
       // display: none;
-
-      visibility: hidden;
+      // visibility: hidden;
       position: absolute;
       width: 0;
       height: 0;

@@ -1184,6 +1184,7 @@ const uiSelect = {
       const selElmnt = _select.querySelector('select');
       uiSelect.changeEvt(selElmnt);
       selElmnt.classList.add(uiSelect.class.init);
+      selElmnt.tabIndex = -1;
       if (typeof jQuery != 'undefined') {
         $(selElmnt).off('change', uiSelect.changeEvt);
         $(selElmnt).on('change', uiSelect.changeEvt);
@@ -1191,6 +1192,8 @@ const uiSelect = {
         selElmnt.removeEventListener('change', uiSelect.changeEvt);
         selElmnt.addEventListener('change', uiSelect.changeEvt);
       }
+      selElmnt.removeEventListener('focus', uiSelect.focusEvt);
+      selElmnt.addEventListener('focus', uiSelect.focusEvt);
     });
   },
   changeEvt: function (e) {
@@ -1200,6 +1203,17 @@ const uiSelect = {
     if (selElmnt.disabled) _select.classList.add(uiSelect.class.disabled);
     else _select.classList.remove(uiSelect.class.disabled);
     uiSelect.btn(_select);
+  },
+  focusEvt: function (e) {
+    const $target = e.target;
+    $target.focus();
+    const $wrap = $target.closest('.' + uiSelect.class.wrap);
+    setTimeout(function () {
+      var $btn = $wrap.querySelector('.' + uiSelect.class.btn);
+      if ($btn) {
+        $btn.focus();
+      }
+    }, 0);
   },
   btn: function (el) {
     const selElmnt = el.querySelector('select');
@@ -1273,6 +1287,7 @@ const uiSelect = {
     const $el = el;
     const $idx = $el.dataset.index;
     const $wrap = $el.closest('.' + uiSelect.class.wrap);
+    const $btn = $wrap.querySelector('.' + uiSelect.class.btn);
     const $options = $el.closest('.' + uiSelect.class.options);
     const selElmnt = $wrap.querySelector('select');
     if (selElmnt && $idx >= 0 && $idx < selElmnt.options.length) {
@@ -1280,7 +1295,10 @@ const uiSelect = {
       if (typeof jQuery != 'undefined') $(selElmnt).change();
       else selElmnt.dispatchEvent(new Event('change'));
       $options.remove();
-      // uiSelect.options($wrap);
+
+      setTimeout(function () {
+        $btn.focus();
+      }, 10);
     }
   },
   UI: function () {
@@ -1304,22 +1322,37 @@ const uiSelect = {
     });
     window.addEventListener('resize', uiSelect.position);
 
-    // 추가
-    $(document).on('focusin', '.custom-select', function (e) {
+    // 추가 키보드 move 이벤트
+    $(document).on('keyup', '.' + uiSelect.class.wrap + ' .' + uiSelect.class.btn + ', .' + uiSelect.class.wrap + ' .' + uiSelect.class.option, function (e) {
       const $this = $(this);
-      $this.addClass('focus');
+      const $wrap = $this.closest('.' + uiSelect.class.wrap);
+      const $options = $wrap.find('.' + uiSelect.class.options);
+      if (!$options.length) return;
+      const $item = $options.find('.' + uiSelect.class.option);
+      if (!$item.length) return;
+
+      const $keyCode = e.keyCode ? e.keyCode : e.which;
+      const isUp = $keyCode === 38;
+      const isDown = $keyCode === 40;
+      if (isUp || isDown) {
+        e.preventDefault();
+        // 버튼일때
+        if ($this.hasClass(uiSelect.class.btn)) {
+          let focusEl;
+          if (isUp) focusEl = $item.last();
+          else if (isDown) focusEl = $item.first();
+          if (focusEl) focusEl.focus();
+        }
+
+        //옵션일때
+        if ($this.hasClass(uiSelect.class.option)) {
+          let focusEl;
+          if (isUp) focusEl = $this.prev().length ? $this.prev() : $item.last();
+          else if (isDown) focusEl = $this.next().length ? $this.next() : $item.first();
+          if (focusEl) focusEl.focus();
+        }
+      }
     });
-    $(document).on('focusout', '.custom-select', function (e) {
-      const $this = $(this);
-      $this.removeClass('focus');
-    });
-    $(document)
-      .on('click', function (e) {
-        $('.custom-select').removeClass('focus');
-      })
-      .on('click', '.custom-select', function (e) {
-        e.stopPropagation();
-      });
   }
 };
 

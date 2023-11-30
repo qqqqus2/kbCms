@@ -260,7 +260,7 @@
                   <dd class="inline-flex align-center">
                     <div class="form-item">
                       <div class="select custom-select">
-                        <select class="">
+                        <select id="select1">
                           <option value="">최상위분류 전체</option>
                           <option value="">선택 1</option>
                         </select>
@@ -313,7 +313,8 @@
             </div>
 
             <div class="common-search-btn mt-16">
-              <button type="button" class="btn btn-mid btn-line">초기화</button>
+              <!-- focus 이벤트 적용 -->
+              <button type="button" class="btn btn-mid btn-line" onclick="$('#select1').focus()">초기화</button>
               <button type="button" class="btn btn-mid btn-yellow">검색</button>
             </div>
 
