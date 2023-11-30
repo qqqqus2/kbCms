@@ -1326,6 +1326,7 @@ const uiSelect = {
     $(document).on('keyup', '.' + uiSelect.class.wrap + ' .' + uiSelect.class.btn + ', .' + uiSelect.class.wrap + ' .' + uiSelect.class.option, function (e) {
       const $this = $(this);
       const $wrap = $this.closest('.' + uiSelect.class.wrap);
+      const $btn = $wrap.find('.' + uiSelect.class.btn);
       const $options = $wrap.find('.' + uiSelect.class.options);
       if (!$options.length) return;
       const $item = $options.find('.' + uiSelect.class.option);
@@ -1347,8 +1348,8 @@ const uiSelect = {
         //옵션일때
         if ($this.hasClass(uiSelect.class.option)) {
           let focusEl;
-          if (isUp) focusEl = $this.prev().length ? $this.prev() : $item.last();
-          else if (isDown) focusEl = $this.next().length ? $this.next() : $item.first();
+          if (isUp) focusEl = $this.prev().length ? $this.prev() : $btn;
+          else if (isDown) focusEl = $this.next().length ? $this.next() : $btn;
           if (focusEl) focusEl.focus();
         }
       }
