@@ -20,7 +20,7 @@ let pubCommon;
     $(window).scroll();
   };
 
-  //PC 디바이스 체크
+  // PC 디바이스 체크
   const isPC = {
     window: function () {
       return navigator.userAgent.match(/windows/i) == null ? false : true;
@@ -139,19 +139,19 @@ let pubCommon;
       common.pageTitle();
       common.pagiNation();
       common.searchToggle();
-      //탭
+      // 탭
       uiTab();
 
-      //커스텀 셀렉트
+      // 커스텀 셀렉트
       customSelect();
       uiSelect.UI();
 
-      //툴팁
+      // 툴팁
       tooltips();
     },
 
     searchToggle: function () {
-      //검색바 열기 & 닫기
+      // 검색바 열기 & 닫기
       $('.btn-searchToggle').each(function () {
         const $this = $(this);
         $this.on('click', function () {
@@ -326,7 +326,7 @@ let pubCommon;
         }
       });
 
-      //디폴트 초기값 빈값(월)
+      // 디폴트 초기값 빈값(월)
       $('.date-empty-single input').daterangepicker({
         // autoUpdateInput: false,
         startDate: start,
@@ -550,33 +550,46 @@ let pubCommon;
 
       function monitoringDate(inValiDate) {
         $('.prev-date').attr('disabled', false);
-        $('.monitoring-date #datepicker').daterangepicker({
-          startDate: start,
-          endDate: end,
-          minYear: 2022,
-          singleDatePicker: true,
-          showDropdowns: true,
-          alwaysShowCalendars: true,
-          timePicker: false,
-          autoUpdateInput: true,
-          opens: 'center',
-          locale: {
-            format: 'YYYY.MM.DD',
-            direction: 'ltr',
-            applyLabel: '확인',
-            autoApply: true,
-            // customRangeLabel: "Custom",
-            daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            firstDay: 0
-          },
-          isInvalidDate: function (start) {
-            // console.log(inValiDate);
-            if (start.format('YYYY-MM-DD') <= inValiDate) {
-              return true;
+        $('.monitoring-date #datepicker')
+          .daterangepicker({
+            startDate: start,
+            endDate: end,
+            minYear: 2022,
+            singleDatePicker: true,
+            showDropdowns: true,
+            alwaysShowCalendars: true,
+            timePicker: false,
+            autoUpdateInput: true,
+            opens: 'center',
+            locale: {
+              format: 'YYYY.MM.DD',
+              direction: 'ltr',
+              applyLabel: '확인',
+              autoApply: true,
+              // customRangeLabel: "Custom",
+              daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+              monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+              firstDay: 0
+            },
+            isInvalidDate: function (start) {
+              // console.log(inValiDate);
+              if (start.format('YYYY-MM-DD') <= inValiDate) {
+                return true;
+              }
             }
-          }
-        });
+          })
+          // 2023-12-04 달력 추가
+          .on('apply.daterangepicker', function (ev, picker) {
+            // 선택한 날짜를 적용
+            $(this).val(picker.startDate.format('YYYY.MM.DD'));
+            $('#date-hidden').val(picker.startDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
+          })
+          .on('hide.daterangepicker', function (ev, picker) {
+            // 선택한 날짜를 적용
+            $(this).val(picker.startDate.format('YYYY.MM.DD'));
+            $('#date-hidden').val(picker.startDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
+            $('.prev-date').attr('disabled', false);
+          });
       }
       function monitoringWeek(inValiDate) {
         $('.prev-date').attr('disabled', false);
@@ -615,19 +628,20 @@ let pubCommon;
             }
           })
           .on('apply.daterangepicker', function (ev, picker) {
-            //picker.endDate.isSame(picker.startDate);
+            // picker.endDate.isSame(picker.startDate);
             picker.startDate.isoWeekday(1); // startDate를 월요일로 설정
             picker.endDate.isoWeekday(7); // endDate를 일요일로 설정
             // 선택한 날짜를 적용
             $(this).val(picker.startDate.format('YYYY.MM.DD') + ' ~ ' + picker.endDate.format('YYYY.MM.DD'));
-            // console.log($(this).val());
+            $('#date-hidden').val(picker.startDate.clone().subtract(1, 'week').format('YYYY.MM.DD') + ' ~ ' + picker.endDate.clone().subtract(1, 'week').format('YYYY.MM.DD')); // 2023-12-04 달력 추가
           })
           .on('hide.daterangepicker', function (ev, picker) {
-            //picker.endDate.isSame(picker.startDate);
+            // picker.endDate.isSame(picker.startDate);
             picker.startDate.isoWeekday(1); // startDate를 월요일로 설정
             picker.endDate.isoWeekday(7); // endDate를 일요일로 설정
             // 선택한 날짜를 적용
             $(this).val(picker.startDate.format('YYYY.MM.DD') + ' ~ ' + picker.endDate.format('YYYY.MM.DD'));
+            $('#date-hidden').val(picker.startDate.clone().subtract(1, 'week').format('YYYY.MM.DD') + ' ~ ' + picker.endDate.clone().subtract(1, 'week').format('YYYY.MM.DD')); // 2023-12-04 달력 추가
             $('.prev-date').attr('disabled', false);
           });
       }
@@ -670,10 +684,10 @@ let pubCommon;
             // 현재 선택된 월 값을 가져옴
             var currentMonth = $('#monthpicker').val();
 
-            //월 가져오기
+            // 월 가져오기
             const inValiMonth = inValiDatePrev.getMonth() + 1;
 
-            //월과 년도 조합
+            // 월과 년도 조합
             const formattedDate = `${inValiDateYear}.${inValiMonth < 10 ? '0' : ''}${inValiMonth}`;
             const currentMonthCompare = new Date(currentMonth);
             const compareMonth = `${currentMonthCompare.getFullYear()}.${currentMonthCompare.getMonth() + 1 < 10 ? '0' : ''}${currentMonthCompare.getMonth() + 1}`;
@@ -684,7 +698,7 @@ let pubCommon;
             var currentMonthNum = parseInt(parts[1]);
 
             if (compareMonth === formattedDate) {
-              //alert("이전 달로 검색할수 없습니다.");
+              // alert("이전 달로 검색할수 없습니다.");
             } else {
               if (currentMonthNum === 1) {
                 // 1월인 경우 전년도 12월로 이동
@@ -695,12 +709,12 @@ let pubCommon;
               }
             }
 
-            //리셋
+            // 리셋
             $('#monthpicker').monthpicker('destroy');
             $('#monthpicker').val(currentYear + '.' + (currentMonthNum < 10 ? '0' : '') + currentMonthNum);
 
             let LastMonthhNum = currentMonthNum - 1;
-            //console.log(currentMonthNum);
+            // console.log(currentMonthNum);
             if (currentMonthNum === 1) {
               LastMonthhNum = 12;
             }
@@ -775,7 +789,7 @@ let pubCommon;
             } else {
               currentMonthNum++;
             }
-            //리셋
+            // 리셋
             $('#monthpicker').monthpicker('destroy');
 
             $('#monthpicker').val(currentYear + '.' + (currentMonthNum < 10 ? '0' : '') + currentMonthNum);
@@ -813,21 +827,24 @@ let pubCommon;
           }
         });
 
-        //일단위
+        // 일단위
         $('.btn-today').on('click', function () {
           $('.btn-today, .btn-week, .btn-month').removeClass('active');
           $(this).addClass('active');
           $('.daterangepicker').addClass('monitoring-day');
           $('.monitoring-date').removeClass('week month').addClass('day');
 
+          var dateRange = $('#datepicker').data('daterangepicker');
           $('#datepicker').val(end.format('YYYY.MM.DD'));
-          $('#date-hidden').val(end.subtract(1, 'days').format('YYYY.MM.DD'));
-          //console.log($("#date-hidden").val());
+          // 2023-12-04 달력 추가
+          $('#date-hidden').val(dateRange.dtartDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
+
+          // console.log($("#date-hidden").val());
 
           monitoringDate(inValiDate);
         });
 
-        //주단위
+        // 주단위
         $('.btn-week').on('click', function () {
           $('.btn-today, .btn-week, .btn-month').removeClass('active');
           $(this).addClass('active');
@@ -848,7 +865,7 @@ let pubCommon;
           // console.log($("#date-hidden").val())
         });
 
-        //월단위
+        // 월단위
         $('.btn-month').on('click', function () {
           $('.btn-today, .btn-week, .btn-month').removeClass('active');
           $(this).addClass('active');
@@ -946,7 +963,7 @@ let pubCommon;
       table.checkbox();
     },
     checkbox: function () {
-      //전체 선택
+      // 전체 선택
       $(document).on('change', '.table input.ui-tbl-chk-all', function () {
         const $wrap = $(this).closest('.table'),
           $chk = $wrap.find('input.ui-tbl-chk').not(':disabled');
@@ -956,7 +973,7 @@ let pubCommon;
           $chk.prop('checked', false).change();
         }
       });
-      //같은 name 속성값 끼리 체크
+      // 같은 name 속성값 끼리 체크
       $(document).on('change', '.table input.ui-tbl-chk-name', function () {
         const $wrap = $(this).closest('.table'),
           $name = $(this).attr('name'),
@@ -993,7 +1010,7 @@ let pubCommon;
 
 function popOpen(tar) {
   $('body').addClass('hidden popOpen');
-  //$('body').addClass('popOpen');
+  // $('body').addClass('popOpen');
   $(tar).addClass('opened');
   $(tar).fadeIn(300);
   // popPositin(tar,300);
@@ -1022,7 +1039,7 @@ function popupUI() {
     $(pop + ' #msgPop').empty();
     popClose(pop);
   });
-  //팝업 백그라운드 있을때
+  // 팝업 백그라운드 있을때
   $('.modal-bg').on('click', function () {
     $('body').removeClass('hidden popOpen');
     $('.modal').fadeOut(500).removeClass('opened');
@@ -1133,7 +1150,7 @@ $(window).resize(function () {
   }
 })();
 
-//툴 팁
+// 툴 팁
 function tooltips() {
   $('.tooltips').each(function () {
     const $this = $(this);
@@ -1332,7 +1349,7 @@ const uiSelect = {
       const isDown = $keyCode === 40;
       if (isUp || isDown) {
         let focusEl;
-        
+
         // 버튼일때
         if ($this.hasClass(uiSelect.class.btn) && $this.hasClass(uiSelect.class.btnActive)) {
           e.preventDefault();
@@ -1340,7 +1357,7 @@ const uiSelect = {
           else if (isDown) focusEl = $item.first();
         }
 
-        //옵션일때
+        // 옵션일때
         if ($this.hasClass(uiSelect.class.option)) {
           e.preventDefault();
           if (isUp) focusEl = $this.prev().length ? $this.prev() : $btn;
