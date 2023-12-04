@@ -586,8 +586,8 @@ let pubCommon;
           })
           .on('hide.daterangepicker', function (ev, picker) {
             // 선택한 날짜를 적용
-            $(this).val(picker.startDate.format('YYYY.MM.DD'));
-            $('#date-hidden').val(picker.startDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
+            $(this).val(picker.endDate.format('YYYY.MM.DD'));
+            $('#date-hidden').val(picker.endDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
             $('.prev-date').attr('disabled', false);
           });
       }
@@ -837,7 +837,7 @@ let pubCommon;
           var dateRange = $('#datepicker').data('daterangepicker');
           $('#datepicker').val(end.format('YYYY.MM.DD'));
           // 2023-12-04 달력 추가
-          $('#date-hidden').val(dateRange.dtartDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
+          $('#date-hidden').val(dateRange.startDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
 
           // console.log($("#date-hidden").val());
 
