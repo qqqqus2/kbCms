@@ -515,7 +515,8 @@ let pubCommon;
         var start = moment().subtract(364, 'days');
 
         $(this).parent().siblings('.range').find('input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
-
+        dateRange(inValiDate);
+        /*
         $(this).parent().siblings('.range').find('input').daterangepicker({
           startDate: moment().subtract(364, 'day'), // 오늘 날짜에서 1년 전
           endDate: moment(), // 오늘 날짜
@@ -528,6 +529,7 @@ let pubCommon;
             '1년': [moment().subtract(364, 'day'), moment()]
           }
         });
+        */
       });
 
       // 전체 먼저 활성화 될 시
