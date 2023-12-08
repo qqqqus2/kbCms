@@ -2,6 +2,9 @@ let pubCommon;
 (function ($) {
   'use strict';
   $(function () {
+    const $isSidebarOff = uiStorage.get('sidebarOff');
+    if ($isSidebarOff) $('.kb-wrap').addClass('sidebar-off');
+
     const $elements = $.find('*[data-include-html]');
     if ($elements.length) {
       Html.include(uiInit);
@@ -170,7 +173,15 @@ let pubCommon;
 
     sidebar: function () {
       $(document).on('click', '.btn-expand', function (e) {
-        $('.kb-wrap').toggleClass('sidebar-off');
+        const $wrap = $('.kb-wrap');
+        const $className = 'sidebar-off';
+        if ($wrap.hasClass($className)) {
+          $wrap.removeClass($className);
+          uiStorage.remove('sidebarOff');
+        } else {
+          $wrap.addClass($className);
+          uiStorage.set('sidebarOff', true);
+        }
       });
 
       if (!$('.kb-lnb .kb-lnb-dep1').children(':first-child').hasClass('active')) {
@@ -1421,6 +1432,26 @@ function findScrollableClosest(element) {
   }
   return null;
 }
+
+const uiStorage = {
+  set: function (key, value, type) {
+    let $storage = type === 'session' ? sessionStorage : localStorage;
+    $storage.setItem(key, value);
+  },
+  get: function (key, type) {
+    let $storage = type === 'session' ? sessionStorage : localStorage;
+    const $value = $storage.getItem(key);
+    return $value;
+  },
+  remove: function (key, type) {
+    let $storage = type === 'session' ? sessionStorage : localStorage;
+    $storage.removeItem(key);
+  },
+  clear: function (type) {
+    let $storage = type === 'session' ? sessionStorage : localStorage;
+    $storage.clear();
+  }
+};
 
 /* 변상우 수석님이 넣으라고 허락함 _2023.11.20 */
 function getDateDiff(d1, d2) {
