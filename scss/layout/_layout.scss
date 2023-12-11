@@ -13,6 +13,12 @@ body.hidden {
   position: relative;
   box-sizing: border-box;
   background-color: var(--background-color);
+  &.no-effect {
+    .kb-sidebar,
+    .kb-content {
+      transition-duration: 0s;
+    }
+  }
   &.sidebar-off {
     .kb-sidebar {
       transform: translateX(-100%);

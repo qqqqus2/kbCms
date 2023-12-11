@@ -3,7 +3,10 @@ let pubCommon;
   'use strict';
   $(function () {
     const $isSidebarOff = uiStorage.get('sidebarOff');
-    if ($isSidebarOff) $('.kb-wrap').addClass('sidebar-off');
+    if ($isSidebarOff) {
+      $('.kb-wrap').addClass('no-effect');
+      $('.kb-wrap').addClass('sidebar-off');
+    }
 
     const $elements = $.find('*[data-include-html]');
     if ($elements.length) {
@@ -175,6 +178,7 @@ let pubCommon;
       $(document).on('click', '.btn-expand', function (e) {
         const $wrap = $('.kb-wrap');
         const $className = 'sidebar-off';
+        $wrap.removeClass('no-effect');
         if ($wrap.hasClass($className)) {
           $wrap.removeClass($className);
           uiStorage.remove('sidebarOff');

@@ -26684,6 +26684,10 @@ body.hidden {
   box-sizing: border-box;
   background-color: var(--background-color);
 }
+.kb-wrap.no-effect .kb-sidebar,
+.kb-wrap.no-effect .kb-content {
+  transition-duration: 0s;
+}
 .kb-wrap.sidebar-off .kb-sidebar {
   transform: translateX(-100%);
 }
