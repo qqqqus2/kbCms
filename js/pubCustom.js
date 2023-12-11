@@ -503,14 +503,22 @@ let pubCommon;
       });
 
       $('.btn-currentDay').on('click', function () {
-        $(this).parent().siblings('.range').find('input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+        $(this)
+          .parent()
+          .siblings('.range')
+          .find('input')
+          .val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
         dateRange(inValiDate);
       });
 
       $('.btn-prevWeek').on('click', function () {
         var start = moment().subtract(6, 'days');
 
-        $(this).parent().siblings('.range').find('input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+        $(this)
+          .parent()
+          .siblings('.range')
+          .find('input')
+          .val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
         dateRange(inValiDate);
       });
 
@@ -518,7 +526,11 @@ let pubCommon;
       $('.btn-prevYear').on('click', function () {
         var start = moment().subtract(364, 'days');
 
-        $(this).parent().siblings('.range').find('input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+        $(this)
+          .parent()
+          .siblings('.range')
+          .find('input')
+          .val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
         dateRange(inValiDate);
         /*
         $(this).parent().siblings('.range').find('input').daterangepicker({
@@ -557,7 +569,11 @@ let pubCommon;
 
         var start = moment().subtract(monthDate, 'days');
 
-        $(this).parent().siblings('.range').find('input').val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+        $(this)
+          .parent()
+          .siblings('.range')
+          .find('input')
+          .val(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
         dateRange(inValiDate);
       });
 
