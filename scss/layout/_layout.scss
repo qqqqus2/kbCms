@@ -481,6 +481,7 @@ h4.tit {
     }
   }
   &.w-600 {
+    width: 100% !important;
     .modal-dialog .modal-content {
       width: 60rem;
       max-width: 60rem;
@@ -527,6 +528,8 @@ h4.tit {
       }
     }
     .modal-body {
+      //2024-05-09 position relative 추가
+      position: relative;
       padding: 0 2.4rem;
       overflow-y: auto;
       flex: 1 1 auto;
@@ -631,6 +634,98 @@ h4.tit {
       }
       h2 {
         font-size: 0;
+      }
+    }
+  }
+}
+.btn-group {
+  position: relative;
+  &:hover {
+    .account-info {
+      display: block;
+    }
+  }
+}
+.account-info {
+  display: none;
+  position: absolute;
+  padding-top: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  .account-dialog {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: .8rem;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      border-radius: .1rem;      
+    }
+    &::before {
+      z-index: -1;
+      width: 2.4rem;
+      height: 2.4rem;
+      border: 2px solid var(--line-color-ccc);
+    }
+    &::after {
+      width: 2rem;
+      height: 2rem;
+      background-color: #fff;
+    }
+    .account-content {
+      width: 24rem;
+      min-width: 24rem;
+      background-color: #fff;
+      box-shadow: 4px 4px 12px 0 rgba(0,0,0,0.12);
+      overflow: hidden;
+      border: 1px solid var(--line-color-ccc);
+      border-radius: .8rem;
+      .account-head {
+        display: block;
+        padding: .8rem 0;
+        margin: 2rem;
+        background-color: var(--primary-yellow-color);
+        border-radius: .4rem;
+        &.stop-using {
+          background-color: #ff1c37;
+          .tit {
+            color: #fff;
+          }
+        }
+        .tit {
+          text-align: center;
+          font-size: 1.4rem;
+          font-weight: 500;
+          line-height: 2rem;
+          color: #42444e;
+        }
+      }
+      .account-info-wrap {
+        width: 100%;
+        padding: 0 2.8rem;
+        line-height: 2rem;
+        color: #202020;
+        dl {
+          display: flex;
+          margin-bottom: .8rem;
+          dt {
+            margin-right: 1.6rem;
+            font-weight: 500;
+          }
+        }
+        .last-login-info {
+          margin-top: 1.2rem;
+          border-top: 1px solid var(--line-color-ddd);
+          .tit {
+            margin: 1.6rem 0 .4rem 0;
+            font-weight: 500;
+          }
+        }
       }
     }
   }

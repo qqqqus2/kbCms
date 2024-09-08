@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+             <li class="nav-item"><button type="button" class="nav-link guest">Guest</button></li>
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                <!-- 나의 계정정보 -->
+                <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타깃분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드 게시판</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타깃고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">분석 모델 운영</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">계정 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">권한 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">공지사항 상세</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">고객언어관리</a></li><!-- 1뎁스 -->
+                    <!-- <li class="breadcrumb-item"><a href="#"></a></li> --><!-- 2뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">공지사항</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">            
+            <div class="kb-box-inner">
+              <!-- 2024-06-27 기본정보 타이틀 삭제 -->
+              <div class="notice-detail-wrap">
+                <div class="notice-tit">                                                    
+                  <h4><span class="fc-red mr-10">공지</span>KB증권 CMS 공지사항입니다.</h4>                                        
+                  <div class="inline-flex">
+                    <dl>
+                      <dt>등록일시</dt>
+                      <dd>2024-04-16 12:34:56</dd>
+                    </dl>
+                    <dl>
+                      <dt>조회수</dt>
+                      <dd>256</dd>
+                    </dl>
+                  </div>                  
+                </div>
+                <div class="attached-file">                  
+                  <p>
+                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.pdf(1542byte)</a>
+                    <button type="button" class="btn-depth-toggle ml-10" style="display: none;"><span class="sr-only">토글</span></button>
+                  </p>                        
+                  <p>
+                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.pdf(1542byte)</a>
+                  </p>                        
+                  <p>
+                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.pdf(1542byte)</a>
+                  </p>    
+                  <p>
+                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.pdf(1542byte)</a>
+                  </p>    
+                  <p>
+                    <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.pdf(1542byte)</a>
+                  </p>                                          
+                  <button type="button" class="btn btn-sml btn-line btn-down">전체다운로드</button>                     
+                </div>
+                <div class="notice-contents">
+                  내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.내용영역입니다.
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                  내용영역입니다.<br>
+                </div>
+              </div>
+           
+               <!-- 버튼 영역-->
+               <div class="flex flex-01 mt-16">
+                <button type="button" class="btn btn-mid btn-line">목록</button>
+
+                <div class="ml-auto t-right">
+                  <div class="common-btn-wrap">
+                    <button type="button" class="btn btn-mid btn-line">이전</button>
+                    <button type="button" class="btn btn-mid btn-gray">다음</button>
+                    <!-- 이전 화면이 없는 경우 이전 버튼 disabled -->
+                    <!-- <button type="button" class="btn btn-mid btn-line" disabled>이전</button> -->
+                    <!-- <button type="button" class="btn btn-mid btn-gray">다음</button> -->
+                    <!-- 다음 화면이 없는 경우 다음 버튼 disabled -->
+                    <!-- <button type="button" class="btn btn-mid btn-line">이전</button> -->
+                    <!-- <button type="button" class="btn btn-mid btn-gray" disabled>다음</button> -->
+                  </div>
+                </div>
+              </div>
+            </div>             
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+        
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->
+    <script>
+      
+      // 첨부 파일 줄 한 개 이상일 때 펼침/닫힘
+      $(document).ready(function(){
+        var keywordWrap = $(".attached-file");        
+        var toggleBtn = keywordWrap.find(".btn-depth-toggle");
+
+        keywordWrap.each(function(){                              
+          var $this = $(this);
+          if(this.scrollWidth > this.clientWidth || this.scrollHeight > this.clientHeight) {
+            $this.find('.btn-depth-toggle').show();
+          } else {
+            $this.find('.btn-depth-toggle').hide();
+          }
+        })
+        
+        toggleBtn.on('click', function(){
+          $(this).toggleClass('active')
+          if($(this).hasClass('active')){
+            $(this).closest(".attached-file").height('auto');            
+          } else {
+            $(this).closest(".attached-file").outerHeight('5.1rem')            
+          }
+        })     
+
+      })
+    </script>
+  </body>
+</html>

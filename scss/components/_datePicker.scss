@@ -245,13 +245,15 @@ $today-color: #202020 !default;
     font-size: 1.3rem;
     padding: 0.2rem 1rem;
     padding-top: 0.4rem;
+    // margin-bottom: .4rem;
     font-weight: 300;
     background-color: var(--background-color);
     cursor: pointer;
     & + .btn {
       margin-left: 0.4rem;
     }
-    &:hover {
+    // 2024-05-09 &.active 추가
+    &:hover, &.active {
       background-color: var(--gray_02-darkBlue);
       border-color: var(--gray_02-darkBlue);
       color: #fff;
@@ -750,6 +752,15 @@ $today-color: #202020 !default;
 .monitoring-search {
   position: relative;
   text-align: center;
+  &.ty-2 {
+    .inline-flex {
+      justify-content: right;
+      position: relative;
+      top: auto;
+      right: auto;
+      transform: none;
+    }  
+  }
   .inline-flex {
     position: absolute;
     top: 50%;

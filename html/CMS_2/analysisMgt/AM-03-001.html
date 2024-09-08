@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+
+    <!-- echart -->
+    <script src="/js/lib/echart.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                 <!-- 나의 계정정보 -->
+                 <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">Guest</a></li>
+                    <li><a href="#" class="kb-lnb-link">시스템 관리자</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 생성자</a></li>
+                    <li><a href="#" class="kb-lnb-link">타부서 사용자</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">매체 전시관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">심의 접수조회</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어검수 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타겟분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 템플릿 관리</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>고객언어 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">공지사항</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 공개현황</a></li>
+                    <li><a href="#" class="kb-lnb-link">방문통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">고객통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">성과분석 통계</a></li>
+                    <li><a href="#" class="kb-lnb-link">순위통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">유입경로 분석</a></li>                    
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">상담채널 분석</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모델관리</a></li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델실행 및 재추정</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">모델재실행</a></li>
+                        <li><a class="kb-lnb-link" href="#">모델재추정</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">모델모니터링</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">수행결과</a></li>
+                        <li><a class="kb-lnb-link" href="#">변화추이</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">사용자신청관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">메뉴 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">권한그룹관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">공지사항 관리</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">모델재추정</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">분석모델관리</a></li>
+                    <li class="breadcrumb-item"><a href="#">모델실행 및 재추정</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">모델재추정</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <h3 class="content-tit">기본정보 <i class="fc-red">*</i></h3>
+              <table class="table left-table">                
+                <colgroup>
+                  <col style="width: 15%" />
+                  <col style="width: 35%" />
+                  <col style="width: 15%" />
+                  <col style="width: 35%" />
+                </colgroup>
+
+                <tbody>
+                  <tr>
+                    <th scope="row">분석모델유형</th>
+                    <td colspan="3">                      
+                      <div class="form-item">
+                        <div class="select custom-select">
+                          <select>
+                            <option value="">비지도 유형</option>
+                            <option value="">지도 유형</option>
+                          </select>
+                        </div>
+                        <div class="select custom-select ml-6">
+                          <select>
+                            <option value="">MPTI</option>
+                            <option value="">선택 1</option>
+                          </select>
+                        </div>
+                      </div>                        
+                    </td>                   
+                  </tr>
+                  <tr>
+                    <th scope="row">모델ID</th>
+                    <td>
+                      <div class="form-item">
+                        <div class="input w-full">
+                          <input type="text" title="모델ID 입력" placeholder="자동채번 됩니다." aria-label="모델ID 입력" readonly>
+                        </div>
+                        <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                      </div>
+                    </td>               
+                    <th scope="row">분석기준일</th>
+                    <td>
+                      <div class="form-item">
+                        <div class="date-single input input-date">
+                          <input type="text">
+                        </div>
+                      </div>
+                    </td>               
+                  </tr>                                         
+                  <tr>
+                    <th scope="row">모델명</th>
+                    <td colspan="3">
+                      <div class="form-item">
+                        <div class="input w-full">
+                          <input type="text" title="모델명 입력" placeholder="모델명을 입력해주세요." aria-label="모델명 입력" maxlength="30">
+                        </div>
+                        <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                      </div>
+                    </td>
+                  </tr>       
+                </tbody>
+              </table>
+
+              <!-- 모델 재추정 설정 -->
+              <h3 class="content-tit mt-24">모델 재추정 설정 <i class="fc-red">*</i></h3>              
+              <div class="table-wrap mb-0">
+                <table class="table nowrap has-body-th">
+                  <colgroup>
+                    <col style="width: 20%" />                        
+                    <col style="width: auto" />                                                
+                    <col style="width: 20%" />                        
+                    <col style="width: auto" />                                                
+                  </colgroup>                     
+                  <tbody>
+                    <tr>
+                      <th>속성유형명</td>                          
+                      <td class="">
+                        <div class="form-item">
+                          <div class="input w-full ">
+                            <input type="text" title="운영모델 속성값 입력" placeholder="운영모델 기본 속성값" aria-label="운영모델 속성값 입력" maxlength="30" class="t-right">
+                          </div>
+                          <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                        </div>
+                      </td>        
+                      <th>속성유형명</td>                          
+                      <td class="t-right">
+                        <div class="form-item">
+                          <div class="input w-full">
+                            <input type="number" title="운영모델 속성값 입력" placeholder="운영모델 기본 속성값" aria-label="운영모델 속성값 입력" maxlength="30" class="t-right">
+                          </div>
+                          <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                        </div>
+                      </td>                                                                                
+                    </tr>
+                    <tr>
+                      <th>속성유형명</td>                          
+                      <td class="">
+                        <div class="form-item">
+                          <div class="input w-full ">
+                            <input type="text" title="운영모델 속성값 입력" placeholder="운영모델 기본 속성값" aria-label="운영모델 속성값 입력" maxlength="30" class="t-right">
+                          </div>
+                          <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                        </div>
+                      </td>        
+                      <th>속성유형명</td>                          
+                      <td class="t-right">
+                        <div class="form-item">
+                          <div class="input w-full">
+                            <input type="number" title="운영모델 속성값 입력" placeholder="운영모델 기본 속성값" aria-label="운영모델 속성값 입력" maxlength="30" class="t-right">
+                          </div>
+                          <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                        </div>
+                      </td>                                                                                
+                    </tr>
+                    <tr>
+                      <th>속성유형명</td>                          
+                      <td class="">
+                        <div class="form-item">
+                          <div class="input w-full ">
+                            <input type="text" title="운영모델 속성값 입력" placeholder="운영모델 기본 속성값" aria-label="운영모델 속성값 입력" maxlength="30" class="t-right">
+                          </div>
+                          <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                        </div>
+                      </td>        
+                      <th>속성유형명</td>                          
+                      <td class="t-right">
+                        <div class="form-item">
+                          <div class="input w-full">
+                            <input type="number" title="운영모델 속성값 입력" placeholder="운영모델 기본 속성값" aria-label="운영모델 속성값 입력" maxlength="30" class="t-right">
+                          </div>
+                          <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                        </div>
+                      </td>                                                                                
+                    </tr>
+                    <tr>
+                      <th>속성유형명</td>                          
+                      <td class="">
+                        <div class="form-item">
+                          <div class="input w-full ">
+                            <input type="text" title="운영모델 속성값 입력" placeholder="운영모델 기본 속성값" aria-label="운영모델 속성값 입력" maxlength="30" class="t-right">
+                          </div>
+                          <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                        </div>
+                      </td>        
+                      <th></td>                          
+                      <td class="t-right">                        
+                      </td>                                                                                
+                    </tr>                   
+                  </tbody>
+                </table>                             
+              </div>
+              
+              <!-- 버튼 영역-->
+              <div class="flex flex-01 mt-15">
+                <button type="button" class="btn btn-mid btn-line">모델관리목록</button>
+
+                <div class="ml-auto t-right">
+                  <div class="common-btn-wrap">                    
+                    <button type="button" class="btn btn-mid btn-line">초기화</button>
+                    <button type="button" class="btn btn-mid btn-yellow">모델재추정</button>
+                  </div>
+                </div>                
+              </div>              
+            </div>              
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
+    </section>    
+    <!-- //wrap -->
+    <script>
+      // 분석기간 입력 후 분포 확인용 테이블 생성 버튼 활성화
+      $("input[title='분석기간 입력']").on('input', function(){
+        $("[data-name=checkBtn0]").prop("disabled", !$(this).val().length);
+      })
+      // 분포 확인용 테이블 생성 버튼 클릭 시
+      $("button:contains('분포 확인용 테이블 생성')").on('click', function(){
+        let inputValue = $(this).siblings().find('input');        
+        if(inputValue.val() < 1 || inputValue.val() > 8){
+          // alert
+          inputValue.val('');
+          $(this).prop('disabled', true);
+        }
+      })
+
+      // 콘텐츠 조회수 | 팩트/오피니언 조회비율 | 화면별 체류시간 | 조회 콘텐츠 종류수 입력 시
+      // 분포 확인 버튼 활성화 및 비활성화
+      let inputType1 = $("input[title='조회콘텐츠 개수 임계치 입력']");      
+      let inputType2 = $("input[title='콘텐츠 유형별 조회 횟수비율']");      
+      let inputType3 = $("input[title='화면별 체류시간 입력']");      
+      let inputType4 = $("input[title='조회콘텐츠 종료 개수 임계치 입력']");    
+      
+      inputType1.on('input', function() {        
+        $("[data-name=checkBtn1]").prop("disabled", !$(this).val().length);
+      });  
+      inputType2.on('input', function() {        
+        $("[data-name=checkBtn2]").prop("disabled", !$(this).val().length);
+      });  
+      inputType3.on('input', function() {        
+        $("[data-name=checkBtn3]").prop("disabled", !$(this).val().length);
+      });  
+      inputType4.on('input', function() {        
+        $("[data-name=checkBtn4]").prop("disabled", !$(this).val().length);
+      });  
+      
+      $("[data-name=checkBtn1]").on('click', function(){        
+        if(inputType1.val() < 2 || inputType1.val() > 10){
+          // alert
+          inputType1.val('');
+          $(this).prop('disabled', true);
+        }else{          
+          $(this).next('.detail-info-box').show();
+        }  
+      })
+      $("[data-name=checkBtn2]").on('click', function(){        
+        if(inputType2.val() < 0.5 || inputType2.val() > 3){
+          // alert
+          inputType2.val('');
+          $(this).prop('disabled', true);
+        }else{          
+          $(this).next('.detail-info-box').show();
+        }  
+      })      
+      $("[data-name=checkBtn3]").on('click', function(){        
+        if(inputType3.val() < 25 || inputType3.val() > 75){
+          // alert
+          inputType3.val('');
+          $(this).prop('disabled', true);
+        }else{          
+          $(this).next('.detail-info-box').show();
+        }  
+      })
+      $("[data-name=checkBtn4]").on('click', function(){        
+        if(inputType4.val() < 2 || inputType4.val() > 5){
+          // alert
+          inputType4.val('');
+          $(this).prop('disabled', true);
+        }else{          
+          $(this).next('.detail-info-box').show();
+        }  
+      })          
+
+      // 콘텐츠 조회수 그래프
+      var chartDom = document.getElementById('line-chart-1');      
+       // dashed line 위치
+      var lineLocated = 50;
+      $('#line-chart-1').prev('.dashed-line').css({left : lineLocated + '%'})
+      var myChart = echarts.init(chartDom);
+      var option;
+      option = {          
+        xAxis: {
+          type: 'category',                      
+          data: ["","","","","","","","","",""],
+          min:0,
+          max:9,                   
+          splitLine: { show: false },    
+          axisTick: { show: true },   
+          axisLine: {
+            lineStyle: {
+              color: '#CCCCCC' 
+            }
+          },                                     
+        },
+        yAxis: {           
+          type: 'value',              
+          min:0,
+          max:15,
+          name: '',
+          position: 'left',
+          splitLine:{ show: false },
+          axisLine: { show: false },
+          axisTick: { show: false },
+          axisLabel: { show: false }           
+        },
+          series: [
+            {
+              type: 'bar',                   
+              data: [5, 2, 4, 10, 8, 6, 5, 2, 4, 10, 8],   
+              itemStyle: {                        
+                normal: {
+                  barBorderRadius: [2, 2, 0 ,0 ],
+                  color: '#CFDFFC'
+                }
+              },
+              // 바 컬럼 순서에 따른 라인 설정(사용 하지 않을 경우 삭제 예정)
+              /*
+              markLine: {
+                symbol: 'none', 
+                lineStyle: {
+                  color: '#AEB6D0', 
+                  type: 'dashed', 
+                  width: 1
+                },
+                label: {
+                  show: true,
+                  position: 'end', 
+                  formatter: '1:1',
+                  color: '#2e74f2',
+                  fontWeight: '500',
+                  fontFamily: 'KBFGText',
+                  fontSize: 12,
+                  lineHeight: 18, 
+                  backgroundColor: 'rgba(46, 116, 242, 0.05)',
+                  padding: [2, 12, 2, 12],
+                  borderRadius: 4 
+                },
+                data: [
+                  // 라인 위치 설정      
+                  { xAxis: 5 },  
+                  // 라인 위치 설정2       
+                  [
+                    { coord: [6, 0] }, 
+                    { coord: [6, 20] } 
+                  ]
+                ]
+              }
+              */
+            },
+            {
+              type: 'line',  
+              data: [5, 2, 4, 4, 10, 8, 6, 5, 2, 10, 8],                        
+              showSymbol: false,
+              lineStyle: {
+                width: 1,
+                color: '#2E74F2'
+              }
+            }
+          ],
+          graphic: [
+            {
+              type: 'text',
+              left: '25%',
+              top: '70px',
+              style: {
+                text: '45%',
+                fill: '#E78531',
+                font: '500 12px KBFGText'
+              }
+            },
+            {
+              type: 'text',
+              right: '25%',
+              top: '70px',
+              style: {
+                text: '55%',
+                fill: '#E78531',
+                font: '500 12px KBFGText'
+              }
+            }           
+          ]
+      };
+
+      myChart.setOption(option);
+      window.addEventListener('resize', myChart.resize);
+
+      // 팩트/오피니언 조회비율 그래프
+      var chartDom = document.getElementById('line-chart-2');      
+      // dashed line 위치
+      var lineLocated = 50;
+      $('#line-chart-2').prev('.dashed-line').css({left : lineLocated + '%'})
+      var myChart = echarts.init(chartDom);
+      var option;
+      option = {          
+        xAxis: {
+          type: 'category',                      
+          data: ["","","","","","","","","",""],
+          min:0,
+          max:9,                   
+          splitLine: { show: false },    
+          axisTick: { show: true },   
+          axisLine: {
+            lineStyle: {
+              color: '#CCCCCC' 
+            }
+          },                                     
+        },
+        yAxis: {           
+          type: 'value',              
+          min:0,
+          max:15,
+          name: '',
+          position: 'left',
+          splitLine:{ show: false },
+          axisLine: { show: false },
+          axisTick: { show: false },
+          axisLabel: { show: false }           
+        },
+          series: [
+            {
+              type: 'bar',                   
+              data: [5, 2, 4, 10, 8, 6, 5, 2, 4, 10, 8],   
+              itemStyle: {                        
+                normal: {
+                  barBorderRadius: [2, 2, 0 ,0 ],
+                  color: '#CFDFFC'
+                }
+              },
+              // 바 컬럼 순서에 따른 라인 설정(사용 하지 않을 경우 삭제 예정)
+              /*
+              markLine: {
+                symbol: 'none', 
+                lineStyle: {
+                  color: '#AEB6D0', 
+                  type: 'dashed', 
+                  width: 1
+                },
+                label: {
+                  show: true,
+                  position: 'end', 
+                  formatter: '1:1',
+                  color: '#2e74f2',
+                  fontWeight: '500',
+                  fontFamily: 'KBFGText',
+                  fontSize: 12,
+                  lineHeight: 18, 
+                  backgroundColor: 'rgba(46, 116, 242, 0.05)',
+                  padding: [2, 12, 2, 12],
+                  borderRadius: 4 
+                },
+                data: [
+                  // 라인 위치 설정      
+                  { xAxis: 5 },  
+                  // 라인 위치 설정2       
+                  [
+                    { coord: [6, 0] }, 
+                    { coord: [6, 20] } 
+                  ]
+                ]
+              }
+              */
+            },
+            {
+              type: 'line',  
+              data: [5, 2, 4, 4, 10, 8, 6, 5, 2, 10, 8],                        
+              showSymbol: false,
+              lineStyle: {
+                width: 1,
+                color: '#2E74F2'
+              }
+            }
+          ],
+          graphic: [
+            {
+              type: 'text',
+              left: '25%',
+              top: '70px',
+              style: {
+                text: '45%',
+                fill: '#E78531',
+                font: '500 12px KBFGText'
+              }
+            },
+            {
+              type: 'text',
+              right: '25%',
+              top: '70px',
+              style: {
+                text: '55%',
+                fill: '#E78531',
+                font: '500 12px KBFGText'
+              }
+            }           
+          ]
+      };
+
+      myChart.setOption(option);
+      window.addEventListener('resize', myChart.resize);
+
+      // 화면별 체류시간 그래프
+      var chartDom = document.getElementById('line-chart-3');      
+      var myChart = echarts.init(chartDom);
+      // dashed line 위치
+      var lineLocated = 50;
+      $('#line-chart-3').prev('.dashed-line').css({left : lineLocated + '%'})
+      var option;
+      option = {          
+        xAxis: {
+          type: 'category',                      
+          data: ["","","","","","","","","",""],
+          min:0,
+          max:9,                   
+          splitLine: { show: false },    
+          axisTick: { show: true },   
+          axisLine: {
+            lineStyle: {
+              color: '#CCCCCC' 
+            }
+          },                                     
+        },
+        yAxis: {           
+          type: 'value',              
+          min:0,
+          max:15,
+          name: '',
+          position: 'left',
+          splitLine:{ show: false },
+          axisLine: { show: false },
+          axisTick: { show: false },
+          axisLabel: { show: false }           
+        },
+          series: [
+            {
+              type: 'bar',                   
+              data: [5, 2, 4, 10, 8, 6, 5, 2, 4, 10, 8],   
+              itemStyle: {                        
+                normal: {
+                  barBorderRadius: [2, 2, 0 ,0 ],
+                  color: '#CFDFFC'
+                }
+              },
+              // 바 컬럼 순서에 따른 라인 설정(사용 하지 않을 경우 삭제 예정)
+              /*
+              markLine: {
+                symbol: 'none', 
+                lineStyle: {
+                  color: '#AEB6D0', 
+                  type: 'dashed', 
+                  width: 1
+                },
+                label: {
+                  show: true,
+                  position: 'end', 
+                  formatter: '1:1',
+                  color: '#2e74f2',
+                  fontWeight: '500',
+                  fontFamily: 'KBFGText',
+                  fontSize: 12,
+                  lineHeight: 18, 
+                  backgroundColor: 'rgba(46, 116, 242, 0.05)',
+                  padding: [2, 12, 2, 12],
+                  borderRadius: 4 
+                },
+                data: [
+                  // 라인 위치 설정      
+                  { xAxis: 5 },  
+                  // 라인 위치 설정2       
+                  [
+                    { coord: [6, 0] }, 
+                    { coord: [6, 20] } 
+                  ]
+                ]
+              }
+              */
+            },
+            {
+              type: 'line',  
+              data: [5, 2, 4, 4, 10, 8, 6, 5, 2, 10, 8],                        
+              showSymbol: false,
+              lineStyle: {
+                width: 1,
+                color: '#2E74F2'
+              }
+            }
+          ],
+          graphic: [
+            {
+              type: 'text',
+              left: '25%',
+              top: '70px',
+              style: {
+                text: '45%',
+                fill: '#E78531',
+                font: '500 12px KBFGText'
+              }
+            },
+            {
+              type: 'text',
+              right: '25%',
+              top: '70px',
+              style: {
+                text: '55%',
+                fill: '#E78531',
+                font: '500 12px KBFGText'
+              }
+            }           
+          ]
+      };
+
+      myChart.setOption(option);
+      window.addEventListener('resize', myChart.resize);
+
+      // 화면별 체류시간 그래프
+      var chartDom = document.getElementById('line-chart-4');      
+      // dashed line 위치
+      var lineLocated = 50;
+      $('#line-chart-4').prev('.dashed-line').css({left : lineLocated + '%'})
+      var myChart = echarts.init(chartDom);
+      var option;
+      option = {          
+        xAxis: {
+          type: 'category',                      
+          data: ["","","","","","","","","",""],
+          min:0,
+          max:9,                   
+          splitLine: { show: false },    
+          axisTick: { show: true },   
+          axisLine: {
+            lineStyle: {
+              color: '#CCCCCC' 
+            }
+          },                                     
+        },
+        yAxis: {           
+          type: 'value',              
+          min:0,
+          max:15,
+          name: '',
+          position: 'left',
+          splitLine:{ show: false },
+          axisLine: { show: false },
+          axisTick: { show: false },
+          axisLabel: { show: false }           
+        },
+          series: [
+            {
+              type: 'bar',                   
+              data: [5, 2, 4, 10, 8, 6, 5, 2, 4, 10, 8],   
+              itemStyle: {                        
+                normal: {
+                  barBorderRadius: [2, 2, 0 ,0 ],
+                  color: '#CFDFFC'
+                }
+              },
+              // 바 컬럼 순서에 따른 라인 설정(사용 하지 않을 경우 삭제 예정)
+              /*
+              markLine: {
+                symbol: 'none', 
+                lineStyle: {
+                  color: '#AEB6D0', 
+                  type: 'dashed', 
+                  width: 1
+                },
+                label: {
+                  show: true,
+                  position: 'end', 
+                  formatter: '1:1',
+                  color: '#2e74f2',
+                  fontWeight: '500',
+                  fontFamily: 'KBFGText',
+                  fontSize: 12,
+                  lineHeight: 18, 
+                  backgroundColor: 'rgba(46, 116, 242, 0.05)',
+                  padding: [2, 12, 2, 12],
+                  borderRadius: 4 
+                },
+                data: [
+                  // 라인 위치 설정      
+                  { xAxis: 5 },  
+                  // 라인 위치 설정2       
+                  [
+                    { coord: [6, 0] }, 
+                    { coord: [6, 20] } 
+                  ]
+                ]
+              }
+              */
+            },
+            {
+              type: 'line',  
+              data: [5, 2, 4, 4, 10, 8, 6, 5, 2, 10, 8],                        
+              showSymbol: false,
+              lineStyle: {
+                width: 1,
+                color: '#2E74F2'
+              }
+            }
+          ],
+          graphic: [
+            {
+              type: 'text',
+              left: '25%',
+              top: '70px',
+              style: {
+                text: '45%',
+                fill: '#E78531',
+                font: '500 12px KBFGText'
+              }
+            },
+            {
+              type: 'text',
+              right: '25%',
+              top: '70px',
+              style: {
+                text: '55%',
+                fill: '#E78531',
+                font: '500 12px KBFGText'
+              }
+            }           
+          ]
+      };
+
+      myChart.setOption(option);
+      window.addEventListener('resize', myChart.resize);
+    </script>
+  </body>
+</html>

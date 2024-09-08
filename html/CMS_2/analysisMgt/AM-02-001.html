@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                 <!-- 나의 계정정보 -->
+                 <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">Guest</a></li>
+                    <li><a href="#" class="kb-lnb-link">시스템 관리자</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 생성자</a></li>
+                    <li><a href="#" class="kb-lnb-link">타부서 사용자</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">매체 전시관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">심의 접수조회</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어검수 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타겟분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 템플릿 관리</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>고객언어 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">공지사항</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 공개현황</a></li>
+                    <li><a href="#" class="kb-lnb-link">방문통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">고객통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">성과분석 통계</a></li>
+                    <li><a href="#" class="kb-lnb-link">순위통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">유입경로 분석</a></li>                    
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">상담채널 분석</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모델관리</a></li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델실행 및 재추정</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">모델재실행</a></li>
+                        <li><a class="kb-lnb-link" href="#">모델재추정</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">모델모니터링</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">수행결과</a></li>
+                        <li><a class="kb-lnb-link" href="#">변화추이</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">사용자신청관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">메뉴 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">권한그룹관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">공지사항 관리</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">                
+                <h2 class="page-tit">모델재실행</h2>                                  
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">분석모델관리</a></li>
+                    <li class="breadcrumb-item"><a href="#">모델실행 및 재추정</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">모델재실행</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <div class="common-search">                
+                <dl>
+                  <dt class="w-120">분석모델선택</dt>
+                  <dd>
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select>
+                          <option value="">비지도 유형</option>
+                          <option value="">지도 유형</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select disabled>
+                          <option value="">MPTI</option>
+                          <option value="">선택 1</option>
+                        </select>
+                      </div>
+                    </div>                   
+                  </dd>
+                </dl>                
+                <dl>
+                  <dt class="w-120">키워드</dt>
+                  <dd class="w-full">                    
+                    <div class="form-item">
+                      <div class="input w-full">
+                        <input type="text" title="모델명 또는 생성자를 입력하세요" placeholder="모델명 또는 생성자를 입력하여 검색가능하며, ‘|’를 구분자로 사용하여 최대 3개까지 동시 검색이 가능합니다." aria-label="모델명 또는 생성자를 입력하세요" />
+                      </div>
+                    </div>
+                  </dd>
+                </dl>                                
+              </div>
+            </div>
+            <div class="common-search-btn mt-16">
+              <button type="button" class="btn btn-mid btn-line">초기화</button>
+              <button type="button" class="btn btn-mid btn-yellow">검색</button>
+            </div>
+            
+            <div class="kb-box-inner mt-32">
+              <div class="common-search-table">
+                <div class="title-wrap flex align-center mb-12">                  
+                  <div class="left w-30p"><span>모델목록</span> <strong class="fc-blue">999</strong></div>                                      
+                  <div class="ml-auto inline-flex justify-end">                  
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select>
+                          <option value="">20개씩 보기</option>
+                          <option value="">50개씩 보기</option>
+                          <option value="">100개씩 보기</option>
+                        </select>
+                      </div>
+                    </div>             
+                  </div>                                             
+                </div>                
+                <!-- 테이블 -->
+                <div class="table-wrap">
+                  <table class="table nowrap">
+                    <colgroup>
+                      <col style="width: 4rem" />
+                      <col style="width: auto" />
+                      <col style="width: 40rem" />
+                      <col style="width: auto" />
+                      <col style="width: 20rem" />
+                      <col style="width: 20rem" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>순번</th>
+                        <th>모델ID</th>
+                        <th>모델명</th>                        
+                        <th>운영상태</th>                        
+                        <th>
+                          <span class="list-align">
+                          생성일시
+                          <i role="button" class="btn-alignList"></i>
+                          </span>
+                        </th>
+                        <th>
+                          <span class="list-align">
+                          최종실행일시
+                          <i role="button" class="btn-alignList"></i>
+                          </span>
+                        </th>
+                        <th>최종실행상태</th>                        
+                        <th>최종실행자</th>
+                        <th>관리</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- 운영 중 모델 -->
+                      <tr>
+                        <!-- 2024-08-06 fc-red class 삭제 -->
+                        <td>1</td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td class="t-left"><a href="#" class="linked">관심유형척도변경</a></td>
+                        <td>운영모델</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>완료</td>                        
+                        <td>홍길동</td>                          
+                        <td>
+                          <div class="inline-flex align-center">                          
+                            <button type="button" class="btn btn-sml btn-gray">재실행</button>
+                            <button type="button" class="btn btn-sml ml-8 btn-gray">최종실행결과</button>
+                          </div>
+                        </td>                        
+                      </tr>
+                      <!-- 생성 중 모델 -->
+                      <tr class="fc-gray-999">
+                        <td>2</td>
+                        <td>MPTI_040520_001</td>
+                        <td class="t-left">관심유형척도변경</td>
+                        <td>생성중</td>
+                        <td>2024-04-16</td>
+                        <td>-</td>
+                        <td>-</td>                        
+                        <td>홍길동</td>                        
+                        <td>-</td>                        
+                      </tr>
+                      <!-- 후보 모델 -->
+                      <tr>
+                        <td>3</td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td><a href="#" class="t-left linked">모델명입니다.모델명입니다.모델명입니다.</a></td>
+                        <td>후보모델</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>완료</td>       
+                        <td>홍길동</td>                        
+                        <td>  
+                          <div class="inline-flex align-center">                          
+                            <button type="button" class="btn btn-sml btn-gray">재실행</button>
+                            <button type="button" class="btn btn-sml ml-8 btn-gray">최종실행결과</button>
+                          </div>
+                        </td>                        
+                      </tr>
+                      <!-- 후보 모델 && 최종실행상태 생성 중일때 최종최종실행결과 비활성 -->
+                      <tr>
+                        <td>4</td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td><a href="#" class="t-left linked">모델명입니다.모델명입니다.모델명입니다.</a></td>
+                        <td>후보모델</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <!-- 2024-08-06 fc-gray-999 클래스 추가 -->
+                        <td class="fc-gray-999">생성중</td>       
+                        <td>홍길동</td>                        
+                        <td>  
+                          <div class="inline-flex align-center">                          
+                            <button type="button" class="btn btn-sml btn-gray">재실행</button>
+                            <button type="button" class="btn btn-sml ml-8 btn-gray" disabled>최종실행결과</button>
+                          </div>
+                        </td>                        
+                      </tr>
+                      <!-- 실패시 실패사유 툴팁 -->
+                      <tr>
+                        <td>5</td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td><a href="#" class="t-left linked">모델명입니다.모델명입니다.모델명입니다.</a></td>
+                        <td>후보모델</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>실패</td>       
+                        <td>홍길동</td>                        
+                        <td>
+                          <div class="inline-flex align-center">                          
+                            <button type="button" class="btn btn-sml btn-gray">재실행</button>                            
+                            <div class="tooltips fail">
+                              <button type="button" title="툴팁 열기" class="btn btn-sml ml-8 btn-gray btn-tooltips">최종실행결과</button>
+                              <div class="msg type-2">
+                                <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>                    
+                                <div class="t-left">
+                                  실패사유
+                                </div>
+                              </div>                
+                            </div>
+                          </div>
+                        </td>                        
+                      </tr>                     
+                      
+                      <!-- 검색된 검색결과가 없습니다 -->
+                      <tr>
+                        <td colspan="9">
+                          <div class="search-notFound">검색된 검색결과가 없습니다.</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!-- 페이징 -->
+                  <nav aria-label="Page navigation">
+                    <ul class="pagination justify-center mt-16">
+                      <li class="page-item">
+                        <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                          <span aria-hidden="true">&#60;</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                          <span aria-hidden="true">&#62;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link next-last" href="#" aria-label="마지막으로">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>                    
+                </div>                  
+              </div>
+            </div>                          
+
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
+    </section>    
+    <!-- //wrap -->    
+  </body>
+</html>

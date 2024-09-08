@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+
+    <!-- echart -->
+    <script src="/js/lib/echart.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타깃분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드 게시판</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타깃고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">분석 모델 운영</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">콘텐츠 공개 현황</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">모니터링</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item"><a href="#">콘텐츠별 현황</a></li>
+                    <!-- 2뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">콘텐츠 공개현황</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <div class="common-search monitoring-search">
+                <button type="button" class="btn-searchToggle" title="열기"></button>
+                <!-- 2023-10-10 mb-24 추가 -->
+                <div class="form-item mb-24">
+                  <div class="monitoring-date input input-date">
+                    <button type="button" class="btn-dateMove prev-date" title="이전"></button>
+                    <input type="hidden" id="date-hidden" />
+                    <input type="text" id="datepicker" autocomplete="off" readonly />
+                    <input type="text" id="monthpicker" autocomplete="off" readonly />
+                    <button type="button" class="btn-dateMove next-date" title="다음"></button>
+                  </div>
+                  <div class="inline-flex">
+                    <button type="button" class="btn btn-today btn-tiny btn-round btn-line active">일간</button>
+                    <button type="button" class="btn btn-week btn-tiny ml-4 btn-round btn-line">주간</button>
+                    <button type="button" class="btn btn-month btn-tiny ml-4 btn-round btn-line">월간</button>
+                  </div>
+                </div>
+
+                <!-- 확장 검색조건 -->
+                <div class="expand-condition">
+                  <dl class="inner-tbl">
+                    <dt class="w-120 t-left">매체</dt>
+                    <dd>
+                      <label class="radio radio-custom">
+                        <input type="radio" name="rdo1" />
+                        <i class="lbl">전체</i>
+                      </label>
+                      <label class="radio radio-custom">
+                        <input type="radio" name="rdo1" />
+                        <i class="lbl">마블</i>
+                      </label>
+                      <label class="radio radio-custom">
+                        <input type="radio" name="rdo1" />
+                        <i class="lbl">마블미니</i>
+                      </label>
+                      <label class="radio radio-custom">
+                        <input type="radio" name="rdo1" />
+                        <i class="lbl">마블와이드</i>
+                      </label>
+                    </dd>
+                  </dl>
+                  <dl class="inner-tbl">
+                    <dt class="w-120 t-left">콘텐츠 구분</dt>
+                    <dd>
+                      <label class="radio radio-custom">
+                        <input type="radio" name="rdo2" />
+                        <i class="lbl">전체</i>
+                      </label>
+                      <label class="radio radio-custom">
+                        <input type="radio" name="rdo2" />
+                        <i class="lbl">오늘의 콕</i>
+                      </label>
+                      <label class="radio radio-custom">
+                        <input type="radio" name="rdo2" />
+                        <i class="lbl">프라임클럽</i>
+                      </label>
+                    </dd>
+                  </dl>
+                  <dl class="inner-tbl">
+                    <dt class="w-120 t-left">유관부서</dt>
+                    <dd>
+                      <div class="form-item">
+                        <div class="select minW-200 custom-select">
+                          <select>
+                            <option value="">전체</option>
+                            <option value="">유관부서 1</option>
+                            <option value="">유관부서 2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <!-- 확장 닫기 후 선택된 조건 -->
+                <div class="selected-condition">
+                  <span>매체 전체</span>
+                  <span>오늘의 콕</span>
+                  <span>유관부서 전체</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="common-search-btn mt-16 mb-32">
+              <button type="button" class="btn btn-mid btn-line">초기화</button>
+              <button type="button" class="btn btn-mid btn-yellow">검색</button>
+            </div>
+
+            <div class="kb-box-inner">
+              <div class="monitoring-status">
+                <div class="status-item">
+                  전체 누적
+                  <!-- 툴팁 -->
+                  <div class="tooltips">
+                    <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
+                    <p class="msg">
+                      <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>
+                      <span>전체누적은 검색조건에 영향받지 않는 콘텐츠 전체 누적 총 건수입니다.</span>
+                    </p>
+                  </div>
+                  <p class="fc-blue">1,000</p>
+                </div>
+                <div class="status-item">
+                  조회기간
+                  <p class="fc-blue">300</p>
+                </div>
+                <div class="status-item">
+                  마블
+                  <p class="fc-blue">300</p>
+                </div>
+                <div class="status-item">
+                  마블미니
+                  <p class="fc-blue">300</p>
+                </div>
+                <div class="status-item">
+                  마블와이드
+                  <p class="fc-blue">300</p>
+                </div>
+              </div>
+
+              <div class="monitoring-contentsBox">
+                <div class="flex mt-32">
+                  <div class="form-item">
+                    <div class="select minW-150 custom-select type-2">
+                      <select>
+                        <option value="" selected>콘텐츠 주제별</option>
+                        <option value="">콘텐츠 Map별</option>
+                        <option value="">콘텐츠 난이도별</option>
+                        <option value="">콘텐츠 형태별</option>
+                        <option value="">콘텐츠 상품별</option>
+                        <option value="">콘텐츠 계좌별</option>
+                        <option value="">콘텐츠 서비스별</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="ml-auto t-right">
+                    <button type="button" class="btn btn-sml btn-line btn-down ml-6">파일 다운로드</button>
+                  </div>
+                </div>
+
+                <div class="flex">
+                  <div id="pie-chart1" class="chart-wrap h-400 flex-00 w-55p"></div>
+
+                  <div class="table-wrap flex-11">
+                    <!-- 2023-09-21 테이블 변경 -->
+                    <table class="table">
+                      <colgroup>
+                        <col style="width: auto" />
+                        <col style="width: 15rem" />
+                        <col style="width: 15rem" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th colspan="2">콘텐츠 주제</th>
+                          <th rowspan="2">등록수</th>
+                          <th rowspan="2">비율</th>
+                        </tr>
+                        <tr>
+                          <th>대분류</th>
+                          <th>중분류</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th rowspan="7">오늘의 톡</th>
+                          <td class="t-left">주식</td>
+                          <td class="t-right">51</td>
+                          <td>51%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">금융상품</td>
+                          <td class="t-right">17</td>
+                          <td>17%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">재테크</td>
+                          <td class="t-right">8</td>
+                          <td>8%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">부동산</td>
+                          <td class="t-right">7</td>
+                          <td>7%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">ETF</td>
+                          <td class="t-right">6</td>
+                          <td>6%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">세무</td>
+                          <td class="t-right">6</td>
+                          <td>6%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">자산분배</td>
+                          <td class="t-right">5</td>
+                          <td>5%</td>
+                        </tr>
+                        <tr>
+                          <th>프라임클럽</th>
+                          <td class="t-left">주식</td>
+                          <td class="t-right">40</td>
+                          <td>40%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="monitoring-contentsBox">
+                <div class="flex mt-32">
+                  <h4 class="tit">카테고리별</h4>
+
+                  <div class="ml-auto t-right">
+                    <button type="button" class="btn btn-sml btn-line btn-down ml-6">파일 다운로드</button>
+                  </div>
+                </div>
+
+                <!-- 카테고리별  -->
+                <div class="flex">
+                  <div id="pie-chart2" class="chart-wrap h-400 flex-00 w-55p"></div>
+
+                  <div class="table-wrap flex-11">
+                    <table class="table">
+                      <colgroup>
+                        <col style="width: auto" />
+                        <col style="width: 15rem" />
+                        <col style="width: 15rem" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>카테고리</th>
+                          <th>등록수</th>
+                          <th>비율</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="t-left">1분 브리핑</td>
+                          <td class="t-right">20</td>
+                          <td>20%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">해외투자</td>
+                          <td class="t-right">20</td>
+                          <td>20%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">투자상식</td>
+                          <td class="t-right">18</td>
+                          <td>18%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">투자전략</td>
+                          <td class="t-right">16</td>
+                          <td>16%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">내돈관리</td>
+                          <td class="t-right">8</td>
+                          <td>8%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">부동산</td>
+                          <td class="t-right">7</td>
+                          <td>7%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">절세전략</td>
+                          <td class="t-right">6</td>
+                          <td>6%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">쇼미더수익</td>
+                          <td class="t-right">4</td>
+                          <td>4%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">부자</td>
+                          <td class="t-right">1</td>
+                          <td>1%</td>
+                        </tr>
+                        <tr>
+                          <td class="t-left">용어사전</td>
+                          <td class="t-right">1</td>
+                          <td>1%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->
+
+    <script>
+      var dom1 = document.querySelector('#pie-chart1');
+      var dom2 = document.querySelector('#pie-chart2');
+
+      var myChart1 = echarts.init(dom1, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
+      });
+      var myChart2 = echarts.init(dom2, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
+      });
+
+      var color1 = ['#FFCF53', '#FA844E', '#5AAE6E', '#5B75CE', '#A9C5FF', '#7155C8', '#354673', '#FF6391', '#FEBCFF', '#BC80FF', '#EB2B42', '#CFEC1D', '#2B9D96', '#2757BB', '#839BD7', '#80839D', '#393798', '#2592FF', '#4DE4C9', '#4F805A'];
+      var color2 = ['#FF6391', '#FEBCFF', '#BC80FF', '#EB2B42', '#CFEC1D', '#2B9D96', '#2757BB', '#839BD7', '#80839D', '#393798', '#2592FF', '#4DE4C9', '#4F805A', '#FFCF53', '#FA844E', '#5AAE6E', '#5B75CE', '#A9C5FF', '#7155C8', '#354673'];
+      var title = { left: 'center' };
+      var tooltip = { trigger: 'item' };
+      var legend = {
+        align: 'auto',
+        left: 'left',
+        bottom: 0,
+        height: 200,
+        icon: 'circle',
+        padding: [16, 10, 16, 10]
+      };
+
+      var itemStyle = {
+        shadowBlur: 0,
+        shadowOffsetX: 0,
+        shadowColor: 'rgba(0, 0, 0, 0)'
+      };
+
+      //var app1 = {};
+      //var app2 = {};
+
+      var data1 = [];
+      var data2 = [];
+
+      function chartData() {
+        return {
+          value: Math.round(Math.random() * 20),
+          name: '제목' + i
+        };
+      }
+      // console.log(chartData())
+
+      for (var i = 1; i <= 15; i++) {
+        data1.push(chartData(i));
+      }
+      for (var i = 1; i <= 8; i++) {
+        data2.push(chartData(i));
+      }
+
+      var option1;
+      var option2;
+
+      option1 = {
+        title: title,
+        tooltip: tooltip,
+        legend: legend,
+        series: [
+          {
+            name: '콘텐츠 주제',
+            type: 'pie',
+            height: '80%',
+            radius: ['40%', '70%'],
+            data: data1,
+            emphasis: {
+              itemStyle: itemStyle
+            },
+            color: color1
+          }
+        ]
+      };
+
+      option2 = {
+        title: title,
+        tooltip: tooltip,
+        legend: legend,
+        series: [
+          {
+            name: '카테고리',
+            type: 'pie',
+            height: '80%',
+            radius: ['40%', '70%'],
+            data: data2,
+            emphasis: {
+              itemStyle: itemStyle
+            },
+            color: color2
+          }
+        ]
+      };
+
+      if (option1 && typeof option1 === 'object') {
+        myChart1.setOption(option1);
+      }
+      if (option2 && typeof option2 === 'object') {
+        myChart2.setOption(option2);
+      }
+
+      window.addEventListener('resize', myChart1.resize);
+      window.addEventListener('resize', myChart2.resize);
+    </script>
+  </body>
+</html>

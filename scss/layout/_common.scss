@@ -324,8 +324,8 @@ strong {
 .w-full {
   width: 100% !important;
 }
-
-@for $i from 0 through 400 {
+// 2024-05-09 400 -> 430 으로 수정
+@for $i from 0 through 430 {
   .w-#{$i} {
     width: $i * 0.1rem !important;
   }
@@ -377,7 +377,7 @@ strong {
   height: auto !important;
 }
 
-@for $i from 0 through 500 {
+@for $i from 0 through 600 {
   .h-#{$i} {
     height: $i * 0.1rem !important;
   }
@@ -396,6 +396,13 @@ strong {
 }
 .h-600 {
   height: 60rem !important;
+}
+.h-700 {
+  height: 70rem !important;
+}
+// 2024-05-09 h-900 추가
+.h-900 {
+  height: 90rem !important;
 }
 @for $i from 1 through 40 {
   .h-#{$i*5 + 100} {
@@ -578,6 +585,8 @@ strong {
 @for $i from 1 through 5 {
   .ellipsis-#{$i} {
     @include ellipsis($i);
+    //2024-05-08 display block 추가
+    display: block;
   }
 }
 
@@ -596,6 +605,9 @@ strong {
 }
 .bd-b-none {
   border-bottom: none !important;
+}
+.tb-bd-r {
+  border-right: 1px solid #ddd !important;
 }
 @for $i from 0 through 10 {
   .bd-#{$i} {
@@ -811,6 +823,10 @@ $bdTypes: (solid, dashed, dotted);
   }
   // height: 100%;
   &.inner-scroll {
+    &.ty-2 {
+      max-height: calc(100vh - 37rem);  
+      margin-bottom: 0;
+    }
     max-height: calc(100vh - 34rem);
     height: 100%;
     overflow: auto;
@@ -824,6 +840,13 @@ $bdTypes: (solid, dashed, dotted);
       border-bottom: 0;
     }
     thead {
+      tr:nth-child(2) th {
+        position: sticky;
+        top: 4.5rem;
+        &:first-child {
+          border-left: 1px solid #ddd;
+        }
+      }
       th {
         position: sticky;
         top: 0;
@@ -857,12 +880,12 @@ $bdTypes: (solid, dashed, dotted);
           border-top: 0;
         }
       }
-      tr:last-child {
-        td {
+      // tr:last-child {
+        // td {
           // 2023-11-14
           // border-bottom: 0;
-        }
-      }
+        // }
+      // }
     }
     &::after {
       // 2023-11-14
@@ -875,6 +898,16 @@ $bdTypes: (solid, dashed, dotted);
       bottom: 0.1rem;
       left: 0;
     }
+    .has-body-th {
+      &:before {
+        content: none;      
+      }
+      tbody tr:first-child {
+        th {
+          border-top: 0;
+        }
+      }  
+    }             
   }
 }
 
@@ -1033,8 +1066,8 @@ $bdTypes: (solid, dashed, dotted);
           background-color: #fff4f6;
         }
       }
-    }
-    tr:hover {
+    }    
+    tr:hover, tr.fixed  {
       td {
         background-color: rgba(46, 116, 242, 0.05);
       }
@@ -1045,6 +1078,21 @@ $bdTypes: (solid, dashed, dotted);
         border-bottom: 0.1rem solid #ddd;
       }
     }
+  }
+  &.regi-word {
+    tr:nth-child(even){
+      position: relative;
+      border-bottom: 2px dotted #ddd;
+    }
+    tr:last-child {
+      border-bottom-width:0;
+    }         
+    .btn-del {
+      position: absolute;
+      bottom: calc(100% - 1rem);
+      left: -.2rem;
+      z-index: 10;
+    }    
   }
   &.left-table {
     tbody {
@@ -1073,6 +1121,18 @@ $bdTypes: (solid, dashed, dotted);
         border-left: 0.1rem solid #ddd;
       }
     }
+  }
+  &.has-body-th {
+    tbody{
+      th {
+       background-color: #fbfbfb;
+      }   
+      .total-sum {
+        th, td {
+          background-color: #F3F5F6;
+        }
+      }  
+    }  
   }
 }
 
@@ -1113,7 +1173,7 @@ $bdTypes: (solid, dashed, dotted);
   // 컨텐츠 생성/배포 검색
   .expand-condition {
     display: none;
-    padding-top: 0;
+    padding-top: 0;  
     dl.inner-tbl {
       margin-top: 1.2rem;
       border-top: 0.1rem var(--line-color-ddd) solid;
@@ -1297,7 +1357,6 @@ dl.inner-tbl {
 .tooltips {
   position: relative;
   display: inline-block;
-
   top: -0.2rem;
   .btn-tooltips {
     display: inline-block;
@@ -1310,6 +1369,11 @@ dl.inner-tbl {
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='11' viewBox='0 0 6 11' fill='none'%3E%3Cpath d='M0.916504 3.52646C0.916504 0.601856 5.08317 0.601856 5.08317 3.52646C5.08317 5.61547 2.86456 5.19766 2.86456 7.70447M2.86456 9.66634L2.87105 9.65715' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    &.ty-2 {
+      width: auto;
+      height: auto;
+      background-image: none;
+    }
   }
   .btn-tipClose {
     position: absolute;
@@ -1333,5 +1397,37 @@ dl.inner-tbl {
     border: 0.1rem solid var(--line-color-ccc);
     padding: 2rem 4rem 2rem 2rem;
     box-shadow: 4px 4px 8px 0px #00000014;
+    &.type-2 {
+      left: auto;
+      right: 0;
+    }
   }
+  &.fail {
+    top: 0;
+    .btn-tooltips {
+      width: auto;
+      height: auto;
+      background: none;
+      &.btn-gray {
+        background-color: #42444e;
+        background-image: none;
+      }
+    }
+  }
+}
+
+.gap-0 {
+  gap: 0 !important;
+}
+.zero-basis {
+  flex-basis: 0;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.w-600 {
+  width: 60rem !important;
+}
+.pr-366 {
+  padding-right: 36.6rem !important;
 }

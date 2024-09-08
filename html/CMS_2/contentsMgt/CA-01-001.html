@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+              <a class="dropdown-item" href="#">비밀번호 변경</a>
+            </div> -->
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타깃분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드 게시판</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타깃고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">분석 모델 운영</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">타깃분류 관리</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">콘텐츠 속성관리</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">타깃분류 관리</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+         
+          <!-- 컨텐츠 박스 -->          
+            <div class="kb-box-inner">                        
+              <div class="common-search-table">
+                <div class="title-wrap flex align-center mb-12">
+                  <!-- 2023-10-10 검색결과 span 태그 추가 -->
+                  <div class="left"><span>분류목록</span> <strong class="fc-blue">999</strong></div>
+                  <div class="ml-auto inline-flex justify-end">
+                    <div class="select-counting align-self-center mr-16" style="display: none;">선택 <strong class="fc-blue ml-6">999</strong></div>
+                    <button type="button" class="btn btn-sml btn-line mr-6" style="display: none;">사용안함</button>
+                    <button type="button" class="btn btn-sml btn-gray mr-6" style="display: none;">사용</button>
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select>
+                          <option value="">전체</option>
+                          <option value="">사용</option>
+                          <option value="">사용안함</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-wrap ">
+                  <table class="table fixed">  
+                    <colgroup>
+                      <col style="width: 30rem" />
+                      <col style="width: 8rem" />
+                      <col style="width: 30rem" />
+                      <col style="width: 8rem" />
+                      <col style="width: 12.8rem" />
+                      <col style="width: 8rem" />
+                      <col style="width: 6rem" />
+                    </colgroup>                
+                    <thead>
+                      <tr>
+                        <th>분류명</th>
+                        <th>분류코드</th>
+                        <th>내용</th>
+                        <th>사용여부</th>
+                        <th>처리일시</th>
+                        <th>처리자</th>
+                        <th>관리</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- 최상위/대/중/소 분류 -->
+                      <tr class="top-classify1">
+                        <td class="t-left bd-r-none" colspan="6">                        
+                          <label class="menu-1depth ty-2">
+                            <input type="checkbox" />
+                            <i class="lbl">연령 <span>(2)</span></i>                          
+                          </label>
+                        </td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify1 large-classify1 hide" >
+                        <td class="t-left">
+                          <div class="menu-2depth ty-2">
+                            <button type="button" class="btn-depth-toggle"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                            </label>
+                            <a href="#" class="linked">대분류명 <span>(2)</span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">중계형 ISA 고객</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify1 large-classify1 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">           
+                          <p class="ellipsis">기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다.기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다.</p>             
+                          <ul class="has-dot">
+                            <li>19세 미만</li>
+                            <li>15세 이상 19세 미만</li>
+                            <li>19세 이상 34세 미만</li>                                                 
+                          </ul>
+                        </td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          -
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>                        
+                      <tr class="top-classify1 large-classify1 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">증권거래여부</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          -
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>                                            
+                      <tr class="top-classify1 large-classify2 hide" >
+                        <td class="t-left">
+                          <div class="menu-2depth ty-2">
+                            <button type="button" class="btn-depth-toggle"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                            </label>
+                            <a href="#" class="linked">대분류명 <span>(2)</span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">중계형 ISA 고객</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify1 large-classify2 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">증권거래여부</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>-
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify1 large-classify2 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">증권거래여부</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>-
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <!-- 최상위분류명 tr의 클래스만 변경 -->
+                      <tr class="top-classify2">
+                        <td class="t-left bd-r-none" colspan="6">                        
+                          <label class="menu-1depth ty-2">
+                            <input type="checkbox" />
+                            <i class="lbl">자산규모 <span>(2)</span></i>                          
+                          </label>
+                        </td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify2 large-classify1 hide" >
+                        <td class="t-left">
+                          <div class="menu-2depth ty-2">
+                            <button type="button" class="btn-depth-toggle"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                            </label>
+                            <a href="#" class="linked">대분류명 <span>(2)</span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">중계형 ISA 고객</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify2 large-classify1 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">증권거래여부</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>-
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>                        
+                      <tr class="top-classify2 large-classify1 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">증권거래여부</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>-
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>                                            
+                      <tr class="top-classify2 large-classify2 hide" >
+                        <td class="t-left">
+                          <div class="menu-2depth ty-2">
+                            <button type="button" class="btn-depth-toggle"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                            </label>
+                            <a href="#" class="linked">대분류명 <span>(1)</span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">중계형 ISA 고객</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify2 large-classify2 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">증권거래여부</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          -
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>          
+                      <!-- 최상위/대/중 까지 -->
+                      <tr class="top-classify3">
+                        <td class="t-left bd-r-none" colspan="6">                        
+                          <label class="menu-1depth ty-2">
+                            <input type="checkbox" />
+                            <i class="lbl">기타 <span>(2)</span></i>                          
+                          </label>
+                        </td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify3 large-classify1 hide" >
+                        <td class="t-left">
+                          <div class="menu-2depth ty-2">
+                            <button type="button" class="btn-depth-toggle"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                            </label>
+                            <a href="#" class="linked">대분류명 <span>(2)</span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">중계형 ISA 고객</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify3 large-classify1 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <!-- 2024-06-07 타겟분류 기타의 최하위 뎁스 내용 예시 추가 -->
+                        <td class="t-left">           
+                          <p class="ellipsis">기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다.기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다.</p>             
+                          <ul class="has-dot">
+                            <li>19세 미만</li>
+                            <li>15세 이상 19세 미만</li>
+                            <li>19세 이상 34세 미만</li>                                                 
+                          </ul>
+                        </td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          -
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>                     
+                      <tr class="top-classify3 large-classify1 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <!-- 2024-06-07 타겟분류 기타의 최하위 뎁스 내용 예시 추가 -->
+                        <td class="t-left">           
+                          <p class="ellipsis">기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다.기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다.</p>             
+                          <ul class="has-dot">
+                            <li>19세 미만</li>
+                            <li>15세 이상 19세 미만</li>
+                            <li>19세 이상 34세 미만</li>                                                 
+                          </ul>
+                        </td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          -
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>                    
+                      
+                      <tr class="top-classify3 large-classify2 hide" >
+                        <td class="t-left">
+                          <div class="menu-2depth ty-2">
+                            <button type="button" class="btn-depth-toggle"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i>
+                            </label>
+                            <a href="#" class="linked">대분류명 <span>(1)</span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <td class="t-left">중계형 ISA 고객</td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          <button type="button" class="btn-manage"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>
+                      <tr class="top-classify3 large-classify2 mid-classify1 hide">
+                        <td class="t-left">
+                          <div class="menu-3depth ty-2">
+                            <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                            <label class="checkbox sml">
+                              <input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl" ></i>
+                            </label>
+                            <a href="#" class="linked">중분류명 <span></span></a>
+                          </div>
+                        </td>
+                        <td><a href="#" class="linked">1001</a></td>
+                        <!-- 2024-06-07 타겟분류 기타의 최하위 뎁스 내용 예시 추가 -->
+                        <td class="t-left">           
+                          <p class="ellipsis">기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다.기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다. 기타일 경우 입력한 조건정보값이 출력됩니다.</p>             
+                          <ul class="has-dot">
+                            <li>19세 미만</li>
+                            <li>15세 이상 19세 미만</li>
+                            <li>19세 이상 34세 미만</li>                                                 
+                          </ul>
+                        </td>
+                        <td>사용</td>
+                        <td>2023-07-15 12:23:15</td>
+                        <td>이두나</td>
+                        <td>
+                          -
+                          <button type="button" class="btn-manage" style="display: none;"><span class="sr-only">관리</span></button>
+                        </td>
+                      </tr>     
+                    </tbody>
+                  </table>
+                  
+                  <div class="flex flex-01 mt-15 mgt-bottom-menu" style="display: none;">                  
+                    <button type="button" class="btn btn-up">위로 이동</button>
+                    <button type="button" class="btn btn-down ml-6">아래로 이동</button>
+                    <button type="button" class="btn btn-gray">순서변경</button>                    
+                  </div>
+                  
+                  <!-- 2024-06-11 유의사항 추가 -->
+                  <div class="info-contetns mt-24">
+                    <p class="tit">유의사항</p>                
+                    <ul>
+                      <li>최상위 분류를 설정해야 한다면 관리자에게 문의해 주세요.</li>
+                      <li>특성 분류는 최상위 분류 내 대분류와 중분류를 모두 등록해야 설정할 수 있어요.</li>
+                      <li>상위 단계 분류 중 '사용안함' 상태가 없어야 하위 단계 분류 모두 콘텐츠에 사용할 수 있어요.</li>
+                      <li>[콘텐츠 부가정보]에서 사용중인 특성 분류는 '사용안함' 으로 변경할 수 없어요.</li>                  
+                    </ul>                
+                  </div>          
+                  
+                </div>              
+            </div>
+        </main>
+        <!-- //컨텐츠 -->
+
+        <!-- 그룹삭제 팝업 -->
+        <article class="modal" id="grpDelPop" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="alert-msg">삭제하시겠습니까?</div>
+              </div>
+              <div class="modal-footer">
+                <a href="#grpDelPop" class="btn pop-close">아니오</a>
+                <button type="button" class="btn">예</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 그룹 등록 팝업 -->
+        <article class="modal w-500" id="grpRegiPop" tabindex="-1" aria-hidden="true">
+          <i class="modal-bg"></i>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-head">
+                <h5 class="tit">권한그룹 등록</h5>
+                <button type="button" class="btn btn-popClose" onclick="popClose('#grpRegiPop')">팝업 닫기</button>
+              </div>
+              <div class="modal-body">
+                <div class="regist-grp">
+                  <dl>
+                    <dt>그룹 권한 <i class="fc-red">*</i></dt>
+                    <dd>
+                      <div class="form-item">
+                        <div class="input">
+                          <input type="text" />
+                        </div>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn">등록</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->
+
+    <script>             
+    
+      $(".menu-1depth.ty-2 input").change(function () {                                    
+        const $thisGroup = $(this).parents("tr").attr("class");                
+        const $tableRows = $('.' + $thisGroup);
+        // 2024-06-05 스크립트 추가
+        $(this).parents("tr").siblings().find($(".menu-1depth.ty-2 input")).removeClass("active")        
+        $(this).parents("tr").siblings().find(".menu-2depth").parents("tr").addClass('hide')
+        $(this).parents("tr").siblings().find(".menu-3depth").parents("tr").addClass('hide')
+        $(this).parents("tr").siblings().find(".menu-4depth").parents("tr").addClass('hide')
+        $(".ui-tbl-chk").each(function(){
+          $(this).prop("checked", false) 
+          chkLength();
+        })
+
+        // 2024-06-12 스크립트 추가            
+        $(".mgt-bottom-menu").hide(200);             
+
+        var $depth2 = $tableRows.find(".menu-2depth").parents("tr");
+        var $depth3 = $tableRows.find(".menu-3depth").parents("tr");
+        var $depth4 = $tableRows.find(".menu-4depth").parents("tr");
+        var $depth2Btn = $tableRows.find(".menu-2depth .ui-tbl-chk");
+        var $depth3Btn = $tableRows.find(".menu-3depth .ui-tbl-chk");
+        var $depth4Btn = $tableRows.find(".menu-4depth .ui-tbl-chk");           
+       
+        if($(this).hasClass("active")) {              
+          $depth2.addClass('hide')
+          $depth3.addClass('hide')
+          $depth4.addClass('hide')
+          $(this).removeClass("active")
+        }else{
+          $(this).addClass("active")
+          $depth2.removeClass('hide')
+          $depth2.find('button').removeClass('active')
+        } 
+
+        $depth2Btn.on("change", function () {             
+          var $thisGroup = $(this).parents("tr").attr("class").split(" ");                                                     
+          var $tableRows = $('.' + $thisGroup[0] + '.' + $thisGroup[1]);      
+          // 2024-06-12 스크립트 추가                    
+          var $anotherChks2 = $(this).parents("tr").siblings().not($tableRows).find(".menu-3depth .ui-tbl-chk").filter(":checked").length;                              
+          var $anotherChks3 = $(this).parents("tr").siblings().not($tableRows).find(".menu-4depth .ui-tbl-chk").filter(":checked").length;             
+
+          if (($(this).is(":checked") && $depth2Btn.filter(":checked").length === 1) && $anotherChks2 === 0 && $anotherChks3 === 0) {            
+            $(".mgt-bottom-menu").show(200);            
+          } else {
+            $(".mgt-bottom-menu").hide(200);
+          }                
+
+          if($(this).is(":checked")){
+            $tableRows.find(".menu-3depth .ui-tbl-chk").prop("checked", true)  
+            $tableRows.find(".menu-4depth .ui-tbl-chk").prop("checked", true)                     
+          }else{
+            $tableRows.find(".menu-3depth .ui-tbl-chk").prop("checked", false)   
+            $tableRows.find(".menu-4depth .ui-tbl-chk").prop("checked", false)                     
+          }
+        })
+
+        $depth3Btn.on("change", function () {                                                   
+          var $thisGroup = $(this).parents("tr").attr("class").split(" ");                                
+          var $tableRows = $('.' + $thisGroup[0] + '.' + $thisGroup[1] + '.' +  $thisGroup[2]);       
+          var $tableRows2 = $('.' + $thisGroup[0] + '.' + $thisGroup[1]).find(".menu-3depth .ui-tbl-chk");                
+          // 2024-06-12 스크립트 추가                         
+          var $anotherChks2 = $(this).parents("tr").siblings().not($tableRows).find(".menu-3depth .ui-tbl-chk").filter(":checked").length;                              
+          var $anotherChks3 = $(this).parents("tr").siblings().not($tableRows).find(".menu-4depth .ui-tbl-chk").filter(":checked").length;             
+          
+          if (($(this).is(":checked") && $depth3Btn.filter(":checked").length === 1) && $anotherChks2 === 0 && $anotherChks3 === 0 && $tableRows2.length != 1) {            
+            $(".mgt-bottom-menu").show(200);            
+          } else {
+            $(".mgt-bottom-menu").hide(200);
+          }       
+          
+       
+          if($(this).is(":checked")){
+            $tableRows.find(".menu-4depth .ui-tbl-chk").prop("checked", true)         
+          }else{
+            $tableRows.find(".menu-4depth .ui-tbl-chk").prop("checked", false)         
+          }
+          if($tableRows2.length === $tableRows2.filter(":checked").length){
+            $('.' + $thisGroup[0] + '.' + $thisGroup[1]).first().find(".ui-tbl-chk").prop("checked", true)              
+          }else{
+            $('.' + $thisGroup[0] + '.' + $thisGroup[1]).first().find(".ui-tbl-chk").prop("checked", false)              
+          }
+        })
+
+        $depth4Btn.on("change", function () {            
+          var $thisGroup = $(this).parents("tr").attr("class").split(" ");                                
+          var $tableRows1 = $('.' + $thisGroup[0] + '.' + $thisGroup[1]);       
+          var $tableRows2 = $('.' + $thisGroup[0] + '.' + $thisGroup[1] + '.' + $thisGroup[2]).find(".menu-4depth .ui-tbl-chk");              
+          var $thisBtn = $tableRows1.find(".menu-4depth .ui-tbl-chk");    
+          // 2024-06-12 스크립트 추가        
+          var $anotherChks2 = $(this).parents("tr").siblings().not($tableRows1).find(".menu-3depth .ui-tbl-chk").filter(":checked").length;                              
+          var $anotherChks3 = $(this).parents("tr").siblings().not($tableRows1).find(".menu-4depth .ui-tbl-chk").filter(":checked").length;             
+
+          if (($(this).is(":checked") && $depth4Btn.filter(":checked").length === 1) && $anotherChks2 === 0 && $anotherChks3 === 0 && $tableRows2.length != 1) {            
+            $(".mgt-bottom-menu").show(200);            
+          } else {
+            $(".mgt-bottom-menu").hide(200);
+          }                     
+
+          if($thisBtn.length === $thisBtn.filter(":checked").length){
+            $tableRows1.first().find(".ui-tbl-chk").prop("checked", true)              
+          }else{
+            $tableRows1.first().find(".ui-tbl-chk").prop("checked", false)              
+          }          
+          if($tableRows2.length == $tableRows2.filter(":checked").length){
+            $('.' + $thisGroup[0] + '.' + $thisGroup[1] + '.' + $thisGroup[2]).first().find(".ui-tbl-chk").prop("checked", true)              
+          }else{
+            $('.' + $thisGroup[0] + '.' + $thisGroup[1] + '.' + $thisGroup[2]).first().find(".ui-tbl-chk").prop("checked", false)              
+          }
+        })      
+
+        $(".ui-tbl-chk").on('change', function(){                  
+          chkLength();               
+        })
+      });    
+
+
+      $(".menu-2depth button").on("click", function () {           
+        var $thisGroup = $(this).parents("tr").attr("class").split(" ");                        
+        var $tableRows = $('.' + $thisGroup[0] + '.' + $thisGroup[1])
+        var $depth2 = $tableRows.find(".menu-2depth").parents("tr")
+        var $depth3 = $tableRows.find(".menu-3depth").parents("tr")
+        var $depth4 = $tableRows.find(".menu-4depth").parents("tr")
+        
+        // 2024-06-05 스크립트 추가
+        $(this).parents("tr").siblings().find($(".menu-2depth button")).removeClass("active")                
+        $(this).parents("tr").siblings().find(".menu-3depth").parents("tr").addClass('hide')
+        $(this).parents("tr").siblings().find(".menu-4depth").parents("tr").addClass('hide')
+        $(".ui-tbl-chk").each(function(){
+          $(this).prop("checked", false) 
+          chkLength();
+        })
+
+        // 2024-06-12 스크립트 추가      
+        $(".mgt-bottom-menu").hide(200);         
+
+        if($(this).hasClass("active")) {
+          $(this).removeClass("active")
+          $depth3.addClass('hide')
+          $depth4.addClass('hide')
+        }else{
+          $(this).addClass("active")
+          $depth3.removeClass('hide')
+          $depth3.find('button').removeClass('active')
+        }
+      });
+
+      $(".menu-3depth button").on("click", function () {                            
+        var $thisGroup = $(this).parents("tr").attr("class").split(" ");                        
+        var $tableRows = $('.' + $thisGroup[0] + '.' + $thisGroup[1] + '.' + $thisGroup[2])      
+        var $depth2 = $tableRows.find(".menu-2depth").parents("tr")
+        var $depth3 = $tableRows.find(".menu-3depth").parents("tr")
+        var $depth4 = $tableRows.find(".menu-4depth").parents("tr")
+
+        // 2024-06-05 스크립트 추가
+        $(this).parents("tr").siblings().find($(".menu-3depth button")).removeClass("active")                        
+        $(this).parents("tr").siblings().find(".menu-4depth").parents("tr").addClass('hide')
+        $(".ui-tbl-chk").each(function(){
+          $(this).prop("checked", false) 
+          chkLength();
+        })
+
+        // 2024-06-12 스크립트 추가      
+        $(".mgt-bottom-menu").hide(200);   
+        
+        if($(this).hasClass("active")) {
+          $(this).removeClass("active")          
+          $depth4.addClass('hide')
+        }else{
+          $(this).addClass("active")
+          $depth4.removeClass('hide')          
+        }
+      });   
+      
+      function chkLength(){
+        var checkNum = $(".common-search-table").find('.ui-tbl-chk').filter(":checked").length                
+        var countSelect = $(".select-counting");          
+        // 2024-06-12 $(".mgt-bottom-menu") 관련 삭제
+    
+        if(checkNum > 0){
+          countSelect.show();          
+          countSelect.find("strong").text(checkNum);
+          $(".common-search-table .title-wrap").find(".btn").css("display", "block")          
+        }else{
+          countSelect.hide();          
+          $(".common-search-table .title-wrap").find(".btn").css("display", "none")          
+        }                    
+      }    
+    </script>
+  </body>
+</html>

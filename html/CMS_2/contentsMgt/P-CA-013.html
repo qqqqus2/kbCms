@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="../../html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타깃분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드 게시판</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타깃고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">분석 모델 운영</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">금지어/대체어 관리</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">콘텐츠속성 관리</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">금지어/대체어 관리</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <div class="common-search">
+                <dl>
+                  <dt class="w-120">사용여부</dt>
+                  <dd>
+                    <div class="form-item">                      
+                      <label class="radio">
+                        <input type="radio" name="rdo1" checked /><i aria-hidden="true" class="lbl"></i>
+                        <span>전체</span>
+                      </label>                      
+                      <label class="radio ml-12">
+                        <input type="radio" name="rdo1" /><i aria-hidden="true" class="lbl"></i>
+                        <span>사용</span>
+                      </label>                      
+                      <label class="radio ml-12">
+                        <input type="radio" name="rdo1" /><i aria-hidden="true" class="lbl"></i>
+                        <span>사용안함</span>
+                      </label>                      
+                    </div>              
+                  </dd>
+                </dl>
+                <dl>                  
+                  <dt class="minW-120">키워드</dt>
+                  <dd class="w-full">
+                    <div class="form-item">
+                      <div class="input w-full">
+                        <input type="text" title="금지어 또는 대체어 입력" placeholder="금지어 또는 대체어를 입력해서 검색가능합니다." aria-label="금지어 또는 대체어 입력" />
+                      </div>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="common-search-btn mt-16">
+              <button type="button" class="btn btn-mid btn-line">초기화</button>
+              <button type="button" class="btn btn-mid btn-yellow">검색</button>
+            </div>
+
+            <div class="kb-box-inner mt-32">
+              <div class="common-search-table">
+                <div class="title-wrap flex align-center mb-12">                  
+                  <div class="left w-30p"><span>검색결과</span> <strong class="fc-blue">999</strong> / 9999</div>
+                  <div class="inline-flex justify-end">                      
+                    <div class="select-counting align-self-center mr-16" style="display: none;">선택 <strong class="fc-blue ml-6">999</strong></div>
+                    <button type="button" class="btn btn-sml btn-line btn-x mr-6" style="display: none;">사용안함</button>                      
+                    <button type="button" class="btn btn-sml btn-line btn-o mr-6" style="display: none;">사용</button>
+                    <button type="button" class="btn btn-sml btn-gray" style="display: none;">삭제</button>                      
+                    <div class="vertical_line ml-12 mr-12" style="display: none;"></div>
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select>
+                          <option value="">20개씩 보기</option>
+                          <option value="">50개씩 보기</option>
+                          <option value="">100개씩 보기</option>
+                        </select>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-sml btn-line btn-up ml-6">일괄 엑셀업로드</button>                    
+                    <button type="button" class="btn btn-sml btn-gray ml-6">신규등록</button>                    
+                  </div>
+                </div>                
+                <!-- 테이블 -->
+                <div class="table-wrap">
+                  <table class="table nowrap">
+                    <colgroup>
+                      <col style="width: 2rem" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />                        
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>선택</th>
+                        <th>구분</th>
+                        <th>금지어</th>
+                        <th>대체어</th>
+                        <th>참고</th>
+                        <th>사용여부</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td>단일</td>
+                        <td><a href="#" class="linked">금지어의 경우 최대 20글자까지</a></td>
+                        <td>
+                          <a href="#" class="t-left linked">대체어의 경우 40글자 제한대체어의 경우 40글자 제한대체어의 경우 40글자 제한 </a>
+                        </td>
+                        <td>참고정보는삼십글자제한참고정보는삼십글자제한참고정보는삼십글자제한</td>
+                        <td>사용안함</td>                        
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td>단일</td>
+                        <td><a href="#" class="linked">중도판매</a></td>
+                        <td>
+                          <a href="#" class="t-left linked">만기 전 해지</a>
+                        </td>
+                        <td>중도판매 > 위약금</td>
+                        <td>사용</td>   
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td>다중</td>
+                        <td><a href="#" class="linked">디폴트</a></td>
+                        <td>
+                          <ul class="has-dot linked">
+                            <li><a href="#" class="linked">재무불이행1</a></li>
+                            <li><a href="#" class="linked">재무불이행1<span>외 <em>2</em>개</span></a></li>                                                                           
+                          </ul>                            
+                        </td>
+                        <td></td>
+                        <td>사용</td>   
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td>단일</td>
+                        <td><a href="#" class="linked">투자대기자금</a></td>
+                        <td><a href="#" class="t-left linked">중시 진입을 준비하는 대기성 자금</a></td>
+                        <td></td>
+                        <td>사용안함</td>   
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td>단일</td>
+                        <td><a href="#" class="linked">박스권</a></td>
+                        <td><a href="#" class="t-left linked">매수와 매도의 힘이 균형을 이루고 있는</a></td>
+                        <td></td>
+                        <td>사용안함</td>   
+                      </tr>
+                      
+                      <!-- 검색결과가 없습니다 -->
+                      <tr>
+                        <td colspan="6">
+                          <div class="search-notFound">검색결과가 없습니다.</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!-- 페이징 -->
+                  <nav aria-label="Page navigation">
+                    <ul class="pagination justify-center mt-16">
+                      <li class="page-item">
+                        <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                          <span aria-hidden="true">&#60;</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                          <span aria-hidden="true">&#62;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link next-last" href="#" aria-label="마지막으로">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>                    
+                </div>                  
+              </div>
+            </div>                          
+
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+
+        <!-- Modal -->        
+        <article class="modal w-800" id="regiForbidden" tabindex="-1" aria-hidden="true">
+          <i class="modal-bg"></i>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-head">
+                <h5 class="tit">금지어&amp;대체어 등록</h5>
+                <!-- 상세/수정일 경우 팝업 타이틀 -->
+                <h5 class="tit" style="display: none;">금지어&amp;대체어 상세/수정</h5>
+                <button type="button" class="btn btn-popClose" onclick="popClose('#regiForbidden')">팝업 닫기</button>
+              </div>
+
+              <div class="modal-body flex-column" style="display: none;">
+                <div class="table-wrap mb-20">
+                  <h3 class="content-tit">기본정보</h3>
+                  <table class="table left-table">
+                    <colgroup>
+                      <col style="width: 15%">
+                      <col >                      
+                    </colgroup>
+
+                    <tbody>
+                      <tr>
+                        <th scope="row">구분 <i class="fc-red">*</i></th>
+                        <td>
+                          <label class="radio sml">
+                            <input type="radio" name="rdo2" checked/><i aria-hidden="true" class="lbl"></i>
+                            <span>단일</span>
+                          </label>
+                          <label class="radio sml ml-12">
+                            <input type="radio" name="rdo2" /><i aria-hidden="true" class="lbl"></i>
+                            <span>다중</span>
+                          </label>
+                        </td>                      
+                      </tr>          
+                      <tr>
+                        <th scope="row">금지어 <i class="fc-red">*</i></th>
+                        <td>
+                          <div class="form-item flex align-center space-between">                        
+                            <div class="input w-full flex-11">                          
+                              <input type="text" title="금지어 입력" placeholder="금지어를 입력해주세요" value="" maxlength="20"/>
+                            </div>
+                            <button type="button" class="flex-00 btn btn-sml btn-gray">중복체크</button>                                                
+                          </div>
+                        </td>                      
+                      </tr>          
+                      <tr>
+                        <th scope="row">대체어</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="대체어 입력" placeholder="대체어를 입력해주세요" value="" maxlength="40"/>
+                            </div>                        
+                          </div>
+                        </td>                      
+                      </tr>          
+                      <tr>
+                        <th scope="row">참고정보</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="참고정보 입력" placeholder="참고정보를 입력해주세요" value="" maxlength="30"/>
+                            </div>                        
+                          </div>
+                        </td>                      
+                      </tr>          
+                      <tr>
+                        <th scope="row">사용여부 <i class="fc-red">*</i></th>
+                        <td>
+                          <label class="radio sml">
+                            <input type="radio" name="rdo3" checked/><i aria-hidden="true" class="lbl"></i>
+                            <span>사용</span>
+                          </label>
+                          <label class="radio sml ml-12">
+                            <input type="radio" name="rdo3" /><i aria-hidden="true" class="lbl"></i>
+                            <span>사용안함</span>
+                          </label>
+                        </td>                      
+                      </tr>                      
+                    </tbody>
+                  </table> 
+
+                  <table class="table left-table mt-16" style="display: none;">
+                    <colgroup>
+                      <col style="width: 15%">
+                      <col style="width: 35%">
+                      <col style="width: 15%">
+                      <col style="width: 35%">              
+                    </colgroup>
+
+                    <tbody>                      
+                      <tr>
+                        <th scope="row">등록일시</th>
+                        <td>2024-04-17 15:12:32</td>
+                        <th scope="row">등록자</th>
+                        <td>홍길동</td>                          
+                      </tr>       
+                      <tr>
+                        <th scope="row">최종수정일시</th>
+                        <td></td>
+                        <th scope="row">최종수정자</th>
+                        <td></td>                          
+                      </tr>              
+                    </tbody>
+                  </table>                        
+
+                </div>                                                                         
+              </div>
+
+              <div class="modal-body flex-column">
+                <div class="table-wrap mb-20 maxH-600">
+                  <h3 class="content-tit">기본정보</h3>
+                  <table class="table left-table">
+                    <colgroup>
+                      <col style="width: 15%">
+                      <col >                      
+                    </colgroup>
+
+                    <tbody>
+                      <tr>
+                        <th scope="row">구분 <i class="fc-red">*</i></th>
+                        <td>
+                          <label class="radio sml">
+                            <input type="radio" name="rdo4" /><i aria-hidden="true" class="lbl"></i>
+                            <span>단일</span>
+                          </label>
+                          <label class="radio sml ml-12">
+                            <input type="radio" name="rdo4" checked/><i aria-hidden="true" class="lbl"></i>
+                            <span>다중</span>
+                          </label>
+                        </td>                      
+                      </tr>          
+                      <tr>
+                        <th scope="row">금지어 <i class="fc-red">*</i></th>
+                        <td>
+                          <div class="form-item flex align-center space-between">                        
+                            <div class="input w-full flex-11">                          
+                              <input type="text" title="금지어 입력" placeholder="금지어를 입력해주세요" value="" maxlength="20"/>
+                            </div>
+                            <button type="button" class="flex-00 btn btn-sml btn-gray">중복체크</button>                                                
+                          </div>
+                        </td>                      
+                      </tr>                                
+                    </tbody>
+                  </table> 
+
+                  <div class="flex space-between align-center mt-24">
+                    <h3 class="content-tit ">대체어/참고정보</h3>
+                    <span class="fc-gray-999 fz-13">&#8251; 최대 20개까지 등록가능</span>
+                  </div>
+                  <table class="table left-table regi-word">
+                    <colgroup>
+                      <col style="width: 15%">
+                      <col>                                     
+                    </colgroup>
+
+                    <tbody>                      
+                      <tr>
+                        <th scope="row">대체어</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="대체어 입력" placeholder="대체어를 입력해주세요" value="" maxlength="40"/>
+                            </div>                        
+                          </div>
+                        </td>                      
+                      </tr>          
+                      <tr>
+                        <th scope="row">참고정보</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="참고정보 입력" placeholder="참고정보를 입력해주세요" value="" maxlength="30"/>
+                            </div>                        
+                          </div>
+                        </td>                      
+                      </tr>                           
+                      <tr>
+                        <th scope="row">대체어</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="대체어 입력" placeholder="대체어를 입력해주세요" value="" maxlength="40"/>
+                            </div>                        
+                          </div>
+                        </td>                      
+                      </tr>          
+                      <tr>
+                        <th scope="row">참고정보</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="참고정보 입력" placeholder="참고정보를 입력해주세요" value="" maxlength="30"/>
+                            </div>                        
+                          </div>
+                        </td>                      
+                      </tr>     
+                      
+                      <!-- 추가되는 대체어/참고정보 CASE -->
+                      <tr>
+                        <th scope="row">대체어</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="대체어 입력" placeholder="대체어를 입력해주세요" value="" maxlength="40"/>
+                            </div>                        
+                          </div>                          
+                        </td>                                   
+                      </tr>          
+                      <tr>
+                        <th scope="row">참고정보</th>
+                        <td class="tb-bd-r">
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="참고정보 입력" placeholder="참고정보를 입력해주세요" value="" maxlength="30"/>
+                            </div>                        
+                          </div>         
+                          <button type="button" title="삭제" class="btn-del"></button>                 
+                        </td>                                              
+                      </tr>    
+                      <tr>
+                        <th scope="row">대체어</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="대체어 입력" placeholder="대체어를 입력해주세요" value="" maxlength="40"/>
+                            </div>                        
+                          </div>
+                        </td>                                   
+                      </tr>          
+                      <tr>
+                        <th scope="row">참고정보</th>
+                        <td class="tb-bd-r">
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="참고정보 입력" placeholder="참고정보를 입력해주세요" value="" maxlength="30"/>
+                            </div>                        
+                          </div>
+                          <button type="button" title="삭제" class="btn-del"></button>
+                        </td>                                              
+                      </tr>   
+                      <tr>
+                        <th scope="row">대체어</th>
+                        <td>
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="대체어 입력" placeholder="대체어를 입력해주세요" value="" maxlength="40"/>
+                            </div>                        
+                          </div>
+                        </td>                                   
+                      </tr>          
+                      <tr>
+                        <th scope="row">참고정보</th>
+                        <td class="tb-bd-r">
+                          <div class="form-item ">                        
+                            <div class="input w-full">                          
+                              <input type="text" title="참고정보 입력" placeholder="참고정보를 입력해주세요" value="" maxlength="30"/>
+                            </div>                        
+                          </div>
+                          <button type="button" title="삭제" class="btn-del"></button>
+                        </td>                                              
+                      </tr>                       
+                    </tbody>
+                  </table>  
+                  
+                  <div class="mt-16">                        
+                    <button class="fc-blue">&plus; 추가하기</button>
+                    <!-- 20개까지 추가되었을 경우 추가하기 버튼 비활성화 -->
+                    <!-- <button class="fc-gray-999">&plus; 추가하기</button>                         -->
+                  </div>
+
+                  <table class="table left-table mt-16">
+                    <colgroup>
+                      <col style="width: 15%">
+                      <col>              
+                    </colgroup>
+
+                    <tbody>  
+                      <tr>
+                        <th scope="row">사용여부 <i class="fc-red">*</i></th>
+                        <td>
+                          <label class="radio sml">
+                            <input type="radio" name="rdo5" checked/><i aria-hidden="true" class="lbl"></i>
+                            <span>사용</span>
+                          </label>
+                          <label class="radio sml ml-12">
+                            <input type="radio" name="rdo5" /><i aria-hidden="true" class="lbl"></i>
+                            <span>사용안함</span>
+                          </label>
+                        </td>                      
+                      </tr>   
+                    </tbody>
+                  </table>
+
+                  <table class="table left-table mt-16" style="display: none;">
+                    <colgroup>
+                      <col style="width: 15%">
+                      <col style="width: 35%">
+                      <col style="width: 15%">
+                      <col style="width: 35%">              
+                    </colgroup>
+
+                    <tbody>                      
+                      <tr>
+                        <th scope="row">등록일시</th>
+                        <td>2024-04-17 15:12:32</td>
+                        <th scope="row">등록자</th>
+                        <td>홍길동</td>                          
+                      </tr>       
+                      <tr>
+                        <th scope="row">최종수정일시</th>
+                        <td></td>
+                        <th scope="row">최종수정자</th>
+                        <td></td>                          
+                      </tr>              
+                    </tbody>
+                  </table>                        
+
+                </div>                                                                         
+              </div>
+
+              <div class="modal-footer">                
+                <button type="button" class="btn" onclick="popClose('#regiForbidden')">취소</button>
+                <button type="button" class="btn" style="display: none;">삭제</button>
+                <button type="button" class="btn">저장</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->
+
+    <script>
+      $(function () {
+        popOpen('#regiForbidden');
+
+        function getUrlParams() {
+          var params = {};
+          window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { params[key] = value; });
+          return params;
+        }
+      
+        if(getUrlParams().type === 'adj'){    
+          $(".table.mt-16").css('display', 'table');
+          $("button:contains('삭제')").css('display', 'block');
+          $("h5:contains('등록')").css('display', 'none');
+          $("h5:contains('상세/수정')").css('display', 'block');
+        }        
+
+        //라디오 단일/다중 선택 시 내용 변경      
+        $("input[name='rdo2']").last().on('click', function(){    
+          $(this).prop('checked', false);
+          $("input[name='rdo2']").first().prop('checked', true)     
+          $('.modal-body').first().hide();
+          $('.modal-body').last().show();             
+        })
+        $("input[name='rdo4']").first().on('click', function(){    
+          $(this).prop('checked', false);
+          $("input[name='rdo4']").last().prop('checked', true)
+          $('.modal-body').first().show();
+          $('.modal-body').last().hide();             
+        })
+      });
+    </script>
+  </body>
+</html>

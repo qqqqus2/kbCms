@@ -492,6 +492,45 @@ let pubCommon;
       }
 
       dateRange(inValiDate);
+      /* made by pjw */
+      $('.btn-currentDayNew').on('click', function(){
+        $(this).parent().siblings('.date-single-range').find('input').val(start.format('YYYY-MM-DD'));
+        dateRange(inValiDate);
+      });
+      $('.btn-prevWeekNew').on('click', function(){
+        var start = moment().subtract(6, 'days');
+        $(this).parent().siblings('.date-single-range').find('input').eq(0).val(start.format('YYYY-MM-DD'));
+        $(this).parent().siblings('.date-single-range').find('input').eq(1).val(end.format('YYYY-MM-DD'));
+        dateRange(inValiDate);
+      });
+      $('.btn-prevMonthNew').on('click', function(){
+        var month = moment().format('MM');
+        if(month === '2'){
+          // 2월은 30일 미만인 경우
+          var monthDate = 32;
+        } else if (month === '4' || month === '6' || month === '9' || month === '11'){
+          // 4, 6, 9, 11월은 30일인 경우
+          var monthDate = 30;
+        } else {
+          // 나머지 월은 31인 경우
+          var monthDate = 29;
+        }
+        var start = moment().subtract(monthDate, 'days');
+        $(this).parent().siblings('.date-single-range').find('input').eq(0).val(start.format('YYYY-MM-DD'));
+        $(this).parent().siblings('.date-single-range').find('input').eq(1).val(end.format('YYYY-MM-DD'));
+        dateRange(inValiDate);
+      });
+      $('.btn-prevYearNew').on('click', function(){
+        var start = moment().subtract(364, 'days');
+        $(this).parent().siblings('.date-single-range').find('input').eq(0).val(start.format('YYYY-MM-DD'));
+        $(this).parent().siblings('.date-single-range').find('input').eq(1).val(end.format('YYYY-MM-DD'));
+        dateRange(inValiDate);
+      });
+      $('.btn-ResetNew').on('click', function(){
+        $('.date-single-range input').val('');
+        $('.range input').val('');
+      });
+      /* made by pjw */
 
       $('.range input').on('cancel.daterangepicker', function (ev, picker) {
         $('.range input').val('');
@@ -592,13 +631,15 @@ let pubCommon;
             showDropdowns: true,
             alwaysShowCalendars: true,
             timePicker: false,
-            autoUpdateInput: true,
+            // autoUpdateInput: true,
+            autoApply:true,
             opens: 'center',
             locale: {
               format: 'YYYY.MM.DD',
               direction: 'ltr',
-              applyLabel: '확인',
-              autoApply: true,
+              // applyLabel: '확인',
+              cancelLabel: '오늘',
+              // autoApply: true,
               // customRangeLabel: "Custom",
               daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
               monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
@@ -612,17 +653,27 @@ let pubCommon;
             }
           })
           // 2023-12-04 달력 추가
-          .on('apply.daterangepicker', function (ev, picker) {
+          /*.on('apply.daterangepicker', function (ev, picker) {
             // 선택한 날짜를 적용
             $(this).val(picker.startDate.format('YYYY.MM.DD'));
             $('#date-hidden').val(picker.startDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
-          })
+          })*/
           .on('hide.daterangepicker', function (ev, picker) {
             // 선택한 날짜를 적용
             $(this).val(picker.endDate.format('YYYY.MM.DD'));
             $('#date-hidden').val(picker.endDate.clone().subtract(1, 'days').format('YYYY.MM.DD'));
             $('.prev-date').attr('disabled', false);
-          });
+          })
+          .on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val(moment().format('YYYY.MM.DD')).trigger("change");
+            picker.setStartDate(moment().format('YYYY.MM.DD'));
+            picker.setEndDate(moment().format('YYYY.MM.DD'));
+            $('#date-hidden').val(picker.startDate.clone().subtract(1, 'days').format('YYYY.MM.DD'))
+          })
+          .on('show.daterangepicker', function (ev, picker){
+            $(".daterangepicker .drp-buttons .btn.cancelBtn").attr("style", "display:inline");
+            $(".daterangepicker .drp-buttons .btn.applyBtn").attr("style", "display:none");
+          })
       }
       function monitoringWeek(inValiDate) {
         $('.prev-date').attr('disabled', false);
@@ -638,14 +689,14 @@ let pubCommon;
             // },
             opens: 'center',
             showDropdowns: true,
-            autoUpdateInput: true,
+            // autoUpdateInput: true,
             autoApply: true,
             locale: {
               format: 'YYYY.MM.DD',
               direction: 'ltr',
               separator: ' ~ ',
-              applyLabel: '확인',
-              cancelLabel: '다시 선택',
+              // applyLabel: '확인',
+              cancelLabel: '오늘',
               fromLabel: '부터',
               toLabel: '까지',
               customRangeLabel: 'Custom',
@@ -676,7 +727,21 @@ let pubCommon;
             $(this).val(picker.startDate.format('YYYY.MM.DD') + ' ~ ' + picker.endDate.format('YYYY.MM.DD'));
             $('#date-hidden').val(picker.startDate.clone().subtract(1, 'week').format('YYYY.MM.DD') + ' ~ ' + picker.endDate.clone().subtract(1, 'week').format('YYYY.MM.DD')); // 2023-12-04 달력 추가
             $('.prev-date').attr('disabled', false);
-          });
+          })
+          .on('cancel.daterangepicker', function(ev, picker){
+            var stDt = moment().isoWeekday(1).format('YYYY.MM.DD');
+            var edDt = moment().isoWeekday(7).format('YYYY.MM.DD');
+            picker.startDate.isoWeekday(1);
+            picker.endDate.isoWeekday(7);
+            picker.setStartDate(stDt);
+            picker.setEndDate(edDt);
+            $(this).val(picker.startDate.format('YYYY.MM.DD') + ' ~ ' + picker.endDate.format('YYYY.MM.DD'));
+            $('#date-hidden').val(picker.startDate.clone().subtract(1, 'week').format('YYYY.MM.DD') + ' ~ ' + picker.endDate.clone().subtract(1, 'week').format('YYYY.MM.DD'));
+          })
+          .on('show.daterangepicker', function(ev, picker){
+            $(".daterangepicker .drp-buttons .btn.cancelBtn").attr("style", "display:inline");
+            $(".daterangepicker .drp-buttons .btn.applyBtn").attr("style", "display:none");
+          })
       }
       function monitoringMonth(monthInVali) {
         var disabledMonths = monthInVali;
@@ -1024,13 +1089,13 @@ let pubCommon;
           $allChk = $wrap.find('input.ui-tbl-chk-all'),
           $chkLength = $wrap.find('input.ui-tbl-chk').not(':disabled').length,
           $checkedLength = $wrap.find('input.ui-tbl-chk:checked').length;
-
+      
         if ($(this).prop('checked')) {
           $tr.addClass('tr-selected');
         } else {
           $tr.removeClass('tr-selected');
         }
-
+        
         if ($chkLength == $checkedLength) {
           $allChk.prop('checked', true);
         } else {
@@ -1183,12 +1248,13 @@ $(window).resize(function () {
   }
 })();
 
-// 툴 팁
+// 툴 팁 (분석모델 그래프 툴팁 추가)
 function tooltips() {
   $('.tooltips').each(function () {
     const $this = $(this);
     const $msg = $('.msg');
-
+    const $box = $('.detail-info-box');    
+    
     $this.children('.btn-tooltips').click(function () {
       $msg.hide();
       $this.children($msg).show();
@@ -1201,7 +1267,10 @@ function tooltips() {
       var clickedElement = $(event.target);
 
       if (!clickedElement.hasClass('btn-tooltips')) {
-        $msg.hide();
+        $msg.hide();        
+      }
+      if (!clickedElement.hasClass('btn-search')) {        
+        $box.hide();
       }
     });
   });
@@ -1219,6 +1288,8 @@ const uiSelect = {
     disabled: 'disabled',
     btn: 'custom-select-btn',
     btnActive: 'open',
+    optgroup: 'custom-select-optgroup',
+    optgroupLabel: 'custom-select-optgroup-lbl',
     options: 'custom-select-options',
     option: 'custom-select-option',
     optionSelected: 'selected'
@@ -1293,6 +1364,7 @@ const uiSelect = {
       options = Html;
     }
     let optionsHtml = '';
+   /*
     const selOptions = selElmnt.options;
     if (selOptions.length) {
       Array.from(selOptions).forEach(function (option, i) {
@@ -1300,7 +1372,32 @@ const uiSelect = {
         const disabled = option.disabled ? ' disabled' : '';
         optionsHtml += '<button type="button" class="' + uiSelect.class.option + selected + '" data-value="' + option.value + '" data-index="' + i + '"' + disabled + '>' + option.textContent + '</button>';
       });
+  
     }
+    */
+
+    function makeOption(el, idx){
+      const selected = idx === seletedIndex ? ' ' + uiSelect.class.optionSelected : '';
+      const disabled = el.disabled ? ' disabled' : '';
+      return '<button type="button" class="' + uiSelect.class.option + selected + '" data-value="' + el.value + '" data-index="' + idx + '"' + disabled + '>' + el.textContent + '</button>'
+    }
+    const selChild = selElmnt.children;
+    if (selChild.length) {
+      Array.from(selChild).forEach(function (child, i) {
+        if (child.tagName.toLowerCase() === 'optgroup') {
+          optionsHtml += '<div class="' + uiSelect.class.optgroup + '">';
+          optionsHtml += '<div class="' + uiSelect.class.optgroupLabel + '">' + child.label + '</div>';
+          Array.from(child.children).forEach(function (option, j) {
+            const optionIndex = Array.from(selElmnt.options).indexOf(option);
+            optionsHtml +=makeOption(option, optionIndex);
+          });
+          optionsHtml += '</div>';
+        } else if (child.tagName.toLowerCase() === 'option') {
+          optionsHtml +=makeOption(child, i);
+        }
+      });
+    }
+
     options.innerHTML = optionsHtml;
   },
   position: function () {
@@ -1356,7 +1453,7 @@ const uiSelect = {
         const $select = $target.closest('.' + uiSelect.class.wrap);
         uiSelect.options($select);
         uiSelect.position();
-      } else {
+      } else if (!$target.classList.contains(uiSelect.class.optgroupLabel)){
         uiSelect.close();
       }
 
@@ -1483,4 +1580,37 @@ function getDateDiff(d1, d2) {
   var diffDate = Math.abs(date2.getTime() - date1.getTime());
 
   return Math.ceil(diffDate / (1000 * 60 * 60 * 24));
+}
+function popupwindow(url, title, win, w, h){
+  const y = win.top.outerHeight / 2 + win.top.screenY - ( h / 2 );
+  const x = win.top.outerWidth / 2 + win.top.screenX - ( w / 2 );
+  return win.open(url, title, `width=${w}, height=${h}, top=${y}, left=${x}`)
+}
+function checkRdo(){
+  $(".checkRdo").find(".radio").click(function(){
+    var rdoIndex = $(this).index();
+    $(".checkContent").eq(rdoIndex).css("display", "table-row").siblings(".checkContent").css("display", "none");
+  })
+}
+
+//전체 선택/해제
+function checkAll(){
+  $(".chk-wrap").find("input[type='checkbox']:first").click(function(){
+    var others = $(this).parent().siblings().find("input[type='checkbox']");
+    if($(this).is(":checked")){
+      others.prop("checked", true);
+    }else{
+      others.prop("checked", false);
+    }
+  });
+  $(".chk-wrap").find("input[type='checkbox']:not(:first)").change(function(){
+    var $parents = $(this).parents(".chk-wrap");
+    var $chk = $parents.find("input[type='checkbox']:not(:first)").length;
+    var $checked = $parents.find("input[type='checkbox']:not(:first):checked").length;
+    if($chk === $checked){
+      $parents.find("input[type='checkbox']:first").prop("checked", true);
+    }else{
+      $parents.find("input[type='checkbox']:first").prop("checked", false);
+    }
+  })
 }

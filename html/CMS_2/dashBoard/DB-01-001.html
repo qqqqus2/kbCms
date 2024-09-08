@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item"><button type="button" class="nav-link guest">Guest</button></li>
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                <!-- 나의 계정정보 -->
+                <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">Guest</a></li>
+                    <li><a href="#" class="kb-lnb-link">시스템 관리자</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 생성자</a></li>
+                    <li><a href="#" class="kb-lnb-link">타부서 사용자</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 등록</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">매체 전시관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">심의 접수조회</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어검수 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타겟분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 템플릿 관리</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>고객언어 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">공지사항</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모니터링 대시보드</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 공개현황</a></li>
+                    <li><a href="#" class="kb-lnb-link">성과 분석</a></li>                                        
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모델관리</a></li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델실행 및 재추정</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">모델재실행</a></li>
+                        <li><a class="kb-lnb-link" href="#">모델재추정</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">모델모니터링</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">수행결과</a></li>
+                        <li><a class="kb-lnb-link" href="#">변화추이</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">사용자신청관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">메뉴 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">권한그룹관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">공지사항 관리</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">            
+            <div class="flex space-between mt-32">              
+              <div class="dashboard-wrap left">
+                <div class="kb-box-inner">
+                  <div class="flex space-between">
+                    <h3 class="content-tit mb-0">사용자 현황</h3>
+                    <a href="#none" class="see-more">더보기</a>
+                  </div>              
+                  <div class="user-status-wrap">
+                    <div class="user-status current">
+                      <div class="user-status-box">
+                        <h4 class="status-tit">전체<span class="fc-gray-666 fz-13">사용자+GUEST</span></h4>
+                        <p><strong>150</strong>명</p>                    
+                      </div>
+                      <div class="user-status-box">
+                        <h4 class="status-tit">사용자</h4>
+                        <p><strong>150</strong>명</p>                    
+                      </div>
+                      <div class="user-status-box">
+                        <h4 class="status-tit">GUEST</h4>
+                        <p><strong>150</strong>명</p>                             
+                      </div>
+                    </div>
+                    <div class="user-status stop">                    
+                      <a href="#none" class="user-status-box">
+                        <h4 class="status-tit">사용중지</h4>
+                        <p><strong class="linked">10</strong>건</p>     
+                      </a>
+                      <a href="#none" class="user-status-box">
+                        <h4 class="status-tit">반려</h4>
+                        <p><strong class="linked">3</strong>건</p>     
+                      </a>
+                      
+                    </div>
+                    <div class="user-status application">
+                      <div class="user-status-box">
+                        <h4 class="status-tit">권한 신청 현황</h4>
+                        <div class="application-date">
+                          <div class="date-box">
+                            <span>어제</span>
+                            <p><strong class="fz-16">11</strong>건</p>
+                          </div>
+                          <div class="date-box">
+                            <span>오늘</span>
+                            <p><strong class="fz-16">11</strong>건</p>
+                          </div>
+                          <div class="date-box">
+                            <span>이번주</span>
+                            <p><strong class="fz-16">11</strong>건</p>
+                          </div>
+                          <div class="date-box">
+                            <span>이번달</span>
+                            <p><strong class="fz-16">11</strong>건</p>
+                          </div>                      
+                        </div>
+                      </div>
+                    </div>
+                  </div>          
+                </div>
+              </div>                
+              
+              <div class="dashboard-wrap right">
+                <a class="dashboard-alert" href="#none">
+                  <p><span>권한 신청</span> 승인대기중인<br /> 고객이 <strong class="fc-yellow">5명</strong>있어요.</p>                  
+                </a>                                
+                <a class="dashboard-banner ty-1" href="#none">
+                  <h3 class="content-tit">콘텐츠 조회 및 반응 활동을<br/>모니터링하고 <span>성과를 분석</span>해 보세요.</h3>                  
+                  <span class="see-more">모니터링 대시보드</span>                                  
+                </a>                
+              </div>
+            </div>            
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->    
+    <script> 
+    </script>
+  </body>
+</html>

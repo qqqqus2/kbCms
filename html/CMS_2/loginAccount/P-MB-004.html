@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타깃분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드 게시판</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타깃고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">분석 모델 운영</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">계정 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">권한 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">나의 계정정보</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="#"></a></li> --><!-- 1뎁스 -->
+                    <!-- <li class="breadcrumb-item"><a href="#"></a></li> --><!-- 2뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">나의 계정정보</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-box-inner">
+            <h3 class="content-tit">기본 정보</h3>
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+
+        <!-- 나의 계정정보 팝업 -->
+        <article class="modal w-1000" id="cmsApply1" tabindex="-1" aria-hidden="true">
+          <i class="modal-bg"></i>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-head">
+                <h5 class="tit">CMS권한신청</h5>
+                <button type="button" class="btn btn-popClose" onclick="popClose('#cmsApply1')">팝업 닫기</button>
+              </div>
+              <div class="modal-body pb-24 flex-column">
+                <div class="table-wrap mb-0">
+                  <h3 class="content-tit">사용자정보</h3>
+                  <table class="table left-table">
+                    <colgroup>
+                      <col style="width: 15%">
+                      <col style="width: 35%">
+                      <col style="width: 15%">
+                      <col style="width: 35%">
+                    </colgroup>
+
+                    <tbody>
+                      <tr>
+                        <th scope="col" class="t-left">이름</th>
+                        <td>홍길동</td>
+                        <th scope="col" class="t-left">사번</th>
+                        <td>S023000</td>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="t-left">부서명</th>
+                        <td>콘텐츠 전략 스쿼드</td>
+                        <th scope="col" class="t-left">부서코드</th>
+                        <td>KB0008219</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h3 class="content-tit mt-24">권한신청정보(다중선택가능)</h3>
+                  <table class="table left-table">
+                    <colgroup>
+                      <col style="width: 15%">                    
+                      <col />                    
+                    </colgroup>
+
+                    <tbody>
+                      <tr>
+                        <th scope="col" class="t-left">CMS 사용목적 <i class="fc-red">*</i></th>
+                        <td>
+                          <label class="checkbox sml">
+                            <input type="checkbox" /><i aria-hidden="true" class="lbl"></i>
+                            <span>콘텐츠 생성/배포</span>
+                          </label>
+                          <label class="checkbox sml ml-10">
+                            <input type="checkbox" /><i aria-hidden="true" class="lbl"></i>
+                            <span>콘텐츠 사용신청</span>
+                          </label>
+                          <label class="checkbox sml ml-10">
+                            <input type="checkbox" /><i aria-hidden="true" class="lbl"></i>
+                            <span>콘텐츠 제작요청</span>
+                          </label>
+                          <label class="checkbox sml ml-10">
+                            <input type="checkbox" /><i aria-hidden="true" class="lbl"></i>
+                            <span>콘텐츠 속성관리</span>
+                          </label>
+                          <label class="checkbox sml ml-10">
+                            <input type="checkbox" /><i aria-hidden="true" class="lbl"></i>
+                            <span>콘텐츠 모니터링</span>
+                          </label>
+                          <label class="checkbox sml ml-10">
+                            <input type="checkbox" /><i aria-hidden="true" class="lbl"></i>
+                            <span>기타</span>
+                          </label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="info-contetns mt-20">
+                  <p class="tit">유의사항</p>
+                  <ul>
+                    <li>관리자가 CMS 권한 신청을 승인한 후에 업무 관련 메뉴를 사용할 수 있어요.</li>
+                    <li>반려 또는 사용중지일 경우에는 사유내용을 확인하고 수정 한 후 재신청 할 수 있어요.</li>
+                  </ul>
+                </div>
+                <div class="info-contetns mt-20">
+                  <p class="tit">[업무별 사용목적 선택 가이드]</p>
+                  <ul class="sub-list">
+                    <li>콘텐츠 생성/배포: AEM 콘텐츠의 공통 부가정보 및 매체 전시정보를 만들고 관리할 때</li>
+                    <li>콘텐츠 속성 관리: 개인화 모니터링을 위해 타깃, 상품정보 등 속성 분류 내 기초데이터를 관리할 때</li>
+                    <li>콘텐츠 모니터링: 콘텐츠 공개현황 및 접속현황, 트렌드 분석 등 다양한 통계 모니터링을 조회할 때</li>
+                    <li>콘텐츠 사용신청: 장문메시지(LMS), 앱 푸시메시지 등 다양한 외부 매체에 사용하기 위한 콘텐츠 URL 정보가 필요할때</li>
+                    <li>콘텐츠 제작 요청: KB증권 콘텐츠의 원소스를 첨부해 콘텐츠 제작을 요청할 때</li>
+                    <li>기타: 이외 콘텐츠관리시스템(CMS)에서 업무를 진행해야 할 때</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn" onclick="popClose('#cmsApply1')">취소</button>                
+                <button type="button" class="btn">신청</button>                
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->
+
+    <script>
+      $(function () {
+        popOpen('#cmsApply1');
+      });
+    </script>
+  </body>
+</html>

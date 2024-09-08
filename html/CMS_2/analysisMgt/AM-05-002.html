@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom-back2.js"></script>
+
+    <!-- echart -->
+    <script src="/js/lib/echart.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                 <!-- 나의 계정정보 -->
+                 <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">Guest</a></li>
+                    <li><a href="#" class="kb-lnb-link">시스템 관리자</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 생성자</a></li>
+                    <li><a href="#" class="kb-lnb-link">타부서 사용자</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">매체 전시관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">심의 접수조회</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어검수 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타겟분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 템플릿 관리</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>고객언어 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">공지사항</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 공개현황</a></li>
+                    <li><a href="#" class="kb-lnb-link">방문통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">고객통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">성과분석 통계</a></li>
+                    <li><a href="#" class="kb-lnb-link">순위통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">유입경로 분석</a></li>                    
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">상담채널 분석</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모델관리</a></li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델실행 및 재추정</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">모델재실행</a></li>
+                        <li><a class="kb-lnb-link" href="#">모델재추정</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">모델모니터링</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">수행결과조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">변화추이조회</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">사용자신청관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">메뉴 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">권한그룹관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">공지사항 관리</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">변화추이조회</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">분석모델관리</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item"><a href="#">모델모니터링</a></li>
+                    <!-- 2뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">변화추이조회</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <!-- 2024-08-27 ty-2 클래스 추가 -->
+              <div class="common-search monitoring-search ty-2">                         
+                <!-- 2024-08-19 mb-24 클래스 제거 -->
+                <div class="flex">    
+                  <!-- 2024-08-19 <div class="form-item zero-basis"> 추가 -->
+                  <!-- 2024-08-27 <div class="form-item zero-basis"> 제거 -->
+                  <div class="form-item">
+                    <div class="flex">
+                      <div class="select custom-select w-180">
+                        <select>
+                          <option value="">비지도유형</option>                        
+                          <option value="">지도유형</option>
+                        </select>
+                      </div>
+                      <div class="select custom-select w-180">
+                        <select>
+                          <option value="">MPTI</option>
+                          <option value="">M-able행동기반고객상태</option>                        
+                        </select>
+                      </div>
+                    </div>
+                  </div>                    
+                  <!-- 2024-08-19 pr-366 클래스 추가 -->
+                  <!-- 2024-08-27 pr-366 클래스 제거 -->
+                  <div class="form-item ml-0">
+                    <div class="flex justify-center align-center">
+                      <div class="analysis-date input input-date">
+                        <button type="button" class="btn-dateMove prev-date" title="이전"></button>
+                        <input type="text" id="dateStart" data-monthpicker="dateStart" autocomplete="off" readonly />
+                        <input type="text" id="monthStart" autocomplete="off" readonly data-start-year="2023" />                      
+                        <span>~</span>                                           
+                        <input type="text" id="dateEnd" autocomplete="off" readonly />                        
+                        <input type="text" id="monthEnd" autocomplete="off" readonly data-start-year="2023" />                                              
+                        <button type="button" class="btn-dateMove next-date" title="다음"></button>
+                      </div>                        
+                    </div>   
+                  </div>        
+                  <!-- 2024-08-27 버튼 레이아웃 위치변경 -->            
+                  <div class="inline-flex">
+                    <button type="button" class="btn btn-todayNew btn-tiny btn-round btn-line active">일별</button>
+                    <button type="button" class="btn btn-weekNew btn-tiny ml-4 btn-round btn-line">주별</button>
+                    <button type="button" class="btn btn-monthNew btn-tiny ml-4 btn-round btn-line">월별</button>
+                  </div>
+                </div>   
+                <!-- 2024-08-19 <div class="expand-condition ty-2"> 제거 -->                
+              </div>
+            </div>
+
+            <div class="common-search-btn mt-16 mb-32">
+              <button type="button" class="btn btn-mid btn-line">초기화</button>
+              <button type="button" class="btn btn-mid btn-yellow">검색</button>
+            </div>
+
+            <div class="kb-box-inner mt-32">
+              <h3 class="content-tit">변화추이상세</h3>
+              <table class="table">                
+                <colgroup>
+                  <col style="width: 8rem" />
+                  <col style="width: auto" />
+                  <col style="width: auto" />
+                  <col style="width: auto" />                  
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">순번</th>
+                    <th scope="col">모델ID</th>
+                    <th scope="col">모델명</th>
+                    <th scope="col">운영적용기간</th>
+                  </tr>
+                </thead>
+                <tbody>                  
+                  <tr>
+                    <td>1</td>
+                    <td class="t-left">MPTI_240520_003</td>
+                    <td class="t-left">관심유형척도변경</td>
+                    <td>2024-04-16 ~ 2024-04-30</td>
+                  </tr>                                                
+                  <tr>
+                    <td>2</td>
+                    <td class="t-left">MPTI_240520_003</td>
+                    <td class="t-left">관심유형척도변경</td>
+                    <td>2024-04-16 ~ 2024-04-30</td>
+                  </tr>                                          
+                </tbody>
+              </table>
+
+              <div class="title-wrap flex align-end mt-32 mb-12">        
+                <h3 class="content-tit mb-0">변화추이 그래프</h3>                            
+                <div class="ml-auto inline-flex justify-end">
+                  <div class="form-item">
+                    <div class="select custom-select">
+                      <select>
+                        <option value="0">오류분포</option>
+                        <option value="1">평가지표</option>                        
+                      </select>
+                    </div>                                   
+                    <div class="select custom-select">
+                      <select>
+                        <option value="">TP</option>
+                        <option value="">FN</option>
+                        <option value="">FP</option>
+                        <option value="">TN</option>
+                      </select>
+                    </div>    
+                    <div class="select custom-select" style="display: none;">
+                      <select>
+                        <option value="">Accuracy</option>
+                        <option value="">Precision</option>
+                        <option value="">Recall</option>
+                        <option value="">Specificity</option>
+                        <option value="">F1 Scroe</option>
+                        <option value="">ROC-AUC</option>
+                        <option value="">PR-AUC</option>
+                      </select>
+                    </div>    
+                  </div>                       
+                </div>
+              </div>                 
+              <div class="chart-line-wrap h-300 bd-radius-8">
+                <div id="line-chart" class="h-300" style="width: calc(100% + 10rem); left:50%"></div>
+              </div>
+              <div class="flex space-between mt-32">
+                <h3 class="content-tit">오분류표</h3>                
+              </div>              
+              <div class="table-wrap">
+                <table class="table">                
+                  <colgroup>                  
+                    <col style="width: 16rem" />                  
+                    <col style="width: auto" />                  
+                    <col style="width: auto" />                  
+                    <col style="width: auto" />                  
+                    <col style="width: auto" />                                                                                            
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">구분</th>
+                      <th scope="col">TP</th>
+                      <th scope="col">FN</th>
+                      <th scope="col">FP</th>
+                      <th scope="col">TN</th>                    
+                    </tr>                    
+                  </thead>
+                  <tbody>                  
+                    <tr>
+                      <td>2024-05-16</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                                        
+                    </tr>                                                
+                    <tr>
+                      <td>2024-05-15</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                 
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-14</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>               
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-13</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                   
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-12</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                   
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-11</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                    
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-10</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                 
+                    </tr>                              
+                  </tbody>
+                </table>
+                <p class="fc-gray-666 fz-13 mt-8">※ 해당 주간의 주별 토요일의 데이터를 대표값으로 표기</p>              
+                <!-- <p class="fc-gray-666 fz-13 mt-8">※ 해당 월간의 월별 말일 데이터를 대표값으로 표기</p> -->
+              </div>                           
+              <div class="flex space-between mt-32">
+                <h3 class="content-tit">평가지표</h3>                
+              </div>              
+              <div class="table-wrap">
+                <table class="table">                
+                  <colgroup>                  
+                    <col style="width: 16rem" />                  
+                    <col style="width: auto" />                  
+                    <col style="width: auto" />                  
+                    <col style="width: auto" />                  
+                    <col style="width: auto" />                                                                                            
+                    <col style="width: auto" />                                                                                            
+                    <col style="width: auto" />                                                                                            
+                    <col style="width: auto" />                                                                                            
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">구분</th>
+                      <th scope="col">Accuracy</th>
+                      <th scope="col">Precision</th>
+                      <th scope="col">Recall</th>
+                      <th scope="col">Specificity</th>                    
+                      <th scope="col">F1 Score</th>                    
+                      <th scope="col">ROC-AUC</th>                    
+                      <th scope="col">PR-AUC</th>                    
+                    </tr>                    
+                  </thead>
+                  <tbody>                  
+                    <tr>
+                      <td>2024-05-16</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                    </tr>                                                
+                    <tr>
+                      <td>2024-05-15</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-14</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                 
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-13</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                 
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-12</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                   
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-11</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                  
+                    </tr>                              
+                    <tr>
+                      <td>2024-05-10</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>                                        
+                      <td>00</td>              
+                    </tr>                              
+                  </tbody>
+                </table>
+                <p class="fc-gray-666 fz-13 mt-8">※ 해당 주간의 주별 토요일의 데이터를 대표값으로 표기</p>              
+                <!-- <p class="fc-gray-666 fz-13 mt-8">※ 해당 월간의 월별 말일 데이터를 대표값으로 표기</p> -->
+              </div>                           
+            </div>
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->    
+    <script>
+      var chartDom = document.getElementById('line-chart');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      let data1 = [];
+      let data2 = [];
+
+      for(var i = 0; i < 51; i++) {
+        var randomNum2 = Math.floor(Math.random() * 101); 
+        data1.push(randomNum2);        
+      }
+      // data1.push(50) 삭제예정
+      data1.push(50);
+      for (let i = 0; i < 51; i++) {
+        data2[i] = "";
+      }           
+      for (let x = 51; x < 100; x++) {
+        var randomNum1 = Math.floor(Math.random() * 101);
+        data2[x] = randomNum1;
+      }
+      // data2.splice(51, 0, 50) 삭제예정 
+      data2.splice(51, 0, 50); 
+
+      function randomData() {
+        now = new Date(+now + oneDay);
+        value = value + Math.random() * 21 - 10;
+        return {
+          name: now.toString(),
+          value: [[now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/')]
+        };
+      }
+      let xAxisLabels = [];    
+      let now = new Date(2023, 0, 0);
+      let oneDay = 24 * 3600 * 1000;
+      let oneWeek = 7 * 24 * 3600 * 1000;
+
+      let value = Math.random() * 10;
+      for (var i = 1; i <= 100; i++) {
+        xAxisLabels.push(randomData());
+      }          
+
+      option = {
+        title: {
+          text: ''
+          },
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              animation: true
+            }
+          },
+          legend: {
+            align: 'left',
+            data: ['[MPTI_240416_003] 관심유형척도변경', '[MPTI_240416_001] 관심유형척도'],
+            selectedMode: 'multiple',
+            itemGap: 20,
+            textStyle: {
+              color: '#202020',
+              fontSize: 14,
+            },
+            bottom:20
+          },
+          dataZoom: {
+            start: 0,
+            type: 'inside',
+            moveOnMouseMove: true
+          },
+          xAxis: [
+            {
+              type: 'category',
+              data: xAxisLabels,
+              splitLine: { 
+                show: true, 
+                lineStyle: {
+                  color: '#F3F5F6',                                    
+                }
+              },
+              axisLine: { 
+                lineStyle: {
+                  color: '#AEB6D0' 
+                }
+              },
+              axisTick: { show: false }, 
+              axisLabel: { 
+                show: true,    
+                color: '#000000',
+                fontSize: 10,
+              }        
+            }                  
+          ],
+          yAxis: {
+            type: 'value',        
+            min: 0,
+            max: 100,
+            name: '',
+            position: 'left',
+            splitLine: { show: false },
+            axisLine: { show: false },
+            axisTick: { show: false },
+            axisLabel: { 
+              show: true,    
+              color: '#000000',
+              fontSize: 10,
+            }             
+          },
+          series: [
+            {
+              name: '[MPTI_240416_003] 관심유형척도변경',
+              data: data1,
+              type: 'line',
+              showSymbol: false,
+              itemStyle: {
+                color: '#FFCF53'
+              },
+              lineStyle: {
+                color: '#FFCF53'
+              }
+            },
+            {
+              name: '[MPTI_240416_001] 관심유형척도',
+              data: data2,
+              type: 'line',
+              showSymbol: false,
+              itemStyle: {
+                color: '#5398FF'
+              },
+              lineStyle: {
+                  color: '#5398FF'
+              }
+            }
+          ]
+      };      
+
+      myChart.setOption(option);      
+      window.addEventListener('resize', myChart.resize);
+      
+      const selectBox = $('.title-wrap').find('.custom-select').first();
+      selectBox.on('change', function(){
+        let dataValue = parseInt($(this).find('.custom-select-btn').attr('data-value'));
+        if(dataValue === 0){          
+          $('.title-wrap').find('.custom-select').eq(1).css({'display' : 'inline-block'});
+          $('.title-wrap').find('.custom-select').eq(2).css({'display' : 'none'})
+        } else {
+          $('.title-wrap').find('.custom-select').eq(1).css({'display' : 'none'});
+          $('.title-wrap').find('.custom-select').eq(2).css({'display' : 'inline-block'})
+        }
+      })
+
+      // 2024-08-19 lnb 오픈/비오픈 시 차트 리사이즈
+      const chartWrap = chartDom.closest('.kb-box-inner');
+      const observer = new ResizeObserver(entries => {
+        myChart.resize()       
+      });
+      observer.observe(chartWrap);    
+    </script>
+  </body>
+</html>

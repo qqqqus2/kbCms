@@ -46,7 +46,8 @@ input[type='number'] {
   .input {
     display: inline-block;
     input[type='text'],
-    input[type='password'] {
+    input[type='password'],
+    input[type='number'] {
       width: 100%;
     }
   }
@@ -79,7 +80,15 @@ input[type='number'] {
         background-position: 95% center;
       }
     }
-
+    // 2024-05-09 &.inline-flex,  &.date-single-range 추가
+    &.inline-flex {
+      width: auto;
+    }
+    &.date-single-range {
+      input[type='text'] {
+        width: 13.2rem;
+      }
+    }
     input[type='text'] {
       width: 100%;
       font-weight: 300;
@@ -115,6 +124,32 @@ input[type='number'] {
         width: 22rem;
       }
     }
+    .tilde {      
+      font-size: 1.8rem;
+      font-weight: 700;      
+      color: #42444e;
+    }    
+  }
+  .analysis-date {
+    position: relative;
+    width: auto;    
+    input#dateStart, input#dateEnd, input#monthStart, input#monthEnd {
+      position: relative;
+      border: 0;
+      background: none;
+      width: 12rem;
+      text-align: center;
+      padding: 0;
+      font-size: 1.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #42444e;
+    }    
+    .tilde {      
+      font-size: 1.8rem;
+      font-weight: 700;      
+      color: #42444e;
+    }    
   }
 
   .is-error {
@@ -243,7 +278,9 @@ input[type='number'] {
 }
 .radio input:focus + .lbl:before,
 .checkbox input:focus + .lbl:before {
-  border-color: var(--gray_02-darkBlue);
+  // border-color: var(--gray_02-darkBlue);
+  // 2024-06-10 체크박스 해제 후에도 남는 포커스 라인으로 인해 수정
+  border: 0.1rem solid var(--line-color-ccc);
 }
 
 .checkbox input:checked + .lbl:before {
@@ -416,6 +453,10 @@ input[type='number'] {
 }
 
 .textarea {
+  // 2024-06-13
+  &.mgt-word {
+    height: calc(100% - 4.4rem);
+  }
   textarea {
     border-radius: 0.3rem;
     border: 0.1rem solid var(--line-color-ccc);
@@ -441,6 +482,42 @@ input[type='number'] {
       }
     }
   }
+  > pre {
+    border-radius: .3rem;
+    border: .1rem solid var(--line-color-ccc);
+    resize: none;
+    padding: .6rem 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 300;
+    height: 100%;
+    white-space: pre-line;
+    word-break: keep-all;
+    line-height: 1.3;
+    &::-moz-placeholder {
+      color: var(--gray_999);
+      font-weight: 300;
+    }
+    &::placeholder {
+      color: var(--gray_999);
+      font-weight: 300;
+    }
+    &:-moz-read-only {
+      outline: none;
+      background-color: var(--background-color);
+      color: var(--gray_999);
+      &:focus {
+        border-color: var(--line-color-ccc);
+      }
+    }
+    &:disabled {
+      outline: none;
+      background-color: var(--background-color);
+      color: var(--gray_999);
+      &:focus {
+        border-color: var(--line-color-ccc);
+      }
+    }            
+  }  
 }
 
 .file-drop {
@@ -515,6 +592,15 @@ input[type='number'] {
 
 // 모니터링 라디오 커스텀
 .radio-custom {
+  &.ty-2 {
+    margin-bottom: 0;
+    & + .radio-custom {
+      margin-left: .6rem;
+    }
+    input + .lbl {
+      min-width: auto;
+    }  
+  }
   input + .lbl {
     padding: 0.5rem 1.2rem;
     line-height: 2rem;
@@ -547,7 +633,9 @@ input[type='number'] {
 // 커스텀 셀렉트
 .select select,
 .custom-select-btn,
-.custom-select-option {
+.custom-select-option,
+.custom-select-option,
+.custom-select-optgroup-lbl {
   position: relative;
   width: 100%;
   height: 3.2rem;
@@ -700,6 +788,20 @@ input[type='number'] {
     border-top-width: 0;
   }
 }
+.custom-select-optgroup{
+  position: relative;
+  &:not(:first-child){
+    margin-top: -1px;
+  }
+  .custom-select-option {
+    padding-left: 2.2rem;
+  }
+}
+.custom-select-optgroup-lbl{
+  font-weight: bold;
+  color: #666;
+  border-bottom-width: 0;
+}
 
 .custom-select-options {
   display: none;
@@ -715,4 +817,12 @@ input[type='number'] {
   overflow-y: auto;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   z-index: 89;
+}
+.custom-select.type-up {
+  .custom-select-options {
+    margin-top: 0;
+    margin-bottom: .3rem;
+    top: auto;
+    bottom: 100%;
+  }
 }

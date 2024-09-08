@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+
+    <!-- echart -->
+    <script src="/js/lib/echart.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                 <!-- 나의 계정정보 -->
+                 <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">Guest</a></li>
+                    <li><a href="#" class="kb-lnb-link">시스템 관리자</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 생성자</a></li>
+                    <li><a href="#" class="kb-lnb-link">타부서 사용자</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">매체 전시관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">심의 접수조회</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어검수 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타겟분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 템플릿 관리</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>고객언어 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">공지사항</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 공개현황</a></li>
+                    <li><a href="#" class="kb-lnb-link">방문통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">고객통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">성과분석 통계</a></li>
+                    <li><a href="#" class="kb-lnb-link">순위통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">유입경로 분석</a></li>                    
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">상담채널 분석</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모델관리</a></li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델실행 및 재추정</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">모델재실행</a></li>
+                        <li><a class="kb-lnb-link" href="#">모델재추정</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">모델모니터링</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">수행결과</a></li>
+                        <li><a class="kb-lnb-link" href="#">변화추이</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">사용자신청관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">메뉴 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">권한그룹관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">공지사항 관리</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">경쟁사 동향 분석</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">모니터링</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item"><a href="#">인사이트 분석</a></li>
+                    <!-- 2뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">경쟁사 동향 분석</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <div class="common-search monitoring-search">
+                <!-- 2023-10-10 mb-24 추가 -->
+                <div class="form-item mb-24">
+                  <div class="monitoring-date input input-date">
+                    <button type="button" class="btn-dateMove prev-date" title="이전"></button>
+                    <input type="text" id="datepicker" autocomplete="off" readonly />
+                    <input type="text" id="monthpicker" autocomplete="off" readonly data-start-year="2023" />
+                    <button type="button" class="btn-dateMove next-date" title="다음"></button>
+                  </div>
+                  <div class="inline-flex">
+                    <button type="button" class="btn btn-today btn-tiny btn-round btn-line active">일간</button>
+                    <button type="button" class="btn btn-week btn-tiny ml-4 btn-round btn-line">주간</button>
+                    <button type="button" class="btn btn-month btn-tiny ml-4 btn-round btn-line">월간</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-box-inner">
+              <div class="ui_tab">
+                <div class="tab_inner">
+                  <i class="tab_line" aria-hidden="true"></i>
+                  <ul class="tab-list w-auto link-tab">
+                    <li class="tab active"><a href="#tab-1">블로그</a></li>
+                    <li class="tab"><a href="MT-03-005.html">뉴스레터</a></li>
+                    <li class="tab"><a href="MT-03-006.html">업권</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div id="tab-1" class="common-table tab_box active">
+                <div class="title-wrap flex align-center mb-12 mt-28">
+                  <h4 class="tit">경쟁사별 발간수</h4>
+                  <div class="ml-auto inline-flex justify-end">
+                    <button type="button" class="btn btn-sml btn-line btn-up ml-6">파일 업로드</button>
+                    <button type="button" class="btn btn-sml btn-line btn-down ml-6">엑셀 다운로드</button>
+                    <button type="button" class="btn btn-sml btn-line btn-down ml-6">이미지 다운로드</button>
+                    <button type="button" class="btn btn-sml btn-gray ml-6">등록</button>
+                  </div>
+                </div>
+
+                <div class="monitoring-contentsBox flex">
+                  <div class="left-cont flex-11">
+                    <!-- 2023-10-10 h-600으로 클래스 변경 -->
+                    <div id="pie-chart1" class="chart-wrap h-600"></div>
+                    <div id="bar-chart1" class="chart-wrap h-400"></div>
+                  </div>
+                  <div class="right-cont flex-11">
+                    <div class="table-wrap">
+                      <table class="table nowrap">
+                        <colgroup>
+                          <col style="width: 15rem" />
+                          <col style="width: auto" />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>업체명</th>
+                            <th>콘텐츠 제목</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="t-left">토스증권</td>
+                            <td class="t-left">
+                              <a href="#" class="linked">레벨5. 휴대폰 요금 연체하면 신용점수 낮아지나요?</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="t-left">NH투자증권</td>
+                            <td class="t-left"></td>
+                          </tr>
+                          <tr>
+                            <td class="t-left">삼성증권</td>
+                            <td class="t-left"></td>
+                          </tr>
+                          <tr>
+                            <td class="t-left">미래에셋증권</td>
+                            <td class="t-left"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+        
+        <!-- Modal -->
+        <article class="modal w-1000" id="monitoringFileUpload" tabindex="-1" aria-hidden="true">
+          <i class="modal-bg"></i>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-head">
+                <h5 class="tit">경쟁사 동향 분석 파일 업로드</h5>
+                <button type="button" class="btn btn-popClose" onclick="popClose('#monitoringFileUpload')">팝업 닫기</button>
+              </div>
+              <div class="modal-body flex-column">
+                <!-- 파일 업로드 -->
+                <div class="table-wrap">
+                  <table class="table left-table">
+                    <colgroup>
+                      <col style="width: 18rem" />
+                      <col />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="col" class="t-left">파일첨부 <i class="fc-red">*</i></th>
+                        <td>
+                          <!-- 파일 첨부 -->                          
+                          <p class="mt-6 fc-gray-666 fz-14">업로드 파일은 csv파일만 가능하며 10MB * 1개까지 등록할 수 있습니다.</p>
+                          <div class="mt-12 file-drop"></div>
+                          <div class="uploaded-file">
+                            <p>
+                              <a href="#none">업로드한 파일명이 출력됩니다(다운로드 가능)1.csv(1542byte)</a>
+                              <button type="button" title="삭제" class="btn-del"></button>
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="t-left">업로드 파일 내용 예시</th>
+                        <td>게시일자 | 업체명 | 매체 | 경로 | 링크(URL) | 제목 | 내용</td>
+                      </tr>                      
+                    </tbody>
+                  </table>
+                </div>
+                <div class="info-contetns mt-20 mb-24">
+                  <p class="tit">유의사항</p>                  
+                  <ul>
+                    <li>업로드 파일은 <strong class="line-underline">업로드 파일 내용 예시</strong>를 참고하여 <strong class="fc-blue">형식에 맞게 작성</strong>하세요. (<strong class="fc-blue">데이터 구분자 : ‘|’, 건마다 줄바꿈</strong>)</li>
+                    <li><strong class="fc-blue">문서 보안(DRM)을 해제한 영문파일 이름의 csv 파일을 업로드</strong>하세요.</li>
+                    <li>업로드하는 csv파일 데이터는 기준일자 기준으로 <strong class="fc-blue">기존 데이터를 삭제</strong>하고, 업로드하는 데이터를 모두 신규 추가합니다.</li>
+                    <li>csv파일 업로드 후 [등록]버튼을 클릭하시고 반드시 자료 등록 결과(오류 발생 시, 해당 행/열 값 확인 가능)를 확인하세요.</li>
+                    <li>오류가 발생한 경우 업로드한 파일의 데이터 전체가 등록되지 않습니다.</li>
+                  </ul>                  
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn" onclick="popClose('#monitoringFileUpload')">취소</button>
+                <button type="button" class="btn">등록</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->
+
+    <script>
+      // var echarts = require('echarts');
+
+      var dom1_1 = document.querySelector('#pie-chart1');
+      var dom1_2 = document.querySelector('#bar-chart1');
+
+      var pieChart1 = echarts.init(dom1_1, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
+      });
+      var barChart1 = echarts.init(dom1_2, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
+      });
+
+      var color = ['#FFCF53', '#FA844E', '#5AAE6E', '#5B75CE', '#A9C5FF', '#7155C8', '#354673', '#FF6391', '#FEBCFF', '#BC80FF', '#EB2B42', '#CFEC1D', '#2B9D96', '#2757BB', '#839BD7', '#80839D', '#393798', '#2592FF', '#4DE4C9', '#4F805A'];
+
+      var title = { left: 'center' };
+      var tooltip = { trigger: 'item' };
+      var legend = {
+        align: 'auto',
+        left: 'left',
+        bottom: 0,
+        height: 300,
+        icon: 'circle',
+        padding: [16, 10, 16, 10]
+      };
+
+      var itemStyle = {
+        shadowBlur: 0,
+        shadowOffsetX: 0,
+        shadowColor: 'rgba(0, 0, 0, 0)'
+      };
+
+      var pieDataArray = []; // 빈 배열을 만듭니다.
+
+      for (var i = 0; i < 30; i++) {
+        var pieDataItem = {
+          value: i,
+          name: '토스증권' + i
+        };
+        pieDataArray.push(pieDataItem);
+      }
+
+      var app = {};
+
+      var option1;
+      var option2;
+
+      option1 = {
+        title: title,
+        tooltip: tooltip,
+        legend: legend,
+        series: [
+          {
+            name: '경쟁사별 발간수',
+            type: 'pie',
+            height: '80%',
+            radius: ['40%', '70%'],
+            data: pieDataArray,
+            emphasis: {
+              itemStyle: itemStyle
+            },
+            color: color
+          }
+        ]
+      };
+
+      option2 = {
+        tooltip: tooltip,
+        xAxis: {
+          type: 'value',
+          nameTextStyle: {
+            fontFamily: 'KBFGText'
+          }
+        },
+        yAxis: {
+          type: 'category',
+          data: ['토스증권', 'NH투자증권', '삼성증권', '미래에셋증권', 'OO증권1', 'OO증권2'],
+          axisTick: {
+            show: false
+          }
+        },
+        grid: { containLabel: true },
+        series: [
+          {
+            data: [17, 10, 8, 7, 6, 5],
+            type: 'bar',
+            colorBy: 'data',
+            color: color,
+            barWidth: 16
+          }
+        ]
+      };
+
+      if (option1 && typeof option1 === 'object') {
+        pieChart1.setOption(option1);
+      }
+      if (option2 && typeof option2 === 'object') {
+        barChart1.setOption(option2);
+      }
+
+      window.addEventListener('resize', pieChart1.resize, barChart1.resize);
+
+      $(function () {
+        popOpen('#monitoringFileUpload');
+      });
+    </script>
+  </body>
+</html>

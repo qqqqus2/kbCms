@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                 <!-- 나의 계정정보 -->
+                 <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">Guest</a></li>
+                    <li><a href="#" class="kb-lnb-link">시스템 관리자</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 생성자</a></li>
+                    <li><a href="#" class="kb-lnb-link">타부서 사용자</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">매체 전시관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">심의 접수조회</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어검수 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타겟분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 템플릿 관리</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>고객언어 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">공지사항</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 공개현황</a></li>
+                    <li><a href="#" class="kb-lnb-link">방문통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">고객통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">성과분석 통계</a></li>
+                    <li><a href="#" class="kb-lnb-link">순위통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">유입경로 분석</a></li>                    
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">상담채널 분석</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모델관리</a></li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델실행 및 재추정</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">모델재실행</a></li>
+                        <li><a class="kb-lnb-link" href="#">모델재추정</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">모델모니터링</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">수행결과</a></li>
+                        <li><a class="kb-lnb-link" href="#">변화추이</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">사용자신청관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">메뉴 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">권한그룹관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">공지사항 관리</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit mr-8">모니터링 대시보드</h2>
+                <!-- 툴팁 -->
+                <div class="tooltips">
+                  <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
+                  <div class="msg w-600">
+                    <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>
+                    <strong class="fz-16">통계지표 도움말</strong>
+                    <dl class="has-dot ty-3">
+                      <li class="flex space-between">
+                        <strong class="w-80">조회수</strong>
+                        <span class="flex-11">콘텐츠 상세화면에 접속한 수로, 동일 고객의 중복 조회를 포함합니다.</span>
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">조회고객수</strong>
+                        <span class="flex-11">콘텐츠에 접속한 고객수로, 1개 이상의 콘텐츠를 조회한 고객수로 카운트합니다.</span>
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">긍정수</strong>
+                        <span class="flex-11">오늘의 콕 콘텐츠의 '추천해요' 수를 표기합니다.<br />현재 프라임클럽 콘텐츠의 긍정수는 제공하지 않습니다.</span>
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">부정수</strong>
+                        <span class="flex-11">오늘의 콕 콘텐츠의 '아쉬워요' 수를 표기합니다.<br />현재 프라임클럽 콘텐츠의 부정수는 제공하지 않습니다.</span>
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">유지율</strong>
+                        <span class="flex-11">전월에 이어 연속 방문한 고객 비율을 표기합니다.<br /><span class="fz-12 fc-gray-666">* 유지율(월) = (당월방문고객수-신규고객수) / 전월방문고객수 X 100</span></span>                        
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">조회고객수<br />(연관종목)</strong>
+                        <span class="flex-11">연관종목을 포함한 콘텐츠를 조회한 고객수를 표기합니다.</span>
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">거래고객수</strong>
+                        <span class="flex-11">연관종목을 포함한 콘텐츠를 조회한 고객 중 해당 종목을 거래한 거래 고객수를 표기합니다.</span>                        
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">거래전환율</strong>
+                        <span class="flex-11">연관종목을 포함한 콘텐츠를 조회한 고객 중 해당 종목을 거래한 거래 고객 비율을 표기합니다.<br /><span class="fz-12 fc-gray-666">* 거래전환율 : 거래고객수/조회고객수(연관종목) X 100</span></span>                        
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">성과거래금액</strong>
+                        <span class="flex-11">연관종목을 포함한 콘텐츠를 조회하고 일주일 이내 해당 종목을 거래한 금액을 표기합니다.<br /><span class="fz-12 fc-gray-666">* 국내주식/ETF, 해외주식/ETF : 매도약정금액 + 매수약정금액</span></span>                        
+                      </li>
+                      <li class="flex space-between">
+                        <strong class="w-80">성과수수료</strong>
+                        <span class="flex-11">연관종목을 포함한 콘텐츠를 조회하고 일주일 이내 해당 종목의 거래로 발생한 수수료를 표기합니다.<br /><span class="fz-12 fc-gray-666">* 국내주식/ETF, 해외주식/ETF : 매도수수료 + 매수수수료</span></span>                        
+                      </li>
+                    </dl> 
+                  </div>                
+                </div>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">모니터링</a></li>
+                    <!-- 1뎁스 -->                                        
+                    <li class="breadcrumb-item active" aria-current="page">모니터링 대시보드</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <!-- iframe 영역 -->
+            <iframe id="iframe" title="모니터링 대시보드 아이프레임 영역" style="border:none" src="../analysisMgt/AM-05-001.html"></iframe>                                                
+            
+
+            
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->    
+    <script>
+      $(document).ready(function() {              
+        $('.btn-month').trigger("click");
+
+       $('.monitoring-date').next().find('button').on('click', function(){
+        if($('.btn-today').hasClass('active')){
+          $('.tilde').removeClass('hide')
+        }else{
+          $('.tilde').addClass('hide')
+        }        
+       })       
+
+      // iframe 높이 자동 조절
+      function autoResizeIframe(){
+        $('#iframe').on('load', function(){
+          if(this.contentDocument){
+            $(this).height(this.contentDocument.documentElement.scrollHeight);
+          }else{
+            $(this).height(this.contentWindow.document.body.scrollHeight);		
+          }
+        });
+      }
+      autoResizeIframe()
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                 <!-- 나의 계정정보 -->
+                 <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">Guest</a></li>
+                    <li><a href="#" class="kb-lnb-link">시스템 관리자</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 생성자</a></li>
+                    <li><a href="#" class="kb-lnb-link">타부서 사용자</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">매체 전시관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">심의 접수조회</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어검수 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타겟분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 템플릿 관리</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>고객언어 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">공지사항</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 공개현황</a></li>
+                    <li><a href="#" class="kb-lnb-link">방문통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">고객통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">성과분석 통계</a></li>
+                    <li><a href="#" class="kb-lnb-link">순위통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">유입경로 분석</a></li>                    
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">상담채널 분석</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모델관리</a></li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델실행 및 재추정</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">모델재실행</a></li>
+                        <li><a class="kb-lnb-link" href="#">모델재추정</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">모델모니터링</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">수행결과</a></li>
+                        <li><a class="kb-lnb-link" href="#">변화추이</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">사용자신청관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">메뉴 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">권한그룹관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">공지사항 관리</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <div class="btn-contain inline-flex">
+                  <h2 class="page-tit">모델관리</h2>
+                  <div class="common-btn-wrap ml-12">
+                    <button type="button" class="btn btn-sml btn-line btn-down">모델링 원본파일다운로드</button>                    
+                  </div>
+                </div>             
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">분석모델관리</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">모델관리</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <div class="common-search">
+                <dl>
+                  <dt class="w-120">분석모델유형</dt>
+                  <dd>
+                    <div class="form-item">                      
+                      <label class="radio">
+                        <input type="radio" name="rdo1" checked /><i aria-hidden="true" class="lbl"></i>
+                        <span>MPTI</span>
+                      </label>                      
+                      <label class="radio ml-12">
+                        <input type="radio" name="rdo1" /><i aria-hidden="true" class="lbl"></i>
+                        <span>M-able행동기반고객상태</span>
+                      </label>                                               
+                    </div>              
+                  </dd>
+                </dl>
+                <dl>                  
+                  <dt class="minW-120">키워드</dt>
+                  <dd class="w-full">
+                    <div class="form-item">
+                      <div class="input w-full">
+                        <input type="text" title="모델명 또는 생성자 입력" placeholder="모델명 또는 생성자를 입력하여 검색가능하며, ‘,’ 쉼표로 구분하여 최대 3개까지 동시 검색이 가능합니다." aria-label="모델명 또는 생성자 입력" />
+                      </div>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="common-search-btn mt-16">
+              <button type="button" class="btn btn-mid btn-line">초기화</button>
+              <button type="button" class="btn btn-mid btn-yellow">검색</button>
+            </div>
+            
+            <div class="kb-box-inner mt-32">
+              <div class="common-search-table">
+                <div class="title-wrap flex align-center mb-12">                  
+                  <div class="left w-30p"><span>모델목록</span> <strong class="fc-blue">999</strong></div>
+                  <div class="inline-flex justify-end">                      
+                    <div class="select-counting align-self-center mr-16" style="display: none;">선택 <strong class="fc-blue ml-6">999</strong></div>                    
+                    <button type="button" class="btn btn-sml btn-line" style="display: none;">삭제</button>                                          
+                    <button type="button" class="btn btn-sml btn-gray ml-6" style="display: none;">모델비교</button>
+                    <div class="vertical_line ml-12 mr-12" style="display: none;"></div>
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select>
+                          <option value="">20개씩 보기</option>
+                          <option value="">50개씩 보기</option>
+                          <option value="">100개씩 보기</option>
+                        </select>
+                      </div>
+                    </div>                    
+                    <button type="button" class="btn btn-sml btn-gray ml-6">모델재추정</button>                    
+                  </div>
+                </div>                
+                <!-- 테이블 -->
+                <div class="table-wrap">
+                  <table class="table nowrap">
+                    <colgroup>
+                      <col style="width: 4rem" />
+                      <col style="width: auto" />
+                      <col style="width: 40rem" />
+                      <col style="width: auto" />                        
+                      <col style="width: 20rem" />
+                      <col style="width: auto" />
+                      <col style="width: auto" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>선택</th>
+                        <th>모델ID</th>
+                        <th>모델명</th>
+                        <th>최종분석기준일</th>
+                        <th>
+                          <span class="list-align">
+                          생성일시
+                          <i role="button" class="btn-alignList"></i>
+                          </span>
+                        </th>
+                        <th>생성자</th>
+                        <th>총실행횟수</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- 운영 중 모델 -->
+                      <tr>
+                        <td class="fc-red">운영중</td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td class="t-left"><a href="#" class="linked">관심유형척도변경</a></td>
+                        <td>2024-05-24</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>홍길동</td>                        
+                        <td>20</td>                        
+                      </tr>
+                      <!-- 재추정 등록 후 모델링 중일 경우 -->
+                      <tr class="fc-gray-999">
+                        <td>생성중</td>
+                        <td>MPTI_040520_001</td>
+                        <td class="t-left">관심유형척도변경</td>
+                        <td>2024-05-24</td>
+                        <td>-</td>
+                        <td>홍길동</td>                        
+                        <td>-</td>                        
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td><a href="#" class="t-left linked">모델명입니다.모델명입니다.모델명입니다.</a></td>
+                        <td>2024-05-24</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>홍길동</td>                        
+                        <td>20</td>                        
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td><a href="#" class="t-left linked">관심유형척도변경</a></td>
+                        <td>2024-05-24</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>홍길동</td>                        
+                        <td>20</td>                        
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td><a href="#" class="t-left linked">관심유형척도변경</a></td>
+                        <td>2024-05-24</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>홍길동</td>                        
+                        <td>20</td>                        
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td><a href="#" class="t-left linked">관심유형척도변경</a></td>
+                        <td>2024-05-24</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>홍길동</td>                        
+                        <td>20</td>                        
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="checkbox sml only"><input type="checkbox" class="ui-tbl-chk" /><i aria-hidden="true" class="lbl"></i></label>
+                        </td>
+                        <td><a href="#" class="linked">MPTI_040520_001</a></td>
+                        <td><a href="#" class="t-left linked">관심유형척도변경</a></td>
+                        <td>2024-05-24</td>
+                        <td>2024-04-16 12:34:56</td>
+                        <td>홍길동</td>                        
+                        <td>20</td>                        
+                      </tr>
+                      
+                      <!-- 검색된 검색결과가 없습니다 -->
+                      <tr>
+                        <td colspan="7">
+                          <div class="search-notFound">검색된 검색결과가 없습니다.</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!-- 페이징 -->
+                  <nav aria-label="Page navigation">
+                    <ul class="pagination justify-center mt-16">
+                      <li class="page-item">
+                        <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                          <span aria-hidden="true">&#60;</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                          <span aria-hidden="true">&#62;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link next-last" href="#" aria-label="마지막으로">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>                    
+                </div>                  
+              </div>
+            </div>                          
+
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+
+        <!-- 내용분류 상세/수정 -->
+        <article class="modal w-1000" id="compareModel2" tabindex="-1" aria-hidden="true">
+          <i class="modal-bg"></i>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-head">
+                <h5 class="tit">모델비교</h5>
+                <button type="button" class="btn btn-popClose" onclick="popClose('#compareModel2')">팝업 닫기</button>
+              </div>
+              <div class="modal-body flex-column">
+                <div class="w-full mb-0">
+                  <div class="flex space-between align-end mb-12">
+                    <h3 class="content-tit mb-0">상위분류정보</h3>
+                    <p class="fc-gray-666 fz-13">※ 모델의 분석기준일은 동일해야하며, 상이할 경우 모델 재실행을 통해 분석기준일을 동일하게 설정합니다.</p>
+                  </div>
+                  <div class="model-wrap">
+                    <dl>
+                      <dt>                        
+                        <p><span>1</span>[M-able행동기반고객상태_240416_003]모델명입니다.</p>
+                      </dt>
+                      <dd>
+                        <div class="form-item">
+                          <div class="select custom-select">
+                            <select>
+                              <option value="">2024-05-15</option>
+                              <option value="">2024-05-16</option>
+                              <option value="">2024-05-17</option>
+                            </select>
+                          </div>
+                        </div>
+                      </dd>
+                    </dl>
+
+                    <dl>
+                      <dt>                        
+                        <p><span>2</span>[M-able행동기반고객상태_240416_003]모델명입니다.</p>
+                      </dt>
+                      <dd>
+                        <div class="form-item">
+                          <div class="select custom-select">
+                            <select>
+                              <option value="">2024-05-15</option>
+                              <option value="">2024-05-16</option>
+                              <option value="">2024-05-17</option>
+                            </select>
+                          </div>
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>                                   
+                </div>          
+
+                <div class="common-search-btn mt-16 flex-00">                  
+                  <button type="button" class="btn btn-mid btn-yellow">모델비교</button>
+                </div>
+                
+                <div class="result_list_content w-full mt-32 maxH-385">
+                  <h3 class="content-tit">고객분포</h3>           
+                  <div class="flex space-between pb-20">
+                    <div class="selected-model">
+                      <h4 class="selected-model-tit mr-4">[M-able행동기반고객상태_240416_003]모델명입니다.</h4>
+                      <!-- 툴팁 -->
+                      <div class="tooltips">
+                        <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
+                        <div class="msg">
+                          <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>                    
+                          <ul class="has-dot ty-3 analysis-summary">
+                            <li>
+                              <strong>가입기간</strong><br />
+                              <dl>
+                                <dt>가입경과일수 : </dt>
+                                <dd>4주</dd>
+                              </dl>
+                            </li>
+                            <li>
+                              <strong>총 접속일수(최근성)</strong><br />
+                              <dl>
+                                <dt>분석기간 : </dt>
+                                <dd class="fc-blue">5주</dd>
+                              </dl>
+                              <dl>
+                                <dt>0점 : </dt>
+                                <dd>0일</dd>
+                              </dl>
+                              <dl>
+                                <dt>1점 : </dt>
+                                <dd class="fc-blue">0일 초과 7일 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>2점 : </dt>
+                                <dd class="fc-blue">7일 초과 25일 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>3점 : </dt>
+                                <dd class="fc-blue">25일 초과 40일 이하</dd>
+                              </dl>
+                            </li>
+                            <li>
+                              <strong>총 접속주수(지속성)</strong><br />
+                              <dl>
+                                <dt>분석기간 : </dt>
+                                <dd>12주</dd>
+                              </dl>
+                              <dl>
+                                <dt>0점 : </dt>
+                                <dd>0주</dd>
+                              </dl>
+                              <dl>
+                                <dt>1점 : </dt>
+                                <dd>0주 초과 4주 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>2점 : </dt>
+                                <dd>4주 초과 9주 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>3점 : </dt>
+                                <dd>9주 초과 12주 이하</dd>
+                              </dl>
+                            </li>   
+                            <li>
+                              <strong>화면조회수와 화면개수의 평균점수(활동성)</strong><br />
+                              <dl>
+                                <dt>분석기간 : </dt>
+                                <dd>4주</dd>
+                              </dl>
+                              <dl>
+                                <dt>0점 : </dt>
+                                <dd>0점</dd>
+                              </dl>
+                              <dl>
+                                <dt>1점 : </dt>
+                                <dd>0점 초과 19점 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>2점 : </dt>
+                                <dd>19점 초과 39점 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>3점 : </dt>
+                                <dd>39점 초과 100점 이하</dd>
+                              </dl>
+                            </li>   
+                            <li>
+                              <strong>행동점수</strong><br />
+                              <dl>
+                                <dt>이탈 : </dt>
+                                <dd>0점 초과 2점 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>휴면 : </dt>
+                                <dd>2점 초과 4점 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>활성 : </dt>
+                                <dd>8점 미만</dd>
+                              </dl>
+                              <dl>
+                                <dt>충성 : </dt>
+                                <dd>7점 초과 9점 이하</dd>
+                              </dl>                                 
+                            </li>                            
+                          </ul> 
+                        </div>                
+                      </div>
+                      <div class="model-box">
+                        <h5 class="model-classify">유형별</h5>                        
+                        <div class="table-wrap mt-8">
+                          <table class="table nowrap has-body-th">
+                            <colgroup>
+                              <col style="width: 20%">
+                              <col style="width: 40%">                              
+                              <col style="width: 40%">                                                      
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>상태유형</th>
+                                <th>고객수(명)</th>
+                                <th>비율(%)</th>                                
+                              </tr>
+                            </thead>
+                            <tbody>                              
+                              <tr>
+                                <th>신규고객</td>
+                                <td></td>
+                                <td></td>                                                
+                              </tr>
+                              <tr>
+                                <th>활성고객</td>
+                                <td></td>
+                                <td></td>                                                
+                              </tr>
+                              <tr>
+                                <th>충성고객</td>
+                                <td>592,390</td>
+                                <td>12.85</td>                                                
+                              </tr>
+                              <tr>
+                                <th>휴면고객</td>
+                                <td>536,879</td>
+                                <td>11.65</td>                                                
+                              </tr>
+                              <tr>
+                                <th>이탈고객</td>
+                                <td>262,201</td>
+                                <td>56.84</td>                                                
+                              </tr>
+                              <tr class="total-sum">
+                                <th>합계</td>
+                                <td>4,610,033</td>
+                                <td>100.00</td>                                                
+                              </tr>              
+                            </tbody>
+                          </table>
+                        </div>                                
+                        <h5 class="model-classify mt-24">행동점수별</h5>
+                        <div class="table-wrap mt-8">
+                          <table class="table nowrap has-body-th">
+                            <colgroup>
+                              <col style="width: 20%">
+                              <col style="width: 40%">                              
+                              <col style="width: 40%">                                                      
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>행동점수</th>
+                                <th>고객수(명)</th>
+                                <th>비율(%)</th>                                
+                              </tr>
+                            </thead>
+                            <tbody>                              
+                              <tr>
+                                <th>0점</th>
+                                <td></td>
+                                <td></td>                                                
+                              </tr>
+                              <tr>
+                                <th>1점</th>
+                                <td></td>
+                                <td></td>                                                
+                              </tr>
+                              <tr>
+                                <th>2점</th>
+                                <td></td>
+                                <td></td>                                               
+                              </tr>
+                              <tr>
+                                <th>3점</th>
+                                <td></td>
+                                <td></td>                                               
+                              </tr>
+                              <tr>
+                                <th>4점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>5점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>6점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>7점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>8점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>9점</th>
+                                <td></td>
+                                <td></td>                                             
+                              </tr>
+                              <tr class="total-sum">
+                                <th>합계</th>
+                                <td></td>
+                                <td>100.00</td>                                                
+                              </tr>              
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="selected-model">
+                      <h4 class="selected-model-tit mr-4">[M-able행동기반고객상태_240416_001]모델명입니다.</h4>
+                      <!-- 툴팁 -->
+                      <div class="tooltips">
+                        <button type="button" title="툴팁 열기" class="btn-tooltips"></button>
+                        <div class="msg type-2">
+                          <button type="button" title="툴팁 닫기" class="btn-tipClose"></button>                    
+                          <ul class="has-dot ty-3 analysis-summary">
+                            <li>
+                              <strong>가입기간</strong><br />
+                              <dl>
+                                <dt>가입경과일수 : </dt>
+                                <dd>4주</dd>
+                              </dl>
+                            </li>
+                            <li>
+                              <strong>총 접속일수(최근성)</strong><br />
+                              <dl>
+                                <dt>분석기간 : </dt>
+                                <dd>5주</dd>
+                              </dl>
+                              <dl>
+                                <dt>0점 : </dt>
+                                <dd>0일</dd>
+                              </dl>
+                              <dl>
+                                <dt>1점 : </dt>
+                                <dd>0일 초과 7일 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>2점 : </dt>
+                                <dd>7일 초과 25일 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>3점 : </dt>
+                                <dd>25일 초과 40일 이하</dd>
+                              </dl>
+                            </li>
+                            <li>
+                              <strong>총 접속주수(지속성)</strong><br />
+                              <dl>
+                                <dt>분석기간 : </dt>
+                                <dd>12주</dd>
+                              </dl>
+                              <dl>
+                                <dt>0점 : </dt>
+                                <dd>0주</dd>
+                              </dl>
+                              <dl>
+                                <dt>1점 : </dt>
+                                <dd>0주 초과 4주 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>2점 : </dt>
+                                <dd>4주 초과 9주 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>3점 : </dt>
+                                <dd>9주 초과 12주 이하</dd>
+                              </dl>
+                            </li>   
+                            <li>
+                              <strong>화면조회수와 화면개수의 평균점수(활동성)</strong><br />
+                              <dl>
+                                <dt>분석기간 : </dt>
+                                <dd>4주</dd>
+                              </dl>
+                              <dl>
+                                <dt>0점 : </dt>
+                                <dd>0점</dd>
+                              </dl>
+                              <dl>
+                                <dt>1점 : </dt>
+                                <dd>0점 초과 19점 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>2점 : </dt>
+                                <dd>19점 초과 39점 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>3점 : </dt>
+                                <dd>39점 초과 100점 이하</dd>
+                              </dl>
+                            </li>   
+                            <li>
+                              <strong>행동점수</strong><br />
+                              <dl>
+                                <dt>이탈 : </dt>
+                                <dd>0점 초과 2점 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>휴면 : </dt>
+                                <dd>2점 초과 4점 이하</dd>
+                              </dl>
+                              <dl>
+                                <dt>활성 : </dt>
+                                <dd>8점 미만</dd>
+                              </dl>
+                              <dl>
+                                <dt>충성 : </dt>
+                                <dd>7점 초과 9점 이하</dd>
+                              </dl>                                 
+                            </li>                            
+                          </ul> 
+                        </div>                
+                      </div>
+                      <div class="model-box">
+                        <h5 class="model-classify">유형별</h5>                        
+                        <div class="table-wrap mt-8">
+                          <table class="table nowrap has-body-th">
+                            <colgroup>
+                              <col style="width: 20%">
+                              <col style="width: 40%">                              
+                              <col style="width: 40%">                                                      
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>상태유형</th>
+                                <th>고객수(명)</th>
+                                <th>비율(%)</th>                                
+                              </tr>
+                            </thead>
+                            <tbody>                              
+                              <tr>
+                                <th>신규고객</td>
+                                <td></td>
+                                <td></td>                                                
+                              </tr>
+                              <tr>
+                                <th>활성고객</td>
+                                <td></td>
+                                <td></td>                                                
+                              </tr>
+                              <tr>
+                                <th>충성고객</td>
+                                <td>592,390</td>
+                                <td>12.85</td>                                                
+                              </tr>
+                              <tr>
+                                <th>휴면고객</td>
+                                <td>536,879</td>
+                                <td>11.65</td>                                                
+                              </tr>
+                              <tr>
+                                <th>이탈고객</td>
+                                <td>262,201</td>
+                                <td>56.84</td>                                                
+                              </tr>
+                              <tr class="total-sum">
+                                <th>합계</td>
+                                <td>4,610,033</td>
+                                <td>100.00</td>                                                
+                              </tr>              
+                            </tbody>
+                          </table>
+                        </div>                                
+                        <h5 class="model-classify mt-24">행동점수별</h5>
+                        <div class="table-wrap mt-8">
+                          <table class="table nowrap has-body-th">
+                            <colgroup>
+                              <col style="width: 20%">
+                              <col style="width: 40%">                              
+                              <col style="width: 40%">                                                      
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>행동점수</th>
+                                <th>고객수(명)</th>
+                                <th>비율(%)</th>                                
+                              </tr>
+                            </thead>
+                            <tbody>                              
+                              <tr>
+                                <th>0점</th>
+                                <td></td>
+                                <td></td>                                                
+                              </tr>
+                              <tr>
+                                <th>1점</th>
+                                <td></td>
+                                <td></td>                                                
+                              </tr>
+                              <tr>
+                                <th>2점</th>
+                                <td></td>
+                                <td></td>                                               
+                              </tr>
+                              <tr>
+                                <th>3점</th>
+                                <td></td>
+                                <td></td>                                               
+                              </tr>
+                              <tr>
+                                <th>4점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>5점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>6점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>7점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>8점</th>
+                                <td></td>
+                                <td></td>                                           
+                              </tr>
+                              <tr>
+                                <th>9점</th>
+                                <td></td>
+                                <td></td>                                             
+                              </tr>
+                              <tr class="total-sum">
+                                <th>합계</th>
+                                <td></td>
+                                <td>100.00</td>                                                
+                              </tr>              
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 기본값 안내문구 -->
+                  <!-- <p class="fc-gray-666 fz-13">분석기준일을 설정한 후 모델비교 버튼을 클릭해주세요.</p>                                 -->
+                </div>              
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn" onclick="popClose('#compareModel2')">확인</button>                                                                
+              </div>                            
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- //container -->
+    </section>    
+    <!-- //wrap -->
+    <script>
+       $(function () {
+        //openPop
+        popOpen('#compareModel2');       
+      })
+    </script>
+  </body>
+</html>

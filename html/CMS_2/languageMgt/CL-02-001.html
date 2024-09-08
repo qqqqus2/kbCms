@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">콘텐츠(AEM) 작성</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 부가정보 등록</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/맞춤법 검사</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타깃분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드 게시판</a></li>
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">콘텐츠별 현황</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 공개현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 현황 조회</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 반응 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">콘텐츠 부서활용 현황</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">조회통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간</a></li>
+                        <li><a class="kb-lnb-link" href="#">조회고객수</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">순위통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">체류시간 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반복조회수 순위</a></li>
+                        <li><a class="kb-lnb-link" href="#">반응 순위</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">고객통계 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">성별/연령별</a></li>
+                        <li><a class="kb-lnb-link" href="#">자산규모별</a></li>
+                        <li><a class="kb-lnb-link" href="#">PUSH등록고객 분포</a></li>
+                        <li><a class="kb-lnb-link" href="#">보유상품별</a></li>
+                        <li><a class="kb-lnb-link" href="#">타깃고개별</a></li>
+                        <li><a class="kb-lnb-link" href="#">접촉매체별</a></li>
+                        <li><a class="kb-lnb-link" href="#">시간대별</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">경로 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 유입경로</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP 이동경로</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델 현황 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">메뉴 1</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">분석 모델 운영</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">계정 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">권한 관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">권한별 사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">메뉴별 권한 관리</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">언어가이드</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">고객언어관리</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">언어가이드</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <div class="common-search">                                
+                <dl>
+                  <dt class="w-150">추천키워드
+                    <!-- 사용자용일 경우 아래 설정버튼 제거 -->
+                    <button type="button" class="btn btn-tiny btn-gray ml-6">설정</button>
+                  </dt>
+                  <dd class="overflow-hidden gap-0 w-full">
+                    <button type="button" class="btn btn-to-left" ><span class="sr-only">왼쪽 스크롤</span></button>
+                    <div class="recommend-keyword">                      
+                      <button type="button" class="btn btn-sml btn-round btn-line">옵션</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">퇴직연금운용계좌</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">중국/홍콩채권</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">일임형 WRAP</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">채권</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">해외채권</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">만기자금 CMA자동투자서비스1</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">만기자금 CMA자동투자서비스2</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">만기자금 CMA자동투자서비스3</button>
+                      <button type="button" class="btn btn-sml btn-round btn-line">만기자금 CMA자동투자서비스4</button>
+                    </div>
+                    <button type="button" class="btn btn-to-right ml-auto" ><span class="sr-only">관리</span></button>                    
+                  </dd>
+                </dl>
+                <dl>
+                  <dt class="w-150">키워드</dt>
+                  <dd class="w-full">
+                    <div class="form-item inline-flex align-center">
+                      <div class="select custom-select flex-00">
+                        <select>
+                          <option value="">전체</option>
+                          <option value="">제목</option>
+                          <option value="">내용</option>
+                          <option value="">등록자</option>
+                          <option value="">연관키워드</option>
+                        </select>
+                      </div>
+                      <div class="input w-full ml-6">
+                        <input type="text" title="연관키워드 입력" placeholder="여러 개의 키워드 동시 검색 시 ‘,’ 쉼표를 구분자로 사용하여 최대 3개까지 검색조건으로 설정 할 수 있습니다." aria-label="연관키워드 입력" />
+                      </div>
+                    </div>
+                  </dd>
+                </dl>                               
+              </div>
+            </div>
+            <div class="common-search-btn mt-16">
+              <button type="button" class="btn btn-mid btn-line">초기화</button>
+              <button type="button" class="btn btn-mid btn-yellow">검색</button>
+            </div>
+
+            <div class="kb-box-inner mt-32">
+              <div class="common-search-table">
+                <div class="title-wrap flex align-center mb-12">                  
+                  <div class="left"><span>검색결과</span> <strong class="fc-blue">999</strong></div>
+                  <div class="ml-auto inline-flex justify-end">
+                    <div class="form-item">
+                      <div class="select custom-select">
+                        <select>
+                          <option value="">20개씩 보기</option>
+                          <option value="">50개씩 보기</option>
+                          <option value="">100개씩 보기</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-item ml-6">
+                      <div class="select custom-select">
+                        <select>
+                          <option value="">최신등록순</option>
+                          <option value="">최신수정순</option>                          
+                        </select>
+                      </div>
+                    </div>                    
+                    <!-- 사용자용일 경우 아래 신규등록 버튼 제거 -->
+                    <button type="button" class="btn btn-sml btn-gray ml-6">신규등록</button>
+                  </div>
+                </div>
+
+                <!-- 테이블 -->
+                <ul class="language-guide-list">
+                  <li>                  
+                    <div class="guide-idx-wrap">                                          
+                      <div class="guide-contents">        
+                        <div>
+                          <a href="#none" class="list-tit ellipsis">미국파생상품 언어가이드 2023년도입니다. 미국파생상품 언어가이드 2023년도입니다. 미국파생상품 언어가이드 2023년도입니다. 미국파생상품 언어가이드 2023년도입니다. 미국파생상품 언어가이드 2023년도입니다. 미국파생상품 언어가이드 2023년도입니다.</a>                          
+                        </div>                 
+                        <a href="#none" class="list-date">
+                          <dl>
+                            <dt>등록</dt>
+                            <dd class="date">2024-04-16 12:34:56</dd>
+                            <dd>홍길동</dd>
+                          </dl>
+                          <dl>
+                            <dt>최종수정</dt>
+                            <dd class="date">2024-04-16 12:34:56</dd>
+                            <dd>홍길동</dd>
+                          </dl>
+                        </a> 
+                        <div class="list-keyword">
+                          <p>옵션</p>
+                          <p>퇴직연금운용계좌</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                        </div>   
+                      </div>              
+                      <div class="w-100 flex-00 t-center">
+                        <button type="button" class="btn-download"><span class="sr-only">다운로드</span></button>
+                      </div>            
+                    </div>
+                  </li>
+                  <li>                  
+                    <div class="guide-idx-wrap">                                              
+                      <div class="guide-contents">   
+                        <div>
+                          <a href="#none" class="list-tit ellipsis">미국파생상품 언어가이드 2023년도입니다.</a>                          
+                        </div>                    
+                        <a href="#none" class="list-date">
+                          <dl>
+                            <dt>등록</dt>
+                            <dd class="date">2024-04-16 12:34:56</dd>
+                            <dd>홍길동</dd>
+                          </dl>
+                          <dl>
+                            <dt>최종수정</dt>
+                            <dd class="date">2024-04-16 12:34:56</dd>
+                            <dd>홍길동</dd>
+                          </dl>
+                        </a> 
+                        <div class="list-keyword">
+                          <p>옵션</p>
+                          <p>퇴직연금운용계좌</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                        </div>   
+                      </div>                       
+                    </div>
+                  </li>
+                  <li>                  
+                    <div class="guide-idx-wrap">                                              
+                      <div class="guide-contents">   
+                        <div>
+                          <a href="#none" class="list-tit ellipsis">미국파생상품 언어가이드 2023년도입니다.</a>                          
+                        </div>                    
+                        <a href="#none" class="list-date">
+                          <dl>
+                            <dt>등록</dt>
+                            <dd class="date">2024-04-16 12:34:56</dd>
+                            <dd>홍길동</dd>
+                          </dl>
+                          <dl>
+                            <dt>최종수정</dt>
+                            <dd class="date">2024-04-16 12:34:56</dd>
+                            <dd>홍길동</dd>
+                          </dl>
+                        </a> 
+                        <div class="list-keyword">
+                          <p>옵션</p>
+                          <p>퇴직연금운용계좌</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <p>만기자금CMA자동투자서비스</p>
+                          <button type="button" class="btn-depth-toggle" style="display: none;"><span class="sr-only">토글</span></button>
+                        </div>   
+                      </div>  
+                      <div class="w-100 flex-00 t-center">
+                        <button type="button" class="btn-download"><span class="sr-only">다운로드</span></button>
+                      </div>                        
+                    </div>
+                  </li>                
+                  <li>
+                    <div class="search-notFound">검색된 검색결과가 없습니다.</div>
+                  </li>
+                </ul>
+
+                <!-- 페이징 -->
+                <nav aria-label="Page navigation">
+                  <ul class="pagination justify-center mt-16">
+                    <li class="page-item">
+                      <a class="page-link prev-first disabled" href="#" aria-label="처음으로">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link prev-page disabled" href="#" aria-label="이전페이지로">
+                        <span aria-hidden="true">&#60;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link next-page" href="#" aria-label="다음페이지로">
+                        <span aria-hidden="true">&#62;</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link next-last" href="#" aria-label="마지막으로">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
+    </section>
+    <!-- //wrap -->
+    <script>
+      // 상단의 키워드 영역 좌우 스크롤
+      function wordToRight(i){        
+        $('.recommend-keyword').animate({ scrollLeft:$('.recommend-keyword').scrollLeft() + i }, 400);
+      }
+      function wordToLeft(i){
+        $('.recommend-keyword').animate({ scrollLeft:$('.recommend-keyword').scrollLeft() - i }, 400);        
+      }
+      const buttonRight = $('.btn-to-right');
+      const buttonLeft = $('.btn-to-left');
+      buttonRight.on("click",function(){                
+        wordToRight(200);
+      })      
+      buttonLeft.on("click",function(){        
+        wordToLeft(200);
+      })
+
+      // 검색 리스트의 연관 키워드 한 줄 넘김 시 펼침 버튼 on/off 
+      $(document).ready(function(){
+        var keywordWrap = $(".list-keyword");        
+        var toggleBtn = keywordWrap.find(".btn-depth-toggle");
+
+        keywordWrap.each(function(){                              
+          var $this = $(this);
+          if(this.scrollWidth > this.clientWidth || this.scrollHeight > this.clientHeight) {
+            $this.find('.btn-depth-toggle').show();
+          } else {
+            $this.find('.btn-depth-toggle').hide();
+          }
+        })
+        
+        toggleBtn.on('click', function(){
+          $(this).toggleClass('active')
+          if ($(this).hasClass('active')) {
+            $(this).closest(".list-keyword").height('auto');
+          } else {
+            $(this).closest(".list-keyword").height('2.6rem');
+          }
+        })     
+
+      })
+
+      function getUrlParams() {
+        var params = {};
+        window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { params[key] = value; });
+        return params;
+      }      
+     
+      if(getUrlParams().type === 'user'){
+        $('.btn-tiny').css('display', 'inline-block');    
+        $("button:contains('신규등록')").show();           
+      } else {
+        $('.btn-tiny').css('display', 'none');
+        $("button:contains('신규등록')").hide();            
+      }
+  
+    </script>
+  </body>
+</html>

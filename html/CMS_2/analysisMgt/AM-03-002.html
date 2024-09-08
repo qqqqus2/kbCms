@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KB 증권 CMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.png" />
+
+    <!-- css -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- js -->
+    <script src="/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/lib/moment.min.js"></script>
+    <script src="/js/lib/datepicker/daterangepicker.js"></script>
+    <script src="/js/pubCustom.js"></script>
+
+    <!-- echart -->
+    <script src="/js/lib/echart.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <section class="kb-wrap">
+      <!-- 헤더 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다) -->
+      <header class="kb-navbar">
+        <div class="navbar-top">
+          <!-- 메뉴 열림 -->
+          <button id="btnExpand" type="button" class="btn-expand"><span class="sr-only">사이드 바 펼치기</span></button>
+          <div class="navbar-brand-wrap">
+            <a class="navbar-brand" href="../index.html" aria-label="KB 증권 콘텐츠 관리 시스템"><strong class="sr-only">KB 증권 콘텐츠 관리 시스템</strong></a>
+          </div>
+
+          <ul class="navbar-nav kb-navbar-util">
+            <li class="nav-item">
+              <div class="btn-group" role="group">
+                <button id="btnDrop" type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>김국민국민국민</strong>(KB123456)님</button>
+                <!-- <div class="dropdown-menu" aria-labelledby="btnDrop">
+                  <a class="dropdown-item" href="#">비밀번호 변경</a>
+                </div> -->
+                 <!-- 나의 계정정보 -->
+                 <article class="account-info">
+                  <div class="account-dialog">
+                    <div class="account-content">
+
+                      <!-- 상태값 없음 / 신청 Case -->
+                      <div class="account-head">
+                        <h6 class="tit">Guest</h6>
+                        <!-- <h6 class="tit">Guest | 신청</h6> -->
+                      </div>
+
+                      <!-- 반려 / 사용중지 Case 
+                      <div class="account-head stop-using">
+                        <h6 class="tit">Guest | 반려</h6>
+                        <h6 class="tit">Guest | 사용중지</h6>
+                      </div> -->
+
+                      <div class="account-body pb-24">
+                        <div class="account-info-wrap">
+                          <dl>
+                            <dt>이름</dt>
+                            <dd>김증권</dd>
+                          </dl>
+                          <dl>
+                            <dt>사번</dt>
+                            <dd>12345667</dd>
+                          </dl>
+                          <dl>
+                            <dt>부서</dt>
+                            <dd>콘텐츠 전략 스쿼드</dd>
+                          </dl>
+                         <div class="last-login-info">
+                          <p class="tit">마지막 접속 일시</p>
+                          <p>2024-04-10 12:23:41</p>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </li>
+            <li class="nav-item"><button type="button" class="nav-link log-out">로그아웃</button></li>
+          </ul>
+        </div>
+      </header>
+      <!-- //헤더 -->
+
+      <!-- container -->
+      <div class="kb-container">
+        <!-- 사이드바 (퍼블용 include 입니다 개발용 include는 다시 지정하셔야 합니다)-->
+        <div class="kb-sidebar">
+          <div class="kb-sidebar-inner" id="kb-lnb-nav">
+            <nav class="kb-lnb" aria-label="Main navigation">
+              <ul class="kb-lnb-dep1">
+                <li>
+                  <a href="/html/dashboard/dashboard.html" class="kb-lnb-link"><span>대시보드</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">Guest</a></li>
+                    <li><a href="#" class="kb-lnb-link">시스템 관리자</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 생성자</a></li>
+                    <li><a href="#" class="kb-lnb-link">타부서 사용자</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠 생성/배포</span></a>
+                  <ul class="kb-lnb-dep2">                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">매체 전시관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">심의 접수조회</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 사용신청</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 제작요청</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어검수 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>콘텐츠속성 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">타겟분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">특성분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">내용분류 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">연관키워드 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 템플릿 관리</a></li>                    
+                    <li><a href="#" class="kb-lnb-link">금지어/대체어 관리</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>고객언어 관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">공지사항</a></li>
+                    <li><a href="#" class="kb-lnb-link">언어가이드</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>모니터링</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">모니터링 대시보드</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">전체 현황</a></li>
+                        <li><a class="kb-lnb-link" href="#">MAP별 현황</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">콘텐츠 공개현황</a></li>
+                    <li><a href="#" class="kb-lnb-link">방문통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">고객통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">성과분석 통계</a></li>
+                    <li><a href="#" class="kb-lnb-link">순위통계 분석</a></li>
+                    <li><a href="#" class="kb-lnb-link">유입경로 분석</a></li>                    
+                    <li>
+                      <a href="#" class="kb-lnb-link">인사이트 분석</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">내부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">외부 트렌드 분석</a></li>
+                        <li><a class="kb-lnb-link" href="#">경쟁사 동향 분석</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">상담채널 분석</a></li>                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>분석모델관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li><a href="#" class="kb-lnb-link">모델관리</a></li>
+                    <li>
+                      <a href="#" class="kb-lnb-link">모델실행 및 재추정</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">모델재실행</a></li>
+                        <li><a class="kb-lnb-link" href="#">모델재추정</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">모델모니터링</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">수행결과</a></li>
+                        <li><a class="kb-lnb-link" href="#">변화추이</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="kb-lnb-link"><span>시스템관리</span></a>
+                  <ul class="kb-lnb-dep2">
+                    <li>
+                      <a href="#" class="kb-lnb-link">사용자신청관리</a>
+                      <ul class="kb-lnb-dep3">
+                        <li><a class="kb-lnb-link" href="#">사용자 관리</a></li>
+                        <li><a class="kb-lnb-link" href="#">신청 관리</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#" class="kb-lnb-link">메뉴 관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">권한그룹관리</a></li>
+                    <li><a href="#" class="kb-lnb-link">공지사항 관리</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- //사이드바 -->
+
+        <!-- 컨텐츠 -->
+        <main class="kb-content" role="main">
+          <!-- 컨텐츠헤더 -->
+          <div class="kb-page-title">
+            <div>
+              <div class="kb-title">
+                <h2 class="page-tit">모델재추정</h2>
+                <nav aria-label="breadcrumb" class="ml-auto">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">분석모델관리</a></li>
+                    <li class="breadcrumb-item"><a href="#">모델실행 및 재추정</a></li>
+                    <!-- 1뎁스 -->
+                    <li class="breadcrumb-item active" aria-current="page">모델재추정</li>
+                    <!-- 현재 페이지 -->
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!-- //컨텐츠헤더 -->
+
+          <!-- 컨텐츠 박스 -->
+          <div class="kb-content-box">
+            <div class="kb-box-inner">
+              <h3 class="content-tit">기본정보 <i class="fc-red">*</i></h3>
+              <table class="table left-table">                
+                <colgroup>
+                  <col style="width: 15%" />
+                  <col style="width: 35%" />
+                  <col style="width: 15%" />
+                  <col style="width: 35%" />
+                </colgroup>
+
+                <tbody>
+                  <tr>
+                    <th scope="row">분석모델유형</th>
+                    <td colspan="3">
+                      <div class="form-item">                      
+                        <label class="radio">
+                          <input type="radio" name="rdo1" /><i aria-hidden="true" class="lbl"></i>
+                          <span>MPTI</span>
+                        </label>                      
+                        <label class="radio ml-12">
+                          <input type="radio" name="rdo1" checked/><i aria-hidden="true" class="lbl"></i>
+                          <span>M-able행동기반고객상태</span>
+                        </label>                      
+                    </div>
+                  </td>                   
+                  </tr>
+                  <tr>
+                    <th scope="row">모델ID</th>
+                    <td>
+                      <div class="form-item">
+                        <div class="input w-full">
+                          <input type="text" title="모델ID 입력" placeholder="자동채번 됩니다." aria-label="모델ID 입력" readonly>
+                        </div>
+                        <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                      </div>
+                    </td>               
+                    <th scope="row">분석기준일</th>
+                    <td>
+                      <div class="form-item">
+                        <div class="date-single input input-date">
+                          <input type="text">
+                        </div>
+                      </div>
+                    </td>               
+                  </tr>                                         
+                  <tr>
+                    <th scope="row">모델명</th>
+                    <td colspan="3">
+                      <div class="form-item">
+                        <div class="input w-full">
+                          <input type="text" title="모델명 입력" placeholder="모델명을 입력해주세요." aria-label="모델명 입력" maxlength="30">
+                        </div>
+                        <!-- <div class="validate-txt is-error">입력정보를 입력하세요.</div> -->
+                      </div>
+                    </td>
+                  </tr>       
+                </tbody>
+              </table>
+
+              <!-- 모델 재추정 설정 -->
+              <h3 class="content-tit mt-24">모델 재추정 설정 <i class="fc-red">*</i></h3>
+              
+              <div class="table-wrap">
+                <table class="table nowrap">
+                  <colgroup>                  
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: auto" />                 
+                    <col style="width: auto" />                 
+                    <col style="width: auto" />                 
+                    <col style="width: auto" />                 
+                    <col style="width: auto" />                 
+                  </colgroup>
+                  <thead>
+                    <tr>                    
+                      <th scope="col">가입기간</th>
+                      <th scope="col" colspan="5">총 접속일수(최근성)</th>
+                      <th scope="col" colspan="5">총 접속주수(지속성)</th>
+                      <th scope="col" colspan="5">화면조회수와 화면개수의 평균점수(활동성)</th>
+                      <th scope="col" colspan="4">행동점수</th>
+                    </tr>
+                    <tr>                    
+                      <th scope="col" class="bd-l-none">가입경과<br />일수</th>
+                      <th scope="col">분석기간</th>
+                      <th scope="col">0점</th>
+                      <th scope="col">1점</th>
+                      <th scope="col">2점</th>
+                      <th scope="col">3점</th>
+                      <th scope="col">분석기간</th>
+                      <th scope="col">0점</th>
+                      <th scope="col">1점</th>
+                      <th scope="col">2점</th>
+                      <th scope="col">3점</th>
+                      <th scope="col">분석기간</th>
+                      <th scope="col">0점</th>
+                      <th scope="col">1점</th>
+                      <th scope="col">2점</th>
+                      <th scope="col">3점</th>                    
+                      <th scope="col">이탈</th>                    
+                      <th scope="col">휴면</th>                    
+                      <th scope="col">활성</th>                    
+                      <th scope="col">충성</th>                    
+                    </tr>
+                  </thead>
+                  <tbody>                  
+                    <tr>                       
+                      <td>                      
+                        <div class="form-item">
+                          <div class="input w-50">
+                            <input type="text" title="가입경과 일수 입력" placeholder="4" aria-label="가입경과 일수 입력" class="minW-30">
+                          </div>
+                          <span>주</span>
+                        </div>
+                      </td>
+                      <!-- 총 접속일수(최근성) -->
+                      <td>                      
+                        <div class="form-item">
+                          <div class="input w-50">
+                            <input type="text" title="총 접속일수 분석기간 입력" placeholder="4" aria-label="총 접속일수 분석기간 입력" class="minW-50">
+                          </div>
+                          <span>주</span>
+                        </div>
+                      </td>
+                      <td>0일</td>                    
+                      <td>                      
+                        <div class="form-item">
+                          <span>0일 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="총 접속일수 1점 상한선 입력" placeholder="3" aria-label="총 접속일수 1점 상한선 입력" class="minW-50">
+                          </div>
+                          <span>일 이하</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50">
+                            <input type="text" title="총 접속일수 2점 하한선 입력" placeholder="3" aria-label="총 접속일수 2점 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>일 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="총 접속일수 2점 상한선 입력" placeholder="14" aria-label="총 접속일수 2점 상한선 입력" class="minW-50">
+                          </div>
+                          <span>일 이하</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50">
+                            <input type="text" title="총 접속일수 3점 하한선 입력" placeholder="14" aria-label="총 접속일수 3점 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>일 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="총 접속일수 3점 상한선 입력" placeholder="28" aria-label="총 접속일수 3점 상한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>일 이하</span>
+                        </div>
+                      </td>
+                      <!-- 총 접속주수(지속성) -->
+                      <td>                      
+                        <div class="form-item">
+                          <div class="input w-50">
+                            <input type="text" title="총 접속주수 분석기간 입력" placeholder="12" aria-label="총 접속주수 분석기간 입력" class="minW-50">
+                          </div>
+                          <span>주</span>
+                        </div>
+                      </td>
+                      <td>0주</td>                    
+                      <td>                      
+                        <div class="form-item">
+                          <span>0주 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="총 접속주수 1점 상한선 입력" placeholder="4" aria-label="총 접속주수 1점 상한선 입력" class="minW-50">
+                          </div>
+                          <span>주 이하</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50">
+                            <input type="text" title="총 접속주수 2점 하한선 입력" placeholder="4" aria-label="총 접속주수 2점 상한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>주 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="총 접속주수 2점 상한선 입력" placeholder="9" aria-label="총 접속주수 2점 상한선 입력" class="minW-50">
+                          </div>
+                          <span>주 이하</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50">
+                            <input type="text" title="총 접속주수 3점 하한선 입력" placeholder="9" aria-label="총 접속주수 3점 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>주 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="총 접속주수 3점 상한선 입력" placeholder="12" aria-label="총 접속주수 3점 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>주 이하</span>
+                        </div>
+                      </td>
+                      <!-- 화면조회수와 화면개수의 평균점수(활동성) -->
+                      <td>                      
+                        <div class="form-item">
+                          <div class="input w-50">
+                            <input type="text" title="화면조회수와 화면개수의 평균점수 분석기간 입력" placeholder="4" aria-label="화면조회수와 화면개수의 평균점수 분석기간 입력" class="minW-50">
+                          </div>
+                          <span>주</span>
+                        </div>
+                      </td>
+                      <td>0점</td>                    
+                      <td>                      
+                        <div class="form-item">
+                          <span>0점 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="화면조회수와 화면개수의 평균점수 1점 상한선 입력" placeholder="19" aria-label="화면조회수와 화면개수의 평균점수 1점 상한선 입력" class="minW-50">
+                          </div>
+                          <span>점 이하</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50">
+                            <input type="text" title="화면조회수와 화면개수의 평균점수 2점 하한선 입력" placeholder="19" aria-label="화면조회수와 화면개수의 평균점수 2점 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>점 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="화면조회수와 화면개수의 평균점수 2점 상한선 입력" placeholder="39" aria-label="화면조회수와 화면개수의 평균점수 2점 상한선 입력" class="minW-50">
+                          </div>
+                          <span>점 이하</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50 mb-6">
+                            <input type="text" title="화면조회수와 화면개수의 평균점수 3점 하한선 입력" placeholder="39" aria-label="화면조회수와 화면개수의 평균점수 3점 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>점 초과</span><br />                        
+                          <span>100점 이하</span>
+                        </div>
+                      </td>        
+                      <!-- 행동점수 -->
+                      <td>                      
+                        <div class="form-item">
+                          <span>0점 미만</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="이탈에 해당하는 행동점수 상한선 입력" placeholder="2" aria-label="이탈에 해당하는 행동점수 상한선 입력" class="minW-50">
+                          </div>
+                          <span>점 이하</span>
+                        </div>
+                      </td>                                                            
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50">
+                            <input type="text" title="휴면에 해당하는 행동점수 하한선 입력" placeholder="2" aria-label="휴면에 해당하는 행동점수 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>점 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="휴면에 해당하는 행동점수 상한선 입력" placeholder="4" aria-label="휴면에 해당하는 행동점수 상한선 입력" class="minW-50">
+                          </div>
+                          <span>점 이하</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50">
+                            <input type="text" title="활성에 해당하는 행동점수 하한선 입력" placeholder="4" aria-label="활성에 해당하는 행동점수 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>점 초과</span><br />
+                          <div class="input w-50 mt-6">
+                            <input type="text" title="활성에 해당하는 행동점수 상한선 입력" placeholder="7" aria-label="활성에 해당하는 행동점수 상한선 입력" class="minW-50">
+                          </div>
+                          <span>점 이하</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-item">                        
+                          <div class="input w-50 mb-6">
+                            <input type="text" title="충성에 해당하는 행동점수 하한선 입력" placeholder="7" aria-label="충성에 해당하는 행동점수 하한선 입력" class="minW-50" disabled>
+                          </div>
+                          <span>점 미만</span><br/>                          
+                          <span>9점 이하</span>
+                        </div>
+                      </td>               
+                    </tr>  
+                    <tr>
+                      <td>
+                        <div class="tooltips detail-info-wrap">
+                          <button type="button" class="btn btn-sml btn-line btn-search" data-name="checkBtn1" disabled>분포확인</button>
+                          <div class="detail-info-box">
+                            <p class="info-tit">고객 분포 확인</p>                                                      
+                            <div class="info-graph h-140">                                                            
+                              <div class="detail-txt-wrap">
+                                <span class="detail-period">임계치 4주</span>
+                                <p class="detail-txt">가입경과주수 4주 이내 고객</p>
+                                <div class="h-line"></div>
+                                <p class="detail-txt">전체고객</p>
+                              </div>
+                            </div>
+                            <div class="mt-8 t-left">
+                              <p class="calc-txt">= (30,717/4,616,033)*100</p>
+                              <p class="calc-txt">= 0.67%</p>
+                            </div>
+                            <div class="info-wrap-footer">
+                              <button type="button" class="btn" >확인</button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td colspan="5">
+                        <div class="tooltips detail-info-wrap" >
+                          <button type="button" class="btn btn-sml btn-line btn-search" data-name="checkBtn2" disabled>분포확인</button>
+                          <div class="detail-info-box">
+                            <p class="info-tit">고객 분류 분포(0점 고객 제외)</p>                                                      
+                            <div class="info-graph ty-2">                              
+                              <div id="line-chart-1" style="width: 27.8rem; height: 22rem;"></div>
+                              <div class="custom-label">
+                                <div>0.0</div>
+                                <div>0.5</div>
+                                <div>1.0</div>
+                              </div>
+                              <div class="category-name-wrap">
+                                <p class="category-name">1점</p>
+                                <p class="category-name">2점</p>
+                                <p class="category-name">3점</p>
+                              </div>
+                            </div>
+                            <div class="info-wrap-footer">
+                              <button type="button" class="btn" >확인</button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td colspan="5">
+                        <div class="tooltips detail-info-wrap">
+                          <button type="button" class="btn btn-sml btn-line btn-search" data-name="checkBtn3" disabled>분포확인</button>
+                          <div class="detail-info-box">
+                            <p class="info-tit">고객 분류 분포(0점 고객 제외)</p>                                                      
+                            <div class="info-graph ty-2">                              
+                              <div id="line-chart-2" style="width: 27.8rem; height: 22rem;"></div>
+                              <div class="custom-label">
+                                <div>0.0</div>
+                                <div>0.5</div>
+                                <div>1.0</div>
+                              </div>
+                              <div class="category-name-wrap">
+                                <p class="category-name">1점</p>
+                                <p class="category-name">2점</p>
+                                <p class="category-name">3점</p>
+                              </div>
+                            </div>
+                            <div class="info-wrap-footer">
+                              <button type="button" class="btn" >확인</button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td colspan="5">
+                        <div class="tooltips detail-info-wrap">
+                          <button type="button" class="btn btn-sml btn-line btn-search" data-name="checkBtn4" disabled>분포확인</button>
+                          <div class="detail-info-box">
+                            <p class="info-tit">고객 분류 분포(0점 고객 제외)</p>                                                      
+                            <div class="info-graph ty-2">                              
+                              <div id="line-chart-3" style="width: 27.8rem; height: 22rem;"></div>
+                              <div class="custom-label">
+                                <div>0.0</div>
+                                <div>0.5</div>
+                                <div>1.0</div>
+                              </div>
+                              <div class="category-name-wrap">
+                                <p class="category-name">1점</p>
+                                <p class="category-name">2점</p>
+                                <p class="category-name">3점</p>
+                              </div>
+                            </div>
+                            <div class="info-wrap-footer">
+                              <button type="button" class="btn" >확인</button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td colspan="4">분포확인 제공하지 않음</td>
+                    </tr>                
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 버튼 영역-->
+              <div class="flex flex-01 mt-15">
+                <button type="button" class="btn btn-mid btn-line">모델관리목록</button>
+
+                <div class="ml-auto t-right">
+                  <div class="common-btn-wrap">                    
+                    <button type="button" class="btn btn-mid btn-line">초기화</button>
+                    <button type="button" class="btn btn-mid btn-yellow">모델재추정</button>
+                  </div>
+                </div>                
+              </div>
+              <!-- 유의 사항 -->
+              <div class="info-contetns mt-24">
+                <p class="tit">파라미터 설정 시 유의사항</p>                
+                <ul>
+                  <li>1주 &lt;= 가입경과일수 &lt;= 접속일수(최근성) 분석기간 &lt;= 조회(활동성) 분석기간 &lt;= 접속주수(지속성) 분석기간 &lt;= 24주</li>                                    
+                  <li>1일 &lt; 1~2점 구간 구분 접속일수 임계치 &lt; 2~3점 구간 구분 접속일수 임계치 &lt; 접속일수 분석기간 X 7일</li>                                    
+                  <li>1주 &lt; 1~2점 구간 구분 접속주수 임계치 &lt; 2~3점 구간 구분 접속주수 임계치 &lt; 접속주수 분석기간</li>                                    
+                  <li>0점 &lt; 1~2점 구간 구분 평균점수 임계치 &lt; 2~3점 구간 구분 평균점수 임계치 &lt; 100점</li>                                    
+                  <li>0점 &lt; 이탈/휴면 고객 구분 임계치 &lt; 휴면/활성 고객 구분 임계치 &lt; 활성/충성 고객 구분 임계치 &lt; 9점</li>                                    
+                </ul>                
+              </div>    
+            </div>              
+          </div>
+        </main>
+        <!-- //컨텐츠 -->
+      </div>
+      <!-- //container -->
+    </section>    
+    <!-- //wrap -->
+    <script>
+      // 가입기간 - 가입경과 일수 입력 후 분포 확인 버튼 활성화
+      $("input[title='가입경과 일수 입력']").on('input', function(){
+        $("[data-name=checkBtn1]").prop("disabled", !$(this).val().length);
+      })
+      // 가입기간 - 가입경과 분포 확인 버튼 클릭
+      $("[data-name=checkBtn1]").on('click', function(){
+        let inputValue =  $("input[title='가입경과 일수 입력']");        
+        if(inputValue.val() < 1 || inputValue.val() > 24){
+          // alert
+          inputValue.val('');
+          $(this).prop('disabled', true);
+          $(this).next('.detail-info-box').hide();
+        }else{
+          $(this).next('.detail-info-box').show();
+        }
+      })
+
+      // 총 접속일수(최근성)
+      var dayScore1 = $("input[title='총 접속일수 1점 상한선 입력']");
+      var dayScore2Down = $("input[title='총 접속일수 2점 하한선 입력']");
+      var dayScore2Up = $("input[title='총 접속일수 2점 상한선 입력']");
+      var dayScore3Down = $("input[title='총 접속일수 3점 하한선 입력']");
+      var dayScore3Up = $("input[title='총 접속일수 3점 상한선 입력']");
+
+      // 총 접속일수 1점 상한선 입력시 2점 하한선 자동 입력
+      dayScore1.on('input', function(){
+        var $thisVal = $(this).val();
+        dayScore2Down.val($thisVal);
+      })
+      // 총 접속일수 2점 상한선 입력시 3점 하한선 자동 입력
+      dayScore2Up.on('input', function(){
+        var $thisVal = $(this).val();
+        dayScore3Down.val($thisVal);
+      })
+      // 총 접속일수(최근성) 분석기간 입력 시 3점 상한선 자동 입력
+      $("input[title='총 접속일수 분석기간 입력']").on('input', function(){
+        var $thisVal = $(this).val() * 7;
+        dayScore3Up.val($thisVal);
+      })
+      // 총 접속일수 분포 확인 버튼 활성화      
+      $("input[title='총 접속일수 분석기간 입력'], input[title='총 접속일수 1점 상한선 입력'], input[title='총 접속일수 2점 상한선 입력']").on('input', function(){
+        if($("input[title='총 접속일수 분석기간 입력']").val().length && dayScore1.val() && dayScore2Up.val()){
+          $("[data-name=checkBtn2]").prop('disabled', false)         
+        }else{
+          $("[data-name=checkBtn2]").prop('disabled', true)         
+        }
+      })
+      // 총 접속일수 분포 확인 버튼 클릭
+      $("[data-name=checkBtn2]").on('click', function(){     
+        // 1점 상한선 값이 2점 상한선 값보다 클 경우
+        if(parseInt(dayScore1.val()) > parseInt(dayScore2Up.val())){       
+          // alert          
+          dayScore1.val('');          
+          $(this).prop('disabled', true);
+          $(this).next('.detail-info-box').hide();
+          return;
+        }
+        // 2점 상한선 값이 3점 상한선 값보다 클 경우
+        if(parseInt(dayScore2Up.val()) > parseInt(dayScore3Up.val())){
+          // alert
+          dayScore2Up.val('');     
+          $(this).prop('disabled', true);     
+          $(this).next('.detail-info-box').hide();
+          return;
+        } 
+        $(this).next('.detail-info-box').show();
+      })
+
+      // 총 접속주수(지속성)
+      var weekScore1 = $("input[title='총 접속주수 1점 상한선 입력']");
+      var weekScore2Down = $("input[title='총 접속주수 2점 하한선 입력']");
+      var weekScore2Up = $("input[title='총 접속주수 2점 상한선 입력']");
+      var weekScore3Down = $("input[title='총 접속주수 3점 하한선 입력']");
+      var weekScore3Up = $("input[title='총 접속주수 3점 상한선 입력']");
+
+      // 총 접속주수 1점 상한선 입력시 2점 하한선 자동 입력
+      weekScore1.on('input', function(){
+        var $thisVal = $(this).val();
+        weekScore2Down.val($thisVal);
+      })
+      // 총 접속주수 2점 상한선 입력시 3점 하한선 자동 입력
+      weekScore2Up.on('input', function(){
+        var $thisVal = $(this).val();
+        weekScore3Down.val($thisVal);
+      })
+      // 총 접속주수(최근성) 분석기간 입력 시 3점 상한선 자동 입력
+      $("input[title='총 접속주수 분석기간 입력']").on('input', function(){
+        var $thisVal = $(this).val();
+        weekScore3Up.val($thisVal);
+      })
+      // 총 접속주수 분포 확인 버튼 활성화      
+      $("input[title='총 접속주수 분석기간 입력'], input[title='총 접속주수 1점 상한선 입력'], input[title='총 접속주수 2점 상한선 입력']").on('input', function(){
+        if($("input[title='총 접속주수 분석기간 입력']").val().length && weekScore1.val() && weekScore2Up.val()){
+          $("[data-name=checkBtn3]").prop('disabled', false)
+        }else{
+          $("[data-name=checkBtn3]").prop('disabled', true)         
+        }
+      })
+      // 총 접속주수 분포 확인 버튼 클릭
+      $("[data-name=checkBtn3]").on('click', function(){     
+        // 1점 상한선 값이 2점 상한선 값보다 클 경우
+        if(parseInt(weekScore1.val()) > parseInt(weekScore2Up.val())){       
+          // alert          
+          weekScore1.val('');
+          $(this).prop('disabled', true);
+          $(this).next('.detail-info-box').hide();
+          return;
+        }
+        // 2점 상한선 값이 3점 상한선 값보다 클 경우
+        if(parseInt(weekScore2Up.val()) > parseInt(weekScore3Up.val())){
+          // alert
+          weekScore2Up.val('');
+          $(this).prop('disabled', true);
+          $(this).next('.detail-info-box').hide();
+          return;
+        }
+        $(this).next('.detail-info-box').show(); 
+      })
+
+      // 화면조회수와 화면개수의 평균점수(활동성)
+      var avgScore1 = $("input[title='화면조회수와 화면개수의 평균점수 1점 상한선 입력']");
+      var avgScore2Down = $("input[title='화면조회수와 화면개수의 평균점수 2점 하한선 입력']");
+      var avgScore2Up = $("input[title='화면조회수와 화면개수의 평균점수 2점 상한선 입력']");
+      var avgScore3Down = $("input[title='화면조회수와 화면개수의 평균점수 3점 하한선 입력']");      
+
+      // 화면조회수와 화면개수의 평균점수 1점 상한선 입력시 2점 하한선 자동 입력
+      avgScore1.on('input', function(){
+        var $thisVal = $(this).val();
+        avgScore2Down.val($thisVal);
+      })
+      // 화면조회수와 화면개수의 평균점수 2점 상한선 입력시 3점 하한선 자동 입력
+      avgScore2Up.on('input', function(){
+        var $thisVal = $(this).val();
+        avgScore3Down.val($thisVal);
+      })    
+      // 화면조회수와 화면개수의 평균점수 분포 확인 버튼 활성화      
+      $("input[title='화면조회수와 화면개수의 평균점수 분석기간 입력'], input[title='화면조회수와 화면개수의 평균점수 1점 상한선 입력'], input[title='화면조회수와 화면개수의 평균점수 2점 상한선 입력']").on('input', function(){
+        if($("input[title='화면조회수와 화면개수의 평균점수 분석기간 입력']").val().length && avgScore1.val() && avgScore2Up.val()){
+          $("[data-name=checkBtn4]").prop('disabled', false)
+        }else{
+          $("[data-name=checkBtn4]").prop('disabled', true)
+        }
+      })
+      // 화면조회수와 화면개수의 평균점수 분포 확인 버튼 클릭
+      $("[data-name=checkBtn4]").on('click', function(){     
+        // 1점 상한선 값이 2점 상한선 값보다 클 경우
+        if(parseInt(avgScore1.val()) > parseInt(avgScore2Up.val())){       
+          // alert          
+          avgScore1.val('');
+          $(this).prop('disabled', true);
+          $(this).next('.detail-info-box').hide();
+          return;
+        }
+        // 2점 상한선 값이 100보다 클 경우
+        if(parseInt(avgScore2Up.val()) > 100){
+          // alert
+          avgScore2Up.val('');
+          $(this).prop('disabled', true);
+          $(this).next('.detail-info-box').hide();
+          return;
+        }
+        $(this).next('.detail-info-box').show(); 
+      })
+      
+      // 행동점수
+      var actScore1 = $("input[title='이탈에 해당하는 행동점수 상한선 입력']");
+      var actScore2Down = $("input[title='휴면에 해당하는 행동점수 하한선 입력']");
+      var actScore2Up = $("input[title='휴면에 해당하는 행동점수 상한선 입력']");
+      var actScore3Down = $("input[title='활성에 해당하는 행동점수 하한선 입력']");      
+      var actScore3Up = $("input[title='활성에 해당하는 행동점수 상한선 입력']");      
+      var actScore4Down = $("input[title='충성에 해당하는 행동점수 하한선 입력']");      
+      var actScore4Up = $("input[title='충성에 해당하는 행동점수 상한선 입력']");      
+
+      // 이탈에 해당하는 행동점수 상한선 입력시 휴면에 해당하는 하한선 자동 입력
+      actScore1.on('input', function(){
+        var $thisVal = $(this).val();
+        actScore2Down.val($thisVal);
+      })
+      // 휴면에 해당하는 행동점수 상한선 입력시 활성에 해당하는 하한선 자동 입력
+      actScore2Up.on('input', function(){
+        var $thisVal = $(this).val();
+        actScore3Down.val($thisVal);
+      })    
+      // 활성에 해당하는 행동점수 상한선 입력시 충성에 해당하는 하한선 자동 입력    
+      actScore3Up.on('input', function(){
+        var $thisVal = $(this).val();
+        actScore4Down.val($thisVal);
+      })                  
+      
+      // 분포확인 클릭 시 그래프 위치
+      $('.btn-search').on('click', function(){
+        var detailInfo = $(this).next('.detail-info-box');      
+        var offsetLeft = $(this).offset().left;                
+        var offsetTop = $(this).offset().top;                
+        detailInfo.css({'left' : offsetLeft, 'top' : offsetTop, 'position' : 'fixed'})
+      })      
+
+      // 총 접속일수(최근성) 그래프
+      var chartDom = document.getElementById('line-chart-1');      
+      var myChart = echarts.init(chartDom);
+      var customLabels1 = {
+        0: '3일',
+        1: '14일',  
+      };
+      var option;
+        option = {          
+          xAxis: {
+            type: 'category',                      
+            data: ["","","","","","","","","",""],
+            min:0,
+            max:9,                   
+            splitLine: { show: false },    
+            axisTick: { show: true },   
+            axisLine: {
+              lineStyle: {
+                color: '#CCCCCC' 
+              }
+            },                                     
+          },
+          yAxis: {           
+            type: 'value',              
+            min:0,
+            max:15,
+            name: '',
+            position: 'left',
+            splitLine:{ show: false },
+            axisLine: { show: false },
+            axisTick: { show: false },
+            axisLabel: { show: false }           
+          },
+            series: [
+              {
+                type: 'bar',                   
+                data: [5, 2, 4, 10, 8, 6, 5, 2, 4, 10, 8],   
+                itemStyle: {                        
+                  normal: {
+                    barBorderRadius: [2, 2, 0 ,0 ],
+                    color: '#CFDFFC'
+                  }
+                },                
+                
+                markLine: {
+                  symbol: 'none', 
+                  lineStyle: {
+                    color: '#AEB6D0', 
+                    type: 'dashed', 
+                    width: 1
+                  },
+                  label: {
+                    show: true,
+                    position: 'end', 
+                    formatter: function(params) {
+                      var index = params.dataIndex;                
+                      return customLabels1[index] || params.value;
+                    },
+                    color: '#2e74f2',
+                    fontWeight: '500',
+                    fontFamily: 'KBFGText',
+                    fontSize: 12,
+                    lineHeight: 18, 
+                    backgroundColor: 'rgba(46, 116, 242, 0.05)',
+                    padding: [2, 12, 2, 12],
+                    borderRadius: 4 
+                  },
+                  data: [
+                    // 라인 위치 설정      
+                    { xAxis: 4 },  
+                    { xAxis: 7 }                   
+                  ]
+                }                
+              },
+              {
+                type: 'line',  
+                data: [5, 2, 4, 4, 10, 8, 6, 5, 2, 10, 8],                        
+                showSymbol: false,
+                lineStyle: {
+                  width: 1,
+                  color: '#2E74F2'
+                }
+              }
+            ],
+            graphic: [
+              {
+                type: 'text',
+                left: '25%',
+                top: '70px',
+                style: {
+                  text: '32%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              },
+              {
+                type: 'text',
+                left: '50%',
+                top: '70px',
+                style: {
+                  text: '55%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              },
+              {
+                type: 'text',
+                left: '75%',
+                top: '70px',
+                style: {
+                  text: '55%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              }              
+            ]
+        };
+
+        myChart.setOption(option);
+        window.addEventListener('resize', myChart.resize);
+
+      // 총 접속주수(지속성) 그래프
+      var chartDom = document.getElementById('line-chart-2');      
+      var myChart = echarts.init(chartDom);
+      var customLabels2 = {
+        0: '4주',
+        1: '9주',  
+      };
+      var option;
+        option = {          
+          xAxis: {
+            type: 'category',                      
+            data: ["","","","","","","","","",""],
+            min:0,
+            max:9,                   
+            splitLine: { show: false },    
+            axisTick: { show: true },   
+            axisLine: {
+              lineStyle: {
+                color: '#CCCCCC' 
+              }
+            },                                     
+          },
+          yAxis: {           
+            type: 'value',              
+            min:0,
+            max:15,
+            name: '',
+            position: 'left',
+            splitLine:{ show: false },
+            axisLine: { show: false },
+            axisTick: { show: false },
+            axisLabel: { show: false }           
+          },
+            series: [
+              {
+                type: 'bar',                   
+                data: [5, 2, 4, 10, 8, 6, 5, 2, 4, 10, 8],   
+                itemStyle: {                        
+                  normal: {
+                    barBorderRadius: [2, 2, 0 ,0 ],
+                    color: '#CFDFFC'
+                  }
+                },                
+                
+                markLine: {
+                  symbol: 'none', 
+                  lineStyle: {
+                    color: '#AEB6D0', 
+                    type: 'dashed', 
+                    width: 1
+                  },
+                  label: {
+                    show: true,
+                    position: 'end', 
+                    formatter: function(params) {
+                      var index = params.dataIndex;                
+                      return customLabels2[index] || params.value;
+                    },
+                    color: '#2e74f2',
+                    fontWeight: '500',
+                    fontFamily: 'KBFGText',
+                    fontSize: 12,
+                    lineHeight: 18, 
+                    backgroundColor: 'rgba(46, 116, 242, 0.05)',
+                    padding: [2, 12, 2, 12],
+                    borderRadius: 4 
+                  },
+                  data: [
+                    // 라인 위치 설정      
+                    { xAxis: 4 },  
+                    { xAxis: 7 }                   
+                  ]
+                }                
+              },
+              {
+                type: 'line',  
+                data: [5, 2, 4, 4, 10, 8, 6, 5, 2, 10, 8],                        
+                showSymbol: false,
+                lineStyle: {
+                  width: 1,
+                  color: '#2E74F2'
+                }
+              }
+            ],
+            graphic: [
+              {
+                type: 'text',
+                left: '25%',
+                top: '70px',
+                style: {
+                  text: '32%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              },
+              {
+                type: 'text',
+                left: '50%',
+                top: '70px',
+                style: {
+                  text: '55%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              },
+              {
+                type: 'text',
+                left: '75%',
+                top: '70px',
+                style: {
+                  text: '55%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              }              
+            ]
+        };
+
+        myChart.setOption(option);
+        window.addEventListener('resize', myChart.resize);
+
+      // 화면조회수와 화면개수의 평균점수(활동성) 그래프
+      var chartDom = document.getElementById('line-chart-3');      
+      var myChart = echarts.init(chartDom);
+      var customLabels3 = {
+        0: '19점',
+        1: '39점',  
+      };
+      var option;
+        option = {          
+          xAxis: {
+            type: 'category',                      
+            data: ["","","","","","","","","",""],
+            min:0,
+            max:9,                   
+            splitLine: { show: false },    
+            axisTick: { show: true },   
+            axisLine: {
+              lineStyle: {
+                color: '#CCCCCC' 
+              }
+            },                                     
+          },
+          yAxis: {           
+            type: 'value',              
+            min:0,
+            max:15,
+            name: '',
+            position: 'left',
+            splitLine:{ show: false },
+            axisLine: { show: false },
+            axisTick: { show: false },
+            axisLabel: { show: false }           
+          },
+            series: [
+              {
+                type: 'bar',                   
+                data: [5, 2, 4, 10, 8, 6, 5, 2, 4, 10, 8],   
+                itemStyle: {                        
+                  normal: {
+                    barBorderRadius: [2, 2, 0 ,0 ],
+                    color: '#CFDFFC'
+                  }
+                },                
+                
+                markLine: {
+                  symbol: 'none', 
+                  lineStyle: {
+                    color: '#AEB6D0', 
+                    type: 'dashed', 
+                    width: 1
+                  },
+                  label: {
+                    show: true,
+                    position: 'end', 
+                    formatter: function(params) {
+                      var index = params.dataIndex;                
+                      return customLabels3[index] || params.value;
+                    },
+                    color: '#2e74f2',
+                    fontWeight: '500',
+                    fontFamily: 'KBFGText',
+                    fontSize: 12,
+                    lineHeight: 18, 
+                    backgroundColor: 'rgba(46, 116, 242, 0.05)',
+                    padding: [2, 12, 2, 12],
+                    borderRadius: 4 
+                  },
+                  data: [
+                    // 라인 위치 설정      
+                    { xAxis: 3 },  
+                    { xAxis: 7 }                   
+                  ]
+                }                
+              },
+              {
+                type: 'line',  
+                data: [5, 2, 4, 4, 10, 8, 6, 5, 2, 10, 8],                        
+                showSymbol: false,
+                lineStyle: {
+                  width: 1,
+                  color: '#2E74F2'
+                }
+              }
+            ],
+            graphic: [
+              {
+                type: 'text',
+                left: '25%',
+                top: '70px',
+                style: {
+                  text: '32%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              },
+              {
+                type: 'text',
+                left: '50%',
+                top: '70px',
+                style: {
+                  text: '55%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              },
+              {
+                type: 'text',
+                left: '75%',
+                top: '70px',
+                style: {
+                  text: '55%',
+                  fill: '#E78531',
+                  font: '500 12px KBFGText'
+                }
+              }              
+            ]
+        };
+
+        myChart.setOption(option);
+        window.addEventListener('resize', myChart.resize);
+    </script>
+  </body>
+</html>
